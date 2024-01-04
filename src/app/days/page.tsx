@@ -13,11 +13,11 @@ export default async function RemoteMdxPage() {
   return (
     <div>
       <H1>Excessus days</H1>
-      {(await getFilesInFolder()).map((file) => {
+      {(await getFilesInFolder()).map((file, index) => {
         const fileName = file.replace(".mdx", "");
         const formattedFileName = fileName.startsWith("0") ? fileName.substring(1) : fileName;
         return (
-          <div>
+          <div key={index}>
             <Link href={"/days/" + fileName}>Den {formattedFileName}</Link>
           </div>
         );

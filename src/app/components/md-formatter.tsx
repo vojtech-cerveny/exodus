@@ -36,7 +36,6 @@ const components: MDXRemoteProps["components"] = {
     </Link>
   ),
   ol: ({ children }) => {
-    console.log(children)
     // Assuming 'children' is an array of 'li' components, transform them into the format expected by your Accordion
     const items = React.Children.toArray(children).map((child, index) => {
       // Extract the title and text from the child props
@@ -49,7 +48,6 @@ const components: MDXRemoteProps["components"] = {
       };
     });
 
-    console.log(items)
     return (
       <Accordion type="single" collapsible className="w-full">
         {items.filter((item) => item.text !== "").map((item, index) => (
