@@ -9,7 +9,7 @@ const myFont = localFont({
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import ModeToggle from "./components/theme-switcher";
+import { ModeToggle } from "./components/theme-switcher";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen ", myFont.className)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="flex flex-1 md:justify-end p-2">
             <ModeToggle />
           </div>
-          
+
           {children}
         </ThemeProvider>
       </body>

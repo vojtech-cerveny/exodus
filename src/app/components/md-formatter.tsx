@@ -1,3 +1,4 @@
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";

@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import ModeToggle from "./components/theme-switcher";
 
 export default function Home() {
   return (
