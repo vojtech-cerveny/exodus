@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
 
 // Font files can be colocated inside of `app`
 const myFont = localFont({
-  src: './fonts/cmunrm.ttf',
-  display: 'swap',
-})
+  src: "./fonts/cmunrm.ttf",
+  display: "swap",
+});
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-
+import ModeToggle from "./components/theme-switcher";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,6 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={cn("min-h-screen ", myFont.className)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <div className="flex flex-1 md:justify-end p-2">
+            <ModeToggle />
+          </div>
+          
           {children}
         </ThemeProvider>
       </body>
