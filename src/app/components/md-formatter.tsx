@@ -1,31 +1,35 @@
-
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import React from "react";
+import { H1, H2, H3 } from "./typography";
 
 const components: MDXRemoteProps["components"] = {
   h1: (props: any) => (
-    <h1 {...props} className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl pb-4">
+    <H1 {...props}>
       {props.children}
-    </h1>
+    </H1>
   ),
   h2: (props: any) => (
-    <h2
+    <H2
       {...props}
-      className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
     >
       {props.children}
-    </h2>
+    </H2>
   ),
   h3: (props: any) => (
-    <h3 {...props} className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+    <H3 {...props} >
       {props.children}
-    </h3>
+    </H3>
+  ),
+  h4: (props: any) => (
+    <h4 {...props} className="mt-8 scroll-m-20 text-xl tracking-tight">
+      {props.children}
+    </h4>
   ),
   blockquote: (props: any) => (
-    <blockquote {...props} className="mt-4 lg:mt-6 lg:border-l-2 lg:pl-6 italic">
+    <blockquote {...props} className="mt-4 lg:mt-6 lg:border-l-2 dark:border-l-gray-600 lg:pl-6 italic">
       {props.children}
     </blockquote>
   ),
@@ -37,25 +41,25 @@ const components: MDXRemoteProps["components"] = {
   ),
   ol: ({ children }) => {
     // Assuming 'children' is an array of 'li' components, transform them into the format expected by your Accordion
-    const items = React.Children.toArray(children).map((child, index) => {
-      // Extract the title and text from the child props
-      const title = React.isValidElement(child) ? (child as React.ReactElement).props.children[0].toString() : '';
-      const text =React.isValidElement(child) ? ((child as React.ReactElement).props.children[2] as React.ReactElement).props.children[1].props.children : ""
-
-      return {
-        title: title,
-        text: text,
-      };
-    });
+    const array: { title: string; text: string }[] = [];
+    const items = React.Children.toArray(children).filter((item) => item !== "\n");
+    for (let i = 0; i < items.length; i = i + 2) {
+      array.push({
+        title: (items[i] as React.ReactElement).props.children.toString(),
+        text: (items[i + 1] as React.ReactElement).props.children.toString(),
+      });
+    }
 
     return (
       <Accordion type="single" collapsible className="w-full">
-        {items.filter((item) => item.text !== "").map((item, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger>{item.title}</AccordionTrigger>
-            <AccordionContent>{item.text}</AccordionContent>
-          </AccordionItem>
-        ))}
+        {array
+          .filter((item) => item.text !== "")
+          .map((item, index) => (
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger>{item.title}</AccordionTrigger>
+              <AccordionContent>{item.text}</AccordionContent>
+            </AccordionItem>
+          ))}
       </Accordion>
     );
   },
@@ -64,6 +68,7 @@ const components: MDXRemoteProps["components"] = {
     // The 'ol' component will handle the rendering.
     return props.children;
   },
+  hr: (props: any) => props.children
 };
 
 export function CustomMDX(props: any) {

@@ -14,7 +14,7 @@ export default async function RemoteMdxPage() {
     <div>
       <H1>Excessus days</H1>
       {(await getFilesInFolder()).map((file, index) => {
-        const fileName = file.replace(".mdx", "");
+        const fileName = file.replace(".md", "");
         const formattedFileName = fileName.startsWith("0") ? fileName.substring(1) : fileName;
         return (
           <div key={index}>

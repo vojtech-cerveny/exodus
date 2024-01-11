@@ -2,23 +2,23 @@
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
-  PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-export function DayPagination({ currentPage }: { currentPage: string }) {
+
+// TODO: Make it dynamic based on the number of days in the folder
+export function DayPagination({ currentPage, lastPage }: { currentPage: string, lastPage: number }) {
   const isFirstPage = currentPage === "01";
-  const isLastPage = currentPage === "02";
+  const isLastPage = parseInt(currentPage) === lastPage;
 
   const previousPage = parseInt(currentPage) - 1;
   const nextPage = parseInt(currentPage) + 1;
 
   return (
     <Pagination>
-      <PaginationContent className="justify-between w-full mt-8">
+      <PaginationContent className="justify-between w-full">
         <PaginationItem className={isFirstPage ? "invisible" : ""}>
           <PaginationPrevious href={`/days/${previousPage}`}> Předchozí den </PaginationPrevious>
         </PaginationItem>
