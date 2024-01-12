@@ -10,6 +10,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "./components/theme-switcher";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SizeSwitcher } from "./components/size-switcher";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+
   return (
     <html lang="en" className="" suppressHydrationWarning>
       <body
@@ -26,8 +28,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="flex flex-1 justify-end p-2">
+          <div className="flex flex-1 justify-end p-2 space-x-2">
             <ModeToggle />
+            <SizeSwitcher />
           </div>
           <h1 className="scroll-m-20 text-5xl font-black tracking-tight lg:text-5xl pb-4">Excessus101</h1>
           {children}
