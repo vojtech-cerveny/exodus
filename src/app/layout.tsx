@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-4 pb-10 dark:bg-zinc-900 dark:text-zinc-400",
+          "min-h-screen max-w-full px-4 sm:px-6 lg:px-8 py-4 pb-10 dark:bg-zinc-900 dark:text-zinc-400",
           myFont.className
         )}
       >
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href="/">
             <h1 className="scroll-m-20 text-5xl font-black tracking-tight lg:text-5xl pb-4">Excessus101</h1>
           </Link>
-          {children}
+          <div className="mx-auto max-w-2xl">{children}</div>
         </ThemeProvider>
       </body>
     </html>
