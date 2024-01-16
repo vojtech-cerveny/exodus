@@ -14,8 +14,8 @@ const myFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Excusus101",
-  description: "Excusus101",
+  title: "Excessus101",
+  description: "Ještě lepší a prémiovější verze než je Exodus90! 😂",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
