@@ -1,5 +1,4 @@
 "use client";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -20,9 +19,9 @@ import {
   StopIcon,
   TrackNextIcon,
 } from "@radix-ui/react-icons";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { H3 } from "./typography";
-import Link from "next/link";
 
 const svataHodina = [
   {
@@ -217,7 +216,11 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                   <div>
                     <p>
                       Tenhle časovač Tě provede svatou hodinou, bude Ti hlídat čas a nabídne Ti pomoct jak daný čas
-                      strávit dle <Link className="underline hover:no-underline" href={"/articles/jak-se-modlit-svatou-hodinu"}>"Jak se modlit svatou hodinu"</Link>. Jakmile budeš připraven, klikni na tlačítko níže a začni.
+                      strávit dle{" "}
+                      <Link className="underline hover:no-underline" href={"/articles/jak-se-modlit-svatou-hodinu"}>
+                        "Jak se modlit svatou hodinu"
+                      </Link>
+                      . Jakmile budeš připraven, klikni na tlačítko níže a začni.
                     </p>
                     <p>Časovač pojede dokud nezmáčkneš stop tlačítko nebo dokud nedoběhne čas.</p>
                     <p>Tento panel můžeš minimalizovat a číst si texty na den.</p>
@@ -249,7 +252,6 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                         );
                       })}
                     </Accordion> */}
-                    
                   </div>
                 )}
                 <h2 className="text-center text-5xl font-bold tracking-tighter">{formatTime(timeLeft)}</h2>
