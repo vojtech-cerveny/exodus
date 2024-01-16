@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { unstable_noStore } from "next/cache";
 import Link from "next/link";
 import { Progress } from "./components/circle-progress";
-import { unstable_noStore } from "next/cache";
 
 export default function Home() {
   unstable_noStore();
@@ -23,7 +23,6 @@ export default function Home() {
           <Link href={`/days/${countDaysFromJan1PlusOne()}`}>OTEVŘI DNEŠNÍ ROZJÍMÁNÍ</Link>
         </Button>
         <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />
-        
       </div>
     </main>
   );

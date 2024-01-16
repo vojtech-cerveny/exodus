@@ -1,17 +1,17 @@
+import { ThemeProvider } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Link from "next/link";
+import { SizeSwitcher } from "./components/size-switcher";
+import { ModeToggle } from "./components/theme-switcher";
+import "./globals.css";
 
 // Font files can be colocated inside of `app`
 const myFont = localFont({
   src: "./fonts/cmunrm.ttf",
   display: "swap",
 });
-import "./globals.css";
-import { cn } from "@/lib/utils";
-import { ModeToggle } from "./components/theme-switcher";
-import { ThemeProvider } from "@/components/theme-provider";
-import { SizeSwitcher } from "./components/size-switcher";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={cn(
           "min-h-screen max-w-full px-4 sm:px-6 lg:px-8 py-4 pb-10 dark:bg-zinc-900 dark:text-zinc-400",
-          myFont.className
+          myFont.className,
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

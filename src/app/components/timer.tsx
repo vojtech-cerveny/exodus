@@ -1,4 +1,6 @@
 "use client";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerClose,
@@ -8,21 +10,18 @@ import {
   DrawerHeader,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
-import React, { useState, useEffect, useRef } from "react";
-import { H2, H3 } from "./typography";
 import {
   ChevronUpIcon,
   Cross2Icon,
-  InfoCircledIcon,
   LapTimerIcon,
   PauseIcon,
   PlayIcon,
   StopIcon,
   TrackNextIcon,
 } from "@radix-ui/react-icons";
+import { useEffect, useRef, useState } from "react";
+import { H3 } from "./typography";
 
 const svataHodina = [
   {
@@ -165,16 +164,16 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
         {started && (
           <div className="w-full md:w-auto flex-1 flex-grow backdrop-blur fixed bottom-0 right-0 md:right-8 md:rounded-t flex dark:bg-zinc-800/30 bg-zinc-100/30  border-t md:border-l md:border-r dark:border-zinc-600/30 border-zinc-200/30 justify-center items-center p-2 transition-opacity duration-200">
             <div className="flex-1 md:flex-0">
-            <DrawerTrigger className="left-0">
-              <Button variant="ghost" size="icon">
-                <ChevronUpIcon className="h-4 w-4" />
-              </Button>
-            </DrawerTrigger>
+              <DrawerTrigger className="left-0">
+                <Button variant="ghost" size="icon">
+                  <ChevronUpIcon className="h-4 w-4" />
+                </Button>
+              </DrawerTrigger>
             </div>
             <div className="flex-1 md:flex-0">
-            <h2 className="text-2xl px-4 font-bold tracking-tighter text-center  text-zinc-800 dark:text-zinc-200 ">
-              {formatTime(timeLeft)}
-            </h2>
+              <h2 className="text-2xl px-4 font-bold tracking-tighter text-center  text-zinc-800 dark:text-zinc-200 ">
+                {formatTime(timeLeft)}
+              </h2>
             </div>
             <div className="space-x-1 pl-1">
               {!isRunning ? (
@@ -215,9 +214,12 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                   </div>
                 ) : (
                   <div>
-                    <p>Tenhle časovač Tě provede svatou hodinou, bude Ti hlídat čas a nabídne Ti pomoct jak daný čas
-                    strávit. Jakmile budeš připraven, klikni na tlačítko níže a začni. </p><p>Časovač pojede dokud nezmáčkneš
-                    červené tlačítko nebo dokud nedoběhne čas.</p><p>Tento panel můžeš minimalizovat a číst si texty na den.</p>
+                    <p>
+                      Tenhle časovač Tě provede svatou hodinou, bude Ti hlídat čas a nabídne Ti pomoct jak daný čas
+                      strávit. Jakmile budeš připraven, klikni na tlačítko níže a začni.{" "}
+                    </p>
+                    <p>Časovač pojede dokud nezmáčkneš červené tlačítko nebo dokud nedoběhne čas.</p>
+                    <p>Tento panel můžeš minimalizovat a číst si texty na den.</p>
                     <hr className="m-4" />
                     <div className="flex items-center space-x-2">
                       <p>Chci se modlit</p>

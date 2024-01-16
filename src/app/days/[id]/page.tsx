@@ -1,10 +1,9 @@
-import { promises as fs } from "fs";
-import { CustomMDX } from "../../components/md-formatter";
-import { notFound } from "next/navigation";
-import path from "path";
 import { DayPagination } from "@/app/components/day-pagination";
 import Timer from "@/app/components/timer";
-
+import { promises as fs } from "fs";
+import { notFound } from "next/navigation";
+import path from "path";
+import { CustomMDX } from "../../components/md-formatter";
 
 export default async function RemoteMdxPage({ params }: { params: { id: string } }) {
   if (params.id.length === 1) {
@@ -16,9 +15,9 @@ export default async function RemoteMdxPage({ params }: { params: { id: string }
     const dayTextMd = await fs.readFile(filePath, "utf-8");
     return (
       <>
-        <DayPagination currentPage={params.id} lastPage={files.length}/>
+        <DayPagination currentPage={params.id} lastPage={files.length} />
         <CustomMDX source={dayTextMd} />
-        <DayPagination currentPage={params.id} lastPage={files.length}/>
+        <DayPagination currentPage={params.id} lastPage={files.length} />
         <Timer audioSrc="/sounds/gong.mp3" />
       </>
     );

@@ -83,7 +83,7 @@ fs.readFile("./files/exodus90.tex", "utf8", (err, data) => {
             return line;
           } else return line;
         })
-        .join("\n")
+        .join("\n"),
     );
   });
 

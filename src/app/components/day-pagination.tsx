@@ -7,9 +7,8 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-
 // TODO: Make it dynamic based on the number of days in the folder
-export function DayPagination({ currentPage, lastPage }: { currentPage: string, lastPage: number }) {
+export function DayPagination({ currentPage, lastPage }: { currentPage: string; lastPage: number }) {
   const isFirstPage = currentPage === "01";
   const isLastPage = parseInt(currentPage) === lastPage;
 

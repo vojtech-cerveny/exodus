@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import { FontSizeIcon } from "@radix-ui/react-icons";
+import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";

@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from "react";
 
-const AudioPlayer = ({ src }: {src: string}) => {
+const AudioPlayer = ({ src }: { src: string }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -18,9 +18,7 @@ const AudioPlayer = ({ src }: {src: string}) => {
   return (
     <div>
       <audio ref={audioRef} src={src} />
-      <button onClick={togglePlayback}>
-        {isPlaying ? 'Pause' : 'Play'}
-      </button>
+      <button onClick={togglePlayback}>{isPlaying ? "Pause" : "Play"}</button>
     </div>
   );
 };

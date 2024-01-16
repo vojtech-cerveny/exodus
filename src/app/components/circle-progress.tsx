@@ -1,5 +1,3 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-
 export function Progress({ progress: progressInPercentage }: { progress: number }) {
   return (
     <div className="py-4">

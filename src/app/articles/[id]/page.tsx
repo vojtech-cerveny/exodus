@@ -1,9 +1,7 @@
 import { promises as fs } from "fs";
-import { CustomMDX } from "../../components/md-formatter";
 import { notFound } from "next/navigation";
 import path from "path";
-import Timer from "@/app/components/timer";
-
+import { CustomMDX } from "../../components/md-formatter";
 
 export default async function RemoteMdxPage({ params }: { params: { id: string } }) {
   if (params.id.length === 1) {

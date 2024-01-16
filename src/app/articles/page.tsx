@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { H2 } from "../components/typography";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default async function RemoteMdxPage() {
   async function getFilesInFolder() {

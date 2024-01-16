@@ -1,5 +1,5 @@
-import { fontFamily } from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
   darkMode: ["class"],
@@ -14,16 +14,16 @@ const config = {
       },
     },
     fontSize: {
-      sm: '1rem',
-      base: '12pt',
-      xl: '1.2rem',
-      '2xl': '1.2rem',
-      '3xl': '1.953rem',
-      '4xl': '2.441rem',
-      '5xl': '3.052rem',
+      sm: "1rem",
+      base: "12pt",
+      xl: "1.2rem",
+      "2xl": "1.2rem",
+      "3xl": "1.953rem",
+      "4xl": "2.441rem",
+      "5xl": "3.052rem",
     },
     fontFamily: {
-      '2xl': 'var(--font-2xl)',
+      "2xl": "var(--font-2xl)",
     },
     extend: {
       colors: {

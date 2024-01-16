@@ -1,28 +1,14 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import React from "react";
 import { H1, H2, H3 } from "./typography";
 
 const components: MDXRemoteProps["components"] = {
-  h1: (props: any) => (
-    <H1 {...props}>
-      {props.children}
-    </H1>
-  ),
-  h2: (props: any) => (
-    <H2
-      {...props}
-    >
-      {props.children}
-    </H2>
-  ),
-  h3: (props: any) => (
-    <H3 {...props} >
-      {props.children}
-    </H3>
-  ),
+  h1: (props: any) => <H1 {...props}>{props.children}</H1>,
+  h2: (props: any) => <H2 {...props}>{props.children}</H2>,
+  h3: (props: any) => <H3 {...props}>{props.children}</H3>,
   h4: (props: any) => (
     <h4 {...props} className="mt-8 scroll-m-20 text-xl tracking-tight">
       {props.children}
@@ -68,7 +54,7 @@ const components: MDXRemoteProps["components"] = {
     // The 'ol' component will handle the rendering.
     return props.children;
   },
-  hr: (props: any) => props.children
+  hr: (props: any) => props.children,
 };
 
 export function CustomMDX(props: any) {
