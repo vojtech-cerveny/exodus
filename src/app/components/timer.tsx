@@ -218,7 +218,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                       Tenhle časovač Tě provede svatou hodinou, bude Ti hlídat čas a nabídne Ti pomoct jak daný čas
                       strávit dle{" "}
                       <Link className="underline hover:no-underline" href={"/articles/jak-se-modlit-svatou-hodinu"}>
-                        "Jak se modlit svatou hodinu"
+                        Jak se modlit svatou hodinu
                       </Link>
                       . Jakmile budeš připraven, klikni na tlačítko níže a začni.
                     </p>
