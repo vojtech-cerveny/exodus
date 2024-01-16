@@ -15,7 +15,7 @@ const components: MDXRemoteProps["components"] = {
     </h4>
   ),
   blockquote: (props: any) => (
-    <blockquote {...props} className="mt-4 lg:mt-6 lg:border-l-2 dark:border-l-gray-600 lg:pl-6 italic">
+    <blockquote {...props} className="mt-4 italic lg:mt-6 lg:border-l-2 lg:pl-6 dark:border-l-gray-600">
       {props.children}
     </blockquote>
   ),

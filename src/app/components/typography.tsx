@@ -5,7 +5,7 @@ export function H1(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h1
       {...props}
-      className={cn([props.className, "pb-4 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"])}
+      className={cn([props.className, "scroll-m-20 pb-4 text-4xl font-extrabold tracking-tight lg:text-5xl"])}
     >
       {props.children}
     </h1>
@@ -18,7 +18,7 @@ export function H2(props: React.HTMLAttributes<HTMLHeadingElement>) {
       {...props}
       className={cn([
         props.className,
-        "mt-10 scroll-m-20 border-b dark:border-gray-600 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0",
+        "mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 dark:border-gray-600",
       ])}
     >
       {props.children}

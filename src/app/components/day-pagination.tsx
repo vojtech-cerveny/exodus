@@ -17,7 +17,7 @@ export function DayPagination({ currentPage, lastPage }: { currentPage: string; 
 
   return (
     <Pagination>
-      <PaginationContent className="justify-between w-full">
+      <PaginationContent className="w-full justify-between">
         <PaginationItem className={isFirstPage ? "invisible" : ""}>
           <PaginationPrevious href={`/days/${previousPage}`}> Předchozí den </PaginationPrevious>
         </PaginationItem>

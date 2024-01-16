@@ -162,16 +162,16 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
     <div>
       <Drawer>
         {started && (
-          <div className="w-full md:w-auto flex-1 flex-grow backdrop-blur fixed bottom-0 right-0 md:right-8 md:rounded-t flex dark:bg-zinc-800/30 bg-zinc-100/30  border-t md:border-l md:border-r dark:border-zinc-600/30 border-zinc-200/30 justify-center items-center p-2 transition-opacity duration-200">
-            <div className="flex-1 md:flex-0">
+          <div className="fixed  bottom-0 right-0 flex w-full flex-1 flex-grow items-center justify-center border-t border-zinc-200/30 bg-zinc-100/30 p-2  backdrop-blur transition-opacity duration-200 md:right-8 md:w-auto md:rounded-t md:border-l md:border-r dark:border-zinc-600/30 dark:bg-zinc-800/30">
+            <div className="md:flex-0 flex-1">
               <DrawerTrigger className="left-0">
                 <Button variant="ghost" size="icon">
                   <ChevronUpIcon className="h-4 w-4" />
                 </Button>
               </DrawerTrigger>
             </div>
-            <div className="flex-1 md:flex-0">
-              <h2 className="text-2xl px-4 font-bold tracking-tighter text-center  text-zinc-800 dark:text-zinc-200 ">
+            <div className="md:flex-0 flex-1">
+              <h2 className="px-4 text-center text-2xl font-bold tracking-tighter  text-zinc-800 dark:text-zinc-200 ">
                 {formatTime(timeLeft)}
               </h2>
             </div>
@@ -196,7 +196,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
         )}
         <DrawerTrigger>
           {!started && (
-            <div className="fixed bottom-0 right-12 backdrop-blur-sm rounded-t flex dark:bg-zinc-800/30 bg-zinc-100/30  border-t border-l border-r dark:border-zinc-600 border-zinc-200 justify-center items-center p-2 transition-opacity duration-200">
+            <div className="fixed bottom-0 right-12 flex items-center justify-center rounded-t border-l  border-r border-t border-zinc-200 bg-zinc-100/30 p-2 backdrop-blur-sm transition-opacity duration-200 dark:border-zinc-600 dark:bg-zinc-800/30">
               <Button className="py-4" variant={"outline"}>
                 <LapTimerIcon />
               </Button>
@@ -250,7 +250,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                     </Accordion>
                   </div>
                 )}
-                <h2 className="text-5xl font-bold tracking-tighter text-center">{formatTime(timeLeft)}</h2>
+                <h2 className="text-center text-5xl font-bold tracking-tighter">{formatTime(timeLeft)}</h2>
                 <div className="mt-auto grid grid-cols-3 gap-2 py-4">
                   <Button onClick={toggleTimer} variant="outline">
                     {isRunning ? (
@@ -275,7 +275,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
           </DrawerHeader>
           <DrawerFooter>
             <DrawerClose>
-              <Button variant={"outline"} size={"sm"} className="text-zinc-800 dark:text-zinc-200 fixed right-4 top-4">
+              <Button variant={"outline"} size={"sm"} className="fixed right-4 top-4 text-zinc-800 dark:text-zinc-200">
                 <Cross2Icon />
               </Button>
             </DrawerClose>
