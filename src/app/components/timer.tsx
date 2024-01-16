@@ -22,6 +22,7 @@ import {
 } from "@radix-ui/react-icons";
 import { useEffect, useRef, useState } from "react";
 import { H3 } from "./typography";
+import Link from "next/link";
 
 const svataHodina = [
   {
@@ -216,9 +217,9 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                   <div>
                     <p>
                       Tenhle časovač Tě provede svatou hodinou, bude Ti hlídat čas a nabídne Ti pomoct jak daný čas
-                      strávit. Jakmile budeš připraven, klikni na tlačítko níže a začni.{" "}
+                      strávit dle <Link className="underline hover:no-underline" href={"/articles/jak-se-modlit-svatou-hodinu"}>"Jak se modlit svatou hodinu"</Link>. Jakmile budeš připraven, klikni na tlačítko níže a začni.
                     </p>
-                    <p>Časovač pojede dokud nezmáčkneš červené tlačítko nebo dokud nedoběhne čas.</p>
+                    <p>Časovač pojede dokud nezmáčkneš stop tlačítko nebo dokud nedoběhne čas.</p>
                     <p>Tento panel můžeš minimalizovat a číst si texty na den.</p>
                     <hr className="m-4" />
                     <div className="flex items-center space-x-2">
@@ -236,7 +237,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                     </div>
                     <hr className="m-4" />
                     <H3>Části svaté hodiny</H3>
-                    <Accordion type="single" collapsible>
+                    {/* <Accordion type="single" collapsible>
                       {parts.map((part, index) => {
                         return (
                           <AccordionItem value={`${index}`} key={index}>
@@ -247,7 +248,8 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                           </AccordionItem>
                         );
                       })}
-                    </Accordion>
+                    </Accordion> */}
+                    
                   </div>
                 )}
                 <h2 className="text-center text-5xl font-bold tracking-tighter">{formatTime(timeLeft)}</h2>
