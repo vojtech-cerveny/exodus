@@ -163,15 +163,19 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
     <div>
       <Drawer>
         {started && (
-          <div className="fixed bottom-0 right-12 rounded-t flex dark:bg-zinc-800 bg-zinc-100  border-t border-l border-r dark:border-zinc-600 border-zinc-200 justify-center items-center p-4 transition-opacity duration-200">
-            <h2 className="text-2xl pr-4 font-bold tracking-tighter text-center  text-zinc-800 ">
-              {formatTime(timeLeft)}
-            </h2>
-            <DrawerTrigger>
-              <Button variant="outline" size="icon">
+          <div className="w-full md:w-auto flex-1 flex-grow backdrop-blur fixed bottom-0 right-0 md:right-8 md:rounded-t flex dark:bg-zinc-800/30 bg-zinc-100/30  border-t md:border-l md:border-r dark:border-zinc-600/30 border-zinc-200/30 justify-center items-center p-2 transition-opacity duration-200">
+            <div className="flex-1 md:flex-0">
+            <DrawerTrigger className="left-0">
+              <Button variant="ghost" size="icon">
                 <ChevronUpIcon className="h-4 w-4" />
               </Button>
             </DrawerTrigger>
+            </div>
+            <div className="flex-1 md:flex-0">
+            <h2 className="text-2xl px-4 font-bold tracking-tighter text-center  text-zinc-800 dark:text-zinc-200 ">
+              {formatTime(timeLeft)}
+            </h2>
+            </div>
             <div className="space-x-1 pl-1">
               {!isRunning ? (
                 <Button variant="outline" size="icon" onClick={toggleTimer}>
@@ -185,7 +189,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
               <Button variant="outline" size="icon" onClick={nextPart}>
                 <TrackNextIcon className="h-4 w-4" />
               </Button>
-              <Button size="icon" variant="destructive" onClick={resetTimer}>
+              <Button size="icon" variant="secondary" onClick={resetTimer}>
                 <StopIcon className="h-4 w-4" />
               </Button>
             </div>
@@ -193,8 +197,8 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
         )}
         <DrawerTrigger>
           {!started && (
-            <div className="fixed bottom-0 right-12 rounded-t flex dark:bg-zinc-800 bg-zinc-100  border-t border-l border-r dark:border-zinc-600 border-zinc-200 justify-center items-center p-4 transition-opacity duration-200">
-              <Button className="py-4">
+            <div className="fixed bottom-0 right-12 backdrop-blur-sm rounded-t flex dark:bg-zinc-800/30 bg-zinc-100/30  border-t border-l border-r dark:border-zinc-600 border-zinc-200 justify-center items-center p-2 transition-opacity duration-200">
+              <Button className="py-4" variant={"outline"}>
                 <LapTimerIcon />
               </Button>
             </div>
@@ -246,7 +250,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                 )}
                 <h2 className="text-5xl font-bold tracking-tighter text-center">{formatTime(timeLeft)}</h2>
                 <div className="mt-auto grid grid-cols-3 gap-2 py-4">
-                  <Button onClick={toggleTimer}>
+                  <Button onClick={toggleTimer} variant="outline">
                     {isRunning ? (
                       <>
                         <PauseIcon />

@@ -18,8 +18,8 @@ export default async function RemoteMdxPage({ params }: { params: { id: string }
       <>
         <DayPagination currentPage={params.id} lastPage={files.length}/>
         <CustomMDX source={dayTextMd} />
-        <Timer audioSrc="/sounds/gong.mp3" />
         <DayPagination currentPage={params.id} lastPage={files.length}/>
+        <Timer audioSrc="/sounds/gong.mp3" />
       </>
     );
   } catch (error) {
