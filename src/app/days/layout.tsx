@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Breadcrumb from "../components/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Excessus",
@@ -6,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <Breadcrumb pages={[{ path: "/days", title: "Dny Exodus90" }]} />
+      {children}
+    </div>
+  );
 }

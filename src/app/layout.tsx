@@ -11,6 +11,7 @@ import "./globals.css";
 const myFont = localFont({
   src: "./fonts/cmunrm.ttf",
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -29,11 +30,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="flex flex-1 justify-end space-x-2 p-2">
-            <ModeToggle />
             <SizeSwitcher />
+            <ModeToggle />
           </div>
           <Link href="/">
-            <h1 className="scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">Excessus101</h1>
+            <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
+              Excessus101
+            </h1>
           </Link>
           <div className="mx-auto max-w-2xl">{children}</div>
         </ThemeProvider>

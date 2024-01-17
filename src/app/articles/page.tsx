@@ -29,7 +29,7 @@ export default async function RemoteMdxPage() {
           // const fileName = file.replace(".md", "");
           return (
             <Link href={"/articles/" + article.link} key={index}>
-              <Card>
+              <Card className="hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800">
                 <CardHeader>
                   <CardTitle>{article.title}</CardTitle>
                   {/* <CardDescription>You have 3 unread messages.</CardDescription> */}
