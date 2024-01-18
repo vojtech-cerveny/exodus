@@ -46,7 +46,7 @@ const svataHodina = [
     time: 15 * 60,
     title: "Přímluva",
     description:
-      "Je tichý čas na dialog s Pánem. Přineste mu vše, co je ve vašem srdci nebo co máte na mysli/ve vaší mysli. Během duchovního cvičení to budou často otázky z denní meditace. Podělte se s Pánem upřímně o své myšlenky a obavy. A co je nejdůležitější, dejte Pánu prostor reagovat, aby mohl odpovědět, a sami mlčte a v tichu na/poslouchejte.",
+      "Udělejte si čas, abyste přednesli Pánu své modlitby/prosby. Modlete se za své vlastní vysvobození, svou rodinu, své bratrstvo, církev a všechny další modlitby/ prosby, které můžete mít.",
   },
   {
     time: 5 * 60,
