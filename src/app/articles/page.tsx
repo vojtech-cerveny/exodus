@@ -19,6 +19,12 @@ export default async function RemoteMdxPage() {
       description: "Jsi ztracen, jak se modlit svatou hodinu? Tady je jeden z možných cest jak na to.",
       link: "/jak-se-modlit-svatou-hodinu",
     },
+    {
+      id: 2,
+      title: "Jak se modlit Examen",
+      description: "Noční zkoumání dne je způsob, jak popsat naše jednání (jak si projít naše činy) za celý den.",
+      link: "/nocni-examen",
+    },
   ];
 
   return (

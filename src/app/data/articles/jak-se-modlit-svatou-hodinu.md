@@ -11,7 +11,7 @@ Toto je čas slovní modlitby před Pánem. Proste Pána o milosrdenství za sv�
 
 Během duchovního cvičení bude tento čas pravděpodobně zahrnovat vaši denní reflexi Exodus 90 (Denní úkony, Písmo a meditace).
 
-## 20 minut - Kontemplativní modlitba:
+## 20 minut - Kontemplativní modlitba
 
 Je tichý čas na dialog s Pánem. Přineste mu vše, co je ve vašem srdci nebo co máte na mysli/ve vaší mysli. Během duchovního cvičení to budou často otázky z denní meditace. Podělte se s Pánem upřímně o své myšlenky a obavy. A co je nejdůležitější, dejte Pánu prostor reagovat, aby mohl odpovědět, a sami mlčte a v tichu na/poslouchejte.
 

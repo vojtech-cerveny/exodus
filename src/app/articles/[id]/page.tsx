@@ -1,7 +1,7 @@
+import { ArticleMDX } from "@/app/components/article-formatter";
 import { promises as fs } from "fs";
 import { notFound } from "next/navigation";
 import path from "path";
-import { CustomMDX } from "../../components/md-formatter";
 
 export default async function RemoteMdxPage({ params }: { params: { id: string } }) {
   if (params.id.length === 1) {
@@ -12,7 +12,7 @@ export default async function RemoteMdxPage({ params }: { params: { id: string }
     const dayTextMd = await fs.readFile(filePath, "utf-8");
     return (
       <>
-        <CustomMDX source={dayTextMd} />
+        <ArticleMDX source={dayTextMd} />
       </>
     );
   } catch (error) {

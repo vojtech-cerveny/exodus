@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="" suppressHydrationWarning>
+    <html lang="en" className="w-full" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen max-w-full px-4 py-4 pb-10 sm:px-6 lg:px-8 dark:bg-zinc-900 dark:text-zinc-400",
+          "min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 lg:px-8 dark:bg-zinc-900 dark:text-zinc-400",
           myFont.className,
         )}
       >
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <ModeToggle />
           </div>
           <Link href="/">
-            <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
+            <h1 className="mx-auto w-full scroll-m-20 pb-4 text-5xl font-black tracking-tight md:max-w-2xl lg:text-5xl">
               Excessus101
             </h1>
           </Link>
