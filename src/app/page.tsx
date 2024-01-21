@@ -31,7 +31,7 @@ export default function Home() {
             <Link href="/days">OTEVŘI SEZNAM DNÍ</Link>
           </Button>
           <Button>
-            <Link href={`/days/${countDaysFromJan1PlusOne()}`}>OTEVŘI DNEŠNÍ ROZJÍMÁNÍ</Link>
+            <Link href={`/days/today`}>OTEVŘI DNEŠNÍ ROZJÍMÁNÍ</Link>
           </Button>
         </div>
 
