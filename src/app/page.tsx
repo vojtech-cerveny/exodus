@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between ">
-      <div className="flex w-full max-w-2xl flex-col space-y-2">
+      <div className="flex w-full max-w-2xl flex-col gap-2">
         <H2>Uvolněte pouta svých faraónů.</H2>
         <p className="py-4">
           Cítíte se vyčerpaní a uvěznění ve spirále moderních pokušení - jako je nekonečné procházení sociálních sítí,
@@ -26,7 +26,7 @@ export default function Home() {
         <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />
 
         <H3>Denní texty</H3>
-        <div className="container flex flex-col justify-evenly space-y-2 md:space-y-0 md:flex-row">
+        <div className="container flex flex-col justify-evenly gap-2 md:flex-row">
           <Button>
             <Link href="/days">OTEVŘI SEZNAM DNÍ</Link>
           </Button>
@@ -36,7 +36,7 @@ export default function Home() {
         </div>
 
         <H3>Články</H3>
-        <div className="container flex flex-col justify-evenly space-y-2 md:flex-row">
+        <div className="container flex flex-col justify-evenly gap-2 md:flex-row">
           <Button>
             <Link href="/articles">OTEVŘI SEZNAM ČLÁNKŮ</Link>
           </Button>

@@ -30,7 +30,7 @@ export default async function RemoteMdxPage() {
   return (
     <div>
       <H2>Articles</H2>
-      <div className="grid grid-cols-2 pt-2">
+      <div className="grid grid-cols-2 pt-2 gap-2">
         {articles.map((article, index) => {
           // const fileName = file.replace(".md", "");
           return (

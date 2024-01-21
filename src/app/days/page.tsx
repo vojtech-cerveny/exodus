@@ -11,17 +11,23 @@ export default async function RemoteMdxPage() {
   }
 
   return (
-    <div>
+    <>
       <H1>Excessus days</H1>
-      {(await getFilesInFolder()).map((file, index) => {
-        const fileName = file.replace(".md", "");
-        const formattedFileName = fileName.startsWith("0") ? fileName.substring(1) : fileName;
-        return (
-          <div key={index}>
-            <Link href={"/days/" + fileName}>Den {formattedFileName}</Link>
-          </div>
-        );
-      })}
-    </div>
+      <div className="container flex flex-col">
+        <Link href="/days/today" className="pb-2 font-black">
+          Dnešní den
+        </Link>
+
+        {(await getFilesInFolder()).map((file, index) => {
+          const fileName = file.replace(".md", "");
+          const formattedFileName = fileName.startsWith("0") ? fileName.substring(1) : fileName;
+          return (
+            <Link key={index} href={"/days/" + fileName}>
+              Den {formattedFileName}
+            </Link>
+          );
+        })}
+      </div>
+    </>
   );
 }
