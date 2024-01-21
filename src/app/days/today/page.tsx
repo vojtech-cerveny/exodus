@@ -7,8 +7,10 @@ import Timer from "@/app/components/timer";
 import { notFound } from "next/navigation";
 import path from "path";
 import { CustomMDX } from "../../components/md-formatter";
+import { unstable_noStore } from "next/cache";
 
 export default async function RemoteMdxPage() {
+  unstable_noStore();
   const today = countDaysFromJan1PlusOne();
   const files = await fs.readdir(path.join(process.cwd(), "src/app/data/days"), "utf-8");
   try {
