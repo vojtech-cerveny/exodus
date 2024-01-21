@@ -32,7 +32,7 @@ export default function Home() {
         <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />
 
         <H3>Denní texty</H3>
-        <div className="container flex flex-col justify-evenly space-y-2 md:flex-row">
+        <div className="container flex flex-col justify-evenly space-y-2 md:space-y-0 md:flex-row">
           <Button>
             <Link href="/days">OTEVŘI SEZNAM DNÍ</Link>
           </Button>
