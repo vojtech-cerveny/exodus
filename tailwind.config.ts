@@ -82,6 +82,7 @@ const config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        geist: ["var(--font-geist-sans)"],
       },
     },
   },

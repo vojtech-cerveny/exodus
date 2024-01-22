@@ -26,6 +26,9 @@ const components: MDXRemoteProps["components"] = {
   ol: (props) => {
     return <ol className="list-inside list-disc space-y-4 text-gray-500 dark:text-gray-400">{props.children}</ol>;
   },
+  ul: (props) => {
+    return <ol className="mt-4 list-inside list-disc space-y-1 text-gray-500 dark:text-gray-400">{props.children}</ol>;
+  },
   // li: (props) => {
   //   // Instead of rendering an actual 'li', just pass the props through.
   //   // The 'ol' component will handle the rendering.

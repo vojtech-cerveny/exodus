@@ -1,6 +1,6 @@
 export default function Breadcrumb({ pages }: { pages: { title: string; path: string }[] }) {
   return (
-    <nav className="flex" aria-label="Breadcrumb">
+    <nav className="mb-4 flex" aria-label="Breadcrumb">
       <ol className="inline-flex items-center space-x-1 font-light md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
           <a

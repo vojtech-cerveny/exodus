@@ -4,10 +4,10 @@ import { countDaysFromJan1PlusOne } from "@/app/utils/date";
 
 import { DayPagination } from "@/app/components/day-pagination";
 import Timer from "@/app/components/timer";
+import { unstable_noStore } from "next/cache";
 import { notFound } from "next/navigation";
 import path from "path";
 import { CustomMDX } from "../../components/md-formatter";
-import { unstable_noStore } from "next/cache";
 
 export default async function RemoteMdxPage() {
   unstable_noStore();

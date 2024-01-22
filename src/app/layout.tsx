@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
+import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Link from "next/link";
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={cn(
           "min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 lg:px-8 dark:bg-zinc-900 dark:text-zinc-400",
           myFont.className,
+          GeistSans.variable,
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
