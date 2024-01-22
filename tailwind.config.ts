@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
@@ -21,9 +21,10 @@ const config = {
       "3xl": "1.953rem",
       "4xl": "2.441rem",
       "5xl": "3.052rem",
-    },
-    fontFamily: {
-      "2xl": "var(--font-2xl)",
+      "6xl": "3.815rem",
+      "7xl": "4.768rem",
+      "8xl": "5.96rem",
+      "9xl": "8rem",
     },
     extend: {
       colors: {
