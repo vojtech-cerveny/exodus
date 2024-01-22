@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { unstable_noStore } from "next/cache";
-import Link from "next/link";
 import { Progress } from "./components/circle-progress";
-import { H2, H3 } from "./components/typography";
+import { H2 } from "./components/typography";
 import { countDaysFromJan1PlusOne } from "./utils/date";
 
 export default function Home() {
@@ -24,23 +22,6 @@ export default function Home() {
         </p>
 
         <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />
-
-        <H3>Denní texty</H3>
-        <div className="container flex flex-col justify-evenly gap-2 md:flex-row">
-          <Button>
-            <Link href="/days">OTEVŘI SEZNAM DNÍ</Link>
-          </Button>
-          <Button>
-            <Link href={`/days/today`}>OTEVŘI DNEŠNÍ ROZJÍMÁNÍ</Link>
-          </Button>
-        </div>
-
-        <H3>Články</H3>
-        <div className="container flex flex-col justify-evenly gap-2 md:flex-row">
-          <Button>
-            <Link href="/articles">OTEVŘI SEZNAM ČLÁNKŮ</Link>
-          </Button>
-        </div>
       </div>
     </main>
   );

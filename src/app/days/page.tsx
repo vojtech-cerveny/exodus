@@ -14,7 +14,7 @@ export default async function RemoteMdxPage() {
     <>
       <H1>Excessus days</H1>
       <div className="container flex flex-col">
-        <Link href="/days/today" className="pb-2 font-black">
+        <Link href="/days/today" className="pb-2 font-black hover:underline">
           Dnešní den
         </Link>
 
@@ -22,7 +22,7 @@ export default async function RemoteMdxPage() {
           const fileName = file.replace(".md", "");
           const formattedFileName = fileName.startsWith("0") ? fileName.substring(1) : fileName;
           return (
-            <Link key={index} href={"/days/" + fileName}>
+            <Link className="hover:underline" key={index} href={"/days/" + fileName}>
               Den {formattedFileName}
             </Link>
           );

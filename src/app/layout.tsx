@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Link from "next/link";
+import Navigation from "./components/navigation";
 import { SizeSwitcher } from "./components/size-switcher";
 import { ModeToggle } from "./components/theme-switcher";
 import "./globals.css";
@@ -40,7 +41,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               Excessus101
             </h1>
           </Link>
-          <div className="mx-auto max-w-2xl">{children}</div>
+
+          <div className="mx-auto max-w-2xl">
+            <Navigation />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
