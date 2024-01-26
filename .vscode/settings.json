@@ -1,0 +1,11 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "driver": "PostgreSQL",
+      "connectString": "postgresql://excessus:excessus@localhost:4242/excessus",
+      "name": "Excessus"
+    }
+  ]
+}
