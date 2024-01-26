@@ -4,6 +4,8 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Link from "next/link";
+import { auth } from "../../auth";
+import { SignIn, SignOut } from "./components/auth-components";
 import Navigation from "./components/navigation";
 import { SizeSwitcher } from "./components/size-switcher";
 import { ModeToggle } from "./components/theme-switcher";
@@ -21,7 +23,8 @@ export const metadata: Metadata = {
   description: "Ještě lepší a prémiovější verze než je Exodus90! 😂",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await auth();
   return (
     <html lang="en" className="w-full" suppressHydrationWarning>
       <body
@@ -32,6 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {!session?.user ? <SignIn provider="google">Sign in</SignIn> : <SignOut />}
+
           <div className="flex flex-1 justify-end space-x-2 p-2">
             <SizeSwitcher />
             <ModeToggle />
