@@ -1,6 +1,6 @@
 import { unstable_noStore } from "next/cache";
-import { Progress } from "./components/circle-progress";
-import { H2 } from "./components/typography";
+import { Progress } from "../components/circle-progress";
+import { H2 } from "../components/typography";
 import { countDaysFromJan1PlusOne } from "./utils/date";
 
 export default function Home() {

@@ -3,7 +3,7 @@ import { promises as fs } from "fs";
 import { cn } from "@/lib/utils";
 import { unstable_noStore } from "next/cache";
 import Link from "next/link";
-import { H1 } from "../components/typography";
+import { H1 } from "../../components/typography";
 import { countDaysFromJan1PlusOne } from "../utils/date";
 
 export default async function RemoteMdxPage() {

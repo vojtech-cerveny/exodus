@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import useLocalStorage from "../hooks/useLocalStorage";
+import useLocalStorage from "../app/hooks/useLocalStorage";
 
 export function SizeSwitcher() {
   const [fontSize, setFontSize] = useLocalStorage("fontSize", "16px");

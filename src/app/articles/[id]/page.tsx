@@ -1,4 +1,4 @@
-import { ArticleMDX } from "@/app/components/article-formatter";
+import { ArticleMDX } from "@/components/article-formatter";
 import { promises as fs } from "fs";
 import { notFound } from "next/navigation";
 import path from "path";

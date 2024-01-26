@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumb from "../components/breadcrumb";
+import Breadcrumb from "../../components/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Excessus",

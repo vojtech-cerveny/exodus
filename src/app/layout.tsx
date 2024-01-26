@@ -1,14 +1,13 @@
 import { ThemeProvider } from "@/components/theme-provider";
+import UserButton from "@/components/user-button";
 import { cn } from "@/lib/utils";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Link from "next/link";
-import { auth } from "../../auth";
-import { SignIn, SignOut } from "./components/auth-components";
-import Navigation from "./components/navigation";
-import { SizeSwitcher } from "./components/size-switcher";
-import { ModeToggle } from "./components/theme-switcher";
+import Navigation from "../components/navigation";
+import { SizeSwitcher } from "../components/size-switcher";
+import { ModeToggle } from "../components/theme-switcher";
 import "./globals.css";
 
 // Font files can be colocated inside of `app`
@@ -24,7 +23,6 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session = await auth();
   return (
     <html lang="en" className="w-full" suppressHydrationWarning>
       <body
@@ -35,11 +33,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {!session?.user ? <SignIn provider="google">Sign in</SignIn> : <SignOut />}
-
           <div className="flex flex-1 justify-end space-x-2 p-2">
             <SizeSwitcher />
             <ModeToggle />
+            <UserButton />
           </div>
           <Link href="/">
             <h1 className="mx-auto w-full max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">

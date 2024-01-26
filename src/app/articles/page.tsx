@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
-import { H2 } from "../components/typography";
+import { H2 } from "../../components/typography";
 
 export default async function RemoteMdxPage() {
   // FOR NOW JUST HARDCODED
