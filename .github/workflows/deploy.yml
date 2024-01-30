@@ -18,6 +18,6 @@ jobs:
       - name: Echo version
         run: echo ${{ github.sha }}
       - name: Copy files
-        run: cp -r . /home/akhserver/exodus/
+        run: cd .. && cp -r excessus /home/akhserver/exodus
       - name: Restart server
         run: cd /home/akhserver/exodus/ && npm run deploy:prod
