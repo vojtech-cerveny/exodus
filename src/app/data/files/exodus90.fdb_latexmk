@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1705836943 "/Users/vojtechcc/Documents/dev/personal/excessus/src/app/data/files/exodus90.tex" "exodus90.pdf" "exodus90" 1705836943 0
-  "/Users/vojtechcc/Documents/dev/personal/excessus/src/app/data/files/exodus90.tex" 1705836942 117198 c492e0883ad39adaa0ec483ccbd68c64 ""
+["pdflatex"] 1706629369 "/Users/vojtechcc/Documents/dev/personal/excessus/src/app/data/files/exodus90.tex" "exodus90.pdf" "exodus90" 1706629369 0
+  "/Users/vojtechcc/Documents/dev/personal/excessus/src/app/data/files/exodus90.tex" 1706629369 143818 46b70f4ebc70eba6a806a306586541b5 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -31,6 +31,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1248133631 36554 b67dc2cfa451409e100b3fcf5f506509 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb" 1248133631 35660 fb24af7afbadb71801619f1415838111 ""
   "/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -63,8 +64,8 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1704365836 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1704365817 7883457 1fdf2a161535bfdec32a07a04918530d ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "exodus90.aux" 1705836943 3556 3fa855b9407fbbde12709006f58cb992 "pdflatex"
-  "exodus90.tex" 1705836942 117198 c492e0883ad39adaa0ec483ccbd68c64 ""
+  "exodus90.aux" 1706629369 4390 2922d1441fdbfaeb202693d94300f88e "pdflatex"
+  "exodus90.tex" 1706629369 143818 46b70f4ebc70eba6a806a306586541b5 ""
   (generated)
   "exodus90.aux"
   "exodus90.log"

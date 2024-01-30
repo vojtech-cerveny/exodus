@@ -53,12 +53,18 @@ fs.readFile("./files/exodus90.tex", "utf8", (err, data) => {
 
   let zacatekPrvniTyden = data.match(/\\newcommand\{\\zacatekPrvniTyden\}\{([\s\S]*?)\}/g)![0];
   zacatekPrvniTyden = zacatekPrvniTyden.replace(/\\newcommand\{\\zacatekPrvniTyden\}\{([\s\S]*?)\}/g, "$1");
+
   let zacatekDruhyTyden = data.match(/\\newcommand\{\\zacatekDruhyTyden\}\{([\s\S]*?)\}/g)![0];
   zacatekDruhyTyden = zacatekDruhyTyden.replace(/\\newcommand\{\\zacatekDruhyTyden\}\{([\s\S]*?)\}/g, "$1");
+
   let zacatekTretiTyden = data.match(/\\newcommand\{\\zacatekTretiTyden\}\{([\s\S]*?)\}/g)![0];
   zacatekTretiTyden = zacatekTretiTyden.replace(/\\newcommand\{\\zacatekTretiTyden\}\{([\s\S]*?)\}/g, "$1");
-  let zacatekCtvtyTyden = data.match(/\\newcommand\{\\zacatekCtvrtyTyden\}\{([\s\S]*?)\}/g)![0];
-  zacatekTretiTyden = zacatekCtvtyTyden.replace(/\\newcommand\{\\zacatekCtvrtyTyden\}\{([\s\S]*?)\}/g, "$1");
+
+  let zacatekCtvrtyTyden = data.match(/\\newcommand\{\\zacatekCtvrtyTyden\}\{([\s\S]*?)\}/g)![0];
+  zacatekCtvrtyTyden = zacatekCtvrtyTyden.replace(/\\newcommand\{\\zacatekCtvrtyTyden\}\{([\s\S]*?)\}/g, "$1");
+
+  let zacatekPatyTyden = data.match(/\\newcommand\{\\zacatekCtvrtyTyden\}\{([\s\S]*?)\}/g)![0];
+  zacatekPatyTyden = zacatekPatyTyden.replace(/\\newcommand\{\\zacatekCtvrtyTyden\}\{([\s\S]*?)\}/g, "$1");
 
   data = data.replace(/^\*\n/g, "");
 
@@ -104,6 +110,7 @@ Ve jménu Otce i Syna i Ducha svatého … Otče náš… Ve jménu Otce i Syna 
   data = data.replace(/\\zacatekDruhyTyden/g, splittedActivities[1].join(""));
   data = data.replace(/\\zacatekTretiTyden/g, splittedActivities[2].join(""));
   data = data.replace(/\\zacatekCtvrtyTyden/g, splittedActivities[3].join(""));
+  data = data.replace(/\\zacatekPatyTyden/g, splittedActivities[4].join(""));
 
   // console.log(data)
   // Split the file into sections
