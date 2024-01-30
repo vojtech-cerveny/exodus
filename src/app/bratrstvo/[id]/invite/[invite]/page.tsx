@@ -1,9 +1,11 @@
-import { H1, Paragraph } from "@/components/typography";
+import { H1, H2 } from "@/components/typography";
 import { Button } from "@/components/ui/button";
 import { acceptBrotherhoodInvitationAction } from "@/domain/brotherhood-invitation/brotherhood-invitation-action";
 import { getBrotherhoodInvitation } from "@/domain/brotherhood-invitation/brotherhood-invitation-service";
 import { redirect } from "next/navigation";
 import { auth } from "../../../../../../auth";
+
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default async function BrotherhoodInvitePage({ params }: { params: { id: string; invite: string } }) {
   const session = await auth();
@@ -28,15 +30,28 @@ export default async function BrotherhoodInvitePage({ params }: { params: { id: 
   return (
     <div>
       <H1>Pozvánka do bratrsva</H1>
-      <Paragraph>
-        Pozvánka do bratrstva {brotherhood?.name} od {brotherhood?.creator?.name}
-      </Paragraph>
-      <div>
-        <form action={handleAcceptingInvitation}>
-          <Button>Přijmout pozvánku</Button>
-        </form>
-        <Button variant={"secondary"}>Odmítnout pozvánku</Button>
-      </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>
+            <H2>Pozvánka do bratrsva</H2>
+          </CardTitle>
+          <CardDescription></CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p>
+            Pozvánka do bratrstva "{brotherhood?.name}" od {brotherhood?.creator?.name}
+          </p>
+        </CardContent>
+        <CardFooter className="flex justify-end gap-2 p-4">
+          <div className="flex justify-end gap-2 p-4">
+            <Button variant={"secondary"}>Odmítnout pozvánku</Button>
+            <form action={handleAcceptingInvitation}>
+              <Button>Přijmout pozvánku</Button>
+            </form>
+          </div>
+        </CardFooter>
+      </Card>
     </div>
   );
 }

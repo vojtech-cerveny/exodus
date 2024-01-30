@@ -21,3 +21,4 @@ jobs:
         run: cd .. && cp -r excessus /home/akhserver/exodus
       - name: Restart server
         run: cd /home/akhserver/exodus/ && npm run deploy:prod
+        # add prisma migration
