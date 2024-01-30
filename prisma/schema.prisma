@@ -4,22 +4,22 @@ datasource db {
 }
 
 generator client {
-  provider        = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -35,13 +35,17 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id                  String                @id @default(cuid())
+  name                String?
+  email               String?               @unique
+  emailVerified       DateTime?
+  image               String?
+  accounts            Account[]
+  sessions            Session[]
+  Brotherhood         Brotherhood[]         @relation("BrotherhoodMembers")
+  brotherhoodId       String?
+  BrotherhoodProgress BrotherhoodProgress[]
+  createdBrotherhoods Brotherhood[]
 }
 
 model VerificationToken {
@@ -50,4 +54,59 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Brotherhood {
+  id                    String                 @id @default(cuid())
+  name                  String
+  description           String?
+  image                 String?
+  members               User[]                 @relation("BrotherhoodMembers")
+  BrotherhoodInvitation BrotherhoodInvitation[]
+  createdBy             String?
+  creator               User?                  @relation(fields: [createdBy], references: [id])
+}
+
+model BrotherhoodInvitation {
+  id             String  @id @default(cuid())
+  brotherhoodId  String
+  active         Boolean @default(true)
+  deleted        Boolean @default(false)
+  token          String  @unique @default(cuid())
+
+  brotherhood Brotherhood @relation(fields: [brotherhoodId], references: [id], onDelete: Cascade)
+
+  @@unique([id])
+  @@unique([brotherhoodId])
+}
+
+enum Mood {
+  GOOD
+  NEUTRAL
+  SAD
+}
+
+enum State {
+  NO_INFORMATION
+  DONE
+  NOT_DONE
+}
+
+model BrotherhoodProgress {
+  id     String @id @default(cuid())
+  userId String
+
+  exercise    State    @default(NO_INFORMATION)
+  shower      State    @default(NO_INFORMATION)
+  asceticism  State    @default(NO_INFORMATION)
+  overallMood Mood
+  prayer      Mood
+  date        DateTime
+  note        String?
+
+  lastUpdateDate DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([date, userId], name: "date_userId")
 }

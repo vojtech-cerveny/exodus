@@ -14,8 +14,8 @@ const config = {
       },
     },
     fontSize: {
-      sm: "1rem",
-      base: "12pt",
+      sm: "0.75rem",
+      base: "1.2rem",
       xl: "1.2rem",
       "2xl": "1.2rem",
       "3xl": "1.953rem",
@@ -68,6 +68,10 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-12deg)" },
+          "50%": { transform: "rotate(12deg)" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -80,9 +84,11 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        wiggle: "wiggle 200ms ease-in-out",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        default: ["var(--font-cmunrm)", ...fontFamily.sans],
+        sans: ["var(--font-cmunrm)", ...fontFamily.sans],
         geist: ["var(--font-geist-sans)"],
       },
     },

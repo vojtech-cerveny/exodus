@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { signIn, signOut } from "../../auth";
 
-export function SignIn({ provider, ...props }: { provider?: string } & React.ComponentPropsWithRef<typeof Button>) {
+export function SignIn({
+  provider,
+  withIcon = false,
+  text = "Sign in",
+  ...props
+}: { provider?: string; withIcon?: boolean; text?: string } & React.ComponentPropsWithRef<typeof Button>) {
   return (
     <form
       action={async () => {
@@ -9,7 +14,10 @@ export function SignIn({ provider, ...props }: { provider?: string } & React.Com
         await signIn(provider);
       }}
     >
-      <Button {...props}>Sign In</Button>
+      <Button {...props}>
+        {withIcon && <img src="/icons/google.svg" className="pr-4" />}
+        {text}
+      </Button>
     </form>
   );
 }

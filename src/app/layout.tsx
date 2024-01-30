@@ -10,11 +10,19 @@ import { SizeSwitcher } from "../components/size-switcher";
 import { ModeToggle } from "../components/theme-switcher";
 import "./globals.css";
 
+import ProgressUpdateCard from "@/components/progress-update-card";
+import { Toaster } from "@/components/ui/sonner";
+import moment from "moment";
+import "moment/locale/cs";
+
+moment.locale("cs");
 // Font files can be colocated inside of `app`
+
 const myFont = localFont({
   src: "./fonts/cmunrm.ttf",
-  display: "swap",
+  display: "block",
   preload: true,
+  variable: "--font-cmunrm",
 });
 
 export const metadata: Metadata = {
@@ -24,11 +32,10 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="w-full" suppressHydrationWarning>
+    <html lang="en" className={cn("w-full", myFont.variable)} suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8 dark:bg-zinc-900 dark:text-zinc-400",
-          myFont.className,
           GeistSans.variable,
         )}
       >
@@ -45,10 +52,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </Link>
 
           <div className="mx-auto max-w-2xl">
-            <Navigation />
+            <div className="mb-4 flex items-center justify-between">
+              <Navigation />
+              <ProgressUpdateCard />
+            </div>
             {children}
           </div>
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
