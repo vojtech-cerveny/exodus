@@ -19,5 +19,5 @@ jobs:
         run: echo ${{ github.sha }}
       - name: Copy files
         run: cp -r . /home/akhserver/exodus/
-      # - name: Restart server
-      #   run: sudo systemctl restart exodus
+      - name: Restart server
+        run: cd /home/akhserver/exodus/ && npm run deploy:prod
