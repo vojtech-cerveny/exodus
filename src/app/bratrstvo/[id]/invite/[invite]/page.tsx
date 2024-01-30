@@ -40,7 +40,7 @@ export default async function BrotherhoodInvitePage({ params }: { params: { id: 
         </CardHeader>
         <CardContent>
           <p>
-            Pozvánka do bratrstva "{brotherhood?.name}" od {brotherhood?.creator?.name}
+            Pozvánka do bratrstva «{brotherhood?.name}» od {brotherhood?.creator?.name}
           </p>
         </CardContent>
         <CardFooter className="flex justify-end gap-2 p-4">
