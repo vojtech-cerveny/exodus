@@ -12,6 +12,7 @@ export const config: NextAuthConfig = {
   },
   providers: [Google],
   adapter: PrismaAdapter(prisma),
+  trustHost: true,
   // callbacks: {
   //   authorized({ request, auth }) {
   //     const { pathname } = request.nextUrl
