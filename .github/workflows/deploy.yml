@@ -17,3 +17,7 @@ jobs:
         run: npm run build
       - name: Echo version
         run: echo ${{ github.sha }}
+      - name: Copy files
+        run: cp -r . /home/akhserver/exodus/
+      # - name: Restart server
+      #   run: sudo systemctl restart exodus
