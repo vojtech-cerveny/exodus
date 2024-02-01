@@ -1,5 +1,5 @@
 {
-  "name": "excessus",
+  "name": "exodus-90",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -73,6 +73,6 @@
     "typescript": "^5"
   },
   "lint-staged": {
-    "*.{js,css,md}": "npm run format"
+    "*.{js,css,md,tsx,ts}": "npm run format"
   }
 }

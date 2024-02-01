@@ -98,7 +98,7 @@ export default async function ProgressUpdateCard() {
           </DrawerHeader>
           <DrawerFooter>
             <DrawerClose className="mx-auto flex w-full max-w-2xl flex-col items-center justify-center gap-2">
-              <SubmitButton className="w-full">Submit</SubmitButton>
+              <SubmitButton className="w-full"> </SubmitButton>
               <Button type="reset" className="w-full" variant="outline">
                 Cancel
               </Button>

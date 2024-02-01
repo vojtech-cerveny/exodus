@@ -26,13 +26,13 @@ const myFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Excessus101",
+  title: "Exodus90",
   description: "Ještě lepší a prémiovější verze než je Exodus90! 😂",
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={cn("w-full", myFont.variable)} suppressHydrationWarning>
+    <html lang="en" className={cn("w-full", "", myFont.variable)} suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8 dark:bg-zinc-900 dark:text-zinc-400",
@@ -40,18 +40,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="flex flex-1 justify-end space-x-2 p-2">
-            <SizeSwitcher />
-            <ModeToggle />
-            <UserButton />
-          </div>
-          <Link href="/">
-            <h1 className="mx-auto w-full max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
-              Excessus101
-            </h1>
-          </Link>
-
-          <div className="mx-auto max-w-2xl">
+          <div className="mx-auto flex h-screen max-w-2xl flex-col justify-between">
+            <div className="flex justify-end space-x-2 p-2">
+              <SizeSwitcher />
+              <ModeToggle />
+              <UserButton />
+            </div>
+            <Link href="/">
+              <h1 className="mx-auto w-full max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
+                Exodus 90
+              </h1>
+            </Link>
             <div className="mb-4 flex items-center justify-between">
               <Navigation />
               <ProgressUpdateCard />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Excessus - Den",
+  title: "Exodus90 - Den",
   description: "Najdi zpět cestu k Bohu a k sobě samému.",
 };
 
