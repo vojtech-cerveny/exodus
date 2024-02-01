@@ -26,8 +26,8 @@ export default function Home() {
           <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />
         </div>
       </main>
-      <footer className="m-4 mt-[50px] flex-shrink-0 bg-white dark:bg-gray-800">
-        <div className="mx-auto w-full  max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <footer className="m-4 mt-[50px] bg-white md:fixed md:bottom-0 md:flex md:items-center dark:bg-gray-800">
+        <div className="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-center">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2024
             <a href="https://verici.dev/" className="hover:underline">
