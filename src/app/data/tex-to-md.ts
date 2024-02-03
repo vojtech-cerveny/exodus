@@ -1,6 +1,25 @@
 import * as fs from "fs";
 import * as path from "path";
 
+function chunkArray(lines: string[]) {
+  let chunks = [];
+  let chunk = [];
+
+  for (let line of lines) {
+    if (line.startsWith("1. ") && chunk.length) {
+      chunks.push(chunk);
+      chunk = [];
+    }
+    chunk.push(line);
+  }
+
+  if (chunk.length) {
+    chunks.push(chunk);
+  }
+
+  return chunks;
+}
+
 function saveMDFiles(sections: string[]) {
   // For each section, create a .md file
   let dayCounter = 0;
@@ -51,31 +70,18 @@ fs.readFile("./files/exodus90.tex", "utf8", (err, data) => {
     data = data.replace(replacer[0], replacer[1]);
   });
 
-  let zacatekPrvniTyden = data.match(/\\newcommand\{\\zacatekPrvniTyden\}\{([\s\S]*?)\}/g)![0];
-  zacatekPrvniTyden = zacatekPrvniTyden.replace(/\\newcommand\{\\zacatekPrvniTyden\}\{([\s\S]*?)\}/g, "$1");
+  const weekNames = ["Prvni", "Druhy", "Treti", "Ctvrty", "Paty", "Sesty"];
 
-  let zacatekDruhyTyden = data.match(/\\newcommand\{\\zacatekDruhyTyden\}\{([\s\S]*?)\}/g)![0];
-  zacatekDruhyTyden = zacatekDruhyTyden.replace(/\\newcommand\{\\zacatekDruhyTyden\}\{([\s\S]*?)\}/g, "$1");
-
-  let zacatekTretiTyden = data.match(/\\newcommand\{\\zacatekTretiTyden\}\{([\s\S]*?)\}/g)![0];
-  zacatekTretiTyden = zacatekTretiTyden.replace(/\\newcommand\{\\zacatekTretiTyden\}\{([\s\S]*?)\}/g, "$1");
-
-  let zacatekCtvrtyTyden = data.match(/\\newcommand\{\\zacatekCtvrtyTyden\}\{([\s\S]*?)\}/g)![0];
-  zacatekCtvrtyTyden = zacatekCtvrtyTyden.replace(/\\newcommand\{\\zacatekCtvrtyTyden\}\{([\s\S]*?)\}/g, "$1");
-
-  let zacatekPatyTyden = data.match(/\\newcommand\{\\zacatekCtvrtyTyden\}\{([\s\S]*?)\}/g)![0];
-  zacatekPatyTyden = zacatekPatyTyden.replace(/\\newcommand\{\\zacatekCtvrtyTyden\}\{([\s\S]*?)\}/g, "$1");
+  for (let weekName of weekNames) {
+    let match = data.match(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, "g"))[0];
+    match = match.replace(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, "g"), "$1");
+  }
 
   data = data.replace(/^\*\n/g, "");
 
   const activities = data.match(/\### \d+\. (.*?)\n(.*?)\n/g)!;
-  function chunkArray(array: any, chunkSize: number) {
-    let chunks = [];
-    for (let i = 0; i < array.length; i += chunkSize) {
-      chunks.push(array.slice(i, i + chunkSize));
-    }
-    return chunks;
-  }
+
+  // console.log(activities);
 
   let splittedActivities: string[][] = [];
   const lines: string[] = [];
@@ -95,7 +101,7 @@ fs.readFile("./files/exodus90.tex", "utf8", (err, data) => {
     );
   });
 
-  splittedActivities = chunkArray(lines, 5);
+  splittedActivities = chunkArray(lines);
   for (let index = 0; index < splittedActivities.length; index++) {
     splittedActivities[index].unshift("### Úkony (ukazatelé cesty)\n");
     splittedActivities[index].push(`
@@ -105,15 +111,10 @@ Modleme se za svobodu všech mužů v exodu, stejně tak, jako se oni modlí za 
 Ve jménu Otce i Syna i Ducha svatého … Otče náš… Ve jménu Otce i Syna i Ducha svatého … Amen.`);
   }
 
-  // console.log(dividedUkons[0].join(""))
-  data = data.replace(/\\zacatekPrvniTyden/g, splittedActivities[0].join(""));
-  data = data.replace(/\\zacatekDruhyTyden/g, splittedActivities[1].join(""));
-  data = data.replace(/\\zacatekTretiTyden/g, splittedActivities[2].join(""));
-  data = data.replace(/\\zacatekCtvrtyTyden/g, splittedActivities[3].join(""));
-  data = data.replace(/\\zacatekPatyTyden/g, splittedActivities[4].join(""));
+  for (let index = 0; index < splittedActivities.length; index++) {
+    data = data.replace(new RegExp(`\\\\zacatek${weekNames[index]}Tyden`, "g"), splittedActivities[index].join(""));
+  }
 
-  // console.log(data)
-  // Split the file into sections
   let sections = data.split(/%newday|%ukony/);
   console.log("Sections:", sections.length);
 
