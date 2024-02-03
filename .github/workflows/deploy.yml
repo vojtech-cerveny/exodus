@@ -18,7 +18,7 @@ jobs:
       - name: Echo version
         run: echo ${{ github.sha }}
       - name: Copy files
-        run: rm -rf .git && cd .. && cp -R excessus/ /home/akhserver/excessus/
+        run: rm -rf .git && cd .. && cp -R excessus/ /home/akhserver
       - name: Restart server
         run: cd /home/akhserver/excessus/ && npm run deploy:prod
         # add prisma migration
