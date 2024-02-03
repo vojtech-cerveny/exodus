@@ -12,7 +12,6 @@ export default async function PrivacyPage({
 }) {
   try {
     const filePath = path.join(process.cwd(), `src/app/data/privacy-${searchParams.lang}.md`);
-    console.log(filePath);
     const dayTextMd = await fs.readFile(filePath, "utf-8");
     return (
       <>

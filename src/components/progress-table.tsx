@@ -2,7 +2,13 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getMemberProgressByBrotherhoodId } from "@/domain/brotherhood-progress/brotherhood-progress-service";
 import { cn, getProgressDay, isToday } from "@/lib/utils";
-import { CheckCircledIcon, CrossCircledIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
+import {
+  CheckCircledIcon,
+  CheckIcon,
+  Cross2Icon,
+  CrossCircledIcon,
+  QuestionMarkCircledIcon,
+} from "@radix-ui/react-icons";
 import moment from "moment";
 import { AvatarWithFallBack } from "./avatar";
 
@@ -72,9 +78,9 @@ export default async function ProgressTable({ brotherhoodId }: { brotherhoodId: 
           </tbody>
         </table>
       </div>
-      <div className="my-4 gap-4 md:hidden">
+      <div className="my-4 flex flex-col gap-4 md:hidden">
         {progress.map((memberProgress) => (
-          <Card key={memberProgress.id}>
+          <Card key={memberProgress.id} className="w-full">
             <CardHeader className="">
               <CardTitle className="flex items-center gap-x-2">
                 <span className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
@@ -131,6 +137,8 @@ function mobileProgressTable(memberProgress: any) {
       }
       return (
         <Badge key={key} className={cn("text-sm", badge.style)} variant={badge.variant}>
+          {value === "DONE" && <CheckIcon className="mr-1" />}
+          {value === "NOT_DONE" && <Cross2Icon className="mr-1" />}
           {map.get(key)}
         </Badge>
       );

@@ -3,7 +3,6 @@
 import prisma from "@/lib/db";
 
 export async function createMemberProgress(formData: any) {
-  console.log(formData.shower);
   return await prisma.brotherhoodProgress.upsert({
     where: {
       date_userId: {

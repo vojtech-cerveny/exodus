@@ -35,7 +35,6 @@ const components: MDXRemoteProps["components"] = {
   //   return props.children;
   // },
   li: (props: any) => {
-    console.log(props.children);
     return <li> {props.children}</li>;
   },
   hr: (props: any) => props.children,

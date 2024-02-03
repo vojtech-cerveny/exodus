@@ -23,7 +23,7 @@ export default async function RemoteMdxPage({ params }: { params: { id: string }
         <DayPagination currentPage={params.id} lastPage={files.length} />
         <Timer audioSrc="/sounds/gong.mp3" />
         {session && (
-          <div className="flex items-center justify-center">
+          <div className="mb-4 flex items-center justify-center">
             <ProgressUpdateCard />
           </div>
         )}
