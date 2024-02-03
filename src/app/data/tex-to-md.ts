@@ -73,7 +73,7 @@ fs.readFile("./files/exodus90.tex", "utf8", (err, data) => {
   const weekNames = ["Prvni", "Druhy", "Treti", "Ctvrty", "Paty", "Sesty"];
 
   for (let weekName of weekNames) {
-    let match = data.match(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, "g"))[0];
+    let match = data.match(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, "g"))![0];
     match = match.replace(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, "g"), "$1");
   }
 
