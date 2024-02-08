@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumb from "../../components/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Exodus90",
+  title: "Exodus90 - Dnešní texty",
   description: "Best website ever",
 };
 
