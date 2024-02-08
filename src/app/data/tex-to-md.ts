@@ -85,7 +85,21 @@ fs.readFile("./files/exodus90.tex", "utf8", (err, data) => {
   // Replace \item in itemized lists with "*"
   data = data.replace(/\\item/g, "*");
 
-  const weekNames = ["Prvni", "Druhy", "Treti", "Ctvrty", "Paty", "Sesty", "Sedmy", "Osmy", "Devaty"];
+  const weekNames = [
+    "Prvni",
+    "Druhy",
+    "Treti",
+    "Ctvrty",
+    "Paty",
+    "Sesty",
+    "Sedmy",
+    "Osmy",
+    "Devaty",
+    "Desaty",
+    "Jedenacty",
+    "Dvanacty",
+    "Trinacty",
+  ];
 
   for (let weekName of weekNames) {
     let match = data.match(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, "g"))![0];
