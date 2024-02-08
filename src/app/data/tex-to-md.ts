@@ -44,7 +44,7 @@ function saveMDFiles(sections: string[]) {
 }
 
 // Read the .tex file
-fs.readFile("./files/exodus90.tex", "utf8", (err, data) => {
+fs.readFile("../../../public/files/exodus90.tex", "utf8", (err, data) => {
   if (err) throw err;
 
   // Replace \textsuperscript{X} with <sup>X</sup>
