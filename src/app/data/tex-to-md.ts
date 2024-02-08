@@ -62,14 +62,28 @@ fs.readFile("./files/exodus90.tex", "utf8", (err, data) => {
     [/\\newpage/g, ""],
     [/% =====.*/g, ""],
     [/\\textbf\{(.*)\}/g, "**$1**"],
-    [/\\begin\{enumerate\}|\\end\{enumerate\}/g, ""],
-    [/\\begin\{itemize\}|\\end\{itemize\}/g, ""],
-    [/\\item/g, "1."],
     [/\\newline/g, "\n\n"],
   ];
   replacement.forEach((replacer) => {
     data = data.replace(replacer[0], replacer[1]);
   });
+
+  data = data.replace(/\\begin\{enumerate\}/g, "BEGIN_ENUMERATE");
+  data = data.replace(/\\end\{enumerate\}/g, "END_ENUMERATE");
+
+  // Step 2: Replace \item with "1." only when it's between the markers
+  data = data.replace(/BEGIN_ENUMERATE([\s\S]*?)END_ENUMERATE/g, function (match) {
+    return match.replace(/\\item/g, "1.");
+  });
+
+  // Remove the markers
+  data = data.replace(/BEGIN_ENUMERATE|END_ENUMERATE/g, "");
+
+  // Replace \begin{itemize} and \end{itemize} with nothing
+  data = data.replace(/\\begin\{itemize\}|\\end\{itemize\}/g, "");
+
+  // Replace \item in itemized lists with "*"
+  data = data.replace(/\\item/g, "*");
 
   const weekNames = ["Prvni", "Druhy", "Treti", "Ctvrty", "Paty", "Sesty", "Sedmy", "Osmy", "Devaty"];
 
