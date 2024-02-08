@@ -5,11 +5,17 @@ import { countDaysFromJan1PlusOne } from "@/app/utils/date";
 import { DayPagination } from "@/components/day-pagination";
 import ProgressUpdateCard from "@/components/progress-update-card";
 import Timer from "@/components/timer";
+import { Metadata } from "next";
 import { unstable_noStore } from "next/cache";
 import { notFound } from "next/navigation";
 import path from "path";
 import { auth } from "../../../../auth";
 import { CustomMDX } from "../../../components/md-formatter";
+
+export const metadata: Metadata = {
+  title: "Exodus90 - Text na dnešek",
+  description: "Best website ever",
+};
 
 export default async function RemoteMdxPage() {
   unstable_noStore();

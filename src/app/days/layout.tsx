@@ -1,10 +1,4 @@
-import type { Metadata } from "next";
 import Breadcrumb from "../../components/breadcrumb";
-
-export const metadata: Metadata = {
-  title: "Exodus90 - Dnešní texty",
-  description: "Best website ever",
-};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

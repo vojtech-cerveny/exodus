@@ -2,10 +2,16 @@ import { DayPagination } from "@/components/day-pagination";
 import ProgressUpdateCard from "@/components/progress-update-card";
 import Timer from "@/components/timer";
 import { promises as fs } from "fs";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import path from "path";
 import { auth } from "../../../../auth";
 import { CustomMDX } from "../../../components/md-formatter";
+
+export const metadata: Metadata = {
+  title: "Exodus90 - Text na den",
+  description: "Best website ever",
+};
 
 export default async function RemoteMdxPage({ params }: { params: { id: string } }) {
   const session = await auth();

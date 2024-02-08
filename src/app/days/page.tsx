@@ -1,10 +1,16 @@
 import { promises as fs } from "fs";
 
 import { cn } from "@/lib/utils";
+import { Metadata } from "next";
 import { unstable_noStore } from "next/cache";
 import Link from "next/link";
 import { H1 } from "../../components/typography";
 import { countDaysFromJan1PlusOne } from "../utils/date";
+
+export const metadata: Metadata = {
+  title: "Exodus90 - Texty na den",
+  description: "Best website ever",
+};
 
 export default async function RemoteMdxPage() {
   unstable_noStore();
