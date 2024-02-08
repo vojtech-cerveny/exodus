@@ -63,6 +63,7 @@ fs.readFile("./files/exodus90.tex", "utf8", (err, data) => {
     [/% =====.*/g, ""],
     [/\\textbf\{(.*)\}/g, "**$1**"],
     [/\\begin\{enumerate\}|\\end\{enumerate\}/g, ""],
+    [/\\begin\{itemize\}|\\end\{itemize\}/g, ""],
     [/\\item/g, "1."],
     [/\\newline/g, "\n\n"],
   ];
@@ -70,7 +71,7 @@ fs.readFile("./files/exodus90.tex", "utf8", (err, data) => {
     data = data.replace(replacer[0], replacer[1]);
   });
 
-  const weekNames = ["Prvni", "Druhy", "Treti", "Ctvrty", "Paty", "Sesty", "Sedmy", "Osmy"];
+  const weekNames = ["Prvni", "Druhy", "Treti", "Ctvrty", "Paty", "Sesty", "Sedmy", "Osmy", "Devaty"];
 
   for (let weekName of weekNames) {
     let match = data.match(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, "g"))![0];

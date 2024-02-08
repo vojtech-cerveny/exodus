@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.4)  8 FEB 2024 12:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.4)  8 FEB 2024 13:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -111,20 +111,20 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 ) (./exodus90.aux)
 \openout1 = `exodus90.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -179,109 +179,119 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 186.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 186.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
-Overfull \hbox (43.12967pt too wide) in paragraph at lines 246--246
+Overfull \hbox (43.12967pt too wide) in paragraph at lines 263--263
 |[]\OT1/cmr/bx/n/14.4 Den 2 - KA[]ZDODENN[]I []UKOLY MO-HOU MU[]ZE ZAT[]E[]ZOVAT
  []
 
 [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]
-Overfull \hbox (3.61598pt too wide) in paragraph at lines 634--638
+Overfull \hbox (3.61598pt too wide) in paragraph at lines 651--655
 \OT1/cmr/m/n/10.95 Faraon aro-gantn^^Te ig-no-ruje p^^Tr^^S^^Pkazy Nejvy^^Ts^^Ts^^S^^Pho Boha. Sa-moz^^Trejm^^Te m^^Sa sv^^Se d^^Wuvody. Je vl^^Sadcem
  []
 
 [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
-Overfull \hbox (1.48268pt too wide) in paragraph at lines 881--886
+Overfull \hbox (1.48268pt too wide) in paragraph at lines 898--903
 []\OT1/cmr/m/n/10.95 V P^^S^^Psmu Svat^^Sem []Aronova h^^Wul p^^Tredznamen^^Sav^^Sa k^^Tr^^S^^P^^Tz. Jedn^^S^^Pm z p^^Tr^^S^^Pklad^^Wu je pou^^Tzit^^S^^P []Aronovy
  []
 
 
-Overfull \hbox (24.7859pt too wide) in paragraph at lines 881--886
+Overfull \hbox (24.7859pt too wide) in paragraph at lines 898--903
 \OT1/cmr/m/n/10.95 hole k rozd^^Telen^^S^^P Rud^^Seho mo^^Tre umo^^Tz^^Tnuj^^S^^Pc^^S^^P p^^Trechod Iz-ra-e-lit^^Wu ke svo-bod^^Te. Tento ^^Tcin p^^Tredznamen^^Sav^^Sa
  []
 
 [38] [39] [40] [41] [42] [43] [44] [45]
-Overfull \hbox (5.93585pt too wide) in paragraph at lines 1025--1038
+Overfull \hbox (5.93585pt too wide) in paragraph at lines 1042--1055
 []$\OT1/cmr/m/it/10.95 A Hos-po-din tak u^^Tcinil. Dot^^Tern^^Se mou-chy vnikly do domu fara^^Sonova, do domu jeho slu^^Tzebn^^S^^Pk^^Wu
  []
 
 [46] [47] [48] [49] [50] [51] [52] [53]
-Overfull \hbox (0.78426pt too wide) in paragraph at lines 1228--1232
+Overfull \hbox (0.78426pt too wide) in paragraph at lines 1245--1249
 []\OT1/cmr/m/n/10.95 Mo^^Tzn^^Sa pra-men^^S^^P z ne-u-tu-chaj^^S^^Pc^^S^^Pho vol^^San^^S^^P C^^S^^Prkve po obr^^Sacen^^S^^P. Kon-verze m^^Wu^^Tze b^^Syt vn^^S^^Pm^^Sana
  []
 
 [54] [55]
-Overfull \hbox (11.69467pt too wide) in paragraph at lines 1269--1272
+Overfull \hbox (11.69467pt too wide) in paragraph at lines 1286--1289
 \OT1/cmr/m/n/10.95 Lid^^Se se ^^Tcasto ptaj^^S^^P: []Pro^^Tc by toto sou^^Tzen^^S^^P B^^Wuh do-pus-til m^^Semu p^^Tr^^S^^Pteli nebo m^^Semu p^^Tr^^S^^Pbuzn^^Semu?\
  []
 
 [56] [57] [58] [59] [60] [61] [62] [63] [64]
-Overfull \hbox (10.48724pt too wide) in paragraph at lines 1455--1456
+Overfull \hbox (10.48724pt too wide) in paragraph at lines 1472--1473
 []\OT1/cmr/m/n/10.95 Izraelit^^Se poc^^S^^Ptili pot^^Trebu slou^^Tzit Bohu. Ak^^Tcn^^Te re-a-go-vali za-bit^^S^^Pm egyptsk^^Seho boha (ber^^Sanka)
  []
 
 [65] [66] [67] [68]
-Overfull \hbox (4.50113pt too wide) in paragraph at lines 1570--1573
+Overfull \hbox (4.50113pt too wide) in paragraph at lines 1587--1590
 []\OT1/cmr/m/n/10.95 Ted[] se v^^Teci sta-nou t^^Te^^Tz^^Ts^^S^^Pmi. Zl^^Sy, v^^S^^Pce rozzlo-ben^^Sy ne^^Tz fa-raon, v^^Sas bude pro-hnan^^Te n^^Sasledovat
  []
 
 [69] [70] [71] [72] [73] [74] [75]
-Overfull \hbox (2.68483pt too wide) in paragraph at lines 1709--1710
+Overfull \hbox (2.68483pt too wide) in paragraph at lines 1726--1727
 [][]\OT1/cmr/m/it/10.95 Cty^^Tricet postn^^S^^Pch dn^^S^^P v ka-te-chu-men^^Satu jsou ^^Tcasem soudu, ^^Tcase v^^Sa^^Tzn^^Seho kon-fliktu, zat^^S^^Pmco
  []
 
 [76] [77] [78] [79] [80] [81] [82] [83] [84]
-Overfull \hbox (13.31592pt too wide) in paragraph at lines 1901--1904
+Overfull \hbox (13.31592pt too wide) in paragraph at lines 1918--1921
 []\OT1/cmr/m/n/10.95 P^^Tredstavte si sami sebe sed^^S^^Pc^^S^^P venku na lavi^^Tcce v nep^^Tr^^S^^Pjemn^^Se zim^^Te. Lavi^^Tcka je p^^Tri^^Tsroubov^^Sana
  []
 
 [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97]
-Overfull \hbox (5.07597pt too wide) in paragraph at lines 2214--2217
+Overfull \hbox (5.07597pt too wide) in paragraph at lines 2231--2234
 \OT1/cmr/m/n/10.95 Moj^^Tz^^S^^P^^Ts se osv^^Ted^^Tcil a nyn^^S^^P se t^^Te^^Ts^^S^^P re-spektu a ^^Sucty sv^^Seho lidu. Lid^^Se ho vn^^S^^Pmaj^^S^^P jako prost^^Tredn^^S^^Pka,
  []
 
 
-Overfull \hbox (5.16731pt too wide) in paragraph at lines 2218--2222
+Overfull \hbox (5.16731pt too wide) in paragraph at lines 2235--2239
 \OT1/cmr/m/n/10.95 nebo ^^Sutok na svou au-to-ritu. []Clov^^Tek, kter^^Sy toho to-lik dos^^Sahl, by ta-ko-vou radu mohl odm^^S^^Ptnout
  []
 
 [98] [99]
-Overfull \hbox (10.42647pt too wide) in paragraph at lines 2273--2276
+Overfull \hbox (10.42647pt too wide) in paragraph at lines 2290--2293
 []\OT1/cmr/m/n/10.95 Katol^^S^^Pk, kter^^Sy tou^^Tz^^S^^P po sy-novsk^^Sem vztahu s Bo-hem Ot-cem, by m^^Tel p^^Tred P^^Sana p^^Tredstupovat
  []
 
 [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110] [111] [112] [113]
-Overfull \hbox (6.99532pt too wide) in paragraph at lines 2582--2619
+Overfull \hbox (6.99532pt too wide) in paragraph at lines 2599--2636
 \OT1/cmr/m/it/10.95 jak^^Sekoli do-byt^^Tce a ono po-jde nebo utrp^^S^^P ^^Suraz nebo bude odehn^^Sano, ani^^Tz to kdo vid^^Tel, $[]$rozhodne
  []
 
 [114] [115] [116]
-Overfull \hbox (8.63467pt too wide) in paragraph at lines 2672--2675
+Overfull \hbox (8.63467pt too wide) in paragraph at lines 2689--2692
 \OT1/cmr/m/n/10.95 up^^Trednostnit Boha p^^Tred prac^^S^^P. B^^Wuh n^^Sas chce svo-bodn^^Se. Chce, abychom byli schopni odpo^^Tc^^S^^Pvat.
  []
 
-[117] [118] [119] [120] [121] [122] [123] (./exodus90.aux) ) 
+[117] [118] [119] [120] [121] [122] [123] [124] [125] [126] [127]
+Overfull \hbox (8.39145pt too wide) in paragraph at lines 2933--2937
+\OT1/cmr/m/n/10.95 bra-trstvu, kte^^Tr^^S^^P se ka^^Tzdodenn^^Te modl^^S^^P mod-litbu r^^Wu^^Tzence, maj^^S^^P mno-hem v^^Tet^^Ts^^S^^P pravd^^Tepodobnost,
+ []
+
+[128{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Overfull \hbox (6.32314pt too wide) in paragraph at lines 2966--2969
+\OT1/cmr/m/n/10.95 stejn^^Te jako zlat^^Se n^^Sadoby pou^^Tz^^S^^Pvan^^Se k ob^^Tetn^^S^^Pm ^^Sulitb^^Sam, aby mohl b^^Syt chl^^Seb v^^Tzdy v p^^Tr^^S^^Ptomnosti
+ []
+
+[129] [130] [131] [132] [133] [134] [135] [136] [137] [138] (./exodus90.aux) ) 
 Here is how much of TeX's memory you used:
- 4189 strings out of 476025
- 66312 string characters out of 5790018
+ 4196 strings out of 476025
+ 66419 string characters out of 5790018
  1868388 words of memory out of 5000000
- 24620 multiletter control sequences out of 15000+600000
- 521047 words of font info for 64 fonts, out of 8000000 for 9000
+ 24625 multiletter control sequences out of 15000+600000
+ 521388 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,6n,62p,806b,226s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on exodus90.pdf (123 pages, 436547 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on exodus90.pdf (138 pages, 485703 bytes).
 PDF statistics:
- 441 PDF objects out of 1000 (max. 8388607)
- 297 compressed objects within 3 object streams
+ 495 PDF objects out of 1000 (max. 8388607)
+ 333 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
