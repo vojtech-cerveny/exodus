@@ -1,6 +1,6 @@
 {
   "name": "exodus-90",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,7 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "prepare": "husky install",
+    "release": "standard-version",
     "deploy:local": "next build && pm2 startOrRestart ecosystem.config.js --env local",
     "deploy:dev": "next build && pm2 startOrRestart ecosystem.config.js --env dev",
     "deploy:prod": "next build && pm2 startOrRestart ecosystem.config.js --env prod",
@@ -69,6 +70,7 @@
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "prisma": "^5.8.1",
+    "standard-version": "^9.5.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   },
