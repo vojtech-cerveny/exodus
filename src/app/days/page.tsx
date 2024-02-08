@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { FileTextIcon } from "@radix-ui/react-icons";
 import { Metadata } from "next";
 import { unstable_noStore } from "next/cache";
 import Link from "next/link";
@@ -50,7 +51,10 @@ export default async function RemoteMdxPage() {
       </div>
       <div className="mt-4">
         <Link download prefetch={false} target="_blank" href="/files/exodus90.pdf">
-          <Button>Stáhni si PDF pro vytisknutí</Button>
+          <Button>
+            <FileTextIcon className="mr-2" />
+            PDF textů pro tisk
+          </Button>
         </Link>
       </div>
     </>
