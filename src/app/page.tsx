@@ -1,5 +1,4 @@
 import { unstable_noStore } from "next/cache";
-import Link from "next/link";
 import { Progress } from "../components/circle-progress";
 import { H2 } from "../components/typography";
 import { countDaysFromJan1PlusOne } from "./utils/date";
@@ -26,38 +25,6 @@ export default function Home() {
           <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />
         </div>
       </main>
-      <footer className="m-4 mt-[50px] bg-white md:fixed md:bottom-0 md:flex md:items-center dark:bg-gray-800">
-        <div className="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-center">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-            © 2024
-            <a href="https://verici.dev/" className="hover:underline">
-              VERICI.DEV
-            </a>
-          </span>
-          <ul className="mt-3 flex flex-wrap items-center text-sm font-medium text-gray-500 sm:mt-0 dark:text-gray-400">
-            <li>
-              <a href="#" className="me-4 hover:underline md:me-6">
-                About
-              </a>
-            </li>
-            <li>
-              <Link href="/privacy?lang=cz" className="me-4 hover:underline md:me-6">
-                Zásady ochrany osobních údajů
-              </Link>
-            </li>
-            <li>
-              <a href="/terms-of-service?lang=cz" className="me-4 hover:underline md:me-6">
-                Podmínky užití
-              </a>
-            </li>
-            <li>
-              <a href="mailto:cervik49@gmail.com" className="hover:underline">
-                Kontakt
-              </a>
-            </li>
-          </ul>
-        </div>
-      </footer>
     </>
   );
 }

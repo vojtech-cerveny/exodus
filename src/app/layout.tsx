@@ -5,11 +5,12 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Link from "next/link";
-import Navigation from "../components/navigation";
 import { SizeSwitcher } from "../components/size-switcher";
 import { ModeToggle } from "../components/theme-switcher";
 import "./globals.css";
 
+import Footer from "@/components/footer";
+import Navigation from "@/components/navigation";
 import ProgressUpdateCard from "@/components/progress-update-card";
 import { Toaster } from "@/components/ui/sonner";
 import moment from "moment";
@@ -61,6 +62,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <ProgressUpdateCard />
             </div>
             {children}
+            <Footer />
           </div>
         </ThemeProvider>
         <Toaster />
