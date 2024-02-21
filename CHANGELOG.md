@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/vojtech-cerveny/excessus/compare/v0.1.1...v0.1.2) (2024-02-21)
+
+### Features
+
+- add support link to footer ([5fc5e44](https://github.com/vojtech-cerveny/excessus/commit/5fc5e448535e2d24d85398b2c1ed51ea6b1c72a2))
+
 ### 0.1.1 (2024-02-08)
 
 ### Features
