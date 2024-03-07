@@ -4,10 +4,8 @@ import { notFound } from "next/navigation";
 import path from "path";
 
 export default async function PrivacyPage({
-  params,
   searchParams,
 }: {
-  params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   try {

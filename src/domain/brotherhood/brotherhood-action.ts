@@ -18,7 +18,6 @@ export async function createBrotherhoodAction(userId: string, formData: FormData
 
 export async function removeUserFromBrotherhoodAction(userId: string, brotherhoodId: string, formData: FormData) {
   console.log("removeUserFromBrotherhoodAction");
-  console.log(userId, brotherhoodId, formData);
   await removeUserFromBrotherhood(userId, brotherhoodId);
 
   revalidatePath("/bratrstvo/" + brotherhoodId);

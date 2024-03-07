@@ -13,7 +13,7 @@ import Link from "next/link";
 export default function Navigation() {
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="flex flex-wrap">
         <NavigationMenuItem>
           <NavigationMenuTrigger>Dny</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -28,6 +28,11 @@ export default function Navigation() {
         <NavigationMenuItem>
           <Link href="/articles" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Články</NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/tydenni-setkani" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Týdenní setkání</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>

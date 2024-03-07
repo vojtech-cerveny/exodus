@@ -27,6 +27,9 @@ const config = {
       "9xl": "8rem",
     },
     extend: {
+      transitionDuration: {
+        90000: "90000ms",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

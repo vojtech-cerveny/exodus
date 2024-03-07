@@ -85,7 +85,6 @@ export async function addUserIntoBrotherhood(userId: string, brotherhoodId: stri
 export async function removeUserFromBrotherhood(userId: string, brotherhoodId: string) {
   // Check if the user is a member of the brotherhood
   console.log("removeUserFromBrotherhood");
-  console.log(userId, brotherhoodId);
   const brotherhood = await prisma.brotherhood.findUnique({
     where: {
       id: brotherhoodId,

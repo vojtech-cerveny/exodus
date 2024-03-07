@@ -17,13 +17,4 @@ if (process.env.NODE_ENV === "production") {
   prisma = global.globalPrisma;
 }
 
-// Disconnect after a request
-async function handleRequest(req: any, res: any) {
-  try {
-    // Handle the request...
-  } finally {
-    await prisma.$disconnect();
-  }
-}
-
 export default prisma;

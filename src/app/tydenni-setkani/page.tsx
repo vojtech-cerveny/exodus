@@ -1,8 +1,18 @@
+import { ArticleMDX } from "@/components/article-formatter";
+import SmallTimer from "@/components/small-timer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Exodus90 - Text na den",
+  description: "Best website ever",
+};
+
+const firstDayText = `
 # Týdenní setkání
 
 ## 1. Otevřete setkání modlitbou
 
-<span style={{background:'#34d399', padding: '0 10px',  'border-radius': '4px', color: "black"}}>​Všichni</span> (online přednáší jen vedoucí či ustanovený, zbytek potichu pro sebe)
+<span style={{background:'#34d399', padding: '0 10px',  'borderRadius': '4px', color: "black"}}>​Všichni</span> (online přednáší jen vedoucí či ustanovený, zbytek potichu pro sebe)
 
 **Hymnus Vykoupení**
 
@@ -18,17 +28,21 @@
 ## 2. Zpráva z terénu (polní zpráva):
 
 <br />
-<span style={{background:'#fcd34d', padding: '0 10px',  'border-radius': '4px', color: "black"}} >​​Každý za sebe</span>
+<span style={{background:'#fcd34d', padding: '0 10px',  'borderRadius': '4px', color: "black"}} >​​Každý za sebe</span>
 
 90 sekundová zpráva o modlitbě, askezi a bratrství s uznáním nedostatků.
 Důraz na život ve světle, vyhýbání se hříchu, vděčnost za týdenní požehnání.
 Vedoucí zajišťuje vyvážené sdílení, rozpoznání požehnání, udržování bratrského ducha.
 Zaměření na Boží milosrdenství podle knihy Exodus.
 
+
+`;
+
+const secondDayText = `
 ## 3. Denní úkony (akční položky dané pro daný týden/den)
 
 <br />
-<span style={{background:'#60a5fa', padding: '0 10px',  'border-radius': '4px', color: "black"}}>​Vedoucí</span>
+<span style={{background:'#60a5fa', padding: '0 10px',  'borderRadius': '4px', color: "black"}}>​Vedoucí</span>
 
 Vedoucí/vůdce bratrství by si měl vybrat jednu položku akce z denních úkonů/úkolů týdne nebo text z denních textů a otevřít diskusi ke zvoleném úkonu. Může položit otázku, jak dobře jej muži žijí nebo s ním bojují. Jaké změny mohou být v životě provedeny tak, aby lépe vyhovovaly zvolenému úkonu? (Vedoucí bratrstva může každý týden delegovat muže, aby si vybral úkon, o kterém se bude diskutovat na setkání v příštím týdnu.)
 
@@ -45,8 +59,7 @@ Vedoucí bratrstva by měl:
 
 ## 5. Závěrečná modlitba
 
-<br />
-<span style={{background:'#34d399', padding: '0 10px',  'border-radius': '4px', color: "black"}}>​Všichni</span> (online přednáší jen vedoucí či ustanovený, zbytek potichu pro sebe)
+<span style={{background:'#34d399', padding: '0 10px',  'borderRadius': '4px', color: "black"}}>​Všichni</span> (online přednáší jen vedoucí či ustanovený, zbytek potichu pro sebe)
 
 za duchovní ochranu bratrství, všech mužů Exodu, kněží, rodin a posvěcení církve.
 
@@ -64,3 +77,13 @@ za duchovní ochranu bratrství, všech mužů Exodu, kněží, rodin a posvěce
 ### Odkazy
 
 toto je zkrácená verze Exodus90, kterou lze najít na [oficiálních českých stránkách](https://www.exodus90.cz/5-pruvodce-90)
+`;
+export default async function RemoteMdxPage() {
+  return (
+    <>
+      <ArticleMDX source={firstDayText} />
+      <SmallTimer audioSrc="/sounds/gong.mp3" />
+      <ArticleMDX source={secondDayText} />
+    </>
+  );
+}
