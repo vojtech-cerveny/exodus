@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/vojtech-cerveny/excessus/compare/v0.1.2...v0.1.3) (2024-03-07)
+
+### Features
+
+- timer in tydenni-setkani ([40e7bdb](https://github.com/vojtech-cerveny/excessus/commit/40e7bdb531605c500d03ae43a2d5baaddfabcde4))
+
+### Bug Fixes
+
+- improve footer ui ([459944b](https://github.com/vojtech-cerveny/excessus/commit/459944b2443710bc7f82d7dd42a16d186d9013fe))
+
 ### [0.1.2](https://github.com/vojtech-cerveny/excessus/compare/v0.1.1...v0.1.2) (2024-02-21)
 
 ### Features
