@@ -5,7 +5,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <div className="pb-8">
       <Breadcrumb pages={[{ path: "/days", title: "Dny Exodus90" }]} />
       {children}
-      Ahoj ahoj
     </div>
   );
 }

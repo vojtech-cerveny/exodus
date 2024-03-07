@@ -8,7 +8,7 @@ import { Separator } from "./ui/separator";
 export default function Footer() {
   const pathname = usePathname();
   return (
-    <footer className="md:flex md:flex-col md:items-center">
+    <footer className="mt-4 md:flex md:flex-col md:items-center">
       <Separator />
       <div className="mx-auto w-full flex-col p-4 md:flex md:items-center md:justify-center">
         <ul className="mt-3 flex flex-col flex-wrap justify-start gap-1 text-sm font-medium  text-gray-500 sm:mt-0 md:flex-row md:gap-0 dark:text-gray-400">

@@ -1,3 +1,4 @@
+import { DownloadTextFiles } from "@/components/download-text-files";
 import { unstable_noStore } from "next/cache";
 import { Progress } from "../components/circle-progress";
 import { H2 } from "../components/typography";
@@ -24,6 +25,7 @@ export default function Home() {
 
           <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />
         </div>
+        <DownloadTextFiles />
       </main>
     </>
   );
