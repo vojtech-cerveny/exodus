@@ -6,7 +6,7 @@ import { Card } from "../ui/card";
 export function BookmarkCard({ bookmark }: { bookmark: Bookmark }) {
   return (
     <>
-      <Card className="mt-4 flex border">
+      <Card className="mt-4 flex border   ">
         <div className=" grow gap-6 p-6">
           <div className="hidden lg:visible">
             <BookmarkFilledIcon className="h-8 w-8" />

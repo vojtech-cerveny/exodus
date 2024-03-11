@@ -53,11 +53,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <ModeToggle />
             <UserButton />
           </div>
-          <Link href="/">
-            <h1 className="mx-auto w-full max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
-              Exodus90
-            </h1>
-          </Link>
+
+          <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
+            <Link href="/">Exodus90</Link>
+          </h1>
 
           <div className="mx-auto max-w-2xl">
             <div className="mb-4 md:flex md:items-center md:justify-between">
