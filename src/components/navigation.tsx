@@ -8,9 +8,11 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 export default function Navigation() {
+  const { data: session } = useSession();
   return (
     <NavigationMenu>
       <NavigationMenuList className="flex flex-wrap">
@@ -35,11 +37,20 @@ export default function Navigation() {
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Týdenní setkání</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/bratrstvo" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Bratrstvo</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
+        {session && (
+          <>
+            <NavigationMenuItem>
+              <Link href="/bratrstvo" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Bratrstvo</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/bookmarks" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Záložky</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </>
+        )}
       </NavigationMenuList>
     </NavigationMenu>
   );

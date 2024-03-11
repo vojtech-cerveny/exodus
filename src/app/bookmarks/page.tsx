@@ -13,7 +13,7 @@ export default async function BookmarksPage() {
   const bookmarks = await getMyBookmarks({ userId: session.user!.id });
   return (
     <>
-      <H1>Bookmarks</H1>
+      <H1>Záložky</H1>
       {bookmarks.map((bookmark: Bookmark) => (
         <div key={bookmark.id}>
           <BookmarkCard bookmark={bookmark} />
