@@ -2,7 +2,6 @@
 import { countDaysFromJan1PlusOne } from "@/app/utils/date";
 import { DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { createBookmarkAction } from "@/domain/bookmark/bookmark-action";
-import { DialogClose } from "@radix-ui/react-dialog";
 import { useSession } from "next-auth/react";
 import SubmitButton from "../submit-button";
 import { Label } from "../ui/label";
@@ -37,9 +36,7 @@ export function CreateBookmarkContent({ selection }: { selection: string }) {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="mt-4">
-          <DialogClose asChild>
-            <SubmitButton disabled={!session}>{session ? "Vytvořit" : "Musíš se prvně přihlásit"}</SubmitButton>
-          </DialogClose>
+          <SubmitButton disabled={!session}>{session ? "Vytvořit" : "Musíš se prvně přihlásit"}</SubmitButton>
         </DialogFooter>
       </form>
     </DialogContent>

@@ -6,6 +6,37 @@ export async function getMyBookmarks({ userId }: { userId: string }) {
     where: {
       userId,
     },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+}
+
+export async function getBookmarksFromMyBrothers({ userId }: { userId: string }) {
+  return prisma.bookmark.findMany({
+    include: {
+      user: true,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+    where: {
+      sharedWithBrotherhood: true,
+      userId: {
+        not: userId,
+      },
+      user: {
+        Brotherhood: {
+          some: {
+            members: {
+              some: {
+                id: userId,
+              },
+            },
+          },
+        },
+      },
+    },
   });
 }
 
@@ -24,7 +55,8 @@ export async function createBookmark({
   note?: string;
   sharedWithBrotherhood: boolean;
 }) {
-  const bookmark = await prisma.bookmark.create({
+  console.log("createBookmark", userId);
+  return await prisma.bookmark.create({
     data: {
       userId,
       day,
@@ -34,5 +66,4 @@ export async function createBookmark({
       sharedWithBrotherhood,
     },
   });
-  console.log(bookmark);
 }
