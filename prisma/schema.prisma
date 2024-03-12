@@ -46,6 +46,7 @@ model User {
   brotherhoodId       String?
   BrotherhoodProgress BrotherhoodProgress[]
   createdBrotherhoods Brotherhood[]
+  Bookmark            Bookmark[]
 }
 
 model VerificationToken {
@@ -57,22 +58,22 @@ model VerificationToken {
 }
 
 model Brotherhood {
-  id                    String                 @id @default(cuid())
+  id                    String                  @id @default(cuid())
   name                  String
   description           String?
   image                 String?
-  members               User[]                 @relation("BrotherhoodMembers")
+  members               User[]                  @relation("BrotherhoodMembers")
   BrotherhoodInvitation BrotherhoodInvitation[]
   createdBy             String?
-  creator               User?                  @relation(fields: [createdBy], references: [id])
+  creator               User?                   @relation(fields: [createdBy], references: [id])
 }
 
 model BrotherhoodInvitation {
-  id             String  @id @default(cuid())
-  brotherhoodId  String
-  active         Boolean @default(true)
-  deleted        Boolean @default(false)
-  token          String  @unique @default(cuid())
+  id            String  @id @default(cuid())
+  brotherhoodId String
+  active        Boolean @default(true)
+  deleted       Boolean @default(false)
+  token         String  @unique @default(cuid())
 
   brotherhood Brotherhood @relation(fields: [brotherhoodId], references: [id], onDelete: Cascade)
 
@@ -109,4 +110,18 @@ model BrotherhoodProgress {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([date, userId], name: "date_userId")
+}
+
+model Bookmark {
+  id                    String    @id @default(cuid())
+  userId                String
+  day                   Int
+  passage               String
+  type                  String
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime?
+  active                Boolean   @default(true)
+  note                  String?
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sharedWithBrotherhood Boolean   @default(false)
 }

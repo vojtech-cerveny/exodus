@@ -15,6 +15,8 @@ import ProgressUpdateCard from "@/components/progress-update-card";
 import { Toaster } from "@/components/ui/sonner";
 import moment from "moment";
 import "moment/locale/cs";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "../../auth";
 
 moment.locale("cs");
 // Font files can be colocated inside of `app`
@@ -32,6 +34,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await auth();
   return (
     <html
       lang="en"
@@ -50,15 +53,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <ModeToggle />
             <UserButton />
           </div>
-          <Link href="/">
-            <h1 className="mx-auto w-full max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
-              Exodus90
-            </h1>
-          </Link>
+
+          <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
+            <Link href="/">Exodus90</Link>
+          </h1>
 
           <div className="mx-auto max-w-2xl">
-            <div className="mb-4 flex items-center justify-between">
-              <Navigation />
+            <div className="mb-4 md:flex md:items-center md:justify-between">
+              <SessionProvider basePath={"/api/auth"} session={session}>
+                <Navigation />
+              </SessionProvider>
               <ProgressUpdateCard />
             </div>
             {children}
