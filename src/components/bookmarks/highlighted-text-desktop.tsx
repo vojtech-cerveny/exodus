@@ -20,8 +20,6 @@ export function HighlightedTextDesktop({ children }: { children: React.ReactNode
   useEffect(() => {
     const updateTextSelection = () => {
       setSelection(window.getSelection());
-      // make sure that the selection is inside the helper element (only text for day + reflexion)
-      if (selection?.anchorNode?.parentElement?.id !== "helper-for-selection") return;
       const isTextSelected =
         selection &&
         selection.type !== "None" &&

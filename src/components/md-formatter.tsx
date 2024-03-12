@@ -17,27 +17,10 @@ const components: MDXRemoteProps["components"] = {
     </h4>
   ),
   blockquote: (props: any) => {
-    // Function to ensure every child has an 'id'
-    const addIdToChildren = (children: React.ReactNode) => {
-      return React.Children.map(children, (child) => {
-        // Check if 'child' is a valid element for cloning
-        if (React.isValidElement(child)) {
-          // Clone the element and add the 'id' prop
-          // @ts-ignore
-          return React.cloneElement(child, { id: "helper-for-selection" });
-        } else {
-          // If it's not a valid React element (e.g., a text node), wrap it in a 'span' with the 'id'
-          return;
-        }
-      });
-    };
-
     return (
-      <HighlightedTextMobile>
-        <blockquote {...props} className="mt-4 italic lg:mt-6 lg:border-l-2 lg:pl-6 dark:border-l-gray-600">
-          {addIdToChildren(props.children)}
-        </blockquote>
-      </HighlightedTextMobile>
+      <blockquote {...props} className="mt-4 italic lg:mt-6 lg:border-l-2 lg:pl-6 dark:border-l-gray-600">
+        {props.children}
+      </blockquote>
     );
   },
   p: (props: any) => <p {...props} className="leading-7 [&:not(:first-child)]:mt-6" />,
@@ -79,5 +62,11 @@ const components: MDXRemoteProps["components"] = {
 };
 
 export function DayFormatterMDX(props: any) {
-  return <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />;
+  return (
+    <HighlightedTextMobile>
+      <div id="helper-for-selection">
+        <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
+      </div>
+    </HighlightedTextMobile>
+  );
 }
