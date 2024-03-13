@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/vojtech-cerveny/excessus/compare/v0.1.3...v0.1.4) (2024-03-13)
+
+### Features
+
+- epub + mobi books with daily texts ([53d25e2](https://github.com/vojtech-cerveny/excessus/commit/53d25e2e603de38f2a88c24fbcbfb02f1ec2f6c3))
+- ukony ([681c248](https://github.com/vojtech-cerveny/excessus/commit/681c2480ea320a6a0493dc212f618f3285df2a3c))
+
+### Bug Fixes
+
+- remove restriction for selection ([e3dede5](https://github.com/vojtech-cerveny/excessus/commit/e3dede520cb2e2ca7d1a2f28ba5846a12d1deca3))
+
 ### [0.1.3](https://github.com/vojtech-cerveny/excessus/compare/v0.1.2...v0.1.3) (2024-03-07)
 
 ### Features
