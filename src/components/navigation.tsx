@@ -1,4 +1,5 @@
 "use client";
+import { countDaysFromJan1PlusOne } from "@/app/utils/date";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,8 +9,10 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { Separator } from "./ui/separator";
 
 export default function Navigation() {
   const { data: session } = useSession();
@@ -24,6 +27,14 @@ export default function Navigation() {
             </Link>
             <Link href="/days/today" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>Dnešní den</NavigationMenuLink>
+            </Link>
+            <Separator />
+            <Link href={"/ukony/"} legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Seznam týdnů</NavigationMenuLink>
+            </Link>
+            {/* TODO: add tests for this - if this works properly or not */}
+            <Link href={"/ukony/" + Math.floor(countDaysFromJan1PlusOne() / 7 + 1)} legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Týdenní úkony</NavigationMenuLink>
             </Link>
           </NavigationMenuContent>
         </NavigationMenuItem>

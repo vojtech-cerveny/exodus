@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/pagination";
 
 // TODO: Make it dynamic based on the number of days in the folder
-export function DayPagination({ currentPage, lastPage }: { currentPage: string; lastPage: number }) {
+export function UkonyPagination({ currentPage, lastPage }: { currentPage: string; lastPage: number }) {
   const isFirstPage = currentPage === "01";
   const isLastPage = parseInt(currentPage) === lastPage;
 
@@ -19,11 +19,11 @@ export function DayPagination({ currentPage, lastPage }: { currentPage: string; 
     <Pagination>
       <PaginationContent className="w-full justify-between">
         <PaginationItem className={isFirstPage ? "invisible" : ""}>
-          <PaginationPrevious href={`/days/${previousPage}`}> Předchozí den </PaginationPrevious>
+          <PaginationPrevious href={`/ukony/${previousPage}`}> Předchozí týden </PaginationPrevious>
         </PaginationItem>
 
         <PaginationItem className={isLastPage ? "invisible" : ""}>
-          <PaginationNext href={`/days/${nextPage}`}> Další den </PaginationNext>
+          <PaginationNext href={`/ukony/${nextPage}`}> Další týden </PaginationNext>
         </PaginationItem>
       </PaginationContent>
     </Pagination>
