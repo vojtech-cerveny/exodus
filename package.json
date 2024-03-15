@@ -14,7 +14,8 @@
     "deploy:local": "next build && pm2 startOrRestart ecosystem.config.js --env local",
     "deploy:dev": "next build && pm2 startOrRestart ecosystem.config.js --env dev",
     "deploy:prod": "next build && pm2 startOrRestart ecosystem.config.js --env prod",
-    "generateFiles": "npx ts-node src/app/data/text-to-md.ts"
+    "generateFiles": "npx ts-node src/app/data/text-to-md.ts",
+    "test": "jest"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.0.17",
@@ -62,6 +63,9 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -69,6 +73,8 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "jscpd": "^3.5.10",
     "lint-staged": "^15.2.0",
     "postcss": "^8",
@@ -78,6 +84,7 @@
     "prisma": "^5.8.1",
     "standard-version": "^9.5.0",
     "tailwindcss": "^3.3.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   },
   "lint-staged": {
