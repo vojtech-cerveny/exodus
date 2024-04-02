@@ -3,7 +3,7 @@
 import { ExclamationTriangleIcon, Pencil2Icon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Separator } from "./ui/separator";
+import { Separator } from "../ui/separator";
 
 export default function Footer() {
   const pathname = usePathname();

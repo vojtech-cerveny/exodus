@@ -16,11 +16,11 @@ import {
 } from "@/domain/brotherhood-invitation/brotherhood-invitation-action";
 import { getInvitationToken } from "@/domain/brotherhood-invitation/brotherhood-invitation-service";
 import { Share1Icon } from "@radix-ui/react-icons";
-import { CopyLink } from "./copy-link";
-import SubmitButton from "./submit-button";
-import { FormSwitch } from "./ui/form-switch";
-import { Label } from "./ui/label";
-import { Separator } from "./ui/separator";
+import { CopyLink } from "../copy-link";
+import SubmitButton from "../submit-button";
+import { FormSwitch } from "../ui/form-switch";
+import { Label } from "../ui/label";
+import { Separator } from "../ui/separator";
 
 export default async function BrotherhoodShareInvitation({ brotherhoodId }: { brotherhoodId: string }) {
   const invitation = await getInvitationToken(brotherhoodId);

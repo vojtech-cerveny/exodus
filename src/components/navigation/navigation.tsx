@@ -12,7 +12,7 @@ import {
 
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { Separator } from "./ui/separator";
+import { Separator } from "../ui/separator";
 
 export default function Navigation() {
   const { data: session } = useSession();

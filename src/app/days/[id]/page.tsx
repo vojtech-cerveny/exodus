@@ -1,13 +1,13 @@
-import { DayPagination } from "@/components/day-pagination";
-import ProgressUpdateCard from "@/components/progress-update-card";
-import Timer from "@/components/timer";
+import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
+import { DayPagination } from "@/components/days/day-pagination";
+import Timer from "@/components/days/timer";
 import { promises as fs } from "fs";
 import { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { notFound } from "next/navigation";
 import path from "path";
 import { auth } from "../../../../auth";
-import { DayFormatterMDX } from "../../../components/md-formatter";
+import { DayFormatterMDX } from "../../../components/days/day-formatter";
 
 export const metadata: Metadata = {
   title: "Exodus90 - Text na den",

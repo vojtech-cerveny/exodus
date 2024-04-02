@@ -9,9 +9,9 @@ import { SizeSwitcher } from "../components/size-switcher";
 import { ModeToggle } from "../components/theme-switcher";
 import "./globals.css";
 
-import Footer from "@/components/footer";
-import Navigation from "@/components/navigation";
-import ProgressUpdateCard from "@/components/progress-update-card";
+import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
+import Footer from "@/components/navigation/footer";
+import Navigation from "@/components/navigation/navigation";
 import { Toaster } from "@/components/ui/sonner";
 import moment from "moment";
 import "moment/locale/cs";

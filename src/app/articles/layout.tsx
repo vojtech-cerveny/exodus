@@ -1,4 +1,4 @@
-import Breadcrumb from "../../components/breadcrumb";
+import Breadcrumb from "../../components/navigation/breadcrumb";
 
 export default async function ArticleLayout({ children }: { children: React.ReactNode }) {
   return (

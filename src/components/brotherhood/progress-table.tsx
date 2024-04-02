@@ -10,7 +10,7 @@ import {
   QuestionMarkCircledIcon,
 } from "@radix-ui/react-icons";
 import moment from "moment";
-import { AvatarWithFallBack } from "./avatar";
+import { AvatarWithFallBack } from "../avatar";
 
 // TODO: This is kinda messy, but it works. Refactor it.
 export default async function ProgressTable({ brotherhoodId }: { brotherhoodId: string }) {

@@ -1,7 +1,7 @@
-import { BrotherhoodMembers } from "@/components/brotherhood-members";
-import BrotherhoodSettings from "@/components/brotherhood-settings";
-import BrotherhoodShareInvitation from "@/components/brotherhood-share-invitation";
-import ProgressTable from "@/components/progress-table";
+import { BrotherhoodMembers } from "@/components/brotherhood/brotherhood-members";
+import BrotherhoodSettings from "@/components/brotherhood/brotherhood-settings";
+import BrotherhoodShareInvitation from "@/components/brotherhood/brotherhood-share-invitation";
+import ProgressTable from "@/components/brotherhood/progress-table";
 import { H2 } from "@/components/typography";
 import { getBrotherhood } from "@/domain/brotherhood/brotherhood-service";
 import { notFound } from "next/navigation";

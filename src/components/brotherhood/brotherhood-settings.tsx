@@ -25,9 +25,9 @@ import {
 import { removeUserFromBrotherhoodAction } from "@/domain/brotherhood/brotherhood-action";
 import { getMembers, getUserByUserId } from "@/domain/brotherhood/brotherhood-service";
 import { GearIcon, TrashIcon } from "@radix-ui/react-icons";
-import { auth } from "../../auth";
-import { AvatarWithFallBack } from "./avatar";
-import SubmitButton from "./submit-button";
+import { auth } from "../../../auth";
+import { AvatarWithFallBack } from "../avatar";
+import SubmitButton from "../submit-button";
 
 export default async function BrotherhoodSettings({ brotherhoodId }: { brotherhoodId: string }) {
   return (

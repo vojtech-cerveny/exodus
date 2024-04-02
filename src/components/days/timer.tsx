@@ -21,7 +21,7 @@ import {
 } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { H3 } from "./typography";
+import { H3 } from "../typography";
 
 const svataHodina = [
   {

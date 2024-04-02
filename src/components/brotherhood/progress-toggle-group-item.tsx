@@ -1,8 +1,8 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Label } from "@radix-ui/react-label";
-import { Badge } from "./ui/badge";
-import { RadioGroupItem } from "./ui/radio-group";
+import { Badge } from "../ui/badge";
+import { RadioGroupItem } from "../ui/radio-group";
 
 type MoodVersion = "GOOD" | "NEUTRAL" | "SAD";
 

@@ -4,8 +4,8 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import React from "react";
 
-import { HighlightedTextMobile } from "./bookmarks/highlighted-text-mobile";
-import { H1, H2, H3 } from "./typography";
+import { HighlightedTextMobile } from "../bookmarks/highlighted-text-mobile";
+import { H1, H2, H3 } from "../typography";
 
 const components: MDXRemoteProps["components"] = {
   h1: (props: any) => <H1 {...props}>{props.children}</H1>,
