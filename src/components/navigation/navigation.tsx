@@ -25,17 +25,22 @@ export default function Navigation() {
             <Link href="/days" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>Seznam dní</NavigationMenuLink>
             </Link>
-            <Link href="/days/today" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Dnešní den</NavigationMenuLink>
-            </Link>
+            {countDaysFromJan1PlusOne() <= 91 && (
+              <Link href="/days/today" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Dnešní den</NavigationMenuLink>
+              </Link>
+            )}
+
             <Separator />
             <Link href={"/ukony/"} legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>Seznam týdnů</NavigationMenuLink>
             </Link>
             {/* TODO: add tests for this - if this works properly or not */}
-            <Link href={"/ukony/" + Math.floor(countDaysFromJan1PlusOne() / 7 + 1)} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Týdenní úkony</NavigationMenuLink>
-            </Link>
+            {countDaysFromJan1PlusOne() <= 91 && (
+              <Link href={"/ukony/" + Math.floor(countDaysFromJan1PlusOne() / 7 + 1)} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Týdenní úkony</NavigationMenuLink>
+              </Link>
+            )}
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>

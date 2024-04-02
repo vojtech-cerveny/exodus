@@ -22,8 +22,7 @@ export default function Home() {
             Exodus90 je 90 denní duchovní cvičení, které vám pomůže získat kontrolu nad svým životem. Toto cvičení
             zahrnuje modlitbu, půst, cvičení a studium. Připojte se k nám a zažijte svobodu, kterou vám Bůh chce dát.
           </p>
-
-          <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />
+          {countDaysFromJan1PlusOne() <= 91 && <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />}
         </div>
         <DownloadTextFiles />
       </main>
