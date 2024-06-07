@@ -10,8 +10,8 @@ import { auth } from "../../../../auth";
 import { DayFormatterMDX } from "../../../components/days/day-formatter";
 
 export const metadata: Metadata = {
-  title: "Exodus90 - Text na den",
-  description: "Best website ever",
+  title: "👑 Královské léto - Text na den",
+  description: "",
 };
 
 export default async function RemoteMdxPage({ params }: { params: { id: string } }) {
@@ -19,17 +19,17 @@ export default async function RemoteMdxPage({ params }: { params: { id: string }
   if (params.id.length === 1) {
     params.id = "0" + params.id;
   }
-  const files = await fs.readdir(path.join(process.cwd(), "src/app/data/days"), "utf-8");
+  const files = await fs.readdir(path.join(process.cwd(), "src/app/data/kralovske-leto/days"), "utf-8");
   try {
-    const filePath = path.join(process.cwd(), "src/app/data/days", `${params.id}.md`);
+    const filePath = path.join(process.cwd(), "src/app/data/kralovske-leto/days", `${params.id}.md`);
     const dayTextMd = await fs.readFile(filePath, "utf-8");
     return (
       <>
-        <DayPagination currentPage={params.id} lastPage={files.length} runType="exodus90" />
+        <DayPagination currentPage={params.id} lastPage={files.length} runType="kralovske-leto" />
         <SessionProvider basePath={"/api/auth"} session={session}>
           <DayFormatterMDX source={dayTextMd} />
         </SessionProvider>
-        <DayPagination currentPage={params.id} lastPage={files.length} runType="exodus90" />
+        <DayPagination currentPage={params.id} lastPage={files.length} runType="kralovske-leto" />
         <Timer audioSrc="/sounds/gong.mp3" />
         {session && (
           <div className="mb-4 flex items-center justify-center">

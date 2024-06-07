@@ -30,28 +30,32 @@ const components: MDXRemoteProps["components"] = {
     </Link>
   ),
   ol: ({ children }) => {
-    // Assuming 'children' is an array of 'li' components, transform them into the format expected by your Accordion
-    const array: { title: string; text: string }[] = [];
-    const items = React.Children.toArray(children).filter((item) => item !== "\n");
-    for (let i = 0; i < items.length; i = i + 2) {
-      array.push({
-        title: (items[i] as React.ReactElement).props.children.toString(),
-        text: (items[i + 1] as React.ReactElement).props.children.toString(),
-      });
-    }
+    try {
+      // Assuming 'children' is an array of 'li' components, transform them into the format expected by your Accordion
+      const array: { title: string; text: string }[] = [];
+      const items = React.Children.toArray(children).filter((item) => item !== "\n");
+      for (let i = 0; i < items.length; i = i + 2) {
+        array.push({
+          title: (items[i] as React.ReactElement).props.children.toString(),
+          text: (items[i + 1] as React.ReactElement).props.children.toString(),
+        });
+      }
 
-    return (
-      <Accordion type="single" collapsible className="w-full">
-        {array
-          .filter((item) => item.text !== "")
-          .map((item, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger>{item.title}</AccordionTrigger>
-              <AccordionContent>{item.text}</AccordionContent>
-            </AccordionItem>
-          ))}
-      </Accordion>
-    );
+      return (
+        <Accordion type="single" collapsible className="w-full">
+          {array
+            .filter((item) => item.text !== "")
+            .map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger>{item.title}</AccordionTrigger>
+                <AccordionContent>{item.text}</AccordionContent>
+              </AccordionItem>
+            ))}
+        </Accordion>
+      );
+    } catch (error) {
+      return <ol>{children}</ol>;
+    }
   },
   li: (props) => {
     // Instead of rendering an actual 'li', just pass the props through.

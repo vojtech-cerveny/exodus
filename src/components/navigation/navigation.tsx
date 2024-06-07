@@ -1,5 +1,5 @@
 "use client";
-import { countDaysFromJan1PlusOne } from "@/app/utils/date";
+import { countDaysFromDate, countDaysFromJan1PlusOne } from "@/app/utils/date";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -41,6 +41,21 @@ export default function Navigation() {
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Týdenní úkony</NavigationMenuLink>
               </Link>
             )}
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Královské léto</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <Link href="/kralovske-leto/" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Seznam dní</NavigationMenuLink>
+            </Link>
+            {countDaysFromDate("2024-06-09") <= 91 && (
+              <Link href="/kralovske-leto/today" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Dnešní den</NavigationMenuLink>
+              </Link>
+            )}
+
+            <Separator />
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>

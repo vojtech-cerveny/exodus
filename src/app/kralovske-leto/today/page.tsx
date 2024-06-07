@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 
-import { countDaysFromJan1PlusOne } from "@/app/utils/date";
+import { countDaysFromDate } from "@/app/utils/date";
 
 import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
 import { DayPagination } from "@/components/days/day-pagination";
@@ -16,27 +16,28 @@ import { auth } from "../../../../auth";
 import { DayFormatterMDX } from "../../../components/days/day-formatter";
 
 export const metadata: Metadata = {
-  title: "Exodus90 - Text na dnešek",
-  description: "Best website ever",
+  title: "👑 Královské léto - Text na den",
+  description: "",
 };
 
 export default async function RemoteMdxPage() {
   unstable_noStore();
   const session = await auth();
-  const today = countDaysFromJan1PlusOne();
-  const files = await fs.readdir(path.join(process.cwd(), "src/app/data/days"), "utf-8");
+  const today = countDaysFromDate("2024-06-09");
+  const files = await fs.readdir(path.join(process.cwd(), "src/app/data/kralovske-leto/days"), "utf-8");
+  const todayString = today < 10 ? `0${today}` : `${today}`;
   if (today > 91) {
     return <ExodusIsOver />;
   }
   try {
-    const filePath = path.join(process.cwd(), "src/app/data/days", `${today}.md`);
+    const filePath = path.join(process.cwd(), "src/app/data/kralovske-leto/days", `${todayString}.md`);
     const dayTextMd = await fs.readFile(filePath, "utf-8");
     return (
       <>
         <SessionProvider basePath={"/api/auth"} session={session}>
-          <DayPagination currentPage={`${today}`} lastPage={files.length} runType="exodus90" />
+          <DayPagination currentPage={todayString} lastPage={files.length} runType="kralovske-leto" />
           <DayFormatterMDX source={dayTextMd} />
-          <DayPagination currentPage={`${today}`} lastPage={files.length} runType="exodus90" />
+          <DayPagination currentPage={todayString} lastPage={files.length} runType="kralovske-leto" />
           <Timer audioSrc="/sounds/gong.mp3" />
           {session && (
             <div className="mb-4 flex items-center justify-center">
@@ -47,6 +48,7 @@ export default async function RemoteMdxPage() {
       </>
     );
   } catch (error) {
+    console.log(error);
     return notFound();
   }
 }
