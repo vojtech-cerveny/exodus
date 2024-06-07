@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/vojtech-cerveny/excessus/compare/v0.1.4...v0.1.5) (2024-06-07)
+
+### Features
+
+- condition if exodus is finished ([2437ad5](https://github.com/vojtech-cerveny/excessus/commit/2437ad5aeb831e5aa8950e60ea698b2d2d3d694a))
+- docker ([710b8dc](https://github.com/vojtech-cerveny/excessus/commit/710b8dc70c6a50cbaea94b77b3ea59cd1b2072a3))
+- intro jest ([e34779c](https://github.com/vojtech-cerveny/excessus/commit/e34779c9a72bb968483c4365d3d1895c37190ec5))
+- kralovske-leto ([1699c8a](https://github.com/vojtech-cerveny/excessus/commit/1699c8a40f7ee61a77d834c91b90c60aaf094654))
+- refactor structure ([fb205ec](https://github.com/vojtech-cerveny/excessus/commit/fb205ec77d5c9af5bac8382362c1bf827b050277))
+
 ### [0.1.4](https://github.com/vojtech-cerveny/excessus/compare/v0.1.3...v0.1.4) (2024-03-13)
 
 ### Features
