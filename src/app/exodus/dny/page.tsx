@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import { unstable_noStore } from "next/cache";
 import Link from "next/link";
-import { H1 } from "../../components/typography";
-import { countDaysFromJan1PlusOne } from "../utils/date";
+import { H1 } from "../../../components/typography";
+import { countDaysFromJan1PlusOne } from "../../utils/date";
 
 export const metadata: Metadata = {
   title: "Exodus90 - Texty na den",
@@ -41,7 +41,7 @@ export default async function RemoteMdxPage() {
                   "bg-green-200 hover:bg-green-300 dark:bg-green-800 dark:text-zinc-300 dark:hover:bg-green-700",
               )}
               key={index}
-              href={"/days/" + fileName}
+              href={"dny/" + fileName}
             >
               <div>{formattedFileName}</div>
             </Link>

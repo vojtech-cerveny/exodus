@@ -67,7 +67,7 @@ export default async function RemoteMdxPage() {
         {articles.map((article, index) => {
           // const fileName = file.replace(".md", "");
           return (
-            <Link href={"/articles/" + article.link} key={index}>
+            <Link href={"/articles" + article.link} key={index}>
               <Card className="hover:bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700">
                 <CardHeader className="pb-2">
                   <CardTitle>

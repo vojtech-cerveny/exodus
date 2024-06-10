@@ -25,16 +25,16 @@ export function DayPagination({
   const previousPage = parseInt(currentPage) - 1;
   const nextPage = parseInt(currentPage) + 1;
 
-  const run = runType === "kralovske-leto" ? "/kralovske-leto/" : "/days/";
+  const run = runType === "kralovske-leto" ? "/kralovske-leto/dny/" : "/exodus/dny/";
   return (
     <Pagination>
       <PaginationContent className="mb-6 w-full justify-between">
         <PaginationItem className={isFirstPage ? "invisible" : ""}>
-          <PaginationPrevious href={`${run}${previousPage}`}> Předchozí den </PaginationPrevious>
+          <PaginationPrevious href={`${previousPage}`}> Předchozí den </PaginationPrevious>
         </PaginationItem>
 
         <PaginationItem className={isLastPage ? "invisible" : ""}>
-          <PaginationNext href={`${run}${nextPage}`}> Další den </PaginationNext>
+          <PaginationNext href={`${nextPage}`}> Další den </PaginationNext>
         </PaginationItem>
       </PaginationContent>
     </Pagination>

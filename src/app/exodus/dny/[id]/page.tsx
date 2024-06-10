@@ -6,8 +6,8 @@ import { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { notFound } from "next/navigation";
 import path from "path";
-import { auth } from "../../../../auth";
-import { DayFormatterMDX } from "../../../components/days/day-formatter";
+import { auth } from "../../../../../auth";
+import { DayFormatterMDX } from "../../../../components/days/day-formatter";
 
 export const metadata: Metadata = {
   title: "Exodus90 - Text na den",
