@@ -2,7 +2,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import UserButton from "@/components/user-button";
 import { cn } from "@/lib/utils";
 import { GeistSans } from "geist/font/sans";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Link from "next/link";
 import { SizeSwitcher } from "../components/size-switcher";
@@ -74,6 +74,14 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+};
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
   return (
