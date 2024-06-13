@@ -1,4 +1,7 @@
 const withMDX = require("@next/mdx")();
+const withPWA = require("next-pwa")({
+  dest: "public",
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,4 +11,4 @@ const nextConfig = {
   // Optionally, add any other Next.js config below
 };
 
-module.exports = withMDX(nextConfig);
+module.exports = withPWA(withMDX(nextConfig));
