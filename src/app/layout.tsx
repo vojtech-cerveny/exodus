@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   openGraph: {
     description:
       "Exodus90 je 90 denní duchovní cvičení, které vám pomůže získat kontrolu nad svým životem. Toto cvičení zahrnuje modlitbu, půst, cvičení a studium. Připojte se k nám a zažijte svobodu, kterou vám Bůh chce dát.",
-    images: [{ url: "/icons/pwa/og.png", height: 630, width: 1200 }],
+    images: [{ url: "https://verici.dev/icons/pwa/og.png", height: 630, width: 1200 }],
   },
 };
 
