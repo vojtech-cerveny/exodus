@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
 const InstallPWAButton: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null);
@@ -30,12 +31,8 @@ const InstallPWAButton: React.FC = () => {
       setDeferredPrompt(null);
     }
   };
-
-  return (
-    <button onClick={handleInstallClick} style={{ display: deferredPrompt ? "block" : "none" }}>
-      Install Application
-    </button>
-  );
+  if (!deferredPrompt) return <></>;
+  return <Button onClick={handleInstallClick}>Instalovat aplikaci</Button>;
 };
 
 export default InstallPWAButton;
