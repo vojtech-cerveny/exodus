@@ -1,4 +1,5 @@
 import { DownloadTextFiles } from "@/components/download-text-files";
+import InstallPWAButton from "@/components/install-pwa-button";
 import { unstable_noStore } from "next/cache";
 import { Progress } from "../components/circle-progress";
 import { H2 } from "../components/typography";
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <main className="flex-1">
         <div className="flex h-full w-full max-w-2xl flex-col gap-2">
+          <InstallPWAButton />
           <H2>Uvolněte pouta svých faraónů</H2>
           <p className="py-4">
             Cítíte se vyčerpaní a uvěznění ve spirále moderních pokušení - jako je nekonečné procházení sociálních sítí,
