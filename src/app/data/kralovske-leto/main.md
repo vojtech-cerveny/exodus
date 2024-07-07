@@ -225,7 +225,7 @@ Naslouchejme dnes hlasu Páně.
 
 K čemu nás volá toto léto?
 
-**Jsme s Davidem, který se připravuje na královskou vládu. **Stejně jako Davidův nepřítel i váš úhlavní nepřítel, ďábel, byl poražen Boží milostí. Lenost je druh rozpolcenosti vůči duchovní kázni a povinnostem, zatímco lékem je bdělé svědomí.
+**Jsme s Davidem, který se připravuje na královskou vládu.** Stejně jako Davidův nepřítel i váš úhlavní nepřítel, ďábel, byl poražen Boží milostí. Lenost je druh rozpolcenosti vůči duchovní kázni a povinnostem, zatímco lékem je bdělé svědomí.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -269,7 +269,7 @@ Naslouchejme dnes hlasu Páně.
 
 K čemu nás volá toto léto?
 
-**Jsme s Davidem, který se připravuje na královskou vládu. **Stejně jako Davidův nepřítel i váš úhlavní nepřítel, ďábel, byl poražen Boží milostí. Lenost je druh rozpolcenosti vůči duchovní kázni a povinnostem, zatímco lékem je bdělé svědomí.
+**Jsme s Davidem, který se připravuje na královskou vládu.** Stejně jako Davidův nepřítel i váš úhlavní nepřítel, ďábel, byl poražen Boží milostí. Lenost je druh rozpolcenosti vůči duchovní kázni a povinnostem, zatímco lékem je bdělé svědomí.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -311,7 +311,7 @@ Naslouchejme dnes hlasu Páně.
 
 K čemu nás volá toto léto?
 
-**Jsme s Davidem, který se připravuje na královskou vládu. **Stejně jako Davidův nepřítel i váš úhlavní nepřítel, ďábel, byl poražen Boží milostí. Lenost je druh rozpolcenosti vůči duchovní kázni a povinnostem, zatímco lékem je bdělé svědomí.
+**Jsme s Davidem, který se připravuje na královskou vládu.**Stejně jako Davidův nepřítel i váš úhlavní nepřítel, ďábel, byl poražen Boží milostí. Lenost je druh rozpolcenosti vůči duchovní kázni a povinnostem, zatímco lékem je bdělé svědomí.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -399,7 +399,7 @@ Ptejme se: Kam dnes Pán vede mé kroky?
 
 Vyvarujme se duchovní lenosti a pýchy.
 
-**Jsme v Davidově paláci v Chebrónu. **Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
+**Jsme v Davidově paláci v Chebrónu.** Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -453,7 +453,7 @@ Ptejme se: Kam dnes Pán vede mé kroky?
 
 Vyvarujme se duchovní lenosti a pýchy.
 
-**Jsme v Davidově paláci v Chebrónu. **Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
+**Jsme v Davidově paláci v Chebrónu.** Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -504,7 +504,7 @@ Ptejme se: Kam dnes Pán vede mé kroky?
 
 Vyvarujme se duchovní lenosti a pýchy.
 
-**Jsme v Davidově paláci v Chebrónu. **Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
+**Jsme v Davidově paláci v Chebrónu.** Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -555,7 +555,7 @@ Ptejme se: Kam dnes Pán vede mé kroky?
 
 Vyvarujme se duchovní lenosti a pýchy.
 
-**Jsme v Davidově paláci v Chebrónu. **Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
+**Jsme v Davidově paláci v Chebrónu.** Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -609,7 +609,7 @@ Ptejme se: Kam dnes Pán vede mé kroky?
 
 Vyvarujme se duchovní lenosti a pýchy.
 
-**Jsme v Davidově paláci v Chebrónu. **Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
+**Jsme v Davidově paláci v Chebrónu.** Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -665,7 +665,7 @@ Ptejme se: Kam dnes Pán vede mé kroky?
 
 Vyvarujme se duchovní lenosti a pýchy.
 
-**Jsme v Davidově paláci v Chebrónu. **Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
+**Jsme v Davidově paláci v Chebrónu.** Okolo Davida bují násilí a hloupost. On však zůstává pevný, poněvadž neochvějně staví Boží slávu nad vlastní prospěch. I na nás se každodenně valí povinnosti a zahlcují nás různé vjemy, jež nás uvádějí ve zmatek. Nenechme se vtáhnou do jejich víru, nadále hledejme v modlitbě vůli Hospodina a prosme, aby vedl naše kroky.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -775,7 +775,7 @@ Předstupme před Pána, který nás dnes volá.
 
 Obstojíme před ním toto léto?
 
-**Sdílíme s Davidem okamžik jeho triumfu. **Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
+**Sdílíme s Davidem okamžik jeho triumfu.** Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -825,7 +825,7 @@ Předstupme před Pána, který nás dnes volá.
 
 Obstojíme před ním toto léto?
 
-**Sdílíme s Davidem okamžik jeho triumfu. **Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
+**Sdílíme s Davidem okamžik jeho triumfu.** Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -877,7 +877,7 @@ Předstupme před Pána, který nás dnes volá.
 
 Obstojíme před ním toto léto?
 
-**Sdílíme s Davidem okamžik jeho triumfu. **Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
+**Sdílíme s Davidem okamžik jeho triumfu.** Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -935,7 +935,7 @@ Předstupme před Pána, který nás dnes volá.
 
 Obstojíme před ním toto léto?
 
-**Sdílíme s Davidem okamžik jeho triumfu. **Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
+**Sdílíme s Davidem okamžik jeho triumfu.** Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1039,7 +1039,7 @@ Předstupme před Pána, který nás dnes volá.
 
 Obstojíme před ním toto léto?
 
-**Sdílíme s Davidem okamžik jeho triumfu. **Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
+**Sdílíme s Davidem okamžik jeho triumfu.** Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1095,7 +1095,7 @@ Předstupme před Pána, který nás dnes volá.
 
 Obstojíme před ním toto léto?
 
-**Sdílíme s Davidem okamžik jeho triumfu. **Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
+**Sdílíme s Davidem okamžik jeho triumfu.** Ač se hřích rozmáhá i v řadách jeho stoupenců, David zůstává spravedlivý, a to i vůči svým nepřátelům. Stává se králem nad celým Izraelem a za své nové hlavní město přijímá Jeruzalém.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1147,7 +1147,7 @@ Předstupme před Pána s radostí a vděčností.
 
 Ptejme se: Daří se mi rozpoznávat, kde se v mém životě prosazuje lenost či pýcha?
 
-**Jsme v Jeruzalémě a čekáme na Archu úmluvy. **David dobyl město Jeruzalém a naplňuje tak Boží zaslíbení dané izraelskému lidu. Propojuje královskou a kněžskou roli a snaží se do Jeruzaléma přenést Archu úmluvy, aby zde byl uctíván Hospodin. Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina citovanými v 25. kapitole knihy Exodus, chce David přepravu archy uspíšit. Následky jsou katastrofické a David od svého plánu upouští.
+**Jsme v Jeruzalémě a čekáme na Archu úmluvy.** David dobyl město Jeruzalém a naplňuje tak Boží zaslíbení dané izraelskému lidu. Propojuje královskou a kněžskou roli a snaží se do Jeruzaléma přenést Archu úmluvy, aby zde byl uctíván Hospodin. Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina citovanými v 25. kapitole knihy Exodus, chce David přepravu archy uspíšit. Následky jsou katastrofické a David od svého plánu upouští.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1206,7 +1206,7 @@ Předstupme před Pána s radostí a vděčností.
 
 Ptejme se: Daří se mi rozpoznávat, kde se v mém životě prosazuje lenost či pýcha?
 
-**Jsme v Jeruzalémě a čekáme na Archu úmluvy. **Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina, chce David běh událostí uspíšit. Následky jsou katastrofické.
+**Jsme v Jeruzalémě a čekáme na Archu úmluvy.** Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina, chce David běh událostí uspíšit. Následky jsou katastrofické.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1267,7 +1267,7 @@ Předstupme před Pána s radostí a vděčností.
 
 Ptejme se: Daří se mi rozpoznávat, kde se v mém životě prosazuje lenost či pýcha?
 
-**Jsme v Jeruzalémě a čekáme na Archu úmluvy. **Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina, chce David běh událostí uspíšit. Následky jsou katastrofické.
+**Jsme v Jeruzalémě a čekáme na Archu úmluvy.** Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina, chce David běh událostí uspíšit. Následky jsou katastrofické.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1322,7 +1322,7 @@ Předstupme před Pána s radostí a vděčností.
 
 Ptejme se: Daří se mi rozpoznávat, kde se v mém životě prosazuje lenost či pýcha?
 
-**Jsme v Jeruzalémě a čekáme na Archu úmluvy. **Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina, chce David běh událostí uspíšit. Následky jsou katastrofické.
+**Jsme v Jeruzalémě a čekáme na Archu úmluvy.** Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina, chce David běh událostí uspíšit. Následky jsou katastrofické.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1376,7 +1376,7 @@ Předstupme před Pána s radostí a vděčností.
 
 Ptejme se: Daří se mi rozpoznávat, kde se v mém životě prosazuje lenost či pýcha?
 
-**Jsme v Jeruzalémě a čekáme na Archu úmluvy. **Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina, chce David běh událostí uspíšit. Následky jsou katastrofické.
+**Jsme v Jeruzalémě a čekáme na Archu úmluvy.** Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina, chce David běh událostí uspíšit. Následky jsou katastrofické.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1486,7 +1486,7 @@ Předstupme před Pána s radostí a vděčností.
 
 Ptejme se: Daří se mi rozpoznávat, kde se v mém životě prosazuje lenost či pýcha?
 
-**Jsme v Jeruzalémě a čekáme na Archu úmluvy. **Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina, chce David běh událostí uspíšit. Následky jsou katastrofické.
+**Jsme v Jeruzalémě a čekáme na Archu úmluvy.** Dosud jsme sledovali příběh Davida jako velmi rozvážného a trpělivého vladaře, nyní však začne jednat zbrkle. Místo aby se řídil pokyny Hospodina, chce David běh událostí uspíšit. Následky jsou katastrofické.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1544,7 +1544,7 @@ Vstaňme a následujme tento den Pána.
 
 Ptejme se: Je pro mě toto léto obdobím duchovního pokroku nebo malátnosti?
 
-**Jsme v Jeruzalémě, novém hlavním městě Davidově. **David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
+**Jsme v Jeruzalémě, novém hlavním městě Davidově.** David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1594,7 +1594,7 @@ Vstaňme a následujme tento den Pána.
 
 Ptejme se: Je pro mě toto léto obdobím duchovního pokroku nebo malátnosti?
 
-**Jsme v Jeruzalémě, novém hlavním městě Davidově. **David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
+**Jsme v Jeruzalémě, novém hlavním městě Davidově.** David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1648,7 +1648,7 @@ Vstaňme a následujme tento den Pána.
 
 Ptejme se: Je pro mě toto léto obdobím duchovního pokroku nebo malátnosti?
 
-**Jsme v Jeruzalémě, novém hlavním městě Davidově. **David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
+**Jsme v Jeruzalémě, novém hlavním městě Davidově.** David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1752,7 +1752,7 @@ Vstaňme a následujme Pána i tento den.
 
 Ptejme se: Je pro mě toto léto obdobím duchovního pokroku nebo malátnosti?
 
-**Jsme v Jeruzalémě, novém hlavním městě Davidově. **David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
+**Jsme v Jeruzalémě, novém hlavním městě Davidově.** David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1808,7 +1808,7 @@ Vstaňme a následujme tento den Pána.
 
 Ptejme se: Je pro mě toto léto obdobím duchovního pokroku nebo malátnosti?
 
-**Jsme v Jeruzalémě, novém hlavním městě Davidově. **David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
+**Jsme v Jeruzalémě, novém hlavním městě Davidově.** David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -1860,7 +1860,7 @@ Vstaňme a následujme tento den Pána.
 
 Ptejme se: Je pro mě toto léto obdobím duchovního pokroku nebo malátnosti?
 
-**Jsme v Jeruzalémě, novém hlavním městě Davidově. **David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
+**Jsme v Jeruzalémě, novém hlavním městě Davidově.** David konečně získal Jeruzalém a kvapně se snaží učinil z něj Boží město. Bůh však dává přednost tomu, aby se David místo budování Hospodinova domu věnoval budování svého vlastního domu tím, že se stane dobrým otcem a manželem. Davida tento úkol zjevně nezajímá, zanedbává Hospodinovo povolání a vytváří tím živnou půdu pro budoucí problémy.
 
 Modlete se, aby vás Pán osvobodil od lenosti a přijali jste královské poslání, které vám svěřil.
 
@@ -2504,7 +2504,7 @@ _Ve jménu Otce i Syna i Ducha svatého. Amen._
 
 _Pane a Učiteli mého života, osvoboď mě od ducha lhostejnosti, zoufalství, touhy po moci a planého tlachání. Místo toho mě, svého služebníka, obdaruj duchem poctivosti, pokory, trpělivosti a lásky. Ano, Pane a Králi, dej, ať vidím své vlastní hříchy a nesoudím své bratry a sestry, neboť ty jsi požehnaný na věky věků. Amen._
 
-**Čtení z druhé knihy Samuelovy 13,31-39; 14,21-24 **
+**Čtení z druhé knihy Samuelovy 13,31-39; 14,21-24**
 
 _Král povstal, roztrhl svá roucha a vrhl se na zem. Všichni jeho služebníci stáli s roztrženými rouchy. [...] I truchlil David pro svého syna po všechny ty dny. Abšalóm uprchl a odešel do Gešúru a byl tam tři roky. [...] Král David upustil od tažení proti Abšalómovi, neboť Amnónovu smrt oželel. [...] I řekl král Jóabovi: „Hle, již jsem to zařídil. Jdi, přiveď mládence Abšalóma zpátky.“ [...] Jóab se hned odebral do Gešúru a přivedl Abšalóma do Jeruzaléma. Ale král nařídil: „Ať se uchýlí do svého domu. Moji tvář nespatří.“ Abšalóm se tedy uchýlil do svého domu a královu tvář nespatřil._
 
