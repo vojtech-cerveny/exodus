@@ -5,14 +5,14 @@
 Během tohoto duchovního cvičení má být examen konáno každý den. Následuje zjednodušená forma, jak dělat noční prohlídku/večerní zkoumání.
 
 1. Vzývejte/uvědomte si Boží přítomnost. Bůh je s vámi ve všem dobrém i zlém.
-2. Podívejte se na požehnání tohoto dne. To nelze přehlédnout. Pomalu si den projděte a uznejte, co vám Bůh v tomto dni dal (a uznávejte mnohá požehnání, která v něm na vás Pán vylil). (Viděl jsi dnes slunce? To je požehnání. Nadechl jsi se dnes? To je požehnání.)
-3. Uznejte/uznávejte své hříchy a nedostatky. Upřímně přezkoumejte a pojmenujte čas a místa, ve kterých jste nepřijali milost, kterou vám Pán dal. Důkladnost je zde důležitá.
-4. Učinit rozhodnutí a vyzvat Pána.
+1. Podívejte se na požehnání tohoto dne. To nelze přehlédnout. Pomalu si den projděte a uznejte, co vám Bůh v tomto dni dal (a uznávejte mnohá požehnání, která v něm na vás Pán vylil). (Viděl jsi dnes slunce? To je požehnání. Nadechl jsi se dnes? To je požehnání.)
+1. Uznejte/uznávejte své hříchy a nedostatky. Upřímně přezkoumejte a pojmenujte čas a místa, ve kterých jste nepřijali milost, kterou vám Pán dal. Důkladnost je zde důležitá.
+1. Učinit rozhodnutí a vyzvat Pána.
 
    - Rozhodněte se, že příští den znovu nespácháte stejné hříchy.
-   - Potom pros Pána, aby ti udělil dokonalou kajícnost a poskytl ti milosti, které potřebuješ , aby jsi mohl žít pro Něj úplně, zvláště ve chvílích, kdy víš, že jsi nejslabší.
+   - Potom pros Pána, aby ti udělil dokonalou kajícnost a poskytl ti milosti, které potřebuješ, aby jsi mohl žít pro Něj úplně, zvláště ve chvílích, kdy víš, že jsi nejslabší.
 
-5. Buďte naplněni nadějí a radostí. Pán je vděčný za váš závazek ke svobodě, k vaší rodině, neustálému obrácení/pokračující konverzi a k Němu. Touží po vašem posvěcení/vaší posvátnosti ještě více než vy. Zůstaňte klidní a vězte, že Bůh je s vámi.
+1. Buďte naplněni nadějí a radostí. Pán je vděčný za váš závazek ke svobodě, k vaší rodině, neustálému obrácení/pokračující konverzi a k Němu. Touží po vašem posvěcení/vaší posvátnosti ještě více než vy. Zůstaňte klidní a vězte, že Bůh je s vámi.
 
 ​
 Doporučujeme aplikaci Ignaciánský examen na mobil

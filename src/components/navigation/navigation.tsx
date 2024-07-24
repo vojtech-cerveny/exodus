@@ -37,8 +37,8 @@ export default function Navigation() {
                     <Image src={exodusIcon} alt="Edoxus icon" width={32} height={32} />
                     <div className="text-lg mb-2 mt-2 font-medium">Exodus 90</div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Exodus90 je 90 denní duchovní cvičení, které vám pomůže získat kontrolu nad svým životem. Toto
-                      cvičení zahrnuje modlitbu, půst, cvičení a studium.
+                      Exodus 90 je devadesátidenní duchovní cvičení pro muže založené na třech pilířích: modlitbě,
+                      askezi a bratrství. Všechny tři tyto pilíře jsou podstatnými aspekty křesťanského života.
                     </p>
                   </a>
                 </NavigationMenuLink>
@@ -58,14 +58,14 @@ export default function Navigation() {
                   </ListItem>
                   <ListItem
                     href={"/exodus/ukony/" + Math.floor(countDaysFromJan1PlusOne() / 7 + 1)}
-                    title="Aktuální úkony"
+                    title="Aktuální týdenní úkony"
                   >
                     Vždy zobrazuje aktuální úkony na týden.
                   </ListItem>
                 </>
               ) : (
                 <>
-                  <ListItem>Momentálně Exodus90 neběží. Zde uvidíš víc od 1.1.2024</ListItem>
+                  <ListItem>Momentálně Exodus90 neběží. Zde uvidíš víc od 25.9.2024</ListItem>
                 </>
               )}
             </ul>
@@ -111,7 +111,7 @@ export default function Navigation() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/articles" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Články</NavigationMenuLink>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Průvodce</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>

@@ -13,7 +13,7 @@ const components: MDXRemoteProps["components"] = {
     </h4>
   ),
   blockquote: (props: any) => (
-    <blockquote {...props} className="mt-4 italic lg:mt-6 lg:border-l-2 lg:pl-6 dark:border-l-gray-600">
+    <blockquote {...props} className="mt-4 italic md:mt-6 md:border-l-2 md:pl-6 dark:border-l-gray-600">
       {props.children}
     </blockquote>
   ),
@@ -24,10 +24,14 @@ const components: MDXRemoteProps["components"] = {
     </Link>
   ),
   ol: (props) => {
-    return <ol className="list-inside list-disc space-y-4 text-gray-500 dark:text-gray-400">{props.children}</ol>;
+    return (
+      <ol className="mt-4 list-outside list-decimal space-y-4 pl-4 text-gray-500 dark:text-gray-400">
+        {props.children}
+      </ol>
+    );
   },
   ul: (props) => {
-    return <ol className="mt-4 list-inside list-disc space-y-1 text-gray-500 dark:text-gray-400">{props.children}</ol>;
+    return <ul className="mt-4 list-inside list-disc space-y-4 text-gray-500 dark:text-gray-400">{props.children}</ul>;
   },
   // li: (props) => {
   //   // Instead of rendering an actual 'li', just pass the props through.

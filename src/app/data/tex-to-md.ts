@@ -132,7 +132,7 @@ fs.readFile("../../../public/files/exodus90.tex", "utf8", (err, data) => {
 
   splittedActivities = chunkArray(lines);
   for (let index = 0; index < splittedActivities.length; index++) {
-    splittedActivities[index].unshift("### Úkony (ukazatelé cesty)\n");
+    splittedActivities[index].unshift("### Týdenní aktivity (ukazatelé cesty)\n");
     splittedActivities[index].push(`
 #### Modlitba
 Modlete se, aby Pán osvobodil vás a vaše bratrství.

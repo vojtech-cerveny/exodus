@@ -37,13 +37,13 @@ export default async function RemoteMdxPage() {
       link: "/nocni-examen",
       badges: [badges.modlitba, badges.navod],
     },
-    {
-      id: 3,
-      title: "Týdenní setkání bratrsva",
-      description: "Zkrácená verze jak vést týdenní setkání - jen s nejnutnějšími body.",
-      link: "/tydenni-setkani-zkracena-verze",
-      badges: [badges.navod],
-    },
+    // {
+    //   id: 3,
+    //   title: "Týdenní setkání bratrsva",
+    //   description: "Zkrácená verze jak vést týdenní setkání - jen s nejnutnějšími body.",
+    //   link: "/tydenni-setkani-zkracena-verze",
+    //   badges: [badges.navod],
+    // },
     {
       id: 4,
       title: "Disciplíny",
