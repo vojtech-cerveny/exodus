@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import path from "path";
 import { getMarkdownData } from "../utils";
 
-export const dynamic = "force-static";
+// export const dynamic = "force-static";
 
 export default async function RemoteMdxPage({ params }: { params: { id: string } }) {
   if (params.id.length === 1) {

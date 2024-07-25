@@ -16,7 +16,7 @@ type ArticleMetaData = {
   link: string;
 };
 
-export const dynamic = "force-static";
+// export const dynamic = "force-static";
 
 export default async function RemoteMdxPage() {
   async function getFilesInFolder() {

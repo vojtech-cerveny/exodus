@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Best website ever",
 };
 
-export const dynamic = "force-static";
+// export const dynamic = "force-static";
 
 const firstDayText = `
 # Týdenní setkání
