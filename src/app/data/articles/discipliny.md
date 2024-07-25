@@ -1,3 +1,13 @@
+---
+title: "Disciplíny"
+date: 2024-07-25
+published: true
+slug: "exodus-90-discipliny"
+description: "Denní, týdenní a měsíční disciplíny pro duchovní cvičení Exodus 90."
+tags: ["navod", "discipliny"]
+# image: exodus_90_discipline.png
+---
+
 # Disciplíny
 
 Níže uvedené seznamy představují denní disciplíny Exodu 90. Tyto disciplíny spolupracují soudržně tak, aby pokryly mnoho různých oblastí lidského života. Pokud jsou z tohoto duchovního cvičení vynechány nějaké disciplíny, zejména každodenní četby a úvahy, toto cvičení přestává být tím, čím má být, a může mít dokonce negativní dopad na váš život. Můžete být v pokušení převzít kontrolu do svých rukou a pozměnit nebo úplně změnit disciplíny. Odolejte tomuto pokušení a místo toho se rozhodněte, že svůj způsob života změníte díky daru tohoto duchovního cvičení.

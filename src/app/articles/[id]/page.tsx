@@ -1,7 +1,9 @@
 import { ArticleMDX } from "@/components/article-formatter";
-import { promises as fs } from "fs";
 import { notFound } from "next/navigation";
 import path from "path";
+import { getMarkdownData } from "../utils";
+
+export const dynamic = "force-static";
 
 export default async function RemoteMdxPage({ params }: { params: { id: string } }) {
   if (params.id.length === 1) {
@@ -9,10 +11,10 @@ export default async function RemoteMdxPage({ params }: { params: { id: string }
   }
   try {
     const filePath = path.join(process.cwd(), "src/app/data/articles", `${params.id}.md`);
-    const dayTextMd = await fs.readFile(filePath, "utf-8");
+    const { content } = await getMarkdownData(filePath);
     return (
       <>
-        <ArticleMDX source={dayTextMd} />
+        <ArticleMDX source={content} />
       </>
     );
   } catch (error) {

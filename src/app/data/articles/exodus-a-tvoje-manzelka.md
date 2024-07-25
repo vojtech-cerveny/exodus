@@ -1,3 +1,13 @@
+---
+title: "Muž Exodus a jeho manželka"
+date: 2024-07-25
+published: true
+slug: "muz-exodus-a-jeho-manzelka"
+description: "Jak přežít a prožít Exodus90 s manželkou."
+tags: ["navod"]
+# image: exodus_90_discipline.png
+---
+
 # Muž Exodus a jeho manželka
 
 > „Muži, milujte své ženy, jako si Kristus zamiloval církev a sám se za ni obětoval.“ (Ef 5,25)

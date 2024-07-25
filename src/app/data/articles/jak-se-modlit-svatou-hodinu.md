@@ -1,3 +1,13 @@
+---
+title: "Jak se modlit denní svatou hodinu"
+date: 2024-07-25
+published: true
+slug: "jak-se-modlit-svatou-hodinu"
+description: "Jsi ztracen, jak se modlit svatou hodinu? Tady je jeden z možných cest jak na to."
+tags: ["navod"]
+# image: exodus_90_discipline.png
+---
+
 # Jak se modlit denní svatou hodinu
 
 Svatá hodina je čas vyhrazený/oddělený pro Boha. Je to čas intimity s Pánem, čas dívat se na Pána a dovolit mu dívat se na vás. Je to čas, kdy se můžete nechat formovat Kristem.

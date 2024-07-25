@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   description: "Best website ever",
 };
 
+export const dynamic = "force-static";
+
 export default async function RemoteMdxPage({ params }: { params: { id: string } }) {
   const session = await auth();
   if (params.id.length === 1) {
