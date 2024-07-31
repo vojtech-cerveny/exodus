@@ -12,7 +12,7 @@ type ArticleMetaData = {
   slug: string;
   description: string;
   tags: ["modlitba" | "discipliny" | "navod"];
-  id: number;
+  id: string;
   link: string;
 };
 
@@ -29,9 +29,13 @@ export default async function RemoteMdxPage() {
   const articlesMetaData: ArticleMetaData[] = await Promise.all(
     fileNames.map(async (file, index) => {
       const { data } = await getMarkdownData(process.cwd() + "/src/app/data/articles/" + file);
-      return { ...data, id: index, link: `/${file.replace(".md", "")}` };
+      return { ...data, link: `/${file.replace(".md", "")}` };
     }) as any,
   );
+
+  articlesMetaData.sort((a, b) => {
+    return Number.parseInt(a.id) - Number.parseInt(b.id);
+  });
 
   // FOR NOW JUST HARDCODED
   const badges = {
@@ -50,17 +54,22 @@ export default async function RemoteMdxPage() {
       color:
         "bg-orange-100 dark:bg-orange-950 border-orange-300 dark:border-orange-800 text-zinc-800 dark:text-zinc-400 hover:bg-orange-200 dark:hover:bg-orange-800",
     },
+    exodus90: {
+      text: "Exodus90",
+      color:
+        "bg-gray-100 dark:bg-gray-950 border-gray-300 dark:border-gray-800 text-zinc-800 dark:text-zinc-400 hover:bg-gray-200 dark:hover:bg-gray-800",
+    },
   };
 
   return (
     <div>
-      <H2>Články</H2>
+      <H2>Průvodce</H2>
       <div className="grid gap-4 pt-2 md:grid-cols-2">
         {articlesMetaData.map((article, index) => {
           // const fileName = file.replace(".md", "");
           return (
-            <Link href={"/articles" + article.link} key={index}>
-              <Card className="hover:bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700">
+            <Link href={"/articles" + article.link} key={index} className="h-full">
+              <Card className="h-full hover:bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700">
                 <CardHeader className="pb-2">
                   <CardTitle>
                     <p className="text-2xl font-black">{article.title}</p>

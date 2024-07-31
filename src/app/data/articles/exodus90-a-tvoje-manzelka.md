@@ -1,11 +1,14 @@
 ---
+id: 3
 title: "Muž Exodus a jeho manželka"
 date: 2024-07-25
 published: true
 slug: "muz-exodus-a-jeho-manzelka"
 description: "Jak přežít a prožít Exodus90 s manželkou."
-tags: ["navod"]
+tags: ["navod", "exodus90"]
 # image: exodus_90_discipline.png
+previousPage: "exodus90-pilire-exodu"
+previousPageText: "Pilíře Exodu"
 ---
 
 # Muž Exodus a jeho manželka

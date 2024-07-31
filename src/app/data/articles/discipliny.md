@@ -1,10 +1,11 @@
 ---
+id: 4
 title: "Disciplíny"
 date: 2024-07-25
 published: true
 slug: "exodus-90-discipliny"
-description: "Denní, týdenní a měsíční disciplíny pro duchovní cvičení Exodus 90."
-tags: ["navod", "discipliny"]
+description: "Výcuc - Denní, týdenní a měsíční disciplíny pro duchovní cvičení Exodus 90."
+tags: ["navod", "discipliny", "exodus90"]
 # image: exodus_90_discipline.png
 ---
 
