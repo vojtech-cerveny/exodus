@@ -27,16 +27,11 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED 1
 RUN docker compose -f docker-compose-db.yml up -d
-RUN apk add --no-cache bash
-RUN bash -c "
-  until pg_isready -h excessus-db -p 5432; do
-    sleep 1
-  done
-"
 
-
+RUN npx prisma db push
 RUN npx prisma generate
 RUN npx prisma migrate deploy
+
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
   elif [ -f package-lock.json ]; then npm run build; \
