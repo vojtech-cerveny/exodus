@@ -6,3 +6,24 @@ services:
     env_file: .env
     ports:
       - "3000:3000"
+    depends_on:
+      - excessus-db
+    command: >
+      sh -c "
+      npx prisma migrate deploy &&
+      npx prisma db push &&
+      npx prisma generate &&
+      node server.js
+      "
+  excessus-db:
+    container_name: excessus-db
+    image: postgres:14.1-alpine
+    restart: always
+
+    environment:
+      - POSTGRES_USER=excessus
+      - POSTGRES_PASSWORD=excessus
+    ports:
+      - "4242:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
