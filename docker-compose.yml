@@ -12,7 +12,6 @@ services:
       sh -c "
       npx prisma migrate deploy &&
       npx prisma db push &&
-      npx prisma generate &&
       node server.js
       "
   excessus-db:
