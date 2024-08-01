@@ -1,9 +1,19 @@
-version: "3.8"
 services:
+  exodus:
+    container_name: exodus
+    build: .
+    restart: always
+    env_file: .env
+    ports:
+      - "8080:8080"
+      - "3000:3000"
+    depends_on:
+      - excessus-db
   excessus-db:
     container_name: excessus-db
     image: postgres:14.1-alpine
     restart: always
+
     environment:
       - POSTGRES_USER=excessus
       - POSTGRES_PASSWORD=excessus
