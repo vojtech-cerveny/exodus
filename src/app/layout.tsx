@@ -16,6 +16,7 @@ import { Toaster } from "@/components/ui/sonner";
 import moment from "moment";
 import "moment/locale/cs";
 import { SessionProvider } from "next-auth/react";
+import Script from "next/script";
 import { auth } from "../../auth";
 
 moment.locale("cs");
@@ -95,6 +96,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       className={cn("w-full", "flex h-screen flex-col justify-between", myFont.variable)}
       suppressHydrationWarning
     >
+      <Script defer data-domain="plausible.ff0000.cz" src="https://plausible.ff0000.cz/js/script.js" />
+
       <body
         className={cn(
           "min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8 dark:bg-zinc-900 dark:text-zinc-400",
