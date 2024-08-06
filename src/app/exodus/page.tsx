@@ -1,3 +1,4 @@
+import { DownloadTextFiles } from "@/components/download-text-files";
 import { Metadata } from "next";
 import { unstable_noStore } from "next/cache";
 import { H1 } from "../../components/typography";
@@ -12,7 +13,7 @@ export default async function RemoteMdxPage() {
 
   return (
     <>
-      <H1>Exodus</H1>
+      <H1>Exodus90</H1>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
         Pokud cítíš, že bys potřeboval zapracovat nejen na svém byznysu a na zvýšení konta v bance, ale také na
         zvládnutí sebe sama, osvobodit se od svých malých závislostí, posílit svou identitu jako otce, manžela, nebo
@@ -32,6 +33,7 @@ export default async function RemoteMdxPage() {
         cvičení Exodus90.com. Naopak. Klademe si za cíl informovat a pomoci prožít mužům v České Republice tuto úžasnou
         zkušenost a podpořit tvůrce tohoto programu.
       </p>
+      <DownloadTextFiles />
     </>
   );
 }

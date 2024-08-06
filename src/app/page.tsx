@@ -1,4 +1,3 @@
-import { DownloadTextFiles } from "@/components/download-text-files";
 import InstallPWAButton from "@/components/install-pwa-button";
 import { unstable_noStore } from "next/cache";
 import { Progress } from "../components/circle-progress";
@@ -26,7 +25,6 @@ export default function Home() {
           </p>
           {countDaysFromJan1PlusOne() <= 91 && <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />}
         </div>
-        <DownloadTextFiles />
       </main>
     </>
   );
