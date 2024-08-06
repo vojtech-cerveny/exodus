@@ -1,5 +1,5 @@
 "use client";
-import { countDaysFromDate, countDaysFromJan1PlusOne } from "@/app/utils/date";
+import { getEventStatus } from "@/app/utils/date";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,16 +11,20 @@ import {
 } from "@/components/ui/navigation-menu";
 
 import { cn } from "@/lib/utils";
+import moment from "moment";
+import "moment/locale/cs";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import React from "react";
-import crownIcon from "../icons/crown.svg";
-import exodusIcon from "../icons/exodus.svg";
+import { CrownIcon, ExodusIcon } from "../icons/icons";
 
 export default function Navigation() {
   const { data: session } = useSession();
-  console.log("navigation session");
+  const { theme } = useTheme();
+  const exodus = getEventStatus("EXODUS");
+  const kralovskeLeto = getEventStatus("KRALOVSKE_LETO");
+
   return (
     <NavigationMenu>
       <NavigationMenuList className="flex flex-wrap">
@@ -34,7 +38,7 @@ export default function Navigation() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
                     href="/exodus"
                   >
-                    <Image src={exodusIcon} alt="Edoxus icon" width={32} height={32} />
+                    <ExodusIcon size={32} color={theme === "dark" ? "#FFFFFF" : "#1C274C"} />
                     <div className="text-lg mb-2 mt-2 font-medium">Exodus 90</div>
                     <p className="text-sm leading-tight text-muted-foreground">
                       Exodus 90 je devadesátidenní duchovní cvičení pro muže založené na třech pilířích: modlitbě,
@@ -43,29 +47,31 @@ export default function Navigation() {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/exodus/dny" title="Seznam dní">
-                Kolik toho máš za sebou a před sebou?
-              </ListItem>
 
-              {/* TODO: add tests for this - if this works properly or not */}
-              {countDaysFromJan1PlusOne() <= 91 ? (
+              {exodus.isRunning ? (
                 <>
                   <ListItem href="/exodus/today" title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
                   </ListItem>
+                  <ListItem href="/exodus/dny" title="Seznam dní">
+                    Kolik toho máš za sebou a před sebou?
+                  </ListItem>
                   <ListItem href="/exodus/ukony/" title="Týdenní úkony">
                     Seznam týdnů a úkony pro ně.
                   </ListItem>
-                  <ListItem
-                    href={"/exodus/ukony/" + Math.floor(countDaysFromJan1PlusOne() / 7 + 1)}
-                    title="Aktuální týdenní úkony"
-                  >
+                  <ListItem href={"/exodus/ukony/" + exodus.currentDays} title="Aktuální týdenní úkony">
                     Vždy zobrazuje aktuální úkony na týden.
                   </ListItem>
                 </>
               ) : (
                 <>
-                  <ListItem>Momentálně Exodus90 neběží. Zde uvidíš víc od 25.9.2024</ListItem>
+                  <ListItem href="/exodus/dny" title="Seznam dní">
+                    Kolik toho máš za sebou a před sebou?
+                  </ListItem>
+                  <ListItem>
+                    Momentálně Exodus90 neběží. Zde uvidíš víc {moment(exodus.startDate).fromNow()} (
+                    {moment(exodus.startDate).format("LL")})
+                  </ListItem>
                 </>
               )}
             </ul>
@@ -81,7 +87,7 @@ export default function Navigation() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
                     href="/kralovske-leto"
                   >
-                    <Image src={crownIcon} alt="Kralovske leto" width={32} height={32} />
+                    <CrownIcon size={32} color={theme === "dark" ? "#FFCB11" : "#1C274C"} />
                     <div className="text-lg mb-2 mt-2 font-medium">Královské léto</div>
                     <p className="text-sm leading-tight text-muted-foreground">
                       V duchovním životě je snadné polevit a zpohodlnět - zejména v letních měsících. Proto je zde
@@ -91,7 +97,7 @@ export default function Navigation() {
                 </NavigationMenuLink>
               </li>
               {/* TODO: add tests for this - if this works properly or not */}
-              {countDaysFromDate("2024-06-09") <= 91 ? (
+              {kralovskeLeto.isRunning ? (
                 <>
                   <ListItem href="/kralovske-leto/today" title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
@@ -100,7 +106,10 @@ export default function Navigation() {
               ) : (
                 <>
                   {" "}
-                  <ListItem>Momentálně Exodus90 neběží. Zde uvidíš víc od 1.1.2024</ListItem>
+                  <ListItem>
+                    Momentálně Královské léto neběží. Zde uvidíš víc od {moment(kralovskeLeto.startDate).fromNow()} (
+                    {moment(kralovskeLeto.startDate).format("LL")})
+                  </ListItem>
                 </>
               )}
               <ListItem href="/kralovske-leto/dny" title="Seznam dní">
