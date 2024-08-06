@@ -30,11 +30,11 @@ export function DayPagination({
     <Pagination>
       <PaginationContent className="mb-6 w-full justify-between">
         <PaginationItem className={isFirstPage ? "invisible" : ""}>
-          <PaginationPrevious href={`${previousPage}`}> Předchozí den </PaginationPrevious>
+          <PaginationPrevious href={`${run}${previousPage}`}> Předchozí den </PaginationPrevious>
         </PaginationItem>
 
         <PaginationItem className={isLastPage ? "invisible" : ""}>
-          <PaginationNext href={`${nextPage}`}> Další den </PaginationNext>
+          <PaginationNext href={`${run}${nextPage}`}> Další den </PaginationNext>
         </PaginationItem>
       </PaginationContent>
     </Pagination>

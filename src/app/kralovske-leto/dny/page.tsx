@@ -40,7 +40,7 @@ export default async function RemoteMdxPage() {
                   "bg-green-200 hover:bg-green-300 dark:bg-green-800 dark:text-zinc-300 dark:hover:bg-green-700",
               )}
               key={index}
-              href={"/kralovske-leto/" + fileName}
+              href={"/kralovske-leto/dny/" + fileName}
             >
               <div>{formattedFileName}</div>
             </Link>
