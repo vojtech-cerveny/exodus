@@ -34,7 +34,7 @@ export default function Navigation() {
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-4">
                 <NavigationMenuLink asChild>
-                  <a
+                  <Link
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
                     href="/exodus"
                   >
@@ -44,7 +44,7 @@ export default function Navigation() {
                       Exodus 90 je devadesátidenní duchovní cvičení pro muže založené na třech pilířích: modlitbě,
                       askezi a bratrství. Všechny tři tyto pilíře jsou podstatnými aspekty křesťanského života.
                     </p>
-                  </a>
+                  </Link>
                 </NavigationMenuLink>
               </li>
 
@@ -83,7 +83,7 @@ export default function Navigation() {
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
-                  <a
+                  <Link
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
                     href="/kralovske-leto"
                   >
@@ -93,10 +93,9 @@ export default function Navigation() {
                       V duchovním životě je snadné polevit a zpohodlnět - zejména v letních měsících. Proto je zde
                       Královské léto, které je duchovní cvičení, které vám pomůže získat kontrolu nad svým životem.
                     </p>
-                  </a>
+                  </Link>
                 </NavigationMenuLink>
               </li>
-              {/* TODO: add tests for this - if this works properly or not */}
               {kralovskeLeto.isRunning ? (
                 <>
                   <ListItem href="/kralovske-leto/today" title="Dnešní den">

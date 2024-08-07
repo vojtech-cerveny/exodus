@@ -1,12 +1,15 @@
 import InstallPWAButton from "@/components/install-pwa-button";
 import { unstable_noStore } from "next/cache";
 import { Progress } from "../components/circle-progress";
-import { H2 } from "../components/typography";
-import { countDaysFromJan1PlusOne } from "./utils/date";
+import { H2, H3 } from "../components/typography";
+import { constants } from "./constants";
+import { getEventStatus } from "./utils/date";
 
 export default function Home() {
   unstable_noStore();
-
+  const exodus = getEventStatus("EXODUS");
+  const krLeto = getEventStatus("KRALOVSKE_LETO");
+  console.log(krLeto);
   return (
     <>
       <main className="flex-1">
@@ -23,7 +26,18 @@ export default function Home() {
             Exodus90 je 90 denní duchovní cvičení, které vám pomůže získat kontrolu nad svým životem. Toto cvičení
             zahrnuje modlitbu, půst, cvičení a studium. Připojte se k nám a zažijte svobodu, kterou vám Bůh chce dát.
           </p>
-          {countDaysFromJan1PlusOne() <= 91 && <Progress progress={(countDaysFromJan1PlusOne() / 90) * 100} />}
+          {exodus.isRunning && (
+            <>
+              <H3>Právě běží Exodus90</H3>
+              <Progress progress={(exodus.currentDays / constants.EXODUS.DURATION) * 100} />
+            </>
+          )}
+          {krLeto.isRunning && (
+            <>
+              <H3 className="">Právě běží Královské léto</H3>
+              <Progress progress={(krLeto.currentDays / constants.KRALOVSKE_LETO.DURATION) * 100} />
+            </>
+          )}
         </div>
       </main>
     </>
