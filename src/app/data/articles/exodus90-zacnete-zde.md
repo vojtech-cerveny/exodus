@@ -8,6 +8,8 @@ description: "Vymezuje tři základní pilíře duchovního cvičení a další 
 tags: ["navod", "exodus90"]
 nextPage: "exodus90-pilire-exodu"
 nextPageText: "Pilíře Exodu"
+previousPage: "exodus90-vitejte-v-exodu"
+previousPageText: "Vítejte v Exodu 90"
 # image: exodus_90_discipline.png
 ---
 

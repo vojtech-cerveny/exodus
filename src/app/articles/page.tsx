@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { promises as fs } from "fs";
 import Link from "next/link";
@@ -37,7 +36,7 @@ export default async function RemoteMdxPage() {
     return Number.parseInt(a.id) - Number.parseInt(b.id);
   });
 
-  // FOR NOW JUST HARDCODED
+  // FOR NOW JUST HARDCODED and not used - but will be used in the future 🤷‍♂️
   const badges = {
     modlitba: {
       text: "Modlitba",
@@ -75,7 +74,7 @@ export default async function RemoteMdxPage() {
                     <p className="text-2xl font-black">{article.title}</p>
                   </CardTitle>
                   <CardDescription className="flex gap-2 pt-2">
-                    {article.tags?.map((tag) => {
+                    {/* {article.tags?.map((tag) => {
                       return (
                         <Badge
                           variant={"outline"}
@@ -85,7 +84,7 @@ export default async function RemoteMdxPage() {
                           {badges[tag].text}
                         </Badge>
                       );
-                    })}
+                    })} */}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

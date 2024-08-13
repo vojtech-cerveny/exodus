@@ -7,6 +7,10 @@ slug: "nocni-examen"
 description: "Noční zkoumání dne je způsob, jak popsat naše jednání (jak si projít naše činy) za celý den."
 tags: ["modlitba", "navod"]
 # image: exodus_90_discipline.png
+previousPage: "exodus90-jak-se-modlit-svatou-hodinu"
+previousPageText: "Jak se modlit svatou hodinu"
+nextPage: "exodus90-povzbuzeni-od-gridirona"
+nextPageText: "Povzbuzení od Gridirona"
 ---
 
 # Jak se modlit Examen - večerní zkoumání dne
