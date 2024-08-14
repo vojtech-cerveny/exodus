@@ -38,11 +38,10 @@ Svobodu najdou pouze ti, kteří žijí ve světle. Nedovolte pýše, aby vás n
 
 Během této sekce by měl vedoucí bratrstva zajistit čtyři věci:
 
-• Každý muž v bratrství sdílí přiměřeně, ale ne příliš.
-• Každý muž objevuje požehnání, která na něj Pán tento týden vylil.
-• Bratrské setkání zůstává bratrským setkáním a nemění se ve skupinovou terapii.
-• Bratrství zná Pánovo milosrdenství stejně, jako je známo Izraelitům v knize Exodus. Muži vytrvají nejlépe  
-v Pánově milosrdenství.
+- Každý muž v bratrství sdílí přiměřeně, ale ne příliš.
+- Každý muž objevuje požehnání, která na něj Pán tento týden vylil.
+- Bratrské setkání zůstává bratrským setkáním a nemění se ve skupinovou terapii.
+- Bratrství zná Pánovo milosrdenství stejně, jako je známo Izraelitům v knize Exodus. Muži vytrvají nejlépe v Pánově milosrdenství.
 
 _Více ke komunikaci ve skupince najdete zde:_ [_https://www.exodus90.cz/komunikace-ve-skupince_](https://www.exodus90.cz/komunikace-ve-skupince)
 
@@ -54,9 +53,9 @@ Vedoucí bratrstva by si měl vybrat jednu položku z denních úkonů týdne a 
 
 Vedoucí bratrstva by měl:
 
-• Ujistit se, že každý ví, kde a kdy je další bratrské setkání.
-• Připravit nebo delegovat nezbytné plány týkající se bratrských setkání či výletů.
-• Předložit jakékoli jiné záležitosti bratrstva: bratrskou mši, svatou hodinu, čas s duchovním vůdcem atd.
+- Ujistit se, že každý ví, kde a kdy je další bratrské setkání.
+- Připravit nebo delegovat nezbytné plány týkající se bratrských setkání či výletů.
+- Předložit jakékoli jiné záležitosti bratrstva: bratrskou mši, svatou hodinu, čas s duchovním vůdcem atd.
 
 Poznámka překladatele:
 

@@ -47,6 +47,7 @@ Během této sekce by měl vedoucí bratrstva zajistit čtyři věci:
 - Bratrství zná Pánovo milosrdenství stejně, jako je známo Izraelitům v knize Exodus. Muži vytrvají nejlépe 
 v Pánově milosrdenství.
 
+_Více ke komunikaci ve skupince najdete zde:_ [_https://www.exodus90.cz/komunikace-ve-skupince_](https://www.exodus90.cz/komunikace-ve-skupince)
 `;
 
 const secondDayText = `
