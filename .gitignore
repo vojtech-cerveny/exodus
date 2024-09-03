@@ -38,3 +38,11 @@ next-env.d.ts
 .env
 
 /public/*.js
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
