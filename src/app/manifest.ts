@@ -6,12 +6,12 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: "Exodus 90 CZ",
     icons: [
       {
-        src: "/icons/pwa/android-chrome-192x192.png",
+        src: "/icons/pwa/icon-192x192.png",
         sizes: "192x192",
         type: "image/png",
       },
       {
-        src: "/icons/pwa/android-chrome-384x384.png",
+        src: "/icons/pwa/icon-384x384.png",
         sizes: "384x384",
         type: "image/png",
       },

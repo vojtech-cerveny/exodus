@@ -9,7 +9,6 @@ export default function Home() {
   unstable_noStore();
   const exodus = getEventStatus("EXODUS");
   const krLeto = getEventStatus("KRALOVSKE_LETO");
-  console.log(krLeto);
   return (
     <>
       <main className="flex-1">

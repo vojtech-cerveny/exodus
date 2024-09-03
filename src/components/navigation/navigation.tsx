@@ -38,7 +38,7 @@ export default function Navigation() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
                     href="/exodus"
                   >
-                    <ExodusIcon size={32} color={theme === "dark" ? "#FFFFFF" : "#1C274C"} />
+                    <ExodusIcon size={48} color={theme === "dark" ? "#FFFFFF" : "#1C274C"} />
                     <div className="text-lg mb-2 mt-2 font-medium">Exodus 90</div>
                     <p className="text-sm leading-tight text-muted-foreground">
                       Exodus 90 je devadesátidenní duchovní cvičení pro muže založené na třech pilířích: modlitbě,
@@ -87,7 +87,7 @@ export default function Navigation() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
                     href="/kralovske-leto"
                   >
-                    <CrownIcon size={32} color={theme === "dark" ? "#FFCB11" : "#1C274C"} />
+                    <CrownIcon size={48} color={theme === "dark" ? "#FFCB11" : "#1C274C"} />
                     <div className="text-lg mb-2 mt-2 font-medium">Královské léto</div>
                     <p className="text-sm leading-tight text-muted-foreground">
                       V duchovním životě je snadné polevit a zpohodlnět - zejména v letních měsících. Proto je zde

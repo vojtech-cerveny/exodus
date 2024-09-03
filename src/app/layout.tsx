@@ -31,38 +31,33 @@ const myFont = localFont({
 
 export const metadata: Metadata = {
   title: "Exodus90",
-  description: "Ještě lepší a prémiovější verze než je Exodus90! 😂",
+  description: "Aplikace pro Exodus90 - Uvolněte pouta svých faraónů",
   icons: {
     icon: { url: "/icons/pwa/icon-512x512.png" },
     shortcut: ["/icons/pwa/icon-512x512.png"],
     apple: [
       {
-        url: "/icons/pwa/ios/64.png",
+        url: "/icons/pwa/icon-64x64.png",
         sizes: "64x64",
         type: "image/png",
       },
       {
-        url: "/icons/pwa/ios/120.png",
+        url: "/icons/pwa/icon-120x120.png",
         sizes: "120x120",
         type: "image/png",
       },
       {
-        url: "/icons/pwa/ios/152.png",
+        url: "/icons/pwa/icon-152x152.png",
         sizes: "152x152",
         type: "image/png",
       },
       {
-        url: "/icons/pwa/ios/512.png",
-        sizes: "512x512",
-        type: "image/png",
-      },
-      {
-        url: "/icons/pwa/ios/180.png",
+        url: "/icons/pwa/icon-180x180.png",
         sizes: "180x180",
         type: "image/png",
       },
       {
-        url: "/icons/pwa/ios/1024.png",
+        url: "/icons/pwa/icon-1024x1024.png",
         sizes: "1024x1024",
         type: "image/png",
       },
