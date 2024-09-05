@@ -9,7 +9,7 @@ interface FeedbackNotificationProps {
 }
 
 export function FeedbackNotification({ showDates, googleFormUrl }: FeedbackNotificationProps) {
-  const [showNotification, setShowNotification] = useState(true);
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     const now = new Date();
