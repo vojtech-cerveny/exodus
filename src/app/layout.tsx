@@ -96,8 +96,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
       <body className={cn(GeistSans.variable)}>
         <FeedbackNotification
-          showDates={["2024-09-01", "2024-09-02", "2024-09-03"]}
-          googleFormUrl="https://forms.google.com/your-form-url"
+          showDates={["2024-10-16", "2024-11-15", "2024-12-15"]}
+          googleFormUrl="https://docs.google.com/forms/d/e/1FAIpQLSdlyFqhLuHr0b-nf3_ztKmj1L_y_25NXtAfmwyOgoebUOWoYw/viewform?usp=sf_link"
         />
         <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8 dark:bg-zinc-900 dark:text-zinc-400 ">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
