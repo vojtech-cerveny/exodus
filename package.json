@@ -11,9 +11,6 @@
     "showDuplicates": "jscpd --pattern '/src/**/**' --ignore='**/*.md'",
     "prepare": "husky install",
     "release": "standard-version",
-    "deploy:local": "next build && pm2 startOrRestart ecosystem.config.js --env local",
-    "deploy:dev": "next build && pm2 startOrRestart ecosystem.config.js --env dev",
-    "deploy:prod": "next build && pm2 startOrRestart ecosystem.config.js --env prod",
     "generateFiles": "npx ts-node src/app/data/text-to-md.ts",
     "test": "jest"
   },
@@ -45,6 +42,7 @@
     "@radix-ui/react-toggle": "^1.0.3",
     "@radix-ui/react-toggle-group": "^1.0.4",
     "@radix-ui/react-tooltip": "^1.0.7",
+    "@sentry/nextjs": "^8.28.0",
     "@types/mdx": "^2.0.10",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

@@ -5,6 +5,7 @@ import { countDaysFromJan1PlusOne } from "@/app/utils/date";
 import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
 import { DayPagination } from "@/components/days/day-pagination";
 
+import { AppError, handleError } from "@/app/utils/handle-errors";
 import ExodusIsOver from "@/components/days/exodus-is-over";
 import Timer from "@/components/days/timer";
 import { Metadata } from "next";
@@ -28,9 +29,14 @@ export default async function RemoteMdxPage() {
   if (today > 91) {
     return <ExodusIsOver />;
   }
+  let dayTextMd;
   try {
     const filePath = path.join(process.cwd(), "src/app/data/days", `${today}.md`);
-    const dayTextMd = await fs.readFile(filePath, "utf-8");
+    try {
+      dayTextMd = await fs.readFile(filePath, "utf-8");
+    } catch (error) {
+      throw new AppError("FILE_NOT_FOUND", "Soubor s textem dneška nebyl nalezen");
+    }
     return (
       <>
         <SessionProvider basePath={"/api/auth"} session={session}>
@@ -47,6 +53,7 @@ export default async function RemoteMdxPage() {
       </>
     );
   } catch (error) {
+    await handleError(error);
     return notFound();
   }
 }

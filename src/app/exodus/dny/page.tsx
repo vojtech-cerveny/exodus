@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 
+import { AppError } from "@/app/utils/handle-errors";
 import { DownloadTextFiles } from "@/components/download-text-files";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
@@ -18,8 +19,11 @@ export default async function RemoteMdxPage() {
 
   async function getFilesInFolder() {
     const folderPath = process.cwd() + "/src/app/data/days/";
-    const files = await fs.readdir(folderPath);
-    return files;
+    try {
+      return await fs.readdir(folderPath);
+    } catch (error) {
+      throw new AppError("FOLDER_READ_ERROR", `Failed to read directory: ${folderPath}`);
+    }
   }
 
   return (
