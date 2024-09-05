@@ -12,22 +12,24 @@ export function FeedbackNotification({ showDates, googleFormUrl }: FeedbackNotif
   const [showNotification, setShowNotification] = useState(true);
 
   useEffect(() => {
-    const checkDate = () => {
-      const now = new Date();
-      const lastDismissedDate = localStorage.getItem("feedbackNotificationDismissed");
-      const lastShownDateIndex = parseInt(localStorage.getItem("feedbackNotificationLastShownIndex") || "-1", 10);
+    const now = new Date();
+    const lastDismissedDate = localStorage.getItem("feedbackNotificationDismissed");
+    const lastDismissed = lastDismissedDate ? new Date(lastDismissedDate) : null;
 
-      for (let i = lastShownDateIndex + 1; i < showDates.length; i++) {
-        const showDate = new Date(showDates[i]);
-        if (now >= showDate && (!lastDismissedDate || new Date(lastDismissedDate) < showDate)) {
-          setShowNotification(true);
-          localStorage.setItem("feedbackNotificationLastShownIndex", i.toString());
-          break;
-        }
+    // Find the current show date (if any)
+    const currentShowDate = showDates.find((date) => now >= new Date(date));
+
+    if (currentShowDate) {
+      const currentShowDateObj = new Date(currentShowDate);
+      // Show notification if it hasn't been dismissed or was dismissed before the current show date
+      if (!lastDismissed || lastDismissed < currentShowDateObj) {
+        setShowNotification(true);
+      } else {
+        setShowNotification(false);
       }
-    };
-
-    checkDate();
+    } else {
+      setShowNotification(false);
+    }
   }, [showDates]);
 
   const handleDismiss = () => {
