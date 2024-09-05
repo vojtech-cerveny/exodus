@@ -10,6 +10,7 @@ import { ModeToggle } from "../components/theme-switcher";
 import "./globals.css";
 
 import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
+import { FeedbackNotification } from "@/components/feedback-notification-bar";
 import Footer from "@/components/navigation/footer";
 import Navigation from "@/components/navigation/navigation";
 import { Toaster } from "@/components/ui/sonner";
@@ -93,34 +94,36 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     >
       <Script defer data-domain="verici.dev" src="https://plausible.ff0000.cz/js/script.js" />
 
-      <body
-        className={cn(
-          "min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8 dark:bg-zinc-900 dark:text-zinc-400",
-          GeistSans.variable,
-        )}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="flex flex-1 justify-end space-x-2 p-2">
-            <SizeSwitcher />
-            <ModeToggle />
-            <UserButton />
-          </div>
-
-          <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
-            <Link href="/">Exodus90</Link>
-          </h1>
-
-          <div className="mx-auto max-w-2xl">
-            <div className="mb-4 md:flex md:items-center md:justify-between">
-              <SessionProvider basePath={"/api/auth"} session={session}>
-                <Navigation />
-              </SessionProvider>
-              <ProgressUpdateCard />
+      <body className={cn(GeistSans.variable)}>
+        <FeedbackNotification
+          showDates={["2024-09-01", "2024-09-02", "2024-09-03"]}
+          googleFormUrl="https://forms.google.com/your-form-url"
+        />
+        <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8 dark:bg-zinc-900 dark:text-zinc-400 ">
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <div className="flex flex-1 justify-end space-x-2 p-2">
+              <SizeSwitcher />
+              <ModeToggle />
+              <UserButton />
             </div>
-            {children}
-            <Footer />
-          </div>
-        </ThemeProvider>
+
+            <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
+              <Link href="/">Exodus90</Link>
+            </h1>
+
+            <div className="mx-auto max-w-2xl">
+              <div className="mb-4 md:flex md:items-center md:justify-between">
+                <SessionProvider basePath={"/api/auth"} session={session}>
+                  <Navigation />
+                </SessionProvider>
+                <ProgressUpdateCard />
+              </div>
+              {children}
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </div>
+
         <Toaster />
       </body>
     </html>
