@@ -8,7 +8,7 @@ interface FeedbackNotificationProps {
   googleFormUrl: string;
 }
 
-export function FeedbackNotification({ showDates, googleFormUrl }: FeedbackNotificationProps) {
+export const FeedbackNotification: React.FC<FeedbackNotificationProps> = ({ showDates, googleFormUrl }) => {
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
@@ -16,17 +16,14 @@ export function FeedbackNotification({ showDates, googleFormUrl }: FeedbackNotif
     const lastDismissedDate = localStorage.getItem("feedbackNotificationDismissed");
     const lastDismissed = lastDismissedDate ? new Date(lastDismissedDate) : null;
 
-    // Find the current show date (if any)
-    const currentShowDate = showDates.find((date) => now >= new Date(date));
+    // Find the current or next show date
+    const currentOrNextShowDate = showDates.find((date) => {
+      const showDate = new Date(date);
+      return now >= showDate && (!lastDismissed || showDate > lastDismissed);
+    });
 
-    if (currentShowDate) {
-      const currentShowDateObj = new Date(currentShowDate);
-      // Show notification if it hasn't been dismissed or was dismissed before the current show date
-      if (!lastDismissed || lastDismissed < currentShowDateObj) {
-        setShowNotification(true);
-      } else {
-        setShowNotification(false);
-      }
+    if (currentOrNextShowDate) {
+      setShowNotification(true);
     } else {
       setShowNotification(false);
     }
@@ -55,4 +52,4 @@ export function FeedbackNotification({ showDates, googleFormUrl }: FeedbackNotif
       </div>
     </div>
   );
-}
+};
