@@ -53,14 +53,14 @@ export default function Navigation() {
                   <ListItem href="/exodus/today" title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
                   </ListItem>
+                  <ListItem href={"/exodus/ukony/" + exodus.currentDays} title="Aktuální týdenní úkony">
+                    Vždy zobrazuje aktuální úkony na týden.
+                  </ListItem>
                   <ListItem href="/exodus/dny" title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
                   <ListItem href="/exodus/ukony/" title="Týdenní úkony">
                     Seznam týdnů a úkony pro ně.
-                  </ListItem>
-                  <ListItem href={"/exodus/ukony/" + exodus.currentDays} title="Aktuální týdenní úkony">
-                    Vždy zobrazuje aktuální úkony na týden.
                   </ListItem>
                 </>
               ) : (
@@ -104,7 +104,6 @@ export default function Navigation() {
                 </>
               ) : (
                 <>
-                  {" "}
                   <ListItem>
                     Momentálně Královské léto neběží. Zde uvidíš víc od {moment(kralovskeLeto.startDate).fromNow()} (
                     {moment(kralovskeLeto.startDate).format("LL")})

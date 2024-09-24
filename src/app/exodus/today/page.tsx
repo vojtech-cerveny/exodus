@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 
-import { countDaysFromJan1PlusOne } from "@/app/utils/date";
+import { getEventStatus } from "@/app/utils/date";
 
 import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
 import { DayPagination } from "@/components/days/day-pagination";
@@ -24,14 +24,15 @@ export const metadata: Metadata = {
 export default async function RemoteMdxPage() {
   unstable_noStore();
   const session = await auth();
-  const today = countDaysFromJan1PlusOne();
+  const exodus = getEventStatus("EXODUS");
+  const formattedCurrentDays = exodus.currentDays < 10 ? `0${exodus.currentDays}` : `${exodus.currentDays}`;
   const files = await fs.readdir(path.join(process.cwd(), "src/app/data/days"), "utf-8");
-  if (today > 91) {
+  if (!exodus.isRunning) {
     return <ExodusIsOver />;
   }
   let dayTextMd;
   try {
-    const filePath = path.join(process.cwd(), "src/app/data/days", `${today}.md`);
+    const filePath = path.join(process.cwd(), "src/app/data/days", `${formattedCurrentDays}.md`);
     try {
       dayTextMd = await fs.readFile(filePath, "utf-8");
     } catch (error) {
@@ -40,9 +41,9 @@ export default async function RemoteMdxPage() {
     return (
       <>
         <SessionProvider basePath={"/api/auth"} session={session}>
-          <DayPagination currentPage={`${today}`} lastPage={files.length} runType="exodus90" />
+          <DayPagination currentPage={formattedCurrentDays} lastPage={files.length} runType="exodus90" />
           <DayFormatterMDX source={dayTextMd} />
-          <DayPagination currentPage={`${today}`} lastPage={files.length} runType="exodus90" />
+          <DayPagination currentPage={formattedCurrentDays} lastPage={files.length} runType="exodus90" />
           <Timer audioSrc="/sounds/gong.mp3" />
           {session && (
             <div className="mb-4 flex items-center justify-center">

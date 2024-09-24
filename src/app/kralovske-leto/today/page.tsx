@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 
-import { countDaysFromDate } from "@/app/utils/date";
+import { getEventStatus } from "@/app/utils/date";
 
 import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
 import { DayPagination } from "@/components/days/day-pagination";
@@ -23,21 +23,21 @@ export const metadata: Metadata = {
 export default async function RemoteMdxPage() {
   unstable_noStore();
   const session = await auth();
-  const today = countDaysFromDate("2024-06-09");
+  const krLeto = getEventStatus("KRALOVSKE_LETO");
   const files = await fs.readdir(path.join(process.cwd(), "src/app/data/kralovske-leto/days"), "utf-8");
-  const todayString = today < 10 ? `0${today}` : `${today}`;
-  if (today > 91) {
+  const formattedToday = krLeto.currentDays < 10 ? `0${krLeto.currentDays}` : `${krLeto.currentDays}`;
+  if (!krLeto.isRunning) {
     return <ExodusIsOver />;
   }
   try {
-    const filePath = path.join(process.cwd(), "src/app/data/kralovske-leto/days", `${todayString}.md`);
+    const filePath = path.join(process.cwd(), "src/app/data/kralovske-leto/days", `${formattedToday}.md`);
     const dayTextMd = await fs.readFile(filePath, "utf-8");
     return (
       <>
         <SessionProvider basePath={"/api/auth"} session={session}>
-          <DayPagination currentPage={todayString} lastPage={files.length} runType="kralovske-leto" />
+          <DayPagination currentPage={formattedToday} lastPage={files.length} runType="kralovske-leto" />
           <DayFormatterMDX source={dayTextMd} />
-          <DayPagination currentPage={todayString} lastPage={files.length} runType="kralovske-leto" />
+          <DayPagination currentPage={formattedToday} lastPage={files.length} runType="kralovske-leto" />
           <Timer audioSrc="/sounds/gong.mp3" />
           {session && (
             <div className="mb-4 flex items-center justify-center">
