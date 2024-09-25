@@ -127,31 +127,62 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
 
   const changeDuration = (value: string) => {
     let newParts: { time: number; title: string; description: string }[] = [];
+    const kontemplativniIndex = svataHodina.findIndex((part) => part.title === "Kontemplativní modlitba");
+
     switch (value) {
       case "hour":
         newParts = svataHodina;
         setDuration("hour");
         break;
       case "40minutes":
-        newParts = svataHodina.map((part) => ({
-          ...part,
-          time: Math.round((part.time / 60) * 40),
-        }));
+        newParts = adjustPartsForDuration(40 * 60, 20 * 60);
         setDuration("40minutes");
         break;
-      case "20minutes":
-        newParts = svataHodina.map((part) => ({
-          ...part,
-          time: Math.round((part.time / 60) * 20),
-        }));
-        setDuration("20minutes");
+      case "30minutes":
+        newParts = adjustPartsForDuration(30 * 60, 20 * 60);
+        setDuration("30minutes");
         break;
     }
+
     setParts(newParts);
     setTimeLeft(newParts[0].time);
     setCurrentIndex(0);
     setIsRunning(false);
     setStarted(false);
+  };
+
+  const adjustPartsForDuration = (totalDuration: number, kontemplativniDuration: number) => {
+    const kontemplativniIndex = svataHodina.findIndex((part) => part.title === "Kontemplativní modlitba");
+    const remainingTime = totalDuration - kontemplativniDuration;
+
+    let adjustedParts = svataHodina.map((part, index) => {
+      if (index === kontemplativniIndex) {
+        return { ...part, time: kontemplativniDuration };
+      } else {
+        const originalWeight =
+          part.time / svataHodina.reduce((sum, p, i) => (i !== kontemplativniIndex ? sum + p.time : sum), 0);
+        return { ...part, time: Math.round(remainingTime * originalWeight) };
+      }
+    });
+
+    // Round times to nearest 30 seconds
+    adjustedParts = adjustedParts.map((part) => ({
+      ...part,
+      time: Math.round(part.time / 30) * 30,
+    }));
+
+    // Adjust total time to match desired duration
+    const totalAdjustedTime = adjustedParts.reduce((sum, part) => sum + part.time, 0);
+    const difference = totalDuration - totalAdjustedTime;
+
+    if (difference !== 0) {
+      const indexToAdjust = adjustedParts.findIndex((part, index) => index !== kontemplativniIndex);
+      if (indexToAdjust !== -1) {
+        adjustedParts[indexToAdjust].time += difference;
+      }
+    }
+
+    return adjustedParts;
   };
 
   const formatTime = (seconds: number) => {
@@ -215,14 +246,16 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                 ) : (
                   <div>
                     <p>
-                      Tenhle časovač Tě provede svatou hodinou, bude Ti hlídat čas a nabídne Ti pomoct jak daný čas
+                      Tento časovač Tě provede svatou hodinou, bude Ti hlídat čas a nabídne Ti pomoct jak daný čas
                       strávit dle{" "}
                       <Link className="underline hover:no-underline" href={"/articles/jak-se-modlit-svatou-hodinu"}>
                         Jak se modlit svatou hodinu
                       </Link>
                       . Jakmile budeš připraven, klikni na tlačítko níže a začni.
                     </p>
-                    <p>Časovač pojede dokud nezmáčkneš stop tlačítko nebo dokud nedoběhne čas.</p>
+                    <div className="py-2 font-extrabold">
+                      Časovač pojede dokud nezmáčkneš stop tlačítko nebo dokud nedoběhne čas.
+                    </div>
                     <p>Tento panel můžeš minimalizovat a číst si texty na den.</p>
                     <hr className="m-4" />
                     <div className="flex items-center space-x-2">
@@ -234,29 +267,18 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                         <SelectContent>
                           <SelectItem value="hour">Hodinu</SelectItem>
                           <SelectItem value="40minutes">40 minut</SelectItem>
-                          <SelectItem value="20minutes">20 minut</SelectItem>
+                          <SelectItem value="30minutes">30 minut</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <hr className="m-4" />
-                    <H3>Části svaté hodiny</H3>
-                    {/* <Accordion type="single" collapsible>
-                      {parts.map((part, index) => {
-                        return (
-                          <AccordionItem value={`${index}`} key={index}>
-                            <AccordionTrigger>
-                              {part.title} - {formatTime(part.time)}
-                            </AccordionTrigger>
-                            <AccordionContent>{part.description}</AccordionContent>
-                          </AccordionItem>
-                        );
-                      })}
-                    </Accordion> */}
                   </div>
                 )}
-                <h2 className="text-center text-5xl font-bold tracking-tighter">{formatTime(timeLeft)}</h2>
-                <div className="mt-auto grid grid-cols-3 gap-2 py-4">
-                  <Button onClick={toggleTimer} variant="outline">
+                {started && <h2 className="text-center text-5xl font-bold tracking-tighter">{formatTime(timeLeft)}</h2>}
+                <div
+                  className={started ? "mt-auto grid grid-cols-3 gap-2 py-4 " : "mt-auto grid grid-cols-1 gap-2 py-4 "}
+                >
+                  <Button onClick={toggleTimer} variant={started ? "outline" : "default"}>
                     {isRunning ? (
                       <>
                         <PauseIcon />
