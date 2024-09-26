@@ -1,24 +1,24 @@
-name: Deployment
+# name: Deployment
 
-on:
-  push:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
 
-jobs:
-  deployment:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Echo version
-        run: echo ${{ github.sha }}
-      - name: Copy files
-        run: rm -rf .git && cd .. && cp -R exodus/ /home/akhserver
-      - name: Restart server
-        run: cd /home/akhserver/exodus/ && npm run deploy:prod
-        # add prisma migration
+# jobs:
+#   deployment:
+#     runs-on: self-hosted
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#       - name: Install dependencies
+#         run: npm install
+#       - name: Build
+#         run: npm run build
+#       - name: Echo version
+#         run: echo ${{ github.sha }}
+#       - name: Copy files
+#         run: rm -rf .git && cd .. && cp -R exodus/ /home/akhserver
+#       - name: Restart server
+#         run: cd /home/akhserver/exodus/ && npm run deploy:prod
+#         # add prisma migration
