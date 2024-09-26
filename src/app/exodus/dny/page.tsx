@@ -28,7 +28,7 @@ export default async function RemoteMdxPage() {
 
   return (
     <>
-      <H1>Exodus90 days</H1>
+      <H1>Exodus90 dny</H1>
       <div className="grid-flex grid grid-cols-5 flex-col gap-2 md:grid-cols-7">
         {(await getFilesInFolder()).map((file, index) => {
           const today = countDaysFromJan1PlusOne();

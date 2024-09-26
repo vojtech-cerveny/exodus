@@ -4,7 +4,7 @@ import { signIn, signOut } from "../../auth";
 export function SignIn({
   provider,
   withIcon = false,
-  text = "Sign in",
+  text = "Přihlaš se",
   ...props
 }: { provider?: string; withIcon?: boolean; text?: string } & React.ComponentPropsWithRef<typeof Button>) {
   return (
@@ -31,7 +31,7 @@ export function SignOut(props: React.ComponentPropsWithRef<typeof Button>) {
       }}
     >
       <Button variant="ghost" className="w-full p-0" {...props}>
-        Sign Out
+        Odhlásit se
       </Button>
     </form>
   );

@@ -127,7 +127,6 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
 
   const changeDuration = (value: string) => {
     let newParts: { time: number; title: string; description: string }[] = [];
-    const kontemplativniIndex = svataHodina.findIndex((part) => part.title === "Kontemplativní modlitba");
 
     switch (value) {
       case "hour":
@@ -279,15 +278,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                   className={started ? "mt-auto grid grid-cols-3 gap-2 py-4 " : "mt-auto grid grid-cols-1 gap-2 py-4 "}
                 >
                   <Button onClick={toggleTimer} variant={started ? "outline" : "default"}>
-                    {isRunning ? (
-                      <>
-                        <PauseIcon />
-                      </>
-                    ) : (
-                      <>
-                        <PlayIcon />
-                      </>
-                    )}
+                    {isRunning ? <PauseIcon /> : <PlayIcon />}
                   </Button>
                   <Button className={started ? "" : "hidden"} variant={"outline"} onClick={nextPart}>
                     <TrackNextIcon className="h-4 w-4" />
