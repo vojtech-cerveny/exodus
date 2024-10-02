@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/vojtech-cerveny/excessus/compare/v0.1.5...v0.1.6) (2024-10-02)
+
+### Features
+
+- new text examen ([23916c6](https://github.com/vojtech-cerveny/excessus/commit/23916c607a707c78b407e545a8aa494474348a5a))
+- notification bar ([cdb79da](https://github.com/vojtech-cerveny/excessus/commit/cdb79da8f4e64c5a27c736a4fc000bbb51b12f5c))
+- pruvodce texty ([77dd4a0](https://github.com/vojtech-cerveny/excessus/commit/77dd4a079554936e0e8a0d811e44f3d4b8ebf0d5))
+- PWA ([2526ecf](https://github.com/vojtech-cerveny/excessus/commit/2526ecf8f3323c29f32a3a99627854f509d83c7d))
+- sentry + fix for prisma migration ([d39f975](https://github.com/vojtech-cerveny/excessus/commit/d39f975955172be0f2b94aac884f0ecc1a4b2cdc))
+
+### Bug Fixes
+
+- adding form link + correct dates ([53c31a8](https://github.com/vojtech-cerveny/excessus/commit/53c31a82c7153de3f7d11095235b8e20dd9da4e8))
+- adding viewport ([28949dc](https://github.com/vojtech-cerveny/excessus/commit/28949dcb49c6437e0c860590638cf66af3c707a5))
+- change deploy position ([feb13ea](https://github.com/vojtech-cerveny/excessus/commit/feb13ea6788ff242aa12cc0d6c599d5d7e7873f7))
+- constants + icon color for dark theme ([294b1d0](https://github.com/vojtech-cerveny/excessus/commit/294b1d054a8146735a067baf6dbc1ee010bd4c04))
+- disable force-static for now ([8da1814](https://github.com/vojtech-cerveny/excessus/commit/8da1814091bc2fcd36748b3bcf7ba5c9077ae451))
+- docker ([2274a7d](https://github.com/vojtech-cerveny/excessus/commit/2274a7d94b1367f72e557b6f9b2c0145068cadf1))
+- domain plausible ([d199693](https://github.com/vojtech-cerveny/excessus/commit/d1996934e35ad8f3019b0a1823d5a80eb9d42dce))
+- fix error during changing theme for non-pwa apps ([e21d804](https://github.com/vojtech-cerveny/excessus/commit/e21d80408624541a5888ce6d67f61e9bb230dc19))
+- force-static ([d599fe7](https://github.com/vojtech-cerveny/excessus/commit/d599fe7bf5fa3a59bc7de8899726afbf30533369))
+- formating md files ([4cb56b7](https://github.com/vojtech-cerveny/excessus/commit/4cb56b75e64dd1f38370f0f4fd468b51393e6945))
+- kontemplativni modlitba is always 20minutes ([d128baf](https://github.com/vojtech-cerveny/excessus/commit/d128bafffbd56273b26b756581aecb4863ef8992))
+- more fixes! ([5e39697](https://github.com/vojtech-cerveny/excessus/commit/5e39697f9a6dfa9c6532aa0b345cfea7a2f0c696))
+- naming and some small fixes in texts ([97ca88d](https://github.com/vojtech-cerveny/excessus/commit/97ca88dd999517bb474e8dc8bcc1291e41887385))
+- og path ([df13457](https://github.com/vojtech-cerveny/excessus/commit/df13457a98b5fa8a26dd7447fa1349cdda868714))
+- path to days in kralovske-leto ([bf3bfc4](https://github.com/vojtech-cerveny/excessus/commit/bf3bfc4c6806d6acb2011558b879a3d74f558316))
+- pipeline after name change ([4130589](https://github.com/vojtech-cerveny/excessus/commit/41305895a6faec5a6dc3ba6071dd44d45c225ae7))
+- pwa ([50df7f2](https://github.com/vojtech-cerveny/excessus/commit/50df7f2a6a9acbb2774d1068b24290cb5d6d83f9))
+- pwa ([4ea77f4](https://github.com/vojtech-cerveny/excessus/commit/4ea77f44db6c1892aae4c6b425be227abb0dfc9e))
+- pwa theme change ([050722e](https://github.com/vojtech-cerveny/excessus/commit/050722ece59a4d0f50fb81b0d09cfb569bbecf8b))
+- remove port 8080 ([86126a2](https://github.com/vojtech-cerveny/excessus/commit/86126a2c677f8279b1230c270282e50d0a052913))
+- small ui changes + better data handling ([42c6c12](https://github.com/vojtech-cerveny/excessus/commit/42c6c12d3ff13eeaa7267f3354d48c59c52e8784))
+- split docker-images ([ab7af2d](https://github.com/vojtech-cerveny/excessus/commit/ab7af2d67669b4ac2c227a5eb5357625456e1629))
+- text tydenni setkani ([c0b2c79](https://github.com/vojtech-cerveny/excessus/commit/c0b2c79e2675cbad17fc8fd5d774be017c5f6410))
+- timer + small changes ([38dab5e](https://github.com/vojtech-cerveny/excessus/commit/38dab5e2296f065d9d4ad3ca6a3d3792d4e71afe))
+- updates for feedbackbar ([d2a3dac](https://github.com/vojtech-cerveny/excessus/commit/d2a3dac9430bfec1b1bdcb56f2aded21d27c64ee))
+- updates for feedbackbar ([d9fca5d](https://github.com/vojtech-cerveny/excessus/commit/d9fca5d4753d737924d30ea3a4cbb0c3e922970a))
+- updates for feedbackbar ([6e722b4](https://github.com/vojtech-cerveny/excessus/commit/6e722b4c1171f6a2719c6359fa124c8e3ad88e4f))
+
 ### [0.1.5](https://github.com/vojtech-cerveny/excessus/compare/v0.1.4...v0.1.5) (2024-06-07)
 
 ### Features
