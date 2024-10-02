@@ -12,12 +12,17 @@ export function ModeToggle() {
     if (theme === "dark") {
       setTheme("light");
       // for PWA
-      document.querySelector('meta[name="theme-color"]')!.setAttribute("content", "#000"); // Light theme color
-      document.querySelector('meta[name="background-color"]')!.setAttribute("content", "#fff"); // Light theme color
+      if (document.querySelector('meta[name="theme-color"]')) {
+        document.querySelector('meta[name="theme-color"]')!.setAttribute("content", "#000"); // Light theme color
+        document.querySelector('meta[name="background-color"]')!.setAttribute("content", "#fff"); // Light theme color
+      }
     } else {
       setTheme("dark");
-      document.querySelector('meta[name="theme-color"]')!.setAttribute("content", "#fff"); // Dark theme color
-      document.querySelector('meta[name="background-color"]')!.setAttribute("content", "#18181b");
+      // for PWA
+      if (document.querySelector('meta[name="theme-color"]')) {
+        document.querySelector('meta[name="theme-color"]')!.setAttribute("content", "#fff"); // Dark theme color
+        document.querySelector('meta[name="background-color"]')!.setAttribute("content", "#18181b");
+      }
     }
   };
   return (
