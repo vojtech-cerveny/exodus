@@ -19,11 +19,11 @@ export function UkonyPagination({ currentPage, lastPage }: { currentPage: string
     <Pagination>
       <PaginationContent className="w-full justify-between">
         <PaginationItem className={isFirstPage ? "invisible" : ""}>
-          <PaginationPrevious href={`/ukony/${previousPage}`}> Předchozí týden </PaginationPrevious>
+          <PaginationPrevious href={`/exodus/ukony/${previousPage}`}> Předchozí týden </PaginationPrevious>
         </PaginationItem>
 
         <PaginationItem className={isLastPage ? "invisible" : ""}>
-          <PaginationNext href={`/ukony/${nextPage}`}> Další týden </PaginationNext>
+          <PaginationNext href={`/exodus/ukony/${nextPage}`}> Další týden </PaginationNext>
         </PaginationItem>
       </PaginationContent>
     </Pagination>
