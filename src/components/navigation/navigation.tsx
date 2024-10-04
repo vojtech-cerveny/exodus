@@ -53,7 +53,10 @@ export default function Navigation() {
                   <ListItem href="/exodus/today" title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
                   </ListItem>
-                  <ListItem href={"/exodus/ukony/" + exodus.currentDays} title="Aktuální týdenní úkony">
+                  <ListItem
+                    href={"/exodus/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
+                    title="Aktuální týdenní úkony"
+                  >
                     Vždy zobrazuje aktuální úkony na týden.
                   </ListItem>
                   <ListItem href="/exodus/dny" title="Seznam dní">
