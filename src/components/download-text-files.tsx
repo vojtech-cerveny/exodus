@@ -6,7 +6,13 @@ export function DownloadTextFiles() {
   return (
     <div className="mt-4 flex flex-col gap-2">
       <Button>
-        <Link className="flex items-center" download prefetch={false} target="_blank" href="/files/exodus90.pdf">
+        <Link
+          className="plausible-event-name=exodus-90-download-pdf flex items-center"
+          download
+          prefetch={false}
+          target="_blank"
+          href="/files/exodus90.pdf"
+        >
           <FileTextIcon className="mr-2" />
           <span>PDF textů pro tisk</span>
         </Link>
@@ -14,7 +20,7 @@ export function DownloadTextFiles() {
 
       <Button>
         <Link
-          className="flex items-center"
+          className="plausible-event-name=exodus-90-download-epub flex items-center"
           download
           prefetch={false}
           target="_blank"
@@ -27,7 +33,7 @@ export function DownloadTextFiles() {
 
       <Button>
         <Link
-          className="flex items-center"
+          className="plausible-event-name=exodus-90-download-mobi flex items-center"
           download
           prefetch={false}
           target="_blank"
