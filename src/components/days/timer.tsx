@@ -7,6 +7,7 @@ import {
   DrawerDescription,
   DrawerFooter,
   DrawerHeader,
+  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -21,7 +22,7 @@ import {
 } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { H3 } from "../typography";
+import { Separator } from "../ui/separator";
 
 const svataHodina = [
   {
@@ -193,8 +194,8 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
       <Drawer>
         {started && (
           <div className="fixed  bottom-0 right-0 flex w-full flex-1 flex-grow items-center justify-center border-t border-zinc-200/30 bg-zinc-100/30 p-2  backdrop-blur transition-opacity duration-200 md:right-8 md:w-auto md:rounded-t md:border-l md:border-r dark:border-zinc-600/30 dark:bg-zinc-800/30">
-            <div className="md:flex-0 flex-1">
-              <DrawerTrigger className="left-0">
+            <div className="md:flex-0 flex-0">
+              <DrawerTrigger className="left-0" asChild>
                 <Button variant="ghost" size="icon">
                   <ChevronUpIcon className="h-4 w-4" />
                 </Button>
@@ -224,7 +225,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
             </div>
           </div>
         )}
-        <DrawerTrigger>
+        <DrawerTrigger asChild>
           {!started && (
             <div className="fixed bottom-0 right-12 flex items-center justify-center rounded-t border-l  border-r border-t border-zinc-200 bg-zinc-100/30 p-2 backdrop-blur-sm transition-opacity duration-200 dark:border-zinc-600 dark:bg-zinc-800/30">
               <Button className="py-4" variant={"outline"}>
@@ -234,31 +235,35 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
           )}
         </DrawerTrigger>
         <DrawerContent>
+          <DrawerTitle className="hidden">Svata hodina</DrawerTitle>
           <DrawerHeader>
             <DrawerDescription>
               <div className="mx-auto w-full max-w-sm">
                 {started ? (
                   <div>
-                    <H3>{parts[currentIndex].title}</H3>
-                    <p>{parts[currentIndex].description}</p>
+                    <div className="text-2xl font-bold tracking-tighter">{parts[currentIndex].title}</div>
+                    <div>{parts[currentIndex].description}</div>
                   </div>
                 ) : (
                   <div>
-                    <p>
+                    <div>
                       Tento časovač Tě provede svatou hodinou, bude Ti hlídat čas a nabídne Ti pomoct jak daný čas
                       strávit dle{" "}
-                      <Link className="underline hover:no-underline" href={"/articles/jak-se-modlit-svatou-hodinu"}>
+                      <Link
+                        className="underline hover:no-underline focus:outline-none focus:ring-1 focus:ring-ring"
+                        href={"/articles/jak-se-modlit-svatou-hodinu"}
+                      >
                         Jak se modlit svatou hodinu
                       </Link>
                       . Jakmile budeš připraven, klikni na tlačítko níže a začni.
-                    </p>
+                    </div>
                     <div className="py-2 font-extrabold">
                       Časovač pojede dokud nezmáčkneš stop tlačítko nebo dokud nedoběhne čas.
                     </div>
-                    <p>Tento panel můžeš minimalizovat a číst si texty na den.</p>
-                    <hr className="m-4" />
+                    <div>Tento panel můžeš minimalizovat a číst si texty na den.</div>
+                    <Separator className="m-4" />
                     <div className="flex items-center space-x-2">
-                      <p>Chci se modlit</p>
+                      <div>Chci se modlit</div>
                       <Select defaultValue={duration} onValueChange={changeDuration}>
                         <SelectTrigger className="w-[180px]">
                           <SelectValue placeholder="Theme" />
@@ -270,10 +275,12 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                         </SelectContent>
                       </Select>
                     </div>
-                    <hr className="m-4" />
+                    <Separator className="m-4" />
                   </div>
                 )}
-                {started && <h2 className="text-center text-5xl font-bold tracking-tighter">{formatTime(timeLeft)}</h2>}
+                {started && (
+                  <div className="text-center text-5xl font-bold tracking-tighter">{formatTime(timeLeft)}</div>
+                )}
                 <div
                   className={started ? "mt-auto grid grid-cols-3 gap-2 py-4 " : "mt-auto grid grid-cols-1 gap-2 py-4 "}
                 >
@@ -292,7 +299,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
           </DrawerHeader>
           <DrawerFooter>
             <DrawerClose>
-              <Button variant={"outline"} size={"sm"} className="fixed right-4 top-4 text-zinc-800 dark:text-zinc-200">
+              <Button variant={"outline"} size={"sm"} className="fixed right-4 top-4">
                 <Cross2Icon />
               </Button>
             </DrawerClose>

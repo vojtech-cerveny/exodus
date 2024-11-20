@@ -16,13 +16,14 @@ import { Label } from "@/components/ui/label";
 
 import createMemberProgressAction from "@/domain/brotherhood-progress/brotherhood-progress-action";
 import { getBrotherhoodsByUserId } from "@/domain/brotherhood/brotherhood-service";
+import { Cross2Icon, PlusIcon } from "@radix-ui/react-icons";
 import { auth } from "../../../auth";
 import SubmitButton from "../submit-button";
 import { Button } from "../ui/button";
 import { RadioGroup } from "../ui/radio-group";
 import { Textarea } from "../ui/textarea";
 
-export default async function ProgressUpdateCard() {
+export default async function ProgressUpdateCard({ variant = "full" }: { variant?: "small" | "full" }) {
   const session = await auth();
 
   if (!session) {
@@ -37,8 +38,16 @@ export default async function ProgressUpdateCard() {
 
   return (
     <Drawer>
-      <DrawerTrigger className="relative right-0">
-        <Button className="">Můj den</Button>
+      <DrawerTrigger asChild>
+        <>
+          {variant === "full" ? (
+            <Button className="">Můj den</Button>
+          ) : (
+            <Button size="icon" className="h-9 w-9">
+              <PlusIcon className="h-5 w-5" />
+            </Button>
+          )}
+        </>
       </DrawerTrigger>
       <DrawerContent>
         <form action={createMemberProgressAction}>
@@ -68,7 +77,7 @@ export default async function ProgressUpdateCard() {
                 </div>
                 <div className="items-left flex flex-col md:col-span-4 md:items-center">
                   <div className="items-left flex flex-col space-x-2 md:items-center">
-                    <p>Jak se mi dařila dnes modlitba?</p>
+                    <div>Jak se mi dařila dnes modlitba?</div>
                     <RadioGroup name="prayer" className="flex flex-row">
                       <ProgressToggleGroupItem mood="GOOD" name="prayer" />
                       <ProgressToggleGroupItem mood="NEUTRAL" name="prayer" />
@@ -77,7 +86,7 @@ export default async function ProgressUpdateCard() {
                   </div>
 
                   <div className="items-left flex flex-col space-x-2 md:items-center">
-                    <p>Jak bys ohodnotil den?</p>
+                    <div>Jak bys ohodnotil den?</div>
                     <RadioGroup name="overallMood" className="flex flex-row">
                       <ProgressToggleGroupItem mood="GOOD" name="overallMood" />
                       <ProgressToggleGroupItem mood="NEUTRAL" name="overallMood" />
@@ -97,10 +106,12 @@ export default async function ProgressUpdateCard() {
             </DrawerDescription>
           </DrawerHeader>
           <DrawerFooter>
-            <DrawerClose className="mx-auto flex w-full max-w-2xl flex-col items-center justify-center gap-2">
+            <div className="mx-auto flex w-full max-w-2xl flex-col items-center justify-center gap-2">
               <SubmitButton className="w-full">Uložit můj den</SubmitButton>
-              <Button type="reset" className="w-full" variant="outline">
-                Cancel
+            </div>
+            <DrawerClose>
+              <Button variant={"outline"} size={"sm"} className="fixed right-4 top-4">
+                <Cross2Icon />
               </Button>
             </DrawerClose>
           </DrawerFooter>

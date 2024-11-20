@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui//button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -23,33 +21,60 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import { removeUserFromBrotherhoodAction } from "@/domain/brotherhood/brotherhood-action";
-import { getMembers, getUserByUserId } from "@/domain/brotherhood/brotherhood-service";
+import { getBrotherhood, getMembers, getUserByUserId } from "@/domain/brotherhood/brotherhood-service";
 import { GearIcon, TrashIcon } from "@radix-ui/react-icons";
 import { auth } from "../../../auth";
 import { AvatarWithFallBack } from "../avatar";
 import SubmitButton from "../submit-button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { BrotherhoodSettingsForm } from "./brotherhood-settings-form";
 
 export default async function BrotherhoodSettings({ brotherhoodId }: { brotherhoodId: string }) {
+  const brotherhood = await getBrotherhood(brotherhoodId);
+  const session = await auth();
+
+  if (!brotherhood || brotherhood.createdBy !== session?.user?.id) {
+    return null;
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline">
-          <GearIcon />
+          <GearIcon className="h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="flex h-fit max-h-[90vh] min-h-[600px] flex-col border-muted">
         <DialogHeader>
-          <DialogTitle>Správa členů bratrstva</DialogTitle>
-          <DialogDescription></DialogDescription>
+          <DialogTitle>Nastavení bratrstva</DialogTitle>
+          <DialogDescription>Upravte nastavení bratrstva {brotherhood.name}</DialogDescription>
         </DialogHeader>
-        <Members brotherhoodId={brotherhoodId} />
-        <DialogFooter className="sm:justify-start">
-          <DialogClose asChild>
-            <Button type="button" variant="secondary">
-              Zavřít
-            </Button>
-          </DialogClose>
-        </DialogFooter>
+
+        <div className="flex flex-1 flex-col gap-4">
+          <Tabs defaultValue="general" className="flex flex-1 flex-col">
+            <TabsList className="mb-4 grid w-full grid-cols-2">
+              <TabsTrigger value="general">Obecné</TabsTrigger>
+              <TabsTrigger value="members">Členové</TabsTrigger>
+            </TabsList>
+
+            <div className="flex-1 overflow-y-auto">
+              <TabsContent value="general" className="mt-0 h-full">
+                <BrotherhoodSettingsForm
+                  brotherhoodId={brotherhoodId}
+                  userId={session.user.id}
+                  initialData={{
+                    description: brotherhood.description,
+                    visibility: brotherhood.visibility,
+                  }}
+                />
+              </TabsContent>
+
+              <TabsContent value="members" className="mt-0 h-full">
+                <Members brotherhoodId={brotherhoodId} />
+              </TabsContent>
+            </div>
+          </Tabs>
+        </div>
       </DialogContent>
     </Dialog>
   );
@@ -58,9 +83,18 @@ export default async function BrotherhoodSettings({ brotherhoodId }: { brotherho
 async function Members({ brotherhoodId }: { brotherhoodId: string }) {
   const allMembers = await getMembers(brotherhoodId);
 
+  if (allMembers?.members.length == 1 || allMembers == null) {
+    return (
+      <div className="flex h-[300px] flex-col items-center justify-center text-muted-foreground">
+        <p>Zatím zde nejsou žádní členové</p>
+        <p className="text-sm">Pozvěte členy do vašeho bratrstva</p>
+      </div>
+    );
+  }
+
   return (
     <>
-      {allMembers?.members.map((member, index) => (
+      {allMembers.members.map((member, index) => (
         <MemberDeleteRow key={index} brotherhoodId={brotherhoodId} userId={member.id} />
       ))}
     </>

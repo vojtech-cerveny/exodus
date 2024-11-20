@@ -7,7 +7,8 @@ import { getBrotherhood } from "@/domain/brotherhood/brotherhood-service";
 import { notFound } from "next/navigation";
 import { auth } from "../../../../auth";
 
-export default async function BrotherhoodDetailPage({ params }: { params: { id: string } }) {
+export default async function BrotherhoodDetailPage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const session = await auth();
 
   if (!session) {
@@ -24,6 +25,9 @@ export default async function BrotherhoodDetailPage({ params }: { params: { id: 
   return (
     <div>
       <H2>{brotherhood.name}</H2>
+      <div className="mt-1 text-sm text-gray-500">
+        {brotherhood.visibility ? "Veřejné bratrstvo" : "Soukromé bratrstvo"}
+      </div>
       <h2>{brotherhood.description}</h2>
       <div className="flex justify-between py-4">
         <BrotherhoodMembers members={brotherhood.members} />

@@ -10,13 +10,13 @@ export function ProgressToggleGroupItem({ mood, name }: { mood: MoodVersion; nam
   let style: string = "";
   switch (mood) {
     case "GOOD":
-      style = "bg-green-100 hover:bg-green-300";
+      style = "bg-green-500/80 hover:bg-green-500/90";
       break;
     case "NEUTRAL":
-      style = "bg-yellow-100 hover:bg-yellow-300";
+      style = "bg-yellow-500/80 hover:bg-yellow-500/90";
       break;
     case "SAD":
-      style = "bg-red-100 hover:bg-red-300";
+      style = "bg-red-500/80 hover:bg-red-500/90";
       break;
     default:
       break;

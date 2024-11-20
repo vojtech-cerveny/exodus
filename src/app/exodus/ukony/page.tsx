@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 
-import { countDaysFromJan1PlusOne } from "@/app/utils/date";
+import { getEventStatus } from "@/app/utils/date";
 import { H1 } from "@/components/typography";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
@@ -26,18 +26,19 @@ export default async function RemoteMdxPage() {
       <H1>Exodus90 týdenní úkony</H1>
       <div className="grid-flex grid grid-cols-5 flex-col gap-2 md:grid-cols-7">
         {(await getFilesInFolder()).map((file, index) => {
-          const today = countDaysFromJan1PlusOne();
+          const exodus = getEventStatus("EXODUS");
+          const today = exodus.currentDays;
           const fileName = file.replace(".md", "");
           const formattedFileName = fileName.startsWith("0") ? fileName.substring(1) : fileName;
 
           return (
             <Link
               className={cn(
-                "flex h-12 items-center justify-center rounded-md border border-zinc-300 underline hover:bg-zinc-100 md:no-underline dark:border-zinc-700 dark:bg-zinc-700 dark:hover:bg-zinc-600",
-                Math.floor(today / 7 + 1) > parseInt(formattedFileName) &&
-                  "border-zinc-300 bg-zinc-100 text-zinc-400 hover:bg-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-600 dark:hover:bg-zinc-700",
+                "flex h-12 items-center justify-center rounded-md border border-foreground/10 text-foreground/30 underline hover:border-foreground hover:text-foreground md:no-underline",
+                Math.floor(today / 7 + 1) < parseInt(formattedFileName) &&
+                  "border border-foreground/50 bg-background/10 text-foreground/50",
                 Math.floor(today / 7 + 1) == parseInt(formattedFileName) &&
-                  "bg-green-200 hover:bg-green-300 dark:bg-green-800 dark:text-zinc-300 dark:hover:bg-green-700",
+                  "border-green-500/45 bg-green-500/45 text-foreground hover:bg-green-500/55",
               )}
               key={index}
               href={"/exodus/ukony/" + fileName}

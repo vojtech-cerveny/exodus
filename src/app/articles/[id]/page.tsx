@@ -6,7 +6,8 @@ import { ArticlePagination } from "./article-pagination";
 
 // export const dynamic = "force-static";
 
-export default async function RemoteMdxPage({ params }: { params: { id: string } }) {
+export default async function RemoteMdxPage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   if (params.id.length === 1) {
     params.id = "0" + params.id;
   }

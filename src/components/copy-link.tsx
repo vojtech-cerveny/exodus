@@ -13,7 +13,7 @@ export function CopyLink({ link }: { link: string }) {
         <Label htmlFor="link" className="sr-only">
           Link
         </Label>
-        <Input id="link" defaultValue={link} readOnly value={link} />
+        <Input id="link" defaultValue={link} readOnly />
       </div>
       <Button type="submit" size="sm" className="px-3" onClick={() => handleCopyClick(link, "Link")}>
         <span className="sr-only">Copy</span>

@@ -34,7 +34,7 @@ export function MultiDialogTrigger<T>({
 
 export function MultiDialogContainer<T>({ value, children }: { value: T; children: React.ReactNode }) {
   const [opened] = useMultiDialog();
-  return opened === value ? children ?? null : null;
+  return opened === value ? (children ?? null) : null;
 }
 
 type Builder<T> = {

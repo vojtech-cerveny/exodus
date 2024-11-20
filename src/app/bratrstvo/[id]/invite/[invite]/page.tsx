@@ -1,4 +1,4 @@
-import { H1, H2 } from "@/components/typography";
+import { H2 } from "@/components/typography";
 import { Button } from "@/components/ui/button";
 import { acceptBrotherhoodInvitationAction } from "@/domain/brotherhood-invitation/brotherhood-invitation-action";
 import { getBrotherhoodInvitation } from "@/domain/brotherhood-invitation/brotherhood-invitation-service";
@@ -7,7 +7,8 @@ import { auth } from "../../../../../../auth";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default async function BrotherhoodInvitePage({ params }: { params: { id: string; invite: string } }) {
+export default async function BrotherhoodInvitePage(props: { params: Promise<{ id: string; invite: string }> }) {
+  const params = await props.params;
   const session = await auth();
 
   if (!session) {
@@ -29,12 +30,12 @@ export default async function BrotherhoodInvitePage({ params }: { params: { id: 
 
   return (
     <div>
-      <H1>Pozvánka do bratrsva</H1>
+      {/* <H1>Pozvánka do bratrsva</H1> */}
 
       <Card>
         <CardHeader>
           <CardTitle>
-            <H2>Pozvánka do bratrsva</H2>
+            <H2>Pozvánka do bratrstva</H2>
           </CardTitle>
           <CardDescription></CardDescription>
         </CardHeader>

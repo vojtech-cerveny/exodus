@@ -62,6 +62,7 @@ model Brotherhood {
   name                  String
   description           String?
   image                 String?
+  visibility            Boolean                 @default(false)
   members               User[]                  @relation("BrotherhoodMembers")
   BrotherhoodInvitation BrotherhoodInvitation[]
   createdBy             String?

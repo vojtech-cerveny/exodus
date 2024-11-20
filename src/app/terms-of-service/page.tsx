@@ -3,11 +3,10 @@ import { promises as fs } from "fs";
 import { notFound } from "next/navigation";
 import path from "path";
 
-export default async function PrivacyPage({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
+export default async function PrivacyPage(props: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+  const searchParams = await props.searchParams;
   try {
     const filePath = path.join(process.cwd(), `src/app/data/terms-of-service-${searchParams.lang}.md`);
     const dayTextMd = await fs.readFile(filePath, "utf-8");

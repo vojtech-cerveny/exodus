@@ -1,6 +1,7 @@
+import { Suspense } from "react";
 import { auth } from "../../auth";
 import { SignIn, SignOut } from "./auth-components";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { AvatarWithFallBack } from "./avatar";
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
@@ -13,14 +14,38 @@ import {
 export default async function UserButton() {
   const session = await auth();
   if (!session?.user) return <SignIn />;
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-          <Avatar className="h-8 w-8">
-            {session.user.image && <AvatarImage src={session.user.image} alt={session.user.name ?? ""} />}
-            <AvatarFallback>{session.user.email}</AvatarFallback>
-          </Avatar>
+        <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+          <Suspense
+            fallback={
+              <AvatarWithFallBack
+                user={{
+                  id: session.user.id,
+                  name: session.user.name ?? null,
+                  email: session.user.email ?? null,
+                  image: session.user.image ?? null,
+                  brotherhoodId: null,
+                  emailVerified: null,
+                }}
+                withTooltip={false}
+              />
+            }
+          >
+            <AvatarWithFallBack
+              user={{
+                id: session.user.id,
+                name: session.user.name ?? null,
+                email: session.user.email ?? null,
+                image: session.user.image ?? null,
+                brotherhoodId: null,
+                emailVerified: null,
+              }}
+              withTooltip={false}
+            />
+          </Suspense>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end" forceMount>

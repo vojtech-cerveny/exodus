@@ -93,18 +93,20 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       suppressHydrationWarning
     >
       <Script defer data-domain="verici.dev" src="https://plausible.ff0000.cz/js/script.js" />
-
-      <body className={cn(GeistSans.variable)}>
-        <FeedbackNotification
-          showDates={["2024-10-16", "2024-11-15", "2024-12-15"]}
-          googleFormUrl="https://docs.google.com/forms/d/e/1FAIpQLSdlyFqhLuHr0b-nf3_ztKmj1L_y_25NXtAfmwyOgoebUOWoYw/viewform?usp=sf_link"
-        />
-        <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8 dark:bg-zinc-900 dark:text-zinc-400 ">
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body className={cn(GeistSans.variable, "")}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <FeedbackNotification
+            showDates={["2024-10-16", "2024-11-15", "2024-12-15"]}
+            googleFormUrl="https://docs.google.com/forms/d/e/1FAIpQLSdlyFqhLuHr0b-nf3_ztKmj1L_y_25NXtAfmwyOgoebUOWoYw/viewform?usp=sf_link"
+          />
+          <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
             <div className="flex flex-1 justify-end space-x-2 p-2">
-              <SizeSwitcher />
-              <ModeToggle />
-              <UserButton />
+              <div className="flex items-center gap-2">
+                <ProgressUpdateCard variant="small" />
+                <SizeSwitcher />
+                <ModeToggle />
+                <UserButton />
+              </div>
             </div>
 
             <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
@@ -116,15 +118,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <SessionProvider basePath={"/api/auth"} session={session}>
                   <Navigation />
                 </SessionProvider>
-                <ProgressUpdateCard />
               </div>
               {children}
               <Footer />
             </div>
-          </ThemeProvider>
-        </div>
+          </div>
 
-        <Toaster />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -2,12 +2,22 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createBrotherhood, removeUserFromBrotherhood } from "./brotherhood-service";
+import {
+  addUserIntoBrotherhood,
+  createBrotherhood,
+  removeUserFromBrotherhood,
+  updateBrotherhood,
+} from "./brotherhood-service";
 
 export async function createBrotherhoodAction(userId: string, formData: FormData) {
+  console.log(formData);
+  const visibility = formData.get("visibility") === "on";
+  const description = formData.get("description") as string;
+
   const newBrotherhood = {
     name: formData.get("name") as string,
-    description: formData.get("description") as string,
+    description: description || undefined,
+    visibility,
   };
 
   const createdBrotherhood = await createBrotherhood(userId, newBrotherhood);
@@ -21,4 +31,22 @@ export async function removeUserFromBrotherhoodAction(userId: string, brotherhoo
   await removeUserFromBrotherhood(userId, brotherhoodId);
 
   revalidatePath("/bratrstvo/" + brotherhoodId);
+}
+
+export async function updateBrotherhoodAction(brotherhoodId: string, userId: string, formData: FormData) {
+  const visibility = formData.get("visibility") === "on";
+  const description = formData.get("description") as string;
+
+  await updateBrotherhood(brotherhoodId, userId, {
+    description: description || undefined,
+    visibility,
+  });
+
+  revalidatePath("/bratrstvo/" + brotherhoodId);
+}
+
+export async function joinBrotherhoodAction(userId: string, brotherhoodId: string) {
+  await addUserIntoBrotherhood(userId, brotherhoodId);
+  revalidatePath("/bratrstvo");
+  redirect("/bratrstvo/" + brotherhoodId);
 }

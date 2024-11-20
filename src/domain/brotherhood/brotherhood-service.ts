@@ -17,13 +17,21 @@ export async function getBrotherhood(id: string) {
   });
 }
 
-export async function createBrotherhood(userId: string, formData: { name: string; description: string }) {
-  const { name, description } = formData;
+export async function createBrotherhood(
+  userId: string,
+  formData: { name: string; description?: string; visibility: boolean },
+) {
+  const { name, description, visibility } = formData;
+
+  if (visibility && !description) {
+    throw new Error("Description is required for open brotherhoods");
+  }
 
   const brotherhood = await prisma.brotherhood.create({
     data: {
       name,
       description,
+      visibility,
       creator: {
         connect: {
           id: userId,
@@ -130,6 +138,51 @@ export async function getUserByUserId(userId: string) {
   return await prisma.user.findUnique({
     where: {
       id: userId,
+    },
+  });
+}
+
+export async function updateBrotherhood(
+  brotherhoodId: string,
+  userId: string,
+  formData: { description?: string; visibility?: boolean },
+) {
+  const brotherhood = await prisma.brotherhood.findUnique({
+    where: { id: brotherhoodId },
+  });
+
+  if (brotherhood?.createdBy !== userId) {
+    throw new Error("Only creator can update brotherhood settings");
+  }
+
+  const { description, visibility } = formData;
+
+  if (visibility && !description && !brotherhood.description) {
+    throw new Error("Description is required for open brotherhoods");
+  }
+
+  return await prisma.brotherhood.update({
+    where: { id: brotherhoodId },
+    data: {
+      description,
+      visibility,
+    },
+  });
+}
+
+export async function getOpenBrotherhoods(userId: string) {
+  return await prisma.brotherhood.findMany({
+    where: {
+      visibility: true,
+      members: {
+        none: {
+          id: userId,
+        },
+      },
+    },
+    include: {
+      creator: true,
+      members: true,
     },
   });
 }

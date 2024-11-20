@@ -61,7 +61,7 @@ Vedoucí bratrstva by si měl vybrat jednu položku z denních úkonů týdne a 
 ## 4. Jiné/ostatní záležitosti:
 
 <br />
-<span style={{background:'#60a5fa', padding: '0 10px',  'border-radius': '4px', color: "black"}}>​Vedoucí</span>
+<span style={{background:'#60a5fa', padding: '0 10px',  'borderRadius': '4px', color: "black"}}>​Vedoucí</span>
 
 Vedoucí bratrstva by měl:
 

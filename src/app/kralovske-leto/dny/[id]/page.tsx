@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   description: "",
 };
 
-export default async function RemoteMdxPage({ params }: { params: { id: string } }) {
+export default async function RemoteMdxPage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const session = await auth();
   if (params.id.length === 1) {
     params.id = "0" + params.id;

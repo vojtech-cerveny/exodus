@@ -3,10 +3,7 @@ export default function Breadcrumb({ pages }: { pages: { title: string; path: st
     <nav className="mb-4 flex" aria-label="Breadcrumb">
       <ol className="inline-flex items-center space-x-1 font-light md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
-          <a
-            href="/"
-            className="inline-flex items-center font-medium text-gray-700 hover:text-zinc-400 dark:text-gray-400 dark:hover:text-white"
-          >
+          <a href="/" className="inline-flex items-center font-medium">
             <svg
               className=" h-3 w-3"
               aria-hidden="true"
@@ -39,14 +36,11 @@ export default function Breadcrumb({ pages }: { pages: { title: string; path: st
                 </svg>
                 {/* {index != pages.length - 1 ? ( */}
                 {true ? (
-                  <a
-                    href={page.path}
-                    className=" font-medium text-gray-700 hover:underline md:ms-2 dark:text-gray-400 dark:hover:text-white"
-                  >
+                  <a href={page.path} className=" font-medium  hover:underline md:ms-2 ">
                     {page.title}
                   </a>
                 ) : (
-                  <span className=" font-medium text-gray-700  md:ms-2 dark:text-gray-400">{page.title}</span>
+                  <span className=" font-medium   md:ms-2 ">{page.title}</span>
                 )}
               </div>
             </li>

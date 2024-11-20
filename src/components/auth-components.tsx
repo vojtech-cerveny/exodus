@@ -14,8 +14,8 @@ export function SignIn({
         await signIn(provider);
       }}
     >
-      <Button {...props}>
-        {withIcon && <img src="/icons/google.svg" className="pr-4" />}
+      <Button variant="default" {...props}>
+        {withIcon && <img src="/icons/google.svg" className="mr-2 h-4 w-4 invert dark:invert-0" alt="Google logo" />}
         {text}
       </Button>
     </form>
@@ -25,6 +25,7 @@ export function SignIn({
 export function SignOut(props: React.ComponentPropsWithRef<typeof Button>) {
   return (
     <form
+      className="w-full"
       action={async () => {
         "use server";
         await signOut();

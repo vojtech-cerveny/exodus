@@ -28,7 +28,7 @@ export function BookmarkCard({ bookmark }: { bookmark: Bookmark | BookmarkWithUs
   };
   return (
     <>
-      <Card className="mt-4 flex border   ">
+      <Card className="mt-4 flex border">
         <div className=" grow gap-6 p-6">
           <div className="hidden lg:visible">
             <BookmarkFilledIcon className="h-8 w-8" />
@@ -52,13 +52,13 @@ export function BookmarkCard({ bookmark }: { bookmark: Bookmark | BookmarkWithUs
             <div className="mt-4 flex items-center gap-4">
               <div className="grid gap-1">
                 <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Poznámka</p>
-                <p className=" text-gray-500 dark:text-gray-400">{bookmark.note}</p>
+                <p>{bookmark.note}</p>
               </div>
             </div>
             <div className="mt-4 flex items-center gap-4">
               <div className="grid gap-1">
                 <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Odkaz</p>
-                <a href={"/days/" + bookmark.day} className="text-gray-500 dark:text-gray-400">
+                <a href={"/days/" + bookmark.day} className="">
                   Den {bookmark.day}
                 </a>
               </div>

@@ -24,9 +24,9 @@ export const config: NextAuthConfig = {
     strategy: "database",
   },
   // TODO: uncomment this when we have login page
-  // pages: {
-  //   signIn: "/auth/login",
-  // },
+  pages: {
+    signIn: "/login",
+  },
   callbacks: {
     session({ session, user }: { session: Session; user?: User }) {
       if (session.user && user) {
