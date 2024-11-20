@@ -35,9 +35,11 @@ const components: MDXRemoteProps["components"] = {
       const array: { title: string; text: string }[] = [];
       const items = React.Children.toArray(children).filter((item) => item !== "\n");
       for (let i = 0; i < items.length; i = i + 2) {
+        const title = items[i] as { props: { children: React.ReactNode } };
+        const text = items[i + 1] as { props: { children: React.ReactNode } };
         array.push({
-          title: (items[i] as React.ReactElement).props.children.toString(),
-          text: (items[i + 1] as React.ReactElement).props.children.toString(),
+          title: title.props.children?.toString() ?? "",
+          text: text.props.children?.toString() ?? "",
         });
       }
 
