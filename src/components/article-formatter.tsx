@@ -24,10 +24,10 @@ const components: MDXRemoteProps["components"] = {
     </Link>
   ),
   ol: (props) => {
-    return <ol className="mt-4 list-outside list-decimal space-y-4 pl-4">{props.children}</ol>;
+    return <ol className="mt-4 list-outside list-decimal space-y-4 pl-4">{props.children as React.ReactNode}</ol>;
   },
   ul: (props) => {
-    return <ul className="mt-4 list-inside list-disc space-y-4">{props.children}</ul>;
+    return <ul className="mt-4 list-inside list-disc space-y-4">{props.children as React.ReactNode}</ul>;
   },
   // li: (props) => {
   //   // Instead of rendering an actual 'li', just pass the props through.

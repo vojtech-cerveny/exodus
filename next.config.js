@@ -1,3 +1,4 @@
+const { withPayload } = require("@payloadcms/next/withPayload");
 const withMDX = require("@next/mdx")();
 const withPWA = require("next-pwa")({
   dest: "public",
@@ -11,7 +12,7 @@ const nextConfig = {
   // Optionally, add any other Next.js config below
 };
 
-module.exports = withPWA(withMDX(nextConfig));
+module.exports = withPayload(withPWA(withMDX(nextConfig)));
 
 // Injected content via Sentry wizard below
 
