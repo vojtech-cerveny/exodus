@@ -1,6 +1,6 @@
 "use client";
 
-import { useScreenDetector } from "@/app/hooks/useScreenDetector"; // Assuming a typo in 'useScreenDetektor'
+import { useScreenDetector } from "@/app/(app)/hooks/useScreenDetector"; // Assuming a typo in 'useScreenDetektor'
 import { handleCopyClick } from "@/lib/utils";
 import { BookmarkFilledIcon, CopyIcon } from "@radix-ui/react-icons";
 import { useState } from "react";

@@ -32,8 +32,9 @@ const components: MDXRemoteProps["components"] = {
   ol: ({ children }) => {
     try {
       // Assuming 'children' is an array of 'li' components, transform them into the format expected by your Accordion
+      // this is kinda hacky, but it works - typescript - children is of type React.ReactNode
       const array: { title: string; text: string }[] = [];
-      const items = React.Children.toArray(children).filter((item) => item !== "\n");
+      const items = React.Children.toArray(children as React.ReactNode).filter((item) => item !== "\n");
       for (let i = 0; i < items.length; i = i + 2) {
         const title = items[i] as { props: { children: React.ReactNode } };
         const text = items[i + 1] as { props: { children: React.ReactNode } };
@@ -56,7 +57,7 @@ const components: MDXRemoteProps["components"] = {
         </Accordion>
       );
     } catch (error) {
-      return <ol>{children}</ol>;
+      return <ol>{children as React.ReactNode}</ol>;
     }
   },
   li: (props) => {

@@ -1,5 +1,5 @@
 "use client";
-import { getEventStatus } from "@/app/utils/date";
+import { getEventStatus } from "@/app/(app)/utils/date";
 import { Button } from "@/components/ui/button";
 import { ChevronLeftIcon, HomeIcon } from "@radix-ui/react-icons";
 import moment from "moment";

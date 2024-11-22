@@ -1,5 +1,5 @@
 "use client";
-import { getEventStatus } from "@/app/utils/date";
+import { getEventStatus } from "@/app/(app)/utils/date";
 import {
   NavigationMenu,
   NavigationMenuContent,
