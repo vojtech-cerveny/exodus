@@ -130,7 +130,6 @@ export default function Navigation() {
         </NavigationMenuItem>
         {session && (
           <>
-            {console.log("session2")}
             <NavigationMenuItem>
               <Link href="/bratrstvo" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Bratrstvo</NavigationMenuLink>

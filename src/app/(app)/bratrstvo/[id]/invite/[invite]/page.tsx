@@ -2,8 +2,8 @@ import { H2 } from "@/components/typography";
 import { Button } from "@/components/ui/button";
 import { acceptBrotherhoodInvitationAction } from "@/domain/brotherhood-invitation/brotherhood-invitation-action";
 import { getBrotherhoodInvitation } from "@/domain/brotherhood-invitation/brotherhood-invitation-service";
+import { auth } from "@auth";
 import { redirect } from "next/navigation";
-import { auth } from "../../../../../../auth";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 

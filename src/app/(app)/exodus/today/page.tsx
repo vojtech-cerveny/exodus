@@ -6,12 +6,12 @@ import { DayPagination } from "@/components/days/day-pagination";
 import { DayFormatterMDX } from "@/components/days/day-formatter";
 import ExodusIsOver from "@/components/days/exodus-is-over";
 import Timer from "@/components/days/timer";
+import { auth } from "@auth";
 import { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { unstable_noStore } from "next/cache";
 import { notFound } from "next/navigation";
 import path from "path";
-import { auth } from "../../../../../auth";
 import { getEventStatus } from "../../utils/date";
 import { AppError, handleError } from "../../utils/handle-errors";
 

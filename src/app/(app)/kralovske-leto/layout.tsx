@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Breadcrumb from "../../components/navigation/breadcrumb";
+import Breadcrumb from "../../../components/navigation/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Exodus90",

@@ -1,6 +1,6 @@
 "use server";
+import { auth } from "@auth";
 import { revalidatePath } from "next/cache";
-import { auth } from "../../../auth";
 import { createMemberProgress } from "./brotherhood-progress-service";
 
 export default async function createMemberProgressAction(formData: FormData) {

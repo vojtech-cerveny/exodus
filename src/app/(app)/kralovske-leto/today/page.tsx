@@ -1,19 +1,18 @@
 import { promises as fs } from "fs";
 
-import { getEventStatus } from "@/app/utils/date";
-
 import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
 import { DayPagination } from "@/components/days/day-pagination";
 
+import { DayFormatterMDX } from "@/components/days/day-formatter";
 import ExodusIsOver from "@/components/days/exodus-is-over";
 import Timer from "@/components/days/timer";
+import { auth } from "@auth";
 import { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { unstable_noStore } from "next/cache";
 import { notFound } from "next/navigation";
 import path from "path";
-import { auth } from "../../../../auth";
-import { DayFormatterMDX } from "../../../components/days/day-formatter";
+import { getEventStatus } from "../../utils/date";
 
 export const metadata: Metadata = {
   title: "👑 Královské léto - Text na den",

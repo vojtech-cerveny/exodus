@@ -1,7 +1,7 @@
 import { SignIn } from "@/components/auth-components";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { auth } from "@auth";
 import { redirect } from "next/navigation";
-import { auth } from "../../../../auth";
 
 export default async function LoginPage() {
   const session = await auth();

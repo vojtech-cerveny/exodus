@@ -22,8 +22,8 @@ import {
 
 import { removeUserFromBrotherhoodAction } from "@/domain/brotherhood/brotherhood-action";
 import { getBrotherhood, getMembers, getUserByUserId } from "@/domain/brotherhood/brotherhood-service";
+import { auth } from "@auth";
 import { GearIcon, TrashIcon } from "@radix-ui/react-icons";
-import { auth } from "../../../auth";
 import { AvatarWithFallBack } from "../avatar";
 import SubmitButton from "../submit-button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";

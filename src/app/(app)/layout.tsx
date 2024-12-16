@@ -15,11 +15,11 @@ import Navigation from "@/components/navigation/navigation";
 import { SizeSwitcher } from "@/components/size-switcher";
 import { ModeToggle } from "@/components/theme-switcher";
 import { Toaster } from "@/components/ui/sonner";
+import { auth } from "@auth";
 import moment from "moment";
 import "moment/locale/cs";
 import { SessionProvider } from "next-auth/react";
 import Script from "next/script";
-import { auth } from "../../../auth";
 
 moment.locale("cs");
 // Font files can be colocated inside of `app`
