@@ -58,19 +58,19 @@ export default async function ProgressUpdateCard({ variant = "full" }: { variant
                 <div className="items-left col-span-2 flex flex-col justify-center space-y-4 pl-0 md:pl-4">
                   <div className="flex items-center space-x-2">
                     <Checkbox id="shower" name="shower" />
-                    <Label className=" font-medium leading-none" htmlFor="shower">
+                    <Label className="font-medium leading-none" htmlFor="shower">
                       Sprcha
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox id="exercise" name="exercise" />
-                    <Label className=" font-medium leading-none" htmlFor="exercise">
+                    <Label className="font-medium leading-none" htmlFor="exercise">
                       Cvičení
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox id="asceticism" name="asceticism" />
-                    <Label className=" font-medium leading-none" htmlFor="asceticism">
+                    <Label className="font-medium leading-none" htmlFor="asceticism">
                       Askeze
                     </Label>
                   </div>

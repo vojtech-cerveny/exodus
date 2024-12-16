@@ -47,7 +47,7 @@ export function HighlightedTextDesktop({ children }: { children: React.ReactNode
   }
 
   return (
-    <div className="selection:bg-gray-700 selection:text-gray-300 selection:dark:bg-gray-300  selection:dark:text-gray-700 ">
+    <div className="selection:bg-gray-700 selection:text-gray-300 selection:dark:bg-gray-300 selection:dark:text-gray-700">
       <MultiDialogProvider<dialogs>>
         {({ Trigger, Container }) => (
           <>

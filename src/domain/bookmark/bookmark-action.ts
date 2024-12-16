@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { createBookmark } from "./bookmark-service";
 
-export async function createBookmarkAction(formData: FormData) {
+export async function createBookmarkAction(formData: FormData): Promise<void> {
   const bookmarkSchema = z.object({
     userId: z.string(),
     day: z.number(),
@@ -24,12 +24,11 @@ export async function createBookmarkAction(formData: FormData) {
 
   if (!response.success) {
     console.error(response.error);
-    return false;
+    return;
   }
 
   const { userId, day, passage, sharedWithBrotherhood, type, note } = response.data;
   const bookmark = await createBookmark({ userId, day, passage, sharedWithBrotherhood, type, note });
   revalidatePath("/bookmarks");
   revalidatePath("/days");
-  return true;
 }
