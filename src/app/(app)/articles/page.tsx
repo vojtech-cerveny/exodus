@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { promises as fs } from "fs";
 import Link from "next/link";
-import { H2 } from "../../components/typography";
+import { H2 } from "../../../components/typography";
 import { getMarkdownData } from "./utils";
 
 type ArticleMetaData = {

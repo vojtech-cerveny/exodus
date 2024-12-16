@@ -18,9 +18,9 @@ export default function Footer() {
             </Link>
           </li>
           <li>
-            <a href="/terms-of-service?lang=cz" className="me-4 hover:underline md:me-6">
+            <Link href="/terms-of-service?lang=cz" className="me-4 hover:underline md:me-6">
               Podmínky užití
-            </a>
+            </Link>
           </li>
           <li>
             <a href="mailto:cervik49@gmail.com" className="me-4 flex gap-1 hover:underline">

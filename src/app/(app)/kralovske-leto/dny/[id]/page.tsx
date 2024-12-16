@@ -2,12 +2,12 @@ import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
 import { DayFormatterMDX } from "@/components/days/day-formatter";
 import { DayPagination } from "@/components/days/day-pagination";
 import Timer from "@/components/days/timer";
+import { auth } from "@auth";
 import { promises as fs } from "fs";
 import { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { notFound } from "next/navigation";
 import path from "path";
-import { auth } from "../../../../../auth";
 
 export const metadata: Metadata = {
   title: "👑 Královské léto - Text na den",

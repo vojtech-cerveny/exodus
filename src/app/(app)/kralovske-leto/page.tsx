@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 
 import { Metadata } from "next";
 import { unstable_noStore } from "next/cache";
-import { H1, H2, H3 } from "../../components/typography";
+import { H1, H2, H3 } from "../../../components/typography";
 
 export const metadata: Metadata = {
   title: "Královské léto",

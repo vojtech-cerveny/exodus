@@ -1,10 +1,10 @@
 import { promises as fs } from "fs";
 
+import { H1 } from "@/components/typography";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import { unstable_noStore } from "next/cache";
 import Link from "next/link";
-import { H1 } from "../../../components/typography";
 import { getEventStatus } from "../../utils/date";
 
 export const metadata: Metadata = {

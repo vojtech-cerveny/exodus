@@ -16,8 +16,8 @@ import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { createBrotherhoodAction, joinBrotherhoodAction } from "@/domain/brotherhood/brotherhood-action";
 import { getBrotherhoodsByUserId, getOpenBrotherhoods } from "@/domain/brotherhood/brotherhood-service";
+import { auth } from "@auth";
 import Link from "next/link";
-import { auth } from "../../../../auth";
 
 export default async function BrotherhoodPage() {
   const session = await auth();

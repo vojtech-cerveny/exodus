@@ -4,8 +4,8 @@ import BrotherhoodShareInvitation from "@/components/brotherhood/brotherhood-sha
 import ProgressTable from "@/components/brotherhood/progress-table";
 import { H2 } from "@/components/typography";
 import { getBrotherhood } from "@/domain/brotherhood/brotherhood-service";
+import { auth } from "@auth";
 import { notFound } from "next/navigation";
-import { auth } from "../../../../auth";
 
 export default async function BrotherhoodDetailPage(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;

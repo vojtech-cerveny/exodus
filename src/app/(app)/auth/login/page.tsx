@@ -1,7 +1,7 @@
 import { SignIn } from "@/components/auth-components";
 import LoginRegirect from "@/components/login-redirect";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { auth } from "../../../../auth";
+import { auth } from "@auth";
 
 // TODO: we need to update this page be super shiny
 export default async function LoginPage() {

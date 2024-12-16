@@ -1,5 +1,5 @@
+import { auth } from "@auth";
 import { Suspense } from "react";
-import { auth } from "../../auth";
 import { SignIn, SignOut } from "./auth-components";
 import { AvatarWithFallBack } from "./avatar";
 import { Button } from "./ui/button";

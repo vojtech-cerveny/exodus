@@ -16,8 +16,8 @@ import { Label } from "@/components/ui/label";
 
 import createMemberProgressAction from "@/domain/brotherhood-progress/brotherhood-progress-action";
 import { getBrotherhoodsByUserId } from "@/domain/brotherhood/brotherhood-service";
+import { auth } from "@auth";
 import { Cross2Icon, PlusIcon } from "@radix-ui/react-icons";
-import { auth } from "../../../auth";
 import SubmitButton from "../submit-button";
 import { Button } from "../ui/button";
 import { RadioGroup } from "../ui/radio-group";
