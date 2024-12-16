@@ -7,7 +7,7 @@ export default function Breadcrumb({ pages }: { pages: { title: string; path: st
         <li className="inline-flex items-center">
           <Link href="/" className="inline-flex items-center font-medium">
             <svg
-              className=" h-3 w-3"
+              className="h-3 w-3"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -38,11 +38,11 @@ export default function Breadcrumb({ pages }: { pages: { title: string; path: st
                 </svg>
                 {/* {index != pages.length - 1 ? ( */}
                 {true ? (
-                  <Link href={page.path} className=" font-medium  hover:underline md:ms-2 ">
+                  <Link href={page.path} className="font-medium hover:underline md:ms-2">
                     {page.title}
                   </Link>
                 ) : (
-                  <span className=" font-medium   md:ms-2 ">{page.title}</span>
+                  <span className="font-medium md:ms-2">{page.title}</span>
                 )}
               </div>
             </li>

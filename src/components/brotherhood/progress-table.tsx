@@ -22,7 +22,7 @@ export default async function ProgressTable({ brotherhoodId }: { brotherhoodId: 
         <table className="mb-6 w-full text-center text-gray-500 rtl:text-right dark:text-gray-400">
           <thead className="text-xs bg-gray-50 uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
             <tr className="m-4">
-              <th scope="col" className=" px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 <div className="flex justify-center">
                   <img src={`/icons/table-uzivatel.svg`} />
                 </div>
@@ -162,7 +162,7 @@ function statusToIcon(status: string) {
       );
     case "SAD":
       return (
-        <Badge variant="default" className=" w-max max-w-max bg-red-100 hover:bg-red-300">
+        <Badge variant="default" className="w-max max-w-max bg-red-100 hover:bg-red-300">
           <img className="h-6 w-6" src={`/icons/mood-${status.toLocaleLowerCase()}.svg`} />
         </Badge>
       );

@@ -1,5 +1,5 @@
 "use client";
-import { countDaysFromJan1PlusOne } from "@/app/utils/date";
+import { countDaysFromJan1PlusOne } from "@/app/(app)/utils/date";
 import { DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { createBookmarkAction } from "@/domain/bookmark/bookmark-action";
 import { useSession } from "next-auth/react";
@@ -12,9 +12,13 @@ export function CreateBookmarkContent({ selection }: { selection: string }) {
   const { data: session } = useSession();
   const today = countDaysFromJan1PlusOne();
 
+  const handleSubmit = async (formData: FormData) => {
+    await createBookmarkAction(formData);
+  };
+
   return (
     <DialogContent className="rounded-md">
-      <form action={createBookmarkAction} className="">
+      <form action={handleSubmit} className="">
         <DialogHeader>
           <DialogTitle>Vytvořit záložku</DialogTitle>
           <DialogDescription>

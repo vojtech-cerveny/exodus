@@ -18,7 +18,7 @@ export function BrotherhoodMembers({
   }
 
   return (
-    <div className="flex  gap-2">
+    <div className="flex gap-2">
       {members.map((member: any) => (
         <div key={member.id} className="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100 shadow-md">
           <Avatar>

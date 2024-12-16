@@ -3,9 +3,9 @@
 import { FontSizeIcon } from "@radix-ui/react-icons";
 import { useEffect } from "react";
 
+import useLocalStorage from "@/app/(app)/hooks/useLocalStorage";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import useLocalStorage from "../app/hooks/useLocalStorage";
 
 export function SizeSwitcher() {
   const [fontSize, setFontSize] = useLocalStorage("fontSize", "16px");

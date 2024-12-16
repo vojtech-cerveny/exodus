@@ -1,12 +1,12 @@
 "use client";
 
-import { useScreenDetector } from "@/app/hooks/useScreenDetector"; // Assuming a typo in 'useScreenDetektor'
 import { handleCopyClick } from "@/lib/utils";
 import { BookmarkFilledIcon, CopyIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { MultiDialogProvider } from "../ui/multi-dialog";
 
+import { useScreenDetector } from "@/app/(app)/hooks/useScreenDetector";
 import { CreateBookmarkContent } from "./create-bookmark";
 import { HighlightedTextDesktop } from "./highlighted-text-desktop";
 import MobileContextMenu from "./mobile-context-menu";
@@ -57,7 +57,7 @@ export function HighlightedTextMobile({ children }: { children: React.ReactNode 
   return (
     <div
       onContextMenu={onMouseUp}
-      className="selection:bg-gray-700 selection:text-gray-300 selection:dark:bg-gray-300  selection:dark:text-gray-700"
+      className="selection:bg-gray-700 selection:text-gray-300 selection:dark:bg-gray-300 selection:dark:text-gray-700"
     >
       {children}
       {isContextMenuVisible && (

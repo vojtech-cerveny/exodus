@@ -22,7 +22,7 @@ export function ProgressToggleGroupItem({ mood, name }: { mood: MoodVersion; nam
       break;
   }
   return (
-    <div className={`flex items-center space-x-2 `}>
+    <div className={`flex items-center space-x-2`}>
       <RadioGroupItem value={mood} id={mood + name}></RadioGroupItem>
       <Label htmlFor={mood + name}>
         <Badge variant="default" className={cn("w-max max-w-max", style)}>
