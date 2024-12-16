@@ -76,7 +76,9 @@ The application uses several collections to manage content:
 npm install
 
 docker compose -f docker-compose-db.yml up -d // run postgres docker container
+
 npx prisma db push  // push current schema to database
+npx payload migrate
 
 npm run dev
 ```
