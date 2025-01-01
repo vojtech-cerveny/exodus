@@ -21,5 +21,10 @@ export const Exercises: CollectionConfig = {
       required: true,
       unique: true,
     },
+    {
+      name: "icon",
+      type: "relationship",
+      relationTo: "media",
+    },
   ],
 };

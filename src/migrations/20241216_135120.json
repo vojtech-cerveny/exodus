@@ -485,12 +485,8 @@
           "name": "versions_exercise_id_exercises_id_fk",
           "tableFrom": "versions",
           "tableTo": "exercises",
-          "columnsFrom": [
-            "exercise_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["exercise_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -624,12 +620,8 @@
           "name": "starting_dates_exercise_id_exercises_id_fk",
           "tableFrom": "starting_dates",
           "tableTo": "exercises",
-          "columnsFrom": [
-            "exercise_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["exercise_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         },
@@ -637,12 +629,8 @@
           "name": "starting_dates_version_id_versions_id_fk",
           "tableFrom": "starting_dates",
           "tableTo": "versions",
-          "columnsFrom": [
-            "version_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["version_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -731,12 +719,8 @@
           "name": "weeks_tasks_parent_id_fk",
           "tableFrom": "weeks_tasks",
           "tableTo": "weeks",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["_parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -848,12 +832,8 @@
           "name": "weeks_version_id_versions_id_fk",
           "tableFrom": "weeks",
           "tableTo": "versions",
-          "columnsFrom": [
-            "version_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["version_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -994,12 +974,8 @@
           "name": "days_week_id_weeks_id_fk",
           "tableFrom": "days",
           "tableTo": "weeks",
-          "columnsFrom": [
-            "week_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["week_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         },
@@ -1007,12 +983,8 @@
           "name": "days_exercise_id_exercises_id_fk",
           "tableFrom": "days",
           "tableTo": "exercises",
-          "columnsFrom": [
-            "exercise_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["exercise_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -1336,12 +1308,8 @@
           "name": "payload_locked_documents_rels_parent_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "payload_locked_documents",
-          "columnsFrom": [
-            "parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1349,12 +1317,8 @@
           "name": "payload_locked_documents_rels_users_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "users",
-          "columnsFrom": [
-            "users_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["users_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1362,12 +1326,8 @@
           "name": "payload_locked_documents_rels_media_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "media",
-          "columnsFrom": [
-            "media_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["media_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1375,12 +1335,8 @@
           "name": "payload_locked_documents_rels_exercises_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "exercises",
-          "columnsFrom": [
-            "exercises_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["exercises_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1388,12 +1344,8 @@
           "name": "payload_locked_documents_rels_versions_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "versions",
-          "columnsFrom": [
-            "versions_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["versions_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1401,12 +1353,8 @@
           "name": "payload_locked_documents_rels_starting_dates_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "starting_dates",
-          "columnsFrom": [
-            "starting_dates_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["starting_dates_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1414,12 +1362,8 @@
           "name": "payload_locked_documents_rels_weeks_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "weeks",
-          "columnsFrom": [
-            "weeks_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["weeks_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1427,12 +1371,8 @@
           "name": "payload_locked_documents_rels_days_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "days",
-          "columnsFrom": [
-            "days_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["days_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1636,12 +1576,8 @@
           "name": "payload_preferences_rels_parent_fk",
           "tableFrom": "payload_preferences_rels",
           "tableTo": "payload_preferences",
-          "columnsFrom": [
-            "parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["parent_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1649,12 +1585,8 @@
           "name": "payload_preferences_rels_users_fk",
           "tableFrom": "payload_preferences_rels",
           "tableTo": "users",
-          "columnsFrom": [
-            "users_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["users_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1746,10 +1678,7 @@
     "public.enum_days_relation_type": {
       "name": "enum_days_relation_type",
       "schema": "public",
-      "values": [
-        "week",
-        "exercise"
-      ]
+      "values": ["week", "exercise"]
     }
   },
   "schemas": {},
