@@ -37,7 +37,7 @@ export function getEventStatus(event: "EXODUS" | "KRALOVSKE_LETO") {
   // Parse event start dates to get Date objects for the current year
   const dates = eventConfig.START_DATE.map((dateStr) => {
     const [month, day] = dateStr.split("-").map(Number);
-    return new Date(currentYear, month - 1, day); // month is 0-based in JS Date
+    return new Date(currentYear, month - 1, day);
   });
 
   // Check if the event is currently running
@@ -52,24 +52,27 @@ export function getEventStatus(event: "EXODUS" | "KRALOVSKE_LETO") {
     }
   }
 
-  // Find the next start date that is in the future
-  const nextDate = dates.find((date) => date > now);
-
-  // If no future date is found, the next date is in the next year
-  if (!nextDate) {
-    const [month, day] = eventConfig.START_DATE[0].split("-").map(Number);
-    const nextYearDate = new Date(currentYear + 1, month - 1, day);
+  // Find the closest future date
+  const futureDates = dates.filter((date) => date > now);
+  if (futureDates.length > 0) {
+    const nextDate = futureDates.reduce((closest, current) => {
+      const closestDiff = closest.getTime() - now.getTime();
+      const currentDiff = current.getTime() - now.getTime();
+      return currentDiff < closestDiff ? current : closest;
+    });
     return {
       isRunning: false,
-      startDate: `${nextYearDate.getFullYear()}-${String(nextYearDate.getMonth() + 1).padStart(2, "0")}-${String(nextYearDate.getDate()).padStart(2, "0")}`,
+      startDate: `${nextDate.getFullYear()}-${String(nextDate.getMonth() + 1).padStart(2, "0")}-${String(nextDate.getDate()).padStart(2, "0")}`,
       currentDays: 0,
     };
   }
 
-  // Return the next start date in YYYY-MM-DD format
+  // If no future dates in current year, use first date of next year
+  const [month, day] = eventConfig.START_DATE[0].split("-").map(Number);
+  const nextYearDate = new Date(currentYear + 1, month - 1, day);
   return {
     isRunning: false,
-    startDate: `${nextDate.getFullYear()}-${String(nextDate.getMonth() + 1).padStart(2, "0")}-${String(nextDate.getDate()).padStart(2, "0")}`,
+    startDate: `${nextYearDate.getFullYear()}-${String(nextYearDate.getMonth() + 1).padStart(2, "0")}-${String(nextYearDate.getDate()).padStart(2, "0")}`,
     currentDays: 0,
   };
 }
