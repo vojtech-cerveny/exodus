@@ -46,7 +46,7 @@ export default async function RemoteMdxPage() {
                   "border-green-500/45 bg-green-500/45 text-foreground hover:bg-green-500/55",
               )}
               key={index}
-              href={"dny/" + fileName}
+              href={"/exodus/2024/" + fileName}
             >
               <div>{formattedFileName}</div>
             </Link>

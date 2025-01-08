@@ -45,7 +45,7 @@ export default async function RemoteMdxPage() {
                   "border-green-500/45 bg-green-500/45 text-foreground hover:bg-green-500/55",
               )}
               key={index}
-              href={"dny/" + dayString}
+              href={"/exodus/2025/" + dayString}
             >
               <div>{formatedDay}</div>
             </Link>
