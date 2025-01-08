@@ -4,7 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 
 export function VersionSelect() {
-  const [version, setVersion] = useLocalStorage("exodus-version", "");
+  const [version, setVersion] = useLocalStorage("exodus-version", "2025");
 
   const selectVersion = (version: string) => {
     setVersion(version);

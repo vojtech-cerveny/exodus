@@ -1,5 +1,5 @@
 {
-  "id": "b26cc337-436f-417a-9e23-07b50de31eeb",
+  "id": "62a5a0a6-1efb-4bc9-905b-2a1c80fede05",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -293,6 +293,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "icon_id": {
+          "name": "icon_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
         "updated_at": {
           "name": "updated_at",
           "type": "timestamp(3) with time zone",
@@ -320,6 +326,21 @@
             }
           ],
           "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "exercises_icon_idx": {
+          "name": "exercises_icon_idx",
+          "columns": [
+            {
+              "expression": "icon_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
           "concurrently": false,
           "method": "btree",
           "with": {}
@@ -355,7 +376,21 @@
           "with": {}
         }
       },
-      "foreignKeys": {},
+      "foreignKeys": {
+        "exercises_icon_id_media_id_fk": {
+          "name": "exercises_icon_id_media_id_fk",
+          "tableFrom": "exercises",
+          "tableTo": "media",
+          "columnsFrom": [
+            "icon_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},
@@ -485,8 +520,12 @@
           "name": "versions_exercise_id_exercises_id_fk",
           "tableFrom": "versions",
           "tableTo": "exercises",
-          "columnsFrom": ["exercise_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "exercise_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -620,8 +659,12 @@
           "name": "starting_dates_exercise_id_exercises_id_fk",
           "tableFrom": "starting_dates",
           "tableTo": "exercises",
-          "columnsFrom": ["exercise_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "exercise_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "set null",
           "onUpdate": "no action"
         },
@@ -629,211 +672,12 @@
           "name": "starting_dates_version_id_versions_id_fk",
           "tableFrom": "starting_dates",
           "tableTo": "versions",
-          "columnsFrom": ["version_id"],
-          "columnsTo": ["id"],
-          "onDelete": "set null",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.weeks_tasks": {
-      "name": "weeks_tasks",
-      "schema": "",
-      "columns": {
-        "_order": {
-          "name": "_order",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "_parent_id": {
-          "name": "_parent_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "id": {
-          "name": "id",
-          "type": "varchar",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "task_title": {
-          "name": "task_title",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "description": {
-          "name": "description",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "due_date": {
-          "name": "due_date",
-          "type": "timestamp(3) with time zone",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {
-        "weeks_tasks_order_idx": {
-          "name": "weeks_tasks_order_idx",
-          "columns": [
-            {
-              "expression": "_order",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
+          "columnsFrom": [
+            "version_id"
           ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "weeks_tasks_parent_id_idx": {
-          "name": "weeks_tasks_parent_id_idx",
-          "columns": [
-            {
-              "expression": "_parent_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
+          "columnsTo": [
+            "id"
           ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        }
-      },
-      "foreignKeys": {
-        "weeks_tasks_parent_id_fk": {
-          "name": "weeks_tasks_parent_id_fk",
-          "tableFrom": "weeks_tasks",
-          "tableTo": "weeks",
-          "columnsFrom": ["_parent_id"],
-          "columnsTo": ["id"],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.weeks": {
-      "name": "weeks",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "display_name": {
-          "name": "display_name",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "version_id": {
-          "name": "version_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "number": {
-          "name": "number",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "title": {
-          "name": "title",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp(3) with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp(3) with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        }
-      },
-      "indexes": {
-        "weeks_version_idx": {
-          "name": "weeks_version_idx",
-          "columns": [
-            {
-              "expression": "version_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "weeks_updated_at_idx": {
-          "name": "weeks_updated_at_idx",
-          "columns": [
-            {
-              "expression": "updated_at",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "weeks_created_at_idx": {
-          "name": "weeks_created_at_idx",
-          "columns": [
-            {
-              "expression": "created_at",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        }
-      },
-      "foreignKeys": {
-        "weeks_version_id_versions_id_fk": {
-          "name": "weeks_version_id_versions_id_fk",
-          "tableFrom": "weeks",
-          "tableTo": "versions",
-          "columnsFrom": ["version_id"],
-          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -854,22 +698,8 @@
           "primaryKey": true,
           "notNull": true
         },
-        "relation_type": {
-          "name": "relation_type",
-          "type": "enum_days_relation_type",
-          "typeSchema": "public",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "'week'"
-        },
-        "week_id": {
-          "name": "week_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "exercise_id": {
-          "name": "exercise_id",
+        "version_id": {
+          "name": "version_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
@@ -908,26 +738,11 @@
         }
       },
       "indexes": {
-        "days_week_idx": {
-          "name": "days_week_idx",
+        "days_version_idx": {
+          "name": "days_version_idx",
           "columns": [
             {
-              "expression": "week_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "days_exercise_idx": {
-          "name": "days_exercise_idx",
-          "columns": [
-            {
-              "expression": "exercise_id",
+              "expression": "version_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -970,21 +785,248 @@
         }
       },
       "foreignKeys": {
-        "days_week_id_weeks_id_fk": {
-          "name": "days_week_id_weeks_id_fk",
+        "days_version_id_versions_id_fk": {
+          "name": "days_version_id_versions_id_fk",
           "tableFrom": "days",
-          "tableTo": "weeks",
-          "columnsFrom": ["week_id"],
-          "columnsTo": ["id"],
+          "tableTo": "versions",
+          "columnsFrom": [
+            "version_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "set null",
           "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.tasks_tasks": {
+      "name": "tasks_tasks",
+      "schema": "",
+      "columns": {
+        "_order": {
+          "name": "_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
         },
-        "days_exercise_id_exercises_id_fk": {
-          "name": "days_exercise_id_exercises_id_fk",
-          "tableFrom": "days",
-          "tableTo": "exercises",
-          "columnsFrom": ["exercise_id"],
-          "columnsTo": ["id"],
+        "_parent_id": {
+          "name": "_parent_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "task_title": {
+          "name": "task_title",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "tasks_tasks_order_idx": {
+          "name": "tasks_tasks_order_idx",
+          "columns": [
+            {
+              "expression": "_order",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "tasks_tasks_parent_id_idx": {
+          "name": "tasks_tasks_parent_id_idx",
+          "columns": [
+            {
+              "expression": "_parent_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "tasks_tasks_parent_id_fk": {
+          "name": "tasks_tasks_parent_id_fk",
+          "tableFrom": "tasks_tasks",
+          "tableTo": "tasks",
+          "columnsFrom": [
+            "_parent_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.tasks": {
+      "name": "tasks",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_required": {
+          "name": "is_required",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
+        },
+        "version_id": {
+          "name": "version_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "enum_tasks_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "scheduling_week": {
+          "name": "scheduling_week",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "scheduling_day_in_week": {
+          "name": "scheduling_day_in_week",
+          "type": "enum_tasks_scheduling_day_in_week",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "scheduling_day_number": {
+          "name": "scheduling_day_number",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "scheduling_month": {
+          "name": "scheduling_month",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "tasks_version_idx": {
+          "name": "tasks_version_idx",
+          "columns": [
+            {
+              "expression": "version_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "tasks_updated_at_idx": {
+          "name": "tasks_updated_at_idx",
+          "columns": [
+            {
+              "expression": "updated_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "tasks_created_at_idx": {
+          "name": "tasks_created_at_idx",
+          "columns": [
+            {
+              "expression": "created_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "tasks_version_id_versions_id_fk": {
+          "name": "tasks_version_id_versions_id_fk",
+          "tableFrom": "tasks",
+          "tableTo": "versions",
+          "columnsFrom": [
+            "version_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -1138,14 +1180,14 @@
           "primaryKey": false,
           "notNull": false
         },
-        "weeks_id": {
-          "name": "weeks_id",
+        "days_id": {
+          "name": "days_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "days_id": {
-          "name": "days_id",
+        "tasks_id": {
+          "name": "tasks_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
@@ -1272,11 +1314,11 @@
           "method": "btree",
           "with": {}
         },
-        "payload_locked_documents_rels_weeks_id_idx": {
-          "name": "payload_locked_documents_rels_weeks_id_idx",
+        "payload_locked_documents_rels_days_id_idx": {
+          "name": "payload_locked_documents_rels_days_id_idx",
           "columns": [
             {
-              "expression": "weeks_id",
+              "expression": "days_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -1287,11 +1329,11 @@
           "method": "btree",
           "with": {}
         },
-        "payload_locked_documents_rels_days_id_idx": {
-          "name": "payload_locked_documents_rels_days_id_idx",
+        "payload_locked_documents_rels_tasks_id_idx": {
+          "name": "payload_locked_documents_rels_tasks_id_idx",
           "columns": [
             {
-              "expression": "days_id",
+              "expression": "tasks_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -1308,8 +1350,12 @@
           "name": "payload_locked_documents_rels_parent_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "payload_locked_documents",
-          "columnsFrom": ["parent_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "parent_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1317,8 +1363,12 @@
           "name": "payload_locked_documents_rels_users_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "users",
-          "columnsFrom": ["users_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "users_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1326,8 +1376,12 @@
           "name": "payload_locked_documents_rels_media_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "media",
-          "columnsFrom": ["media_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "media_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1335,8 +1389,12 @@
           "name": "payload_locked_documents_rels_exercises_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "exercises",
-          "columnsFrom": ["exercises_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "exercises_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1344,8 +1402,12 @@
           "name": "payload_locked_documents_rels_versions_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "versions",
-          "columnsFrom": ["versions_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "versions_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1353,17 +1415,12 @@
           "name": "payload_locked_documents_rels_starting_dates_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "starting_dates",
-          "columnsFrom": ["starting_dates_id"],
-          "columnsTo": ["id"],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "payload_locked_documents_rels_weeks_fk": {
-          "name": "payload_locked_documents_rels_weeks_fk",
-          "tableFrom": "payload_locked_documents_rels",
-          "tableTo": "weeks",
-          "columnsFrom": ["weeks_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "starting_dates_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1371,8 +1428,25 @@
           "name": "payload_locked_documents_rels_days_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "days",
-          "columnsFrom": ["days_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "days_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "payload_locked_documents_rels_tasks_fk": {
+          "name": "payload_locked_documents_rels_tasks_fk",
+          "tableFrom": "payload_locked_documents_rels",
+          "tableTo": "tasks",
+          "columnsFrom": [
+            "tasks_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1576,8 +1650,12 @@
           "name": "payload_preferences_rels_parent_fk",
           "tableFrom": "payload_preferences_rels",
           "tableTo": "payload_preferences",
-          "columnsFrom": ["parent_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "parent_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1585,8 +1663,12 @@
           "name": "payload_preferences_rels_users_fk",
           "tableFrom": "payload_preferences_rels",
           "tableTo": "users",
-          "columnsFrom": ["users_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "users_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1675,10 +1757,29 @@
     }
   },
   "enums": {
-    "public.enum_days_relation_type": {
-      "name": "enum_days_relation_type",
+    "public.enum_tasks_type": {
+      "name": "enum_tasks_type",
       "schema": "public",
-      "values": ["week", "exercise"]
+      "values": [
+        "daily",
+        "weekly",
+        "weekday",
+        "monthly",
+        "specificDay"
+      ]
+    },
+    "public.enum_tasks_scheduling_day_in_week": {
+      "name": "enum_tasks_scheduling_day_in_week",
+      "schema": "public",
+      "values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ]
     }
   },
   "schemas": {},
