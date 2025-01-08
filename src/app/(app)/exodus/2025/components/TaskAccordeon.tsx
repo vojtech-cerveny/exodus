@@ -1,7 +1,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Week } from "@/payload-types";
+import { Task } from "@/payload-types";
 
-export const TasksAccordeon = ({ tasks }: { tasks: Week["tasks"] }) => {
+export const TasksAccordeon = ({ tasks }: { tasks: Task["tasks"] }) => {
   if (!tasks) return null;
   return (
     <Accordion type="single" collapsible className="w-full">
