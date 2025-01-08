@@ -34,9 +34,9 @@ export default async function RemoteMdxPage() {
     return (
       <>
         <SessionProvider basePath={"/api/auth"} session={session}>
-          <DayPagination currentPage={formattedToday} lastPage={files.length} runType="kralovske-leto" />
+          <DayPagination currentPage={formattedToday} lastPage={files.length} />
           <DayFormatterMDX source={dayTextMd} />
-          <DayPagination currentPage={formattedToday} lastPage={files.length} runType="kralovske-leto" />
+          <DayPagination currentPage={formattedToday} lastPage={files.length} />
           <Timer audioSrc="/sounds/gong.mp3" />
           {session && (
             <div className="mb-4 flex items-center justify-center">

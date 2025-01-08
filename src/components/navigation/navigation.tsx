@@ -10,6 +10,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
+import useLocalStorage from "@/app/(app)/hooks/useLocalStorage";
 import { cn } from "@/lib/utils";
 import moment from "moment";
 import "moment/locale/cs";
@@ -23,7 +24,7 @@ export default function Navigation() {
   const { theme } = useTheme();
   const exodus = getEventStatus("EXODUS");
   const kralovskeLeto = getEventStatus("KRALOVSKE_LETO");
-
+  const [version] = useLocalStorage("exodus-version", "2025");
   return (
     <NavigationMenu>
       <NavigationMenuList className="flex flex-wrap">
@@ -49,25 +50,25 @@ export default function Navigation() {
 
               {exodus.isRunning ? (
                 <>
-                  <ListItem href="/exodus/today" title="Dnešní den">
+                  <ListItem href={"/exodus/" + version + "/today"} title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
                   </ListItem>
                   <ListItem
-                    href={"/exodus/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
+                    href={"/exodus/" + version + "/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
                     title="Aktuální týdenní úkony"
                   >
                     Vždy zobrazuje aktuální úkony na týden.
                   </ListItem>
-                  <ListItem href="/exodus/dny" title="Seznam dní">
+                  <ListItem href={"/exodus/" + version + "/"} title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
-                  <ListItem href="/exodus/ukony/" title="Týdenní úkony">
+                  <ListItem href={"/exodus/" + version + "/ukony/"} title="Týdenní úkony">
                     Seznam týdnů a úkony pro ně.
                   </ListItem>
                 </>
               ) : (
                 <>
-                  <ListItem href="/exodus/dny" title="Seznam dní">
+                  <ListItem href={"/exodus/" + version + "/"} title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
                   <ListItem>

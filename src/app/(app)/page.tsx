@@ -57,7 +57,7 @@ export default function Home() {
               <Link href="/exodus">
                 <Button className="w-full">Exodus90</Button>
               </Link>
-              <Link href="/exodus/dny">
+              <Link href="/exodus/2024">
                 <Button variant="outline" className="w-full">
                   Seznam dní
                 </Button>

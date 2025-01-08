@@ -15,6 +15,7 @@ import Navigation from "@/components/navigation/navigation";
 import { SizeSwitcher } from "@/components/size-switcher";
 import { ModeToggle } from "@/components/theme-switcher";
 import { Toaster } from "@/components/ui/sonner";
+import { VersionSelect } from "@/components/versionSelect";
 import { auth } from "@auth";
 import moment from "moment";
 import "moment/locale/cs";
@@ -104,6 +105,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <div className="flex flex-1 justify-end space-x-2 p-2">
               <div className="flex items-center gap-2">
                 <ProgressUpdateCard variant="small" />
+                <VersionSelect />
                 <SizeSwitcher />
                 <ModeToggle />
                 <UserButton />

@@ -12,8 +12,8 @@ import { SessionProvider } from "next-auth/react";
 import { unstable_noStore } from "next/cache";
 import { notFound } from "next/navigation";
 import path from "path";
-import { getEventStatus } from "../../utils/date";
-import { AppError, handleError } from "../../utils/handle-errors";
+import { getEventStatus } from "../../../utils/date";
+import { AppError, handleError } from "../../../utils/handle-errors";
 
 export const metadata: Metadata = {
   title: "Exodus90 - Text na dnešek",
@@ -40,9 +40,9 @@ export default async function RemoteMdxPage() {
     return (
       <>
         <SessionProvider basePath={"/api/auth"} session={session}>
-          <DayPagination currentPage={formattedCurrentDays} lastPage={files.length} runType="exodus90" />
+          <DayPagination currentPage={formattedCurrentDays} lastPage={files.length} />
           <DayFormatterMDX source={dayTextMd} />
-          <DayPagination currentPage={formattedCurrentDays} lastPage={files.length} runType="exodus90" />
+          <DayPagination currentPage={formattedCurrentDays} lastPage={files.length} />
           <Timer audioSrc="/sounds/gong.mp3" />
           {session && (
             <div className="mb-4 flex items-center justify-center">

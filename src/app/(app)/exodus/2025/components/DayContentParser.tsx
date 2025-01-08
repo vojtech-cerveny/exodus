@@ -63,5 +63,5 @@ export const DayContentParser = ({ data }: { data: SerializedEditorState }) => {
     ),
   });
 
-  return <RichText data={data} converters={jsxConverters} />;
+  return <RichText className="mb-8" data={data} converters={jsxConverters} />;
 };

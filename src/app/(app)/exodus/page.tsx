@@ -1,19 +1,39 @@
+"use client";
 import { DownloadTextFiles } from "@/components/download-text-files";
 import { H1 } from "@/components/typography";
-import { Metadata } from "next";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { unstable_noStore } from "next/cache";
+import useLocalStorage from "../hooks/useLocalStorage";
 
-export const metadata: Metadata = {
-  title: "Exodus",
-  description: "Best website ever",
-};
-
-export default async function RemoteMdxPage() {
+export default function RemoteMdxPage() {
   unstable_noStore();
+  const [version, setVersion] = useLocalStorage("exodus-version", "2025");
+
+  const selectVersion = (version: string) => {
+    console.log(version);
+    setVersion(version);
+  };
 
   return (
     <>
       <H1>Exodus90</H1>
+      <p>
+        Máme dvě verze Exodus90. Je na Tobě a na Tvém bratrstvu, jaké si vyberete. Exodus90 2024 verze je již přeložená,
+        připravená pro tisk a pro čtečky. Verze 2025 se momentálně překládá (texty budeme uvolňovat postupně dle
+        anglického originálu), ale je nejaktuálnější.
+      </p>
+      <div className="my-4 flex items-center justify-center space-x-4">
+        <p> Vyber si svou verzi:</p>
+        <Select onValueChange={selectVersion}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder={version} />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="2024">2024</SelectItem>
+            <SelectItem value="2025">2025</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
         Pokud cítíš, že bys potřeboval zapracovat nejen na svém byznysu a na zvýšení konta v bance, ale také na
         zvládnutí sebe sama, osvobodit se od svých malých závislostí, posílit svou identitu jako otce, manžela, nebo

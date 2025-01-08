@@ -26,11 +26,11 @@ export default async function RemoteMdxPage(props: { params: Promise<{ id: strin
     const dayTextMd = await fs.readFile(filePath, "utf-8");
     return (
       <>
-        <DayPagination currentPage={params.id} lastPage={files.length} runType="exodus90" />
+        <DayPagination currentPage={params.id} lastPage={files.length} />
         <SessionProvider basePath={"/api/auth"} session={session}>
           <DayFormatterMDX source={dayTextMd} />
         </SessionProvider>
-        <DayPagination currentPage={params.id} lastPage={files.length} runType="exodus90" />
+        <DayPagination currentPage={params.id} lastPage={files.length} />
         <Timer audioSrc="/sounds/gong.mp3" />
         {session && (
           <div className="mb-4 flex items-center justify-center">

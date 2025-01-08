@@ -7,50 +7,9 @@ export const Days: CollectionConfig = {
   },
   fields: [
     {
-      name: "relationType", // Determines if this day belongs to a Week or directly to an Exercise
-      label: {
-        cs: "Typ relace",
-        en: "Relation Type",
-      },
-      type: "select",
-      options: [
-        {
-          label: {
-            cs: "Týden",
-            en: "Week",
-          },
-          value: "week",
-        },
-        {
-          label: {
-            cs: "Cvičení",
-            en: "Exercise",
-          },
-          value: "exercise",
-        },
-      ],
-      required: true,
-      defaultValue: "week",
-    },
-    {
-      label: {
-        cs: "Týden",
-        en: "Week",
-      },
-      name: "week",
+      name: "version",
       type: "relationship",
-      relationTo: "weeks" as CollectionSlug,
-      admin: {
-        condition: (data) => data.relationType === "week",
-      },
-    },
-    {
-      name: "exercise",
-      type: "relationship",
-      relationTo: "exercises" as CollectionSlug,
-      admin: {
-        condition: (data) => data.relationType === "exercise",
-      },
+      relationTo: "versions" as CollectionSlug,
     },
     {
       name: "number",

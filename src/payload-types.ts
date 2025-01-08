@@ -16,8 +16,8 @@ export interface Config {
     exercises: Exercise;
     versions: Version;
     "starting-dates": StartingDate;
-    weeks: Week;
     days: Day;
+    tasks: Task;
     "payload-locked-documents": PayloadLockedDocument;
     "payload-preferences": PayloadPreference;
     "payload-migrations": PayloadMigration;
@@ -29,8 +29,8 @@ export interface Config {
     exercises: ExercisesSelect<false> | ExercisesSelect<true>;
     versions: VersionsSelect<false> | VersionsSelect<true>;
     "starting-dates": StartingDatesSelect<false> | StartingDatesSelect<true>;
-    weeks: WeeksSelect<false> | WeeksSelect<true>;
     days: DaysSelect<false> | DaysSelect<true>;
+    tasks: TasksSelect<false> | TasksSelect<true>;
     "payload-locked-documents": PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     "payload-preferences": PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     "payload-migrations": PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -126,6 +126,7 @@ export interface Exercise {
     [k: string]: unknown;
   } | null;
   slug: string;
+  icon?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -159,34 +160,11 @@ export interface StartingDate {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "weeks".
- */
-export interface Week {
-  id: number;
-  displayName: string;
-  version: number | Version;
-  number: number;
-  title?: string | null;
-  tasks?:
-    | {
-        taskTitle: string;
-        description?: string | null;
-        dueDate?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "days".
  */
 export interface Day {
   id: number;
-  relationType: "week" | "exercise";
-  week?: (number | null) | Week;
-  exercise?: (number | null) | Exercise;
+  version?: (number | null) | Version;
   number: number;
   title?: string | null;
   content: {
@@ -204,6 +182,32 @@ export interface Day {
     };
     [k: string]: unknown;
   };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tasks".
+ */
+export interface Task {
+  id: number;
+  title: string;
+  isRequired?: boolean | null;
+  version: number | Version;
+  type: "daily" | "weekly" | "weekday" | "monthly" | "specificDay";
+  scheduling?: {
+    week?: number | null;
+    dayInWeek?: ("1" | "2" | "3" | "4" | "5" | "6" | "7") | null;
+    dayNumber?: number | null;
+    month?: number | null;
+  };
+  tasks?:
+    | {
+        taskTitle: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -235,12 +239,12 @@ export interface PayloadLockedDocument {
         value: number | StartingDate;
       } | null)
     | ({
-        relationTo: "weeks";
-        value: number | Week;
-      } | null)
-    | ({
         relationTo: "days";
         value: number | Day;
+      } | null)
+    | ({
+        relationTo: "tasks";
+        value: number | Task;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -325,6 +329,7 @@ export interface ExercisesSelect<T extends boolean = true> {
   name?: T;
   description?: T;
   slug?: T;
+  icon?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -356,35 +361,40 @@ export interface StartingDatesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "weeks_select".
+ * via the `definition` "days_select".
  */
-export interface WeeksSelect<T extends boolean = true> {
-  displayName?: T;
+export interface DaysSelect<T extends boolean = true> {
   version?: T;
   number?: T;
   title?: T;
-  tasks?:
-    | T
-    | {
-        taskTitle?: T;
-        description?: T;
-        dueDate?: T;
-        id?: T;
-      };
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "days_select".
+ * via the `definition` "tasks_select".
  */
-export interface DaysSelect<T extends boolean = true> {
-  relationType?: T;
-  week?: T;
-  exercise?: T;
-  number?: T;
+export interface TasksSelect<T extends boolean = true> {
   title?: T;
-  content?: T;
+  isRequired?: T;
+  version?: T;
+  type?: T;
+  scheduling?:
+    | T
+    | {
+        week?: T;
+        dayInWeek?: T;
+        dayNumber?: T;
+        month?: T;
+      };
+  tasks?:
+    | T
+    | {
+        taskTitle?: T;
+        description?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

@@ -16,6 +16,7 @@ export function countDaysFromDate(dateString: string) {
   return differenceInDays + 1;
 }
 
+// TODO: Get this data from payload - StartingDate
 export function getEventStatus(event: "EXODUS" | "KRALOVSKE_LETO") {
   const now = new Date();
   const currentYear = now.getFullYear();
