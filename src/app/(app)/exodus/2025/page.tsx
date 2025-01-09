@@ -20,7 +20,7 @@ export default async function RemoteMdxPage() {
   const days = await payload.find({
     collection: "days",
     where: {
-      "version.displayName": { equals: "Exodus - 2024" },
+      "version.displayName": { equals: "Exodus - 2025" },
     },
     sort: "number",
   });

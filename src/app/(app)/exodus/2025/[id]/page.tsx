@@ -17,7 +17,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ id: s
 
   const day = await payload.find({
     collection: "days",
-    where: { number: { equals: Number(params.id) }, "version.displayName": { equals: "Exodus - 2024" } },
+    where: { number: { equals: Number(params.id) }, "version.displayName": { equals: "Exodus - 2025" } },
     pagination: false,
     depth: 1,
   });
@@ -25,7 +25,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ id: s
   const tasks = await payload.find({
     collection: "tasks",
     where: {
-      "version.displayName": { equals: "Exodus - 2024" },
+      "version.displayName": { equals: "Exodus - 2025" },
       or: [
         { type: { equals: "daily" } },
         {
@@ -51,7 +51,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ id: s
 
   const daysTotalDocs = await payload.find({
     collection: "days",
-    where: { "version.displayName": { equals: "Exodus - 2024" } },
+    where: { "version.displayName": { equals: "Exodus - 2025" } },
     sort: "number",
   });
 
