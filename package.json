@@ -13,7 +13,8 @@
     "release": "standard-version",
     "generateFiles": "npx ts-node src/app/(app)/data/text-to-md.ts",
     "test": "jest",
-    "payload": "PAYLOAD_CONFIG_PATH=src/payload.config.ts payload"
+    "payload": "PAYLOAD_CONFIG_PATH=src/payload.config.ts payload",
+    "migrate": "payload migrate && prisma migrate deploy"
   },
   "type": "module",
   "dependencies": {
