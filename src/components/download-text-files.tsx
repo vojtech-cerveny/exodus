@@ -1,10 +1,12 @@
 import { FileTextIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import { H2 } from "./typography";
 import { Button } from "./ui/button";
 
 export function DownloadTextFiles() {
   return (
     <div className="mt-4 flex flex-col gap-2">
+      <H2>Texty 2024</H2>
       <Link
         className="plausible-event-name=exodus-90-download-pdf flex items-center"
         download

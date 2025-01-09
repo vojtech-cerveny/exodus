@@ -1,4 +1,3 @@
-import { DownloadTextFiles } from "@/components/download-text-files";
 import { H1 } from "@/components/typography";
 import { cn } from "@/lib/utils";
 import config from "@payload-config";
@@ -52,7 +51,6 @@ export default async function RemoteMdxPage() {
           );
         })}
       </div>
-      <DownloadTextFiles />
     </>
   );
 }

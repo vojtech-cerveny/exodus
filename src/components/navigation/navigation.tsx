@@ -17,7 +17,7 @@ import "moment/locale/cs";
 import { useSession } from "next-auth/react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { CrownIcon, ExodusIcon } from "../icons/icons";
+import { ExodusIcon } from "../icons/icons";
 
 export default function Navigation() {
   const { data: session } = useSession();
@@ -40,10 +40,7 @@ export default function Navigation() {
                   >
                     <ExodusIcon size={48} color={theme === "dark" ? "#FFFFFF" : "#1C274C"} />
                     <div className="text-lg mb-2 mt-2 font-medium">Exodus 90</div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Exodus 90 je devadesátidenní duchovní cvičení pro muže založené na třech pilířích: modlitbě,
-                      askezi a bratrství. Všechny tři tyto pilíře jsou podstatnými aspekty křesťanského života.
-                    </p>
+                    <p className="text-sm leading-tight text-muted-foreground">Zjisti víc o Exodu 90!</p>
                   </Link>
                 </NavigationMenuLink>
               </li>
@@ -80,7 +77,7 @@ export default function Navigation() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger>Královské léto</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -118,7 +115,7 @@ export default function Navigation() {
               </ListItem>
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
         <NavigationMenuItem>
           <Link href="/articles" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Průvodce</NavigationMenuLink>
@@ -136,12 +133,21 @@ export default function Navigation() {
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Bratrstvo</NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <Link href="/bookmarks" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Záložky</NavigationMenuLink>
               </Link>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
           </>
+        )}
+        {exodus.isRunning && (
+          <NavigationMenuItem>
+            <Link href={`/exodus/${version}/today`} legacyBehavior passHref>
+              <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-primary/10`}>
+                Dnešní texty
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
         )}
       </NavigationMenuList>
     </NavigationMenu>
