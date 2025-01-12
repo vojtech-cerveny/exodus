@@ -35,6 +35,12 @@ export const Versions: CollectionConfig = {
       label: "Version Name",
     },
     {
+      name: "slug",
+      type: "text",
+      required: true,
+      unique: true,
+    },
+    {
       name: "exercise",
       type: "relationship",
       relationTo: "exercises" as CollectionSlug,
@@ -53,5 +59,6 @@ export const Versions: CollectionConfig = {
       label: "Active Version",
       defaultValue: false,
     },
+    { name: "isVisible", type: "checkbox", label: "Visible", defaultValue: true },
   ],
 };

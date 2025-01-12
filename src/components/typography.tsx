@@ -35,5 +35,5 @@ export function H3(props: React.HTMLAttributes<HTMLHeadingElement>) {
 }
 
 export function Paragraph(props: React.HTMLAttributes<HTMLParagraphElement>) {
-  return <p {...props} className={cn(props.className, "leading-7 [&:not(:first-child)]:mt-6")} />;
+  return <p {...props} className={cn(props.className, "leading-7 [&:not(:first-child)]:mt-4")} />;
 }

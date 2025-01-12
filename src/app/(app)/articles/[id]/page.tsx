@@ -12,7 +12,7 @@ export default async function RemoteMdxPage(props: { params: Promise<{ id: strin
     params.id = "0" + params.id;
   }
   try {
-    const filePath = path.join(process.cwd(), "src/app/data/articles", `${params.id}.md`);
+    const filePath = path.join(process.cwd(), "src/app/(app)/data/articles", `${params.id}.md`);
     const { data, content } = await getMarkdownData(filePath);
     return (
       <>

@@ -1,25 +1,33 @@
 import { H1 } from "@/components/typography";
 import { cn } from "@/lib/utils";
 import config from "@payload-config";
-import { Metadata } from "next";
 import { unstable_noStore } from "next/cache";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import { getEventStatus } from "../../utils/date";
 
-export const metadata: Metadata = {
-  title: "Exodus90 - Texty na den",
-  description: "Texty na den Exodus90",
-};
-
-export default async function RemoteMdxPage() {
+export default async function ExodusVersionPage({ params }: { params: { version: string } }) {
   unstable_noStore();
 
   const payload = await getPayload({ config });
+
+  // First verify the version exists
+  const version = await payload.find({
+    collection: "versions",
+    where: {
+      slug: { equals: params.version },
+    },
+  });
+
+  if (version.docs.length === 0) {
+    notFound();
+  }
+
   const days = await payload.find({
     collection: "days",
     where: {
-      "version.displayName": { equals: "Exodus - 2025" },
+      "version.slug": { equals: params.version },
     },
     sort: "number",
   });
@@ -44,13 +52,16 @@ export default async function RemoteMdxPage() {
                   "border-green-500/45 bg-green-500/45 text-foreground hover:bg-green-500/55",
               )}
               key={index}
-              href={"/exodus/2025/" + dayString}
+              href={`/exodus/${params.version}/${dayString}`}
             >
               <div>{formatedDay}</div>
             </Link>
           );
         })}
       </div>
+      <p className="mt-4 text-sm text-muted-foreground">
+        Postupně překládáme anglické texty na české, proto zde nemusíš vidět všechny dny.
+      </p>
     </>
   );
 }

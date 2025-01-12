@@ -17,7 +17,7 @@ export function ArticlePagination({
 }) {
   return (
     <Pagination>
-      <PaginationContent className="mb-6 w-full justify-between">
+      <PaginationContent className="my-6 w-full justify-between">
         <PaginationItem className={previousDay ? "" : "invisible"}>
           <PaginationPrevious href={`/articles/${previousDay?.slug}`}> {previousDay?.title} </PaginationPrevious>
         </PaginationItem>

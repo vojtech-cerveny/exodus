@@ -138,9 +138,11 @@ export interface Version {
   id: number;
   displayName: string;
   name: string;
+  slug: string;
   exercise: number | Exercise;
   description?: string | null;
   isActive?: boolean | null;
+  isVisible?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -340,9 +342,11 @@ export interface ExercisesSelect<T extends boolean = true> {
 export interface VersionsSelect<T extends boolean = true> {
   displayName?: T;
   name?: T;
+  slug?: T;
   exercise?: T;
   description?: T;
   isActive?: T;
+  isVisible?: T;
   updatedAt?: T;
   createdAt?: T;
 }

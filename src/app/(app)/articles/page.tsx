@@ -19,7 +19,7 @@ type ArticleMetaData = {
 
 export default async function RemoteMdxPage() {
   async function getFilesInFolder() {
-    const folderPath = process.cwd() + "/src/app/data/articles/";
+    const folderPath = process.cwd() + "/src/app/(app)/data/articles/";
     const files = await fs.readdir(folderPath);
     return files;
   }
@@ -27,7 +27,7 @@ export default async function RemoteMdxPage() {
   const fileNames = await getFilesInFolder();
   const articlesMetaData: ArticleMetaData[] = await Promise.all(
     fileNames.map(async (file, index) => {
-      const { data } = await getMarkdownData(process.cwd() + "/src/app/data/articles/" + file);
+      const { data } = await getMarkdownData(process.cwd() + "/src/app/(app)/data/articles/" + file);
       return { ...data, link: `/${file.replace(".md", "")}` };
     }) as any,
   );

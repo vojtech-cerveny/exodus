@@ -24,7 +24,11 @@ export default function Navigation() {
   const { theme } = useTheme();
   const exodus = getEventStatus("EXODUS");
   const kralovskeLeto = getEventStatus("KRALOVSKE_LETO");
-  const [version] = useLocalStorage("exodus-version", "2025");
+  const [version] = useLocalStorage("exodus-version", {
+    slug: "2025",
+    displayName: "Exodus - 2025",
+  });
+
   return (
     <NavigationMenu>
       <NavigationMenuList className="flex flex-wrap">
@@ -47,30 +51,42 @@ export default function Navigation() {
 
               {exodus.isRunning ? (
                 <>
-                  <ListItem href={"/exodus/" + version + "/today"} title="Dnešní den">
+                  <ListItem href={"/exodus/" + version.slug + "/today"} title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
                   </ListItem>
-                  <ListItem
-                    href={"/exodus/" + version + "/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
-                    title="Aktuální týdenní úkony"
-                  >
-                    Vždy zobrazuje aktuální úkony na týden.
-                  </ListItem>
-                  <ListItem href={"/exodus/" + version + "/"} title="Seznam dní">
+                  {version.slug === "2024" && (
+                    <ListItem
+                      href={"/exodus/" + version.slug + "/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
+                      title="Aktuální týdenní úkony"
+                    >
+                      Vždy zobrazuje aktuální úkony na týden.
+                    </ListItem>
+                  )}
+
+                  <ListItem href={"/exodus/" + version.slug + "/"} title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
-                  <ListItem href={"/exodus/" + version + "/ukony/"} title="Týdenní úkony">
-                    Seznam týdnů a úkony pro ně.
+
+                  {version.slug === "2024" && (
+                    <ListItem href={"/exodus/" + version.slug + "/ukony/"} title="Týdenní úkony">
+                      Seznam týdnů a úkony pro ně.
+                    </ListItem>
+                  )}
+                  <ListItem>
+                    Momentálně používáš verzi <span className="font-bold">{version.displayName}</span>
                   </ListItem>
                 </>
               ) : (
                 <>
-                  <ListItem href={"/exodus/" + version + "/"} title="Seznam dní">
+                  <ListItem href={"/exodus/" + version.slug + "/"} title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
                   <ListItem>
                     Momentálně Exodus90 neběží. Zde uvidíš víc {moment(exodus.startDate).fromNow()} (
                     {moment(exodus.startDate).format("LL")})
+                  </ListItem>
+                  <ListItem>
+                    Momentálně používáš verzi <span className="font-bold">{version.displayName}</span>
                   </ListItem>
                 </>
               )}
@@ -142,9 +158,9 @@ export default function Navigation() {
         )}
         {exodus.isRunning && (
           <NavigationMenuItem>
-            <Link href={`/exodus/${version}/today`} legacyBehavior passHref>
+            <Link href={`/exodus/${version.slug}/today`} legacyBehavior passHref>
               <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-primary/10`}>
-                Dnešní texty
+                Dnešní text
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
