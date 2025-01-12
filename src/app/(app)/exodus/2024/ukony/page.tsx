@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import { unstable_noStore } from "next/cache";
 import Link from "next/link";
-import { getEventStatus } from "../../utils/date";
+import { getEventStatus } from "../../../utils/date";
 
 export const metadata: Metadata = {
   title: "Exodus90 - Texty na den",

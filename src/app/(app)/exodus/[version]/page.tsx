@@ -7,7 +7,14 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import { getEventStatus } from "../../utils/date";
 
-export default async function ExodusVersionPage({ params }: { params: { version: string } }) {
+type PageProps = {
+  params: Promise<{
+    version: string;
+  }>;
+};
+
+export default async function ExodusVersionPage({ params }: PageProps) {
+  const aParams = await params;
   unstable_noStore();
 
   const payload = await getPayload({ config });
@@ -16,7 +23,7 @@ export default async function ExodusVersionPage({ params }: { params: { version:
   const version = await payload.find({
     collection: "versions",
     where: {
-      slug: { equals: params.version },
+      slug: { equals: aParams.version },
     },
   });
 
@@ -27,7 +34,7 @@ export default async function ExodusVersionPage({ params }: { params: { version:
   const days = await payload.find({
     collection: "days",
     where: {
-      "version.slug": { equals: params.version },
+      "version.slug": { equals: aParams.version },
     },
     sort: "number",
   });
@@ -52,7 +59,7 @@ export default async function ExodusVersionPage({ params }: { params: { version:
                   "border-green-500/45 bg-green-500/45 text-foreground hover:bg-green-500/55",
               )}
               key={index}
-              href={`/exodus/${params.version}/${dayString}`}
+              href={`/exodus/${aParams.version}/${dayString}`}
             >
               <div>{formatedDay}</div>
             </Link>
