@@ -11,7 +11,10 @@ interface VersionSelectUiProps {
 }
 
 export function VersionSelectUi({ versions, onVersionSelect }: VersionSelectUiProps) {
-  const [version, setVersion] = useLocalStorage<Version | null>("exodus-version", null);
+  const [version, setVersion] = useLocalStorage<Version | undefined>(
+    "exodus-version",
+    versions.find((v) => v.isActive),
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

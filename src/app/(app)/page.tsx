@@ -6,7 +6,9 @@ import { getEventStatus } from "./utils/date";
 
 import { Progress } from "@/components/circle-progress";
 import { H2, H3 } from "@/components/typography";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+import { BookCopy } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -19,7 +21,7 @@ export default function Home() {
       <main className="flex-1">
         <div className="flex h-full w-full max-w-2xl flex-col gap-2">
           <InstallPWAButton />
-          <H2>Vyjděte z otroctví svých faraonů </H2>
+          <H2>Vyjděte z otroctví svých faraónů</H2>
           <p className="py-4">
             Cítíte se vyčerpaní a uvěznění ve spirále moderních pokušení - jako je nekonečné procházení sociálních sítí,
             hledání útěchy v alkoholu, ztráta času u pornografie, nebo nekonečné sledování televize? Nadešel čas na
@@ -51,29 +53,25 @@ export default function Home() {
             </>
           )}
 
-          <div className="mt-6">
-            <H3>Prozkoumejte aplikaci</H3>
-            <div className="mt-2 grid grid-cols-2 gap-4">
-              <Link href="/exodus">
-                <Button className="w-full">Exodus90</Button>
-              </Link>
-              <Link href="/exodus/2024">
-                <Button variant="outline" className="w-full">
-                  Seznam dní
-                </Button>
-              </Link>
-              <Link href="/exodus/ukony">
-                <Button variant="outline" className="w-full">
-                  Týdenní úkony
-                </Button>
-              </Link>
-              <Link href="/articles">
-                <Button variant="outline" className="w-full">
-                  Průvodce Exodem
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <Alert>
+            <BookCopy className="h-5 w-5" />
+            <AlertTitle className="text-xl font-bold">Dostupné verze textů</AlertTitle>
+            <AlertDescription className="text-base">
+              Pro duchovní cvičení nabízíme dvě verze textů:
+              <ul className="my-4 list-disc">
+                <li>
+                  <span className="font-bold">Verze 2024</span> - kompletní překlad, který si můžete stáhnout jako PDF
+                  pro tisk nebo čtení offline.
+                </li>
+                <li>
+                  <span className="font-bold">Verze 2025</span> - nový překlad, který průběžně doplňujeme přímo do
+                  aplikace (výchozí verze)
+                </li>
+              </ul>
+              Verzi si můžeš změnit v hlavičce aplikace. <br />
+              <span className="italic">* Nezapomeň, je potřeba používat stejnou verzi jako tvé bratrstvo.</span>
+            </AlertDescription>
+          </Alert>
         </div>
       </main>
     </>

@@ -5,7 +5,7 @@ export function H1(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h1
       {...props}
-      className={cn([props.className, "scroll-m-20 pb-4 text-4xl font-extrabold tracking-tight lg:text-5xl"])}
+      className={cn(["scroll-m-20 pb-4 text-4xl font-extrabold tracking-tight lg:text-5xl", props.className])}
     >
       {props.children}
     </h1>
@@ -28,12 +28,12 @@ export function H2(props: React.HTMLAttributes<HTMLHeadingElement>) {
 
 export function H3(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h3 {...props} className={cn(props.className, "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight")}>
+    <h3 {...props} className={cn("mt-8 scroll-m-20 text-2xl font-semibold tracking-tight", props.className)}>
       {props.children}
     </h3>
   );
 }
 
 export function Paragraph(props: React.HTMLAttributes<HTMLParagraphElement>) {
-  return <p {...props} className={cn(props.className, "leading-7 [&:not(:first-child)]:mt-4")} />;
+  return <p {...props} className={cn("leading-7 [&:not(:first-child)]:mt-4", props.className)} />;
 }
