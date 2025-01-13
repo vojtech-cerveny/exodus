@@ -1,7 +1,6 @@
 import { DownloadTextFiles } from "@/components/download-text-files";
 import { H1 } from "@/components/typography";
 
-import { VariantAlertSelector } from "@/components/variant-alert-selector";
 import { unstable_noStore } from "next/cache";
 
 export default function RemoteMdxPage() {
@@ -10,7 +9,6 @@ export default function RemoteMdxPage() {
   return (
     <>
       <H1>Exodus90</H1>
-      <VariantAlertSelector />
       <p className="leading-7 [&:not(:first-child)]:mt-6">
         Pokud cítíš, že bys potřeboval zapracovat nejen na svém byznysu a na zvýšení konta v bance, ale také na
         zvládnutí sebe sama, osvobodit se od svých malých závislostí, posílit svou identitu jako otce, manžela, nebo

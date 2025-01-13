@@ -15,6 +15,7 @@ import Navigation from "@/components/navigation/navigation";
 import { SizeSwitcher } from "@/components/size-switcher";
 import { ModeToggle } from "@/components/theme-switcher";
 import { Toaster } from "@/components/ui/sonner";
+import { VersionDialog } from "@/components/version-dialog";
 import { VersionSelect } from "@/components/versionSelect";
 import { auth } from "@auth";
 import moment from "moment";
@@ -86,6 +87,7 @@ export const viewport: Viewport = {
   userScalable: false,
   viewportFit: "cover",
 };
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
   return (
@@ -122,6 +124,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   <Navigation />
                 </SessionProvider>
               </div>
+              <VersionDialog />
               {children}
               <Footer />
             </div>

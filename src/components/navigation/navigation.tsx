@@ -12,6 +12,7 @@ import {
 
 import useLocalStorage from "@/app/(app)/hooks/useLocalStorage";
 import { cn } from "@/lib/utils";
+import { Version } from "@/payload-types";
 import moment from "moment";
 import "moment/locale/cs";
 import { useSession } from "next-auth/react";
@@ -24,10 +25,7 @@ export default function Navigation() {
   const { theme } = useTheme();
   const exodus = getEventStatus("EXODUS");
   const kralovskeLeto = getEventStatus("KRALOVSKE_LETO");
-  const [version] = useLocalStorage("exodus-version", {
-    slug: "2025",
-    displayName: "Exodus - 2025",
-  });
+  const [version] = useLocalStorage<Version | null>("exodus-version", null);
 
   return (
     <NavigationMenu>
@@ -51,34 +49,34 @@ export default function Navigation() {
 
               {exodus.isRunning ? (
                 <>
-                  <ListItem href={"/exodus/" + version.slug + "/today"} title="Dnešní den">
+                  <ListItem href={"/exodus/" + version?.slug + "/dnesni-texty"} title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
                   </ListItem>
-                  {version.slug === "2024" && (
+                  {version?.slug === "2024" && (
                     <ListItem
-                      href={"/exodus/" + version.slug + "/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
+                      href={"/exodus/" + version?.slug + "/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
                       title="Aktuální týdenní úkony"
                     >
                       Vždy zobrazuje aktuální úkony na týden.
                     </ListItem>
                   )}
 
-                  <ListItem href={"/exodus/" + version.slug + "/"} title="Seznam dní">
+                  <ListItem href={"/exodus/" + version?.slug + "/"} title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
 
-                  {version.slug === "2024" && (
-                    <ListItem href={"/exodus/" + version.slug + "/ukony/"} title="Týdenní úkony">
+                  {version?.slug === "2024" && (
+                    <ListItem href={"/exodus/" + version?.slug + "/ukony/"} title="Týdenní úkony">
                       Seznam týdnů a úkony pro ně.
                     </ListItem>
                   )}
                   <ListItem>
-                    Momentálně používáš verzi <span className="font-bold">{version.displayName}</span>
+                    Momentálně používáš verzi <span className="font-bold">{version?.displayName}</span>
                   </ListItem>
                 </>
               ) : (
                 <>
-                  <ListItem href={"/exodus/" + version.slug + "/"} title="Seznam dní">
+                  <ListItem href={"/exodus/" + version?.slug + "/"} title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
                   <ListItem>
@@ -86,7 +84,7 @@ export default function Navigation() {
                     {moment(exodus.startDate).format("LL")})
                   </ListItem>
                   <ListItem>
-                    Momentálně používáš verzi <span className="font-bold">{version.displayName}</span>
+                    Momentálně používáš verzi <span className="font-bold">{version?.displayName}</span>
                   </ListItem>
                 </>
               )}
@@ -114,7 +112,7 @@ export default function Navigation() {
               </li>
               {kralovskeLeto.isRunning ? (
                 <>
-                  <ListItem href="/kralovske-leto/today" title="Dnešní den">
+                  <ListItem href="/kralovske-leto/dnesni-texty" title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
                   </ListItem>
                 </>
@@ -158,7 +156,7 @@ export default function Navigation() {
         )}
         {exodus.isRunning && (
           <NavigationMenuItem>
-            <Link href={`/exodus/${version.slug}/today`} legacyBehavior passHref>
+            <Link href={`/exodus/${version?.slug}/dnesni-texty`} legacyBehavior passHref>
               <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-primary/10`}>
                 Dnešní text
               </NavigationMenuLink>

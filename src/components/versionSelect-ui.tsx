@@ -7,13 +7,11 @@ import { toast } from "sonner";
 
 interface VersionSelectUiProps {
   versions: Version[];
+  onVersionSelect?: () => void;
 }
 
-export function VersionSelectUi({ versions }: VersionSelectUiProps) {
-  const [version, setVersion] = useLocalStorage("exodus-version", {
-    slug: "2025",
-    displayName: "2025",
-  });
+export function VersionSelectUi({ versions, onVersionSelect }: VersionSelectUiProps) {
+  const [version, setVersion] = useLocalStorage<Version | null>("exodus-version", null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -22,11 +20,9 @@ export function VersionSelectUi({ versions }: VersionSelectUiProps) {
 
   const selectVersion = (slug: string) => {
     const selectedVersion = versions.find((v) => v.slug === slug)!;
-    setVersion({
-      slug: selectedVersion.slug,
-      displayName: selectedVersion.displayName,
-    });
+    setVersion(selectedVersion);
     toast("Verze Exodus90 byla změněna na " + selectedVersion.displayName);
+    onVersionSelect?.();
   };
 
   if (isLoading) {
@@ -37,7 +33,7 @@ export function VersionSelectUi({ versions }: VersionSelectUiProps) {
     <div className="my-4 flex items-center justify-center space-x-4">
       <Select onValueChange={selectVersion}>
         <SelectTrigger className="w-[140px]">
-          <SelectValue placeholder={version.displayName} />
+          <SelectValue placeholder={version?.displayName ?? "Vyberte verzi"} />
         </SelectTrigger>
         <SelectContent>
           {versions.map((v) => (

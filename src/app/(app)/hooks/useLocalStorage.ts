@@ -7,8 +7,9 @@
 
 import { useEffect, useState } from "react";
 
-export default function useLocalStorage<T>(key: string, defaultValue: T): [T, (value: T) => void] {
+export default function useLocalStorage<T>(key: string, defaultValue: T): [T, (value: T) => void, boolean] {
   const [value, setValue] = useState(defaultValue);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const item = localStorage.getItem(key);
@@ -18,6 +19,7 @@ export default function useLocalStorage<T>(key: string, defaultValue: T): [T, (v
     }
 
     setValue(item ? JSON.parse(item) : defaultValue);
+    setIsLoading(false);
 
     function handler(e: StorageEvent) {
       if (e.key !== key) return;
@@ -46,5 +48,5 @@ export default function useLocalStorage<T>(key: string, defaultValue: T): [T, (v
     }
   };
 
-  return [value, setValueWrap];
+  return [value, setValueWrap, isLoading];
 }

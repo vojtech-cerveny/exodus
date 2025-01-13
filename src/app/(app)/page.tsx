@@ -35,7 +35,7 @@ export default function Home() {
             <>
               <H3>Právě běží Exodus90</H3>
               <Progress progress={(exodus.currentDays / constants.EXODUS.DURATION) * 100} />
-              <Link href="/exodus/today">
+              <Link href="/exodus/dnesni-texty">
                 <Button className="w-full">Přejít na dnešní den</Button>
               </Link>
             </>
@@ -45,7 +45,7 @@ export default function Home() {
             <>
               <H3 className="mt-6">Právě běží Královské léto</H3>
               <Progress progress={(krLeto.currentDays / constants.KRALOVSKE_LETO.DURATION) * 100} />
-              <Link href="/kralovske-leto/today">
+              <Link href="/kralovske-leto/dnesni-texty">
                 <Button className="w-full">Přejít na dnešní den</Button>
               </Link>
             </>
