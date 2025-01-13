@@ -33,9 +33,9 @@ export default function FAQPage() {
               <TabsContent value="android">
                 <div className="rounded-lg bg-muted/50 p-4">
                   <Paragraph className="mt-0">
-                    Na Androidu stačí potvrdit instalaci, když vám webový prohlížeč nabídne možnost "Nainstalovat
-                    aplikaci". Aplikace se pak nainstaluje jako běžná Android aplikace a bude dostupná z plochy vašeho
-                    zařízení.
+                    Na Androidu stačí potvrdit instalaci, když vám webový prohlížeč nabídne možnost &quot;Nainstalovat
+                    aplikaci&quot;. Aplikace se pak nainstaluje jako běžná Android aplikace a bude dostupná z plochy
+                    vašeho zařízení.
                   </Paragraph>
                 </div>
               </TabsContent>
@@ -45,7 +45,7 @@ export default function FAQPage() {
                   <ol className="my-4 list-decimal space-y-2 pl-6">
                     <li>Otevřete stránku v prohlížeči Safari</li>
                     <li>Klepněte na tlačítko Sdílet (čtverec s šipkou) ve spodní části obrazovky</li>
-                    <li>Vyberte možnost "Přidat na plochu"</li>
+                    <li>Vyberte možnost &quot;Přidat na plochu&quot;</li>
                     <li>Potvrďte přidání</li>
                   </ol>
                   <Paragraph className="mb-0">
@@ -102,10 +102,12 @@ export default function FAQPage() {
             <H3 className="mb-4 mt-0">Rychlý přístup k denním textům</H3>
             <div className="rounded-lg bg-muted/50 p-4">
               <Paragraph className="mt-0">
-                Pro rychlý přístup k textům na aktuální den si můžete uložit do záložek adresu,
+                Pro rychlý přístup k textům na aktuální den si danou stránku můžete uložit jako záložku.
               </Paragraph>
               <Paragraph className="mb-0">
-                Tato stránka vás vždy přesměruje na texty pro aktuální den v dané verzi duchovního cvičení.
+                Po otevření této adresy budete automaticky přesměrováni na texty pro aktuální den ve vámi vybrané verzi
+                duchovního cvičení. Tuto adresu si můžete uložit jako záložku nebo přidat na domovskou obrazovku vašeho
+                zařízení pro rychlý přístup.
               </Paragraph>
             </div>
           </Card>
