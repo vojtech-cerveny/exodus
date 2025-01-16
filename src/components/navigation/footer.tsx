@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="mt-8 border-t py-6 text-center text-sm dark:border-border">
       <div className="flex justify-center space-x-4">
-        <Link href="/faq" className="text-muted-foreground hover:text-foreground">
+        <Link href="/faq" className="me-4 hover:underline md:me-6">
           Jak používat aplikaci
         </Link>
         <Link href="/privacy?lang=cz" className="me-4 hover:underline md:me-6">

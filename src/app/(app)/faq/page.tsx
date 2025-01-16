@@ -75,6 +75,23 @@ export default function FAQPage() {
 
         <section>
           <Card className="p-6">
+            <H3 className="mb-4 mt-0">Záložky</H3>
+            <div className="rounded-lg bg-muted/50 p-4">
+              <Paragraph className="mt-0">
+                Po přihlášení do aplikace si můžeš vytvořit záložky. Jednoduše si označ text, který si chceš uložit a
+                pravým tlačítkem aktivuj menu a vyber &quot;Vytvořit záložku&quot;. Záložky se pak zobrazí v sekci
+                &quot;Záložky&quot; v navigaci.
+              </Paragraph>
+              <Paragraph className="mb-0">
+                Danou záložku můžeš sdílet s celým bratrstvem a podělit se tak o ni. Samozřejmostí je přidání i
+                komentáře.
+              </Paragraph>
+            </div>
+          </Card>
+        </section>
+
+        <section>
+          <Card className="p-6">
             <H3 className="mb-4 mt-0">Přizpůsobení zobrazení</H3>
 
             <div className="grid gap-4 md:grid-cols-2">
