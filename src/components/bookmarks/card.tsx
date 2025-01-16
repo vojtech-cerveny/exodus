@@ -57,9 +57,9 @@ export function BookmarkCard({ bookmark }: { bookmark: Bookmark | BookmarkWithUs
             </div>
             <div className="mt-4 flex items-center gap-4">
               <div className="grid gap-1">
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Odkaz</p>
-                <a href={"/days/" + bookmark.day} className="">
-                  Den {bookmark.day}
+                <p className="text-gray-700 dark:text-gray-300">Odkaz</p>
+                <a href={bookmark.url} className="">
+                  <code className="text-sm">{bookmark.url}</code>
                 </a>
               </div>
             </div>

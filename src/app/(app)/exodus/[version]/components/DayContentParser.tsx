@@ -47,7 +47,7 @@ export const DayContentParser = ({ data }: { data: SerializedEditorState }) => {
     },
     quote: (props) => {
       return (
-        <blockquote className="my-4 border-l-4 border-gray-300 bg-gray-50 p-4 pl-4 italic">
+        <blockquote className="mt-4 italic lg:mt-6 lg:border-l-2 lg:pl-6 dark:border-l-gray-600">
           {parseNodes(props)}
         </blockquote>
       );

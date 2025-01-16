@@ -42,14 +42,14 @@ export async function getBookmarksFromMyBrothers({ userId }: { userId: string })
 
 export async function createBookmark({
   userId,
-  day,
+  url,
   passage,
   type,
   note,
   sharedWithBrotherhood,
 }: {
   userId: string;
-  day: number;
+  url: string;
   passage: string;
   type: string;
   note?: string;
@@ -59,7 +59,7 @@ export async function createBookmark({
   return await prisma.bookmark.create({
     data: {
       userId,
-      day,
+      url,
       passage,
       type,
       note,

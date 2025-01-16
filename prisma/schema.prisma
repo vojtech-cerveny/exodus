@@ -50,12 +50,13 @@ model User {
   versions            Versions[]
 }
 
+// not used yet, but we will need to store versions in the future - but just ID of the version.
 model Versions {
-  id String @id @default(cuid())
+  id      String @id @default(cuid())
   version String // 2024
-  type String // exodus
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId String
+  type    String // exodus
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId  String
 }
 
 model VerificationToken {
@@ -126,7 +127,7 @@ model BrotherhoodProgress {
 model Bookmark {
   id                    String    @id @default(cuid())
   userId                String
-  day                   Int
+  url                   String
   passage               String
   type                  String
   createdAt             DateTime  @default(now())

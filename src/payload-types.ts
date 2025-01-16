@@ -15,12 +15,12 @@ export interface Config {
     media: Media;
     exercises: Exercise;
     versions: Version;
-    "starting-dates": StartingDate;
+    'starting-dates': StartingDate;
     days: Day;
     tasks: Task;
-    "payload-locked-documents": PayloadLockedDocument;
-    "payload-preferences": PayloadPreference;
-    "payload-migrations": PayloadMigration;
+    'payload-locked-documents': PayloadLockedDocument;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
   };
   collectionsJoins: {};
   collectionsSelect: {
@@ -28,12 +28,12 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     exercises: ExercisesSelect<false> | ExercisesSelect<true>;
     versions: VersionsSelect<false> | VersionsSelect<true>;
-    "starting-dates": StartingDatesSelect<false> | StartingDatesSelect<true>;
+    'starting-dates': StartingDatesSelect<false> | StartingDatesSelect<true>;
     days: DaysSelect<false> | DaysSelect<true>;
     tasks: TasksSelect<false> | TasksSelect<true>;
-    "payload-locked-documents": PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
-    "payload-preferences": PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
-    "payload-migrations": PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
     defaultIDType: number;
@@ -42,7 +42,7 @@ export interface Config {
   globalsSelect: {};
   locale: null;
   user: User & {
-    collection: "users";
+    collection: 'users';
   };
   jobs: {
     tasks: unknown;
@@ -118,8 +118,8 @@ export interface Exercise {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -177,8 +177,8 @@ export interface Day {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -196,10 +196,10 @@ export interface Task {
   title: string;
   isRequired?: boolean | null;
   version: number | Version;
-  type: "daily" | "weekly" | "weekday" | "monthly" | "specificDay";
+  type: 'daily' | 'weekly' | 'weekday' | 'monthly' | 'specificDay';
   scheduling?: {
     week?: number | null;
-    dayInWeek?: ("1" | "2" | "3" | "4" | "5" | "6" | "7") | null;
+    dayInWeek?: ('1' | '2' | '3' | '4' | '5' | '6' | '7') | null;
     dayNumber?: number | null;
     month?: number | null;
   };
@@ -221,36 +221,36 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-        relationTo: "users";
+        relationTo: 'users';
         value: number | User;
       } | null)
     | ({
-        relationTo: "media";
+        relationTo: 'media';
         value: number | Media;
       } | null)
     | ({
-        relationTo: "exercises";
+        relationTo: 'exercises';
         value: number | Exercise;
       } | null)
     | ({
-        relationTo: "versions";
+        relationTo: 'versions';
         value: number | Version;
       } | null)
     | ({
-        relationTo: "starting-dates";
+        relationTo: 'starting-dates';
         value: number | StartingDate;
       } | null)
     | ({
-        relationTo: "days";
+        relationTo: 'days';
         value: number | Day;
       } | null)
     | ({
-        relationTo: "tasks";
+        relationTo: 'tasks';
         value: number | Task;
       } | null);
   globalSlug?: string | null;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: number | User;
   };
   updatedAt: string;
@@ -263,7 +263,7 @@ export interface PayloadLockedDocument {
 export interface PayloadPreference {
   id: number;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: number | User;
   };
   key?: string | null;
@@ -442,6 +442,7 @@ export interface Auth {
   [k: string]: unknown;
 }
 
-declare module "payload" {
+
+declare module 'payload' {
   export interface GeneratedTypes extends Config {}
 }

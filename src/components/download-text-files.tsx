@@ -38,7 +38,7 @@ export function DownloadTextFiles() {
         download
         prefetch={false}
         target="_blank"
-        href="/files/exodus90-denni-texty.mobi"
+        href="/books/exodus90-denni-texty.mobi"
       >
         <Button>
           <FileTextIcon className="mr-2" />

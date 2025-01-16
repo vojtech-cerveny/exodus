@@ -147,11 +147,11 @@ export default function Navigation() {
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Bratrstvo</NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            {/* <NavigationMenuItem>
+            <NavigationMenuItem>
               <Link href="/bookmarks" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Záložky</NavigationMenuLink>
               </Link>
-            </NavigationMenuItem> */}
+            </NavigationMenuItem>
           </>
         )}
         {exodus.isRunning && (
