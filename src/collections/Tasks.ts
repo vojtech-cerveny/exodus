@@ -1,124 +1,173 @@
-import { CollectionConfig, CollectionSlug } from "payload";
+import { CollectionConfig, CollectionSlug } from 'payload';
 
 export const Tasks: CollectionConfig = {
-  slug: "tasks",
+  slug: 'tasks',
   admin: {
-    useAsTitle: "title",
+    useAsTitle: 'title',
+  },
+  labels: {
+    singular: {
+      cs: 'Disciplína',
+      sk: 'Disciplína',
+    },
+    plural: {
+      cs: 'Disciplíny',
+      sk: 'Disciplíny',
+    },
   },
   fields: [
     {
-      name: "title",
-      type: "text",
+      name: 'title',
+      type: 'text',
       required: true,
+      label: {
+        cs: 'Titulek',
+        sk: 'Titulok',
+      },
+      localized: true,
     },
     {
-      name: "isRequired",
-      type: "checkbox",
+      name: 'isRequired',
+      type: 'checkbox',
       defaultValue: true,
-      label: "Is this task required?",
+      label: {
+        cs: 'Je tahle disciplína povinná?',
+        sk: 'Je tato disciplína povinná?',
+      },
       admin: {
-        width: "50%",
+        width: '50%',
       },
     },
 
     {
-      type: "row",
+      type: 'row',
       fields: [
         {
-          name: "version",
-          type: "relationship",
-          relationTo: "versions" as CollectionSlug,
+          name: 'version',
+          type: 'relationship',
+          relationTo: 'versions' as CollectionSlug,
           required: true,
           admin: {
-            width: "50%",
+            width: '50%',
+          },
+          label: {
+            cs: '',
+            sk: '',
           },
         },
         {
-          name: "type",
-          type: "select",
+          name: 'type',
+          type: 'select',
           required: true,
           options: [
-            { label: "Daily Task", value: "daily" },
-            { label: "Weekly Task", value: "weekly" },
-            { label: "Specific Weekday", value: "weekday" },
-            { label: "Monthly Task", value: "monthly" },
-            { label: "Specific Day", value: "specificDay" },
+            {
+              label: {
+                cs: 'Denní disciplína',
+                sk: 'Denná disciplína',
+              },
+              value: 'daily',
+            },
+            { label: { cs: 'Týdenní', sk: 'Týždenná' }, value: 'weekly' },
+            { label: { cs: 'V konkrétni den týdne', sk: 'V konkrétny deň týždňa' }, value: 'weekday' },
+            { label: { cs: 'Měsiční', sk: 'Mesačná' }, value: 'monthly' },
+            { label: { cs: 'V konkretni den cvičení', sk: 'V konkretný deň cvičenia' }, value: 'specificDay' },
           ],
           admin: {
-            width: "50%",
+            width: '50%',
           },
         },
       ],
     },
     {
-      name: "scheduling",
-      type: "group",
+      name: 'scheduling',
+      type: 'group',
       fields: [
         {
-          name: "week",
-          type: "number",
+          name: 'week',
+          type: 'number',
           min: 1,
           max: 13,
           admin: {
-            condition: (data) => ["weekly"].includes(data.type),
+            condition: (data) => ['weekly'].includes(data.type),
+          },
+          label: {
+            cs: 'Týden',
+            sk: 'Týždeň',
           },
         },
         {
-          name: "dayInWeek",
-          type: "select",
+          name: 'dayInWeek',
+          type: 'select',
           options: [
-            { label: "Monday", value: "1" },
-            { label: "Tuesday", value: "2" },
-            { label: "Wednesday", value: "3" },
-            { label: "Thursday", value: "4" },
-            { label: "Friday", value: "5" },
-            { label: "Saturday", value: "6" },
-            { label: "Sunday", value: "7" },
+            { label: { cs: 'Pondělí', sk: 'Pondelok' }, value: '1' },
+            { label: { cs: 'Úterý', sk: 'Utorok' }, value: '2' },
+            { label: { cs: 'Středa', sk: 'Streda' }, value: '3' },
+            { label: { cs: 'Čtvrtek', sk: 'Štvrtok' }, value: '4' },
+            { label: { cs: 'Pátek', sk: 'Piatok' }, value: '5' },
+            { label: { cs: 'Sobota', sk: 'Sobota' }, value: '6' },
+            { label: { cs: 'Neděle', sk: 'Nedela' }, value: '7' },
           ],
           admin: {
-            condition: (data) => ["weekday"].includes(data.type),
+            condition: (data) => ['weekday'].includes(data.type),
           },
         },
         {
-          name: "dayNumber",
-          type: "number",
+          name: 'dayNumber',
+          type: 'number',
           min: 1,
           max: 90,
           admin: {
-            condition: (data) => ["specificDay"].includes(data.type),
+            condition: (data) => ['specificDay'].includes(data.type),
+          },
+          label: {
+            cs: 'Číslo dne',
+            sk: 'Číslo dňa',
           },
         },
         {
-          name: "month",
-          type: "number",
+          name: 'month',
+          type: 'number',
           min: 1,
           max: 3,
           admin: {
-            condition: (data) => ["monthly"].includes(data.type),
+            condition: (data) => ['monthly'].includes(data.type),
+          },
+          label: {
+            cs: 'Číslo měsíce',
+            sk: 'Číslo mesiaca',
           },
         },
       ],
     },
 
     {
-      name: "tasks",
-      type: "array", // Define tasks as an array field
+      name: 'tasks',
+      type: 'array', // Define tasks as an array field
       label: {
-        en: "Tasks",
-        cs: "Úkoly",
+        en: 'Tasks',
+        cs: 'Úkoly',
+        sk: '',
       },
 
       fields: [
         {
-          name: "taskTitle",
-          type: "text",
+          name: 'taskTitle',
+          type: 'text',
           required: true,
-          label: "Task Title",
+          label: {
+            cs: 'Název disciplíny',
+            sk: 'Názov Disciplíny',
+          },
+          localized: true,
         },
         {
-          name: "description",
-          type: "textarea",
-          label: "Task Description",
+          name: 'description',
+          type: 'textarea',
+          label: {
+            cs: 'Popis disciplíny',
+            sk: 'Popis disciplíny',
+          },
+          localized: true,
         },
       ],
     },
