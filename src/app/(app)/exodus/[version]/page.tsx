@@ -37,6 +37,7 @@ export default async function ExodusVersionPage({ params }: PageProps) {
       "version.slug": { equals: aParams.version },
     },
     sort: "number",
+    limit: 100,
   });
 
   const exodus = getEventStatus("EXODUS");
