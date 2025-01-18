@@ -8,7 +8,7 @@ export function DownloadTextFiles() {
     <div className="mt-4 flex flex-col gap-2">
       <H2>Texty 2024</H2>
       <Link
-        className="plausible-event-name=exodus-90-download-pdf flex items-center"
+        className="plausible-event-name=Exodus+90+download+pdf flex items-center"
         download
         prefetch={false}
         target="_blank"
@@ -21,7 +21,7 @@ export function DownloadTextFiles() {
       </Link>
 
       <Link
-        className="plausible-event-name=exodus-90-download-epub flex items-center"
+        className="plausible-event-name=Exodus+90+download+epub flex items-center"
         download
         prefetch={false}
         target="_blank"
@@ -34,7 +34,7 @@ export function DownloadTextFiles() {
       </Link>
 
       <Link
-        className="plausible-event-name=exodus-90-download-mobi flex items-center"
+        className="plausible-event-name=Exodus+90+download+mobi flex items-center"
         download
         prefetch={false}
         target="_blank"
