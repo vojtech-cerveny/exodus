@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Label } from "./label";
-import { Switch } from "./switch";
+import { useState } from 'react';
+import { Label } from './label';
+import { Switch } from './switch';
 
 export function FormSwitch({
   label,

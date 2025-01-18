@@ -1,10 +1,10 @@
-"use server";
+'use server';
 
-import prisma from "@/lib/db";
+import prisma from '@/lib/db';
 
 // TODO: This should be possible only if the user is the owner of the brotherhood
 export async function getBrotherhoodInvitation(brotherhoodId: string, token: string) {
-  console.log("getBrotherhoodInvitation");
+  console.log('getBrotherhoodInvitation');
   return await prisma.brotherhoodInvitation.findUnique({
     where: {
       brotherhoodId: brotherhoodId,
@@ -23,7 +23,7 @@ export async function getBrotherhoodInvitation(brotherhoodId: string, token: str
 }
 
 export async function getInvitationToken(brotherhoodId: string) {
-  console.log("getActiveInvitationToken");
+  console.log('getActiveInvitationToken');
   return await prisma.brotherhoodInvitation.findUnique({
     where: {
       brotherhoodId: brotherhoodId,

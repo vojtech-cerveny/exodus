@@ -1,6 +1,6 @@
-"use server";
-import { z } from "zod";
-import { createBookmark } from "./bookmark-service";
+'use server';
+import { z } from 'zod';
+import { createBookmark } from './bookmark-service';
 
 export async function createBookmarkAction(formData: FormData): Promise<{ success: boolean }> {
   const bookmarkSchema = z.object({
@@ -13,12 +13,12 @@ export async function createBookmarkAction(formData: FormData): Promise<{ succes
   });
 
   const response = bookmarkSchema.safeParse({
-    userId: formData.get("userId") as string,
-    url: formData.get("url") as string,
-    passage: formData.get("passage") as string,
-    type: formData.get("type") as string,
-    note: formData.get("note") as string,
-    sharedWithBrotherhood: z.coerce.boolean().parse(formData.get("sharedWithBrotherhood")),
+    userId: formData.get('userId') as string,
+    url: formData.get('url') as string,
+    passage: formData.get('passage') as string,
+    type: formData.get('type') as string,
+    note: formData.get('note') as string,
+    sharedWithBrotherhood: z.coerce.boolean().parse(formData.get('sharedWithBrotherhood')),
   });
 
   if (!response.success) {

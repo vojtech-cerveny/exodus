@@ -1,4 +1,4 @@
-import * as Sentry from "@sentry/nextjs";
+import * as Sentry from '@sentry/nextjs';
 
 export class AppError extends Error {
   constructor(
@@ -6,7 +6,7 @@ export class AppError extends Error {
     message: string,
   ) {
     super(message);
-    this.name = "AppError";
+    this.name = 'AppError';
   }
 }
 
@@ -14,15 +14,15 @@ export async function handleError(error: unknown) {
   if (error instanceof AppError) {
     console.error(`AppError: ${error.code} - ${error.message}`);
     Sentry.captureException(error, {
-      tags: { errorType: "AppError", errorCode: error.code },
+      tags: { errorType: 'AppError', errorCode: error.code },
     });
   } else if (error instanceof Error) {
     console.error(`Unexpected error: ${error.message}`);
     Sentry.captureException(error);
   } else {
-    console.error("Unknown error:", error);
-    Sentry.captureMessage("Unknown error occurred", {
-      level: "error",
+    console.error('Unknown error:', error);
+    Sentry.captureMessage('Unknown error occurred', {
+      level: 'error',
       extra: { error },
     });
   }

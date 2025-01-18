@@ -1,16 +1,16 @@
 ---
 id: 6
-title: "Examen"
+title: 'Examen'
 date: 2024-07-25
 published: true
-slug: "nocni-examen"
-description: "Noční zkoumání dne je způsob, jak popsat naše jednání (jak si projít naše činy) za celý den."
-tags: ["modlitba", "navod"]
+slug: 'nocni-examen'
+description: 'Noční zkoumání dne je způsob, jak popsat naše jednání (jak si projít naše činy) za celý den.'
+tags: ['modlitba', 'navod']
 # image: exodus_90_discipline.png
-previousPage: "exodus90-jak-se-modlit-svatou-hodinu"
-previousPageText: "Jak se modlit svatou hodinu"
-nextPage: "exodus90-povzbuzeni-od-gridirona"
-nextPageText: "Povzbuzení od Gridirona"
+previousPage: 'exodus90-jak-se-modlit-svatou-hodinu'
+previousPageText: 'Jak se modlit svatou hodinu'
+nextPage: 'exodus90-povzbuzeni-od-gridirona'
+nextPageText: 'Povzbuzení od Gridirona'
 ---
 
 # Jak dělat noční zkoumání dne – Examen

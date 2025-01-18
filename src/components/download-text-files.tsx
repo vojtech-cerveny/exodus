@@ -1,7 +1,7 @@
-import { FileTextIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { H2 } from "./typography";
-import { Button } from "./ui/button";
+import { FileTextIcon } from '@radix-ui/react-icons';
+import Link from 'next/link';
+import { H2 } from './typography';
+import { Button } from './ui/button';
 
 export function DownloadTextFiles() {
   return (

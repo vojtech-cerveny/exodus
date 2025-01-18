@@ -1,22 +1,22 @@
-"use server";
+'use server';
 
-import config from "@payload-config";
+import config from '@payload-config';
 
-import { notFound } from "next/navigation";
-import { getPayload } from "payload";
+import { notFound } from 'next/navigation';
+import { getPayload } from 'payload';
 
-import { getEventStatus } from "@/app/(app)/utils/date";
-import { DayPagination } from "@/components/days/day-pagination";
-import { H2, H3 } from "@/components/typography";
-import { DayContentParser } from "../components/DayContentParser";
-import { TasksAccordeon } from "../components/TaskAccordeon";
-import { calculateSchedulingFromDay } from "../utils/calculateScheduling";
+import { getEventStatus } from '@/app/(app)/utils/date';
+import { DayPagination } from '@/components/days/day-pagination';
+import { H2, H3 } from '@/components/typography';
+import { DayContentParser } from '../components/DayContentParser';
+import { TasksAccordeon } from '../components/TaskAccordeon';
+import { calculateSchedulingFromDay } from '../utils/calculateScheduling';
 
 export default async function ExodusPayloadPage(props: { params: Promise<{ version: string }> }) {
   const params = await props.params;
   const payload = await getPayload({ config });
 
-  const status = getEventStatus("EXODUS");
+  const status = getEventStatus('EXODUS');
 
   if (!status.isRunning) {
     return <H2>Toto cvičení zrovna neprobíhá.</H2>;
@@ -26,35 +26,35 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ versi
     const scheduling = calculateSchedulingFromDay(status.currentDays);
 
     const day = await payload.find({
-      collection: "days",
+      collection: 'days',
       where: {
         number: { equals: Number(status.currentDays) },
-        "version.slug": { equals: params.version },
+        'version.slug': { equals: params.version },
       },
       pagination: false,
       depth: 1,
     });
 
     const tasks = await payload.find({
-      collection: "tasks",
+      collection: 'tasks',
       where: {
-        "version.slug": { equals: params.version },
+        'version.slug': { equals: params.version },
         or: [
-          { type: { equals: "daily" } },
+          { type: { equals: 'daily' } },
           {
-            and: [{ type: { equals: "weekly" } }, { "scheduling.week": { equals: scheduling.week } }],
+            and: [{ type: { equals: 'weekly' } }, { 'scheduling.week': { equals: scheduling.week } }],
           },
           {
             and: [
-              { type: { equals: "weekday" } },
-              { "scheduling.dayInWeek": { equals: scheduling.dayInWeek.toString() } },
+              { type: { equals: 'weekday' } },
+              { 'scheduling.dayInWeek': { equals: scheduling.dayInWeek.toString() } },
             ],
           },
           {
-            and: [{ type: { equals: "monthly" } }, { "scheduling.month": { equals: scheduling.month } }],
+            and: [{ type: { equals: 'monthly' } }, { 'scheduling.month': { equals: scheduling.month } }],
           },
           {
-            and: [{ type: { equals: "specificDay" } }, { "scheduling.dayNumber": { equals: scheduling.dayNumber } }],
+            and: [{ type: { equals: 'specificDay' } }, { 'scheduling.dayNumber': { equals: scheduling.dayNumber } }],
           },
         ],
       },
@@ -63,11 +63,11 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ versi
     });
 
     const daysTotalDocs = await payload.find({
-      collection: "days",
+      collection: 'days',
       where: {
-        "version.slug": { equals: params.version },
+        'version.slug': { equals: params.version },
       },
-      sort: "number",
+      sort: 'number',
     });
 
     if (day.docs.length === 0) {

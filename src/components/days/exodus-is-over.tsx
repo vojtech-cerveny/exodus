@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { getEventStatus } from "@/app/(app)/utils/date";
-import { Button } from "@/components/ui/button";
-import { ChevronLeftIcon, HomeIcon } from "@radix-ui/react-icons";
-import moment from "moment";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { getEventStatus } from '@/app/(app)/utils/date';
+import { Button } from '@/components/ui/button';
+import { ChevronLeftIcon, HomeIcon } from '@radix-ui/react-icons';
+import moment from 'moment';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function ExodusIsOver() {
   const router = useRouter();
-  const exodus = getEventStatus("EXODUS");
+  const exodus = getEventStatus('EXODUS');
 
   return (
     <main className="relative mt-16 flex w-full flex-col items-center justify-center">
@@ -19,7 +19,7 @@ export default function ExodusIsOver() {
       </div>
       <p>
         Exodus už skončil nebo ještě nezačal, tady nic nenajdeš. Zde uvidíš víc {moment(exodus.startDate).fromNow()} (
-        {moment(exodus.startDate).format("LL")})
+        {moment(exodus.startDate).format('LL')})
       </p>
       <p>Tuhle stránku si můžeš dát do svých oblíbených a vždy zde uvidíš texty na daný den.</p>
       <div className="container flex justify-center gap-4 pt-4">

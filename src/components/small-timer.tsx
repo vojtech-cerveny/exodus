@@ -1,8 +1,8 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { PauseIcon, PlayIcon, StopIcon } from "@radix-ui/react-icons";
-import { useEffect, useRef, useState } from "react";
+'use client';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { PauseIcon, PlayIcon, StopIcon } from '@radix-ui/react-icons';
+import { useEffect, useRef, useState } from 'react';
 
 const timerMessageFromTheField = {
   time: 90,
@@ -62,15 +62,15 @@ const SmallTimer = ({
   };
 
   const formatTime = (seconds: number) => {
-    return `${Math.floor(seconds / 60)}:${("0" + (seconds % 60)).slice(-2)}`;
+    return `${Math.floor(seconds / 60)}:${('0' + (seconds % 60)).slice(-2)}`;
   };
 
   return (
     <>
       <h2
         className={cn(
-          "text-center text-8xl font-bold tracking-tighter",
-          isRunning ? "text-red-700 duration-90000 dark:text-red-300" : "duration-0",
+          'text-center text-8xl font-bold tracking-tighter',
+          isRunning ? 'text-red-700 duration-90000 dark:text-red-300' : 'duration-0',
         )}
       >
         {formatTime(timeLeft)}
@@ -87,7 +87,7 @@ const SmallTimer = ({
             </>
           )}
         </Button>
-        <Button variant={"outline"} className="w-1/2" onClick={resetTimer}>
+        <Button variant={'outline'} className="w-1/2" onClick={resetTimer}>
           <StopIcon className="h-4 w-4" />
         </Button>
       </div>

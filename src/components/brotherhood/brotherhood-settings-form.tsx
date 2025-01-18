@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { updateBrotherhoodAction } from "@/domain/brotherhood/brotherhood-action";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import SubmitButton from "../submit-button";
-import { Label } from "../ui/label";
-import { Switch } from "../ui/switch";
-import { Textarea } from "../ui/textarea";
+import { updateBrotherhoodAction } from '@/domain/brotherhood/brotherhood-action';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import SubmitButton from '../submit-button';
+import { Label } from '../ui/label';
+import { Switch } from '../ui/switch';
+import { Textarea } from '../ui/textarea';
 
 interface BrotherhoodSettingsFormProps {
   brotherhoodId: string;
@@ -33,7 +33,7 @@ export function BrotherhoodSettingsForm({ brotherhoodId, userId, initialData }: 
         <Textarea
           id="description"
           name="description"
-          defaultValue={initialData.description || ""}
+          defaultValue={initialData.description || ''}
           placeholder="Popište účel a cíle vašeho bratrstva..."
         />
       </div>

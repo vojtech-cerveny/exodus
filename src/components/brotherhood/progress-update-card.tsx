@@ -7,23 +7,23 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from '@/components/ui/drawer';
 
-import { ProgressToggleGroupItem } from "./progress-toggle-group-item";
+import { ProgressToggleGroupItem } from './progress-toggle-group-item';
 
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import { Checkbox } from '@/components/ui/checkbox';
+import { Label } from '@/components/ui/label';
 
-import createMemberProgressAction from "@/domain/brotherhood-progress/brotherhood-progress-action";
-import { getBrotherhoodsByUserId } from "@/domain/brotherhood/brotherhood-service";
-import { auth } from "@auth";
-import { Cross2Icon, PlusIcon } from "@radix-ui/react-icons";
-import SubmitButton from "../submit-button";
-import { Button } from "../ui/button";
-import { RadioGroup } from "../ui/radio-group";
-import { Textarea } from "../ui/textarea";
+import createMemberProgressAction from '@/domain/brotherhood-progress/brotherhood-progress-action';
+import { getBrotherhoodsByUserId } from '@/domain/brotherhood/brotherhood-service';
+import { auth } from '@auth';
+import { Cross2Icon, PlusIcon } from '@radix-ui/react-icons';
+import SubmitButton from '../submit-button';
+import { Button } from '../ui/button';
+import { RadioGroup } from '../ui/radio-group';
+import { Textarea } from '../ui/textarea';
 
-export default async function ProgressUpdateCard({ variant = "full" }: { variant?: "small" | "full" }) {
+export default async function ProgressUpdateCard({ variant = 'full' }: { variant?: 'small' | 'full' }) {
   const session = await auth();
 
   if (!session) {
@@ -40,7 +40,7 @@ export default async function ProgressUpdateCard({ variant = "full" }: { variant
     <Drawer>
       <DrawerTrigger asChild>
         <>
-          {variant === "full" ? (
+          {variant === 'full' ? (
             <Button className="">Můj den</Button>
           ) : (
             <Button size="icon" className="h-9 w-9">
@@ -110,7 +110,7 @@ export default async function ProgressUpdateCard({ variant = "full" }: { variant
               <SubmitButton className="w-full">Uložit můj den</SubmitButton>
             </div>
             <DrawerClose>
-              <Button variant={"outline"} size={"sm"} className="fixed right-4 top-4">
+              <Button variant={'outline'} size={'sm'} className="fixed right-4 top-4">
                 <Cross2Icon />
               </Button>
             </DrawerClose>

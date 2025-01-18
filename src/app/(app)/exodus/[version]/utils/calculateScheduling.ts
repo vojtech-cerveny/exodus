@@ -8,7 +8,7 @@ interface Scheduling {
 export const calculateSchedulingFromDay = (day: number): Scheduling => {
   // Ensure day is between 1 and 90
   if (day < 1 || day > 90) {
-    throw new Error("Day must be between 1 and 90");
+    throw new Error('Day must be between 1 and 90');
   }
 
   return {

@@ -1,8 +1,8 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { promises as fs } from "fs";
-import Link from "next/link";
-import { H2 } from "../../../components/typography";
-import { getMarkdownData } from "./utils";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { promises as fs } from 'fs';
+import Link from 'next/link';
+import { H2 } from '../../../components/typography';
+import { getMarkdownData } from './utils';
 
 type ArticleMetaData = {
   title: string;
@@ -10,7 +10,7 @@ type ArticleMetaData = {
   published: boolean;
   slug: string;
   description: string;
-  tags: ["modlitba" | "discipliny" | "navod"];
+  tags: ['modlitba' | 'discipliny' | 'navod'];
   id: string;
   link: string;
 };
@@ -19,7 +19,7 @@ type ArticleMetaData = {
 
 export default async function RemoteMdxPage() {
   async function getFilesInFolder() {
-    const folderPath = process.cwd() + "/src/app/(app)/data/articles/";
+    const folderPath = process.cwd() + '/src/app/(app)/data/articles/';
     const files = await fs.readdir(folderPath);
     return files;
   }
@@ -27,8 +27,8 @@ export default async function RemoteMdxPage() {
   const fileNames = await getFilesInFolder();
   const articlesMetaData: ArticleMetaData[] = await Promise.all(
     fileNames.map(async (file, index) => {
-      const { data } = await getMarkdownData(process.cwd() + "/src/app/(app)/data/articles/" + file);
-      return { ...data, link: `/${file.replace(".md", "")}` };
+      const { data } = await getMarkdownData(process.cwd() + '/src/app/(app)/data/articles/' + file);
+      return { ...data, link: `/${file.replace('.md', '')}` };
     }) as any,
   );
 
@@ -39,24 +39,24 @@ export default async function RemoteMdxPage() {
   // FOR NOW JUST HARDCODED and not used - but will be used in the future 🤷‍♂️
   const badges = {
     modlitba: {
-      text: "Modlitba",
+      text: 'Modlitba',
       color:
-        "bg-green-100 dark:bg-green-950 border-green-300 dark:border-green-800 text-zinc-700 dark:text-zinc-400 hover:bg-green-200 dark:hover:bg-green-800",
+        'bg-green-100 dark:bg-green-950 border-green-300 dark:border-green-800 text-zinc-700 dark:text-zinc-400 hover:bg-green-200 dark:hover:bg-green-800',
     },
     discipliny: {
-      text: "Disciplíny",
+      text: 'Disciplíny',
       color:
-        "bg-blue-100 dark:bg-blue-950 border-blue-300 dark:border-blue-800 text-zinc-700 dark:text-zinc-400 hover:bg-blue-200 dark:hover:bg-blue-800",
+        'bg-blue-100 dark:bg-blue-950 border-blue-300 dark:border-blue-800 text-zinc-700 dark:text-zinc-400 hover:bg-blue-200 dark:hover:bg-blue-800',
     },
     navod: {
-      text: "Návod",
+      text: 'Návod',
       color:
-        "bg-orange-100 dark:bg-orange-950 border-orange-300 dark:border-orange-800 text-zinc-800 dark:text-zinc-400 hover:bg-orange-200 dark:hover:bg-orange-800",
+        'bg-orange-100 dark:bg-orange-950 border-orange-300 dark:border-orange-800 text-zinc-800 dark:text-zinc-400 hover:bg-orange-200 dark:hover:bg-orange-800',
     },
     exodus90: {
-      text: "Exodus90",
+      text: 'Exodus90',
       color:
-        "bg-gray-100 dark:bg-gray-950 border-gray-300 dark:border-gray-800 text-zinc-800 dark:text-zinc-400 hover:bg-gray-200 dark:hover:bg-gray-800",
+        'bg-gray-100 dark:bg-gray-950 border-gray-300 dark:border-gray-800 text-zinc-800 dark:text-zinc-400 hover:bg-gray-200 dark:hover:bg-gray-800',
     },
   };
 
@@ -67,7 +67,7 @@ export default async function RemoteMdxPage() {
         {articlesMetaData.map((article, index) => {
           // const fileName = file.replace(".md", "");
           return (
-            <Link href={"/articles" + article.link} key={index} className="h-full">
+            <Link href={'/articles' + article.link} key={index} className="h-full">
               <Card className="h-full hover:bg-background/90">
                 <CardHeader className="pb-2">
                   <CardTitle>

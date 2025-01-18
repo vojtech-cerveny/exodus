@@ -1,16 +1,16 @@
 ---
 id: 5
-title: "Disciplíny"
+title: 'Disciplíny'
 date: 2024-07-25
 published: true
-slug: "exodus-90-discipliny"
-description: "Výcuc - Denní, týdenní a měsíční disciplíny pro duchovní cvičení Exodus 90."
-tags: ["navod", "discipliny", "exodus90"]
+slug: 'exodus-90-discipliny'
+description: 'Výcuc - Denní, týdenní a měsíční disciplíny pro duchovní cvičení Exodus 90.'
+tags: ['navod', 'discipliny', 'exodus90']
 # image: exodus_90_discipline.png
-previousPage: "exodus90-tydenni-pruvodce"
-previousPageText: "Průvodce pro týdenní setkání"
-nextPage: "exodus90-historie"
-nextPageText: "Historie"
+previousPage: 'exodus90-tydenni-pruvodce'
+previousPageText: 'Průvodce pro týdenní setkání'
+nextPage: 'exodus90-historie'
+nextPageText: 'Historie'
 ---
 
 # Disciplíny

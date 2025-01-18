@@ -1,16 +1,16 @@
 ---
 id: 2
-title: "Pilíře Exodu"
+title: 'Pilíře Exodu'
 date: 2024-07-25
 published: true
-slug: "pilire-exodu"
-description: "Vymezuje tři základní pilíře duchovního cvičení a další důležité informace"
-tags: ["navod", "exodus90"]
+slug: 'pilire-exodu'
+description: 'Vymezuje tři základní pilíře duchovního cvičení a další důležité informace'
+tags: ['navod', 'exodus90']
 # image: exodus_90_discipline.png
-nextPage: "exodus90-a-tvoje-manzelka"
-nextPageText: "Muž Exodus a jeho manželka"
-previousPage: "exodus90-zacnete-zde"
-previousPageText: "Začněte zde: Jaké je vaše proč"
+nextPage: 'exodus90-a-tvoje-manzelka'
+nextPageText: 'Muž Exodus a jeho manželka'
+previousPage: 'exodus90-zacnete-zde'
+previousPageText: 'Začněte zde: Jaké je vaše proč'
 ---
 
 # Pilíře exodu

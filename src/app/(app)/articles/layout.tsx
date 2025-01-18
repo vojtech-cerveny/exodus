@@ -1,9 +1,9 @@
-import Breadcrumb from "../../../components/navigation/breadcrumb";
+import Breadcrumb from '../../../components/navigation/breadcrumb';
 
 export default async function ArticleLayout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <Breadcrumb pages={[{ path: "/articles", title: "Průvodce" }]} />
+      <Breadcrumb pages={[{ path: '/articles', title: 'Průvodce' }]} />
       {children}
     </div>
   );

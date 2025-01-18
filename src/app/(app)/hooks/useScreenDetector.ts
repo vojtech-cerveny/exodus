@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export const useScreenDetector = () => {
   // Initialize width with a default value for SSR or initial render
@@ -12,11 +12,11 @@ export const useScreenDetector = () => {
       setWidth(window.innerWidth);
     };
 
-    window.addEventListener("resize", handleWindowSizeChange);
+    window.addEventListener('resize', handleWindowSizeChange);
 
     // Cleanup the event listener on component unmount
     return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
+      window.removeEventListener('resize', handleWindowSizeChange);
     };
   }, []); // Empty dependency array ensures this effect only runs once on mount
 

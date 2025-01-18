@@ -1,13 +1,13 @@
-"use client";
-import { DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { createBookmarkAction } from "@/domain/bookmark/bookmark-action";
-import { useSession } from "next-auth/react";
-import { usePathname } from "next/navigation";
-import { toast } from "sonner";
-import SubmitButton from "../submit-button";
-import { Label } from "../ui/label";
-import { Switch } from "../ui/switch";
-import { Textarea } from "../ui/textarea";
+'use client';
+import { DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { createBookmarkAction } from '@/domain/bookmark/bookmark-action';
+import { useSession } from 'next-auth/react';
+import { usePathname } from 'next/navigation';
+import { toast } from 'sonner';
+import SubmitButton from '../submit-button';
+import { Label } from '../ui/label';
+import { Switch } from '../ui/switch';
+import { Textarea } from '../ui/textarea';
 
 export function CreateBookmarkContent({ selection }: { selection: string }) {
   const { data: session } = useSession();
@@ -17,9 +17,9 @@ export function CreateBookmarkContent({ selection }: { selection: string }) {
     const result = await createBookmarkAction(formData);
     console.log(result);
     if (result.success) {
-      toast("Záložka byla vytvořena.");
+      toast('Záložka byla vytvořena.');
     } else {
-      toast("Nepodařilo se vytvořit záložku.");
+      toast('Nepodařilo se vytvořit záložku.');
     }
   };
 
@@ -47,7 +47,7 @@ export function CreateBookmarkContent({ selection }: { selection: string }) {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="mt-4">
-          <SubmitButton disabled={!session}>{session ? "Vytvořit" : "Musíš se prvně přihlásit"}</SubmitButton>
+          <SubmitButton disabled={!session}>{session ? 'Vytvořit' : 'Musíš se prvně přihlásit'}</SubmitButton>
         </DialogFooter>
       </form>
     </DialogContent>

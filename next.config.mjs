@@ -1,24 +1,24 @@
-import withMDX from "@next/mdx";
-import { withPayload } from "@payloadcms/next/withPayload";
-import withPWA from "next-pwa";
+import withMDX from '@next/mdx';
+import { withPayload } from '@payloadcms/next/withPayload';
+import withPWA from 'next-pwa';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Configure `pageExtensions` to include MDX files
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
-  output: "standalone",
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  output: 'standalone',
   // Optionally, add any other Next.js config below
 };
 
 // Injected content via Sentry wizard below
 
-import { withSentryConfig } from "@sentry/nextjs";
+import { withSentryConfig } from '@sentry/nextjs';
 
 const withPWAConfig = withPWA(nextConfig, {
-  disable: process.env.NODE_ENV === "development",
+  disable: process.env.NODE_ENV === 'development',
   register: true,
-  scope: "/app/(app)",
-  sw: "service-worker.js",
+  scope: '/app/(app)',
+  sw: 'service-worker.js',
 });
 
 const withMDXConfig = withMDX(withPWAConfig);
@@ -26,8 +26,8 @@ const withSentryConfigured = withSentryConfig(withMDXConfig, {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
 
-  org: "ff0000",
-  project: "exodus-90-app",
+  org: 'ff0000',
+  project: 'exodus-90-app',
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
@@ -47,7 +47,7 @@ const withSentryConfigured = withSentryConfig(withMDXConfig, {
   // This can increase your server load as well as your hosting bill.
   // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
   // side errors will fail.
-  tunnelRoute: "/monitoring",
+  tunnelRoute: '/monitoring',
 
   // Hides source maps from generated client bundles
   hideSourceMaps: true,

@@ -1,16 +1,16 @@
 ---
 id: 6
-title: "Historie Exodu 90"
+title: 'Historie Exodu 90'
 date: 2024-07-25
 published: true
-slug: "historie-exodu-90"
-description: ""
-tags: ["exodus90"]
+slug: 'historie-exodu-90'
+description: ''
+tags: ['exodus90']
 # image: exodus_90_discipline.png
-previousPage: "discipliny"
-previousPageText: "Disciplíny"
-nextPage: "exodus90-jak-se-modlit-svatou-hodinu"
-nextPageText: "Jak se modlit svatou hodinu"
+previousPage: 'discipliny'
+previousPageText: 'Disciplíny'
+nextPage: 'exodus90-jak-se-modlit-svatou-hodinu'
+nextPageText: 'Jak se modlit svatou hodinu'
 ---
 
 # Historie Exodu 90

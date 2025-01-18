@@ -1,15 +1,15 @@
 ---
 id: 1
-title: "Začněte zde: Jaké je vaše proč"
+title: 'Začněte zde: Jaké je vaše proč'
 date: 2024-07-25
 published: true
-slug: "jake-je-vase-proc"
-description: "Vymezuje tři základní pilíře duchovního cvičení a další důležité informace"
-tags: ["navod", "exodus90"]
-nextPage: "exodus90-pilire-exodu"
-nextPageText: "Pilíře Exodu"
-previousPage: "exodus90-vitejte-v-exodu"
-previousPageText: "Vítejte v Exodu 90"
+slug: 'jake-je-vase-proc'
+description: 'Vymezuje tři základní pilíře duchovního cvičení a další důležité informace'
+tags: ['navod', 'exodus90']
+nextPage: 'exodus90-pilire-exodu'
+nextPageText: 'Pilíře Exodu'
+previousPage: 'exodus90-vitejte-v-exodu'
+previousPageText: 'Vítejte v Exodu 90'
 # image: exodus_90_discipline.png
 ---
 

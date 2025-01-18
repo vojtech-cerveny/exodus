@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Exodus90 - Královské léto Den",
-  description: "Najdi zpět cestu k Bohu a k sobě samému.",
+  title: 'Exodus90 - Královské léto Den',
+  description: 'Najdi zpět cestu k Bohu a k sobě samému.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

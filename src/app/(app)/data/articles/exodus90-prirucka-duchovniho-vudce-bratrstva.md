@@ -1,14 +1,14 @@
 ---
 id: 10
-title: "Příručka duchovního vůdce bratrstva"
+title: 'Příručka duchovního vůdce bratrstva'
 date: 2024-07-25
 published: true
-slug: "exodus90-prirucka-duchovniho-vudce-bratrstva"
-description: ""
-tags: ["navod", "exodus90"]
+slug: 'exodus90-prirucka-duchovniho-vudce-bratrstva'
+description: ''
+tags: ['navod', 'exodus90']
 # image: exodus_90_discipline.png
-previousPage: "exodus90-povzbuzeni-od-gridirona"
-previousPageText: "Povzbuzení od Gridirona"
+previousPage: 'exodus90-povzbuzeni-od-gridirona'
+previousPageText: 'Povzbuzení od Gridirona'
 ---
 
 # Příručka duchovního vůdce bratrstva

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui//button";
+import { Button } from '@/components/ui//button';
 import {
   Dialog,
   DialogClose,
@@ -8,19 +8,19 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from '@/components/ui/dialog';
 
 import {
   regenerateBrotherhoodInvitationAction,
   toggleActivityBrotherhoInvitationAction,
-} from "@/domain/brotherhood-invitation/brotherhood-invitation-action";
-import { getInvitationToken } from "@/domain/brotherhood-invitation/brotherhood-invitation-service";
-import { Share1Icon } from "@radix-ui/react-icons";
-import { CopyLink } from "../copy-link";
-import SubmitButton from "../submit-button";
-import { FormSwitch } from "../ui/form-switch";
-import { Label } from "../ui/label";
-import { Separator } from "../ui/separator";
+} from '@/domain/brotherhood-invitation/brotherhood-invitation-action';
+import { getInvitationToken } from '@/domain/brotherhood-invitation/brotherhood-invitation-service';
+import { Share1Icon } from '@radix-ui/react-icons';
+import { CopyLink } from '../copy-link';
+import SubmitButton from '../submit-button';
+import { FormSwitch } from '../ui/form-switch';
+import { Label } from '../ui/label';
+import { Separator } from '../ui/separator';
 
 export default async function BrotherhoodShareInvitation({ brotherhoodId }: { brotherhoodId: string }) {
   const invitation = await getInvitationToken(brotherhoodId);
@@ -30,7 +30,7 @@ export default async function BrotherhoodShareInvitation({ brotherhoodId }: { br
     return null;
   }
 
-  let link = process.env.HOST + "/bratrstvo/" + brotherhoodId + "/invite/" + invitation!.token;
+  let link = process.env.HOST + '/bratrstvo/' + brotherhoodId + '/invite/' + invitation!.token;
 
   return (
     <Dialog>

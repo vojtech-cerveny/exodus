@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import { handleCopyClick } from "@/lib/utils";
-import { BookmarkFilledIcon, CopyIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
-import { Button } from "../ui/button";
-import { MultiDialogProvider } from "../ui/multi-dialog";
+import { handleCopyClick } from '@/lib/utils';
+import { BookmarkFilledIcon, CopyIcon } from '@radix-ui/react-icons';
+import { useState } from 'react';
+import { Button } from '../ui/button';
+import { MultiDialogProvider } from '../ui/multi-dialog';
 
-import { useScreenDetector } from "@/app/(app)/hooks/useScreenDetector";
-import { CreateBookmarkContent } from "./create-bookmark";
-import { HighlightedTextDesktop } from "./highlighted-text-desktop";
-import MobileContextMenu from "./mobile-context-menu";
+import { useScreenDetector } from '@/app/(app)/hooks/useScreenDetector';
+import { CreateBookmarkContent } from './create-bookmark';
+import { HighlightedTextDesktop } from './highlighted-text-desktop';
+import MobileContextMenu from './mobile-context-menu';
 
 export function HighlightedTextMobile({ children }: { children: React.ReactNode }) {
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
-  const [selectedText, setSelectedText] = useState("");
+  const [selectedText, setSelectedText] = useState('');
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
   const { isMobile } = useScreenDetector();
 
   const onMouseUp = (e: any) => {
     e.preventDefault();
     const selection = window.getSelection();
-    if (selection?.type === "None" || selection?.rangeCount === 0) {
+    if (selection?.type === 'None' || selection?.rangeCount === 0) {
       setIsContextMenuVisible(false);
       return;
     }
@@ -41,7 +41,7 @@ export function HighlightedTextMobile({ children }: { children: React.ReactNode 
   };
 
   const handleCopy = () => {
-    handleCopyClick(selectedText, "Text");
+    handleCopyClick(selectedText, 'Text');
     setIsContextMenuVisible(false);
   };
 
@@ -51,7 +51,7 @@ export function HighlightedTextMobile({ children }: { children: React.ReactNode 
   }
 
   enum dialogs {
-    createBookmark = "createBookmark",
+    createBookmark = 'createBookmark',
   }
 
   return (

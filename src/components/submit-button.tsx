@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Half2Icon } from "@radix-ui/react-icons";
-import { useFormStatus } from "react-dom";
-import { Button, ButtonProps } from "./ui/button";
+import { Half2Icon } from '@radix-ui/react-icons';
+import { useFormStatus } from 'react-dom';
+import { Button, ButtonProps } from './ui/button';
 
 export default function SubmitButton({ children, className, ...props }: ButtonProps) {
   const { pending } = useFormStatus();
