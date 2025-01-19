@@ -4,18 +4,22 @@ import config from '@payload-config';
 import { unstable_noStore } from 'next/cache';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+// import { useRouter } from 'next/router';
+import { getEventStatus } from '@/app/(app)/utils/date';
 import { getPayload } from 'payload';
-import { getEventStatus } from '../../utils/date';
 
 type PageProps = {
   params: Promise<{
     version: string;
+    lang: string;
   }>;
 };
 
 export default async function ExodusVersionPage({ params }: PageProps) {
   const aParams = await params;
   unstable_noStore();
+
+  console.log(aParams);
 
   const payload = await getPayload({ config });
 
@@ -25,6 +29,7 @@ export default async function ExodusVersionPage({ params }: PageProps) {
     where: {
       slug: { equals: aParams.version },
     },
+    locale: aParams.lang,
   });
 
   if (version.docs.length === 0) {
@@ -38,6 +43,7 @@ export default async function ExodusVersionPage({ params }: PageProps) {
     },
     sort: 'number',
     limit: 100,
+    locale: aParams.lang,
   });
 
   const exodus = getEventStatus('EXODUS');
@@ -60,7 +66,7 @@ export default async function ExodusVersionPage({ params }: PageProps) {
                   'border-green-500/45 bg-green-500/45 text-foreground hover:bg-green-500/55',
               )}
               key={index}
-              href={`/exodus/${aParams.version}/${dayString}`}
+              href={`/exodus/${aParams.lang}/${aParams.version}/${dayString}`}
             >
               <div>{formatedDay}</div>
             </Link>

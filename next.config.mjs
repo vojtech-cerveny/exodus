@@ -7,6 +7,10 @@ const nextConfig = {
   // Configure `pageExtensions` to include MDX files
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   output: 'standalone',
+  i18n: {
+    locales: ['cs', 'sk'],
+    defaultLocale: 'cs'
+  }
   // Optionally, add any other Next.js config below
 };
 

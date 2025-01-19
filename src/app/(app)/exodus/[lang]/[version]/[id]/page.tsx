@@ -12,14 +12,19 @@ import Timer from '@/components/days/timer';
 import { H2, H3 } from '@/components/typography';
 import { auth } from '@auth';
 import { SessionProvider } from 'next-auth/react';
+// import { useRouter } from 'next/router';
 import { DayContentParser } from '../components/DayContentParser';
 import { TasksAccordeon } from '../components/TaskAccordeon';
 import { calculateSchedulingFromDay } from '../utils/calculateScheduling';
-export default async function ExodusPayloadPage(props: { params: Promise<{ id: string; version: string }> }) {
+
+export default async function ExodusPayloadPage(props: {
+  params: Promise<{ id: string; version: string; lang: string }>;
+}) {
   const params = await props.params;
   const scheduling = calculateSchedulingFromDay(Number(params.id));
   const payload = await getPayload({ config });
   const session = await auth();
+  // const { locale, defaultLocale } = useRouter();
 
   try {
     const day = await payload.find({
@@ -30,6 +35,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ id: s
       },
       pagination: false,
       depth: 1,
+      locale: params.lang,
     });
 
     const tasks = await payload.find({
@@ -57,6 +63,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ id: s
       },
       pagination: false,
       depth: 1,
+      locale: params.lang,
     });
 
     const daysTotalDocs = await payload.find({
@@ -65,6 +72,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ id: s
         'version.slug': { equals: params.version },
       },
       sort: 'number',
+      locale: params.lang,
     });
 
     if (day.docs.length === 0) {

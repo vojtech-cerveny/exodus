@@ -8,13 +8,15 @@ import { getPayload } from 'payload';
 import { getEventStatus } from '@/app/(app)/utils/date';
 import { DayPagination } from '@/components/days/day-pagination';
 import { H2, H3 } from '@/components/typography';
+// import { useRouter } from 'next/router';
 import { DayContentParser } from '../components/DayContentParser';
 import { TasksAccordeon } from '../components/TaskAccordeon';
 import { calculateSchedulingFromDay } from '../utils/calculateScheduling';
 
-export default async function ExodusPayloadPage(props: { params: Promise<{ version: string }> }) {
+export default async function ExodusPayloadPage(props: { params: Promise<{ version: string; lang: string }> }) {
   const params = await props.params;
   const payload = await getPayload({ config });
+  // const { locale, defaultLocale } = useRouter();
 
   const status = getEventStatus('EXODUS');
 
@@ -33,6 +35,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ versi
       },
       pagination: false,
       depth: 1,
+      locale: params.lang,
     });
 
     const tasks = await payload.find({
@@ -60,6 +63,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ versi
       },
       pagination: false,
       depth: 1,
+      locale: params.lang,
     });
 
     const daysTotalDocs = await payload.find({
@@ -68,6 +72,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ versi
         'version.slug': { equals: params.version },
       },
       sort: 'number',
+      locale: params.lang,
     });
 
     if (day.docs.length === 0) {
