@@ -1,18 +1,18 @@
-import { Button } from "@/components/ui/button";
-import { signIn, signOut } from "@auth";
+import { Button } from '@/components/ui/button';
+import { signIn, signOut } from '@auth';
 
 export function SignIn({
   provider,
   withIcon = false,
-  text = "Přihlaš se",
+  text = 'Přihlaš se',
   ...props
 }: { provider?: string; withIcon?: boolean; text?: string } & React.ComponentPropsWithRef<typeof Button>) {
   return (
     <form
       action={async () => {
-        "use server";
+        'use server';
         await signIn(provider, {
-          callbackUrl: "/",
+          callbackUrl: '/',
           redirect: true,
         });
       }}
@@ -30,7 +30,7 @@ export function SignOut(props: React.ComponentPropsWithRef<typeof Button>) {
     <form
       className="w-full"
       action={async () => {
-        "use server";
+        'use server';
         await signOut();
       }}
     >

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { Label } from "@/components/ui/label";
-import { handleCopyClick } from "@/lib/utils";
-import { ClipboardCopyIcon } from "@radix-ui/react-icons";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+import { Label } from '@/components/ui/label';
+import { handleCopyClick } from '@/lib/utils';
+import { ClipboardCopyIcon } from '@radix-ui/react-icons';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
 
 export function CopyLink({ link }: { link: string }) {
   return (
@@ -15,7 +15,7 @@ export function CopyLink({ link }: { link: string }) {
         </Label>
         <Input id="link" defaultValue={link} readOnly />
       </div>
-      <Button type="submit" size="sm" className="px-3" onClick={() => handleCopyClick(link, "Link")}>
+      <Button type="submit" size="sm" className="px-3" onClick={() => handleCopyClick(link, 'Link')}>
         <span className="sr-only">Copy</span>
         <ClipboardCopyIcon className="h-4 w-4" />
       </Button>

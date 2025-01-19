@@ -1,7 +1,7 @@
-import { DownloadTextFiles } from "@/components/download-text-files";
-import { H1 } from "@/components/typography";
+import { DownloadTextFiles } from '@/components/download-text-files';
+import { H1 } from '@/components/typography';
 
-import { unstable_noStore } from "next/cache";
+import { unstable_noStore } from 'next/cache';
 
 export default function RemoteMdxPage() {
   unstable_noStore();

@@ -1,12 +1,12 @@
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from 'fs';
+import * as path from 'path';
 
 function chunkArray(lines: string[]) {
   let chunks = [];
   let chunk = [];
 
   for (let line of lines) {
-    if (line.startsWith("1. ") && chunk.length) {
+    if (line.startsWith('1. ') && chunk.length) {
       chunks.push(chunk);
       chunk = [];
     }
@@ -29,14 +29,14 @@ function saveMDFiles(sections: string[]) {
   sections.shift();
 
   sections.forEach((section, i) => {
-    if (section.includes("Úkony (ukazatel cesty) pro")) {
+    if (section.includes('Úkony (ukazatel cesty) pro')) {
       ukonyCounter++;
-      fs.writeFile(path.join(__dirname, "ukony", `${String(ukonyCounter).padStart(2, "0")}.md`), section, (err) => {
+      fs.writeFile(path.join(__dirname, 'ukony', `${String(ukonyCounter).padStart(2, '0')}.md`), section, (err) => {
         if (err) throw err;
       });
     } else {
       dayCounter++;
-      fs.writeFile(path.join(__dirname, "days", `${String(dayCounter).padStart(2, "0")}.md`), section, (err) => {
+      fs.writeFile(path.join(__dirname, 'days', `${String(dayCounter).padStart(2, '0')}.md`), section, (err) => {
         if (err) throw err;
       });
     }
@@ -44,69 +44,69 @@ function saveMDFiles(sections: string[]) {
 }
 
 // Read the .tex file
-fs.readFile("../../../public/files/exodus90.tex", "utf8", (err, data) => {
+fs.readFile('../../../public/files/exodus90.tex', 'utf8', (err, data) => {
   if (err) throw err;
 
   // Replace \textsuperscript{X} with <sup>X</sup>
   const replacement: [RegExp | string, string][] = [
-    [/\\begin\{minipage\}\{\\dimexpr\\textwidth-20pt\}|\\end\{minipage\}/g, ""],
-    [/\\begin{quote}\n\s*/, "> "],
-    [/\\end\{quote\}/g, ""],
-    [/\\textsuperscript\{(\d+)\}/g, "> <sup>$1</sup>"],
-    [/\\subsection\*\{(.*)\}/g, "### $1"],
-    [/\\section\*\{(.*)\}/g, "## $1"],
-    [/\\section\{(.*)\}/g, "## $1"],
-    [/\\textbf\{(.*)\}\n\\newline\n\\textit\{([\s\S]*?)\}/g, "**$1** \n $2"],
-    [/\\textit\{([\s\S]*?)\}/g, "*$1*"],
-    [/\\end\{document\}/g, ""],
-    [/\\newpage/g, ""],
-    [/% =====.*/g, ""],
-    [/\\textbf\{(.*)\}/g, "**$1**"],
-    [/\\newline/g, "\n\n"],
+    [/\\begin\{minipage\}\{\\dimexpr\\textwidth-20pt\}|\\end\{minipage\}/g, ''],
+    [/\\begin{quote}\n\s*/, '> '],
+    [/\\end\{quote\}/g, ''],
+    [/\\textsuperscript\{(\d+)\}/g, '> <sup>$1</sup>'],
+    [/\\subsection\*\{(.*)\}/g, '### $1'],
+    [/\\section\*\{(.*)\}/g, '## $1'],
+    [/\\section\{(.*)\}/g, '## $1'],
+    [/\\textbf\{(.*)\}\n\\newline\n\\textit\{([\s\S]*?)\}/g, '**$1** \n $2'],
+    [/\\textit\{([\s\S]*?)\}/g, '*$1*'],
+    [/\\end\{document\}/g, ''],
+    [/\\newpage/g, ''],
+    [/% =====.*/g, ''],
+    [/\\textbf\{(.*)\}/g, '**$1**'],
+    [/\\newline/g, '\n\n'],
   ];
   replacement.forEach((replacer) => {
     data = data.replace(replacer[0], replacer[1]);
   });
 
-  data = data.replace(/\\begin\{enumerate\}/g, "BEGIN_ENUMERATE");
-  data = data.replace(/\\end\{enumerate\}/g, "END_ENUMERATE");
+  data = data.replace(/\\begin\{enumerate\}/g, 'BEGIN_ENUMERATE');
+  data = data.replace(/\\end\{enumerate\}/g, 'END_ENUMERATE');
 
   // Step 2: Replace \item with "1." only when it's between the markers
   data = data.replace(/BEGIN_ENUMERATE([\s\S]*?)END_ENUMERATE/g, function (match) {
-    return match.replace(/\\item/g, "1.");
+    return match.replace(/\\item/g, '1.');
   });
 
   // Remove the markers
-  data = data.replace(/BEGIN_ENUMERATE|END_ENUMERATE/g, "");
+  data = data.replace(/BEGIN_ENUMERATE|END_ENUMERATE/g, '');
 
   // Replace \begin{itemize} and \end{itemize} with nothing
-  data = data.replace(/\\begin\{itemize\}|\\end\{itemize\}/g, "");
+  data = data.replace(/\\begin\{itemize\}|\\end\{itemize\}/g, '');
 
   // Replace \item in itemized lists with "*"
-  data = data.replace(/\\item/g, "*");
+  data = data.replace(/\\item/g, '*');
 
   const weekNames = [
-    "Prvni",
-    "Druhy",
-    "Treti",
-    "Ctvrty",
-    "Paty",
-    "Sesty",
-    "Sedmy",
-    "Osmy",
-    "Devaty",
-    "Desaty",
-    "Jedenacty",
-    "Dvanacty",
-    "Trinacty",
+    'Prvni',
+    'Druhy',
+    'Treti',
+    'Ctvrty',
+    'Paty',
+    'Sesty',
+    'Sedmy',
+    'Osmy',
+    'Devaty',
+    'Desaty',
+    'Jedenacty',
+    'Dvanacty',
+    'Trinacty',
   ];
 
   for (let weekName of weekNames) {
-    let match = data.match(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, "g"))![0];
-    match = match.replace(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, "g"), "$1");
+    let match = data.match(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, 'g'))![0];
+    match = match.replace(new RegExp(`\\\\newcommand\\{\\\\zacatek${weekName}Tyden\\}\\{([\\s\\S]*?)\\}`, 'g'), '$1');
   }
 
-  data = data.replace(/^\*\n/g, "");
+  data = data.replace(/^\*\n/g, '');
 
   const activities = data.match(/\### \d+\. (.*?)\n(.*?)\n/g)!;
 
@@ -115,24 +115,24 @@ fs.readFile("../../../public/files/exodus90.tex", "utf8", (err, data) => {
   let splittedActivities: string[][] = [];
   const lines: string[] = [];
   activities.forEach((activity, i) => {
-    activity = activity.replace(/### |\*|_/g, "");
+    activity = activity.replace(/### |\*|_/g, '');
     // activity = activity.replace(//g, "");
     lines.push(
       activity
-        .split("\n")
+        .split('\n')
         .map((line, i) => {
           if (i === 1) {
-            line = "1. " + line;
+            line = '1. ' + line;
             return line;
           } else return line;
         })
-        .join("\n"),
+        .join('\n'),
     );
   });
 
   splittedActivities = chunkArray(lines);
   for (let index = 0; index < splittedActivities.length; index++) {
-    splittedActivities[index].unshift("### Týdenní aktivity (ukazatelé cesty)\n");
+    splittedActivities[index].unshift('### Týdenní aktivity (ukazatelé cesty)\n');
     splittedActivities[index].push(`
 #### Modlitba
 Modlete se, aby Pán osvobodil vás a vaše bratrství.
@@ -141,11 +141,11 @@ Ve jménu Otce i Syna i Ducha svatého … Otče náš… Ve jménu Otce i Syna 
   }
 
   for (let index = 0; index < splittedActivities.length; index++) {
-    data = data.replace(new RegExp(`\\\\zacatek${weekNames[index]}Tyden`, "g"), splittedActivities[index].join(""));
+    data = data.replace(new RegExp(`\\\\zacatek${weekNames[index]}Tyden`, 'g'), splittedActivities[index].join(''));
   }
 
   let sections = data.split(/%newday|%ukony/);
-  console.log("Sections:", sections.length);
+  console.log('Sections:', sections.length);
 
   saveMDFiles(sections);
 });

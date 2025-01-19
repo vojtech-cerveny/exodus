@@ -1,9 +1,9 @@
-"use client";
-import useLocalStorage from "@/app/(app)/hooks/useLocalStorage";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Version } from "@/payload-types";
-import { useEffect, useState } from "react";
-import { toast } from "sonner";
+'use client';
+import useLocalStorage from '@/app/(app)/hooks/useLocalStorage';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Version } from '@/payload-types';
+import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 
 interface VersionSelectUiProps {
   versions: Version[];
@@ -12,7 +12,7 @@ interface VersionSelectUiProps {
 
 export function VersionSelectUi({ versions, onVersionSelect }: VersionSelectUiProps) {
   const [version, setVersion] = useLocalStorage<Version | undefined>(
-    "exodus-version",
+    'exodus-version',
     versions.find((v) => v.isActive),
   );
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +24,7 @@ export function VersionSelectUi({ versions, onVersionSelect }: VersionSelectUiPr
   const selectVersion = (slug: string) => {
     const selectedVersion = versions.find((v) => v.slug === slug)!;
     setVersion(selectedVersion);
-    toast("Verze Exodus90 byla změněna na " + selectedVersion.displayName);
+    toast('Verze Exodus90 byla změněna na ' + selectedVersion.displayName);
     onVersionSelect?.();
   };
 
@@ -36,7 +36,7 @@ export function VersionSelectUi({ versions, onVersionSelect }: VersionSelectUiPr
     <div className="my-4 flex items-center justify-center space-x-4">
       <Select onValueChange={selectVersion}>
         <SelectTrigger className="w-[140px]">
-          <SelectValue placeholder={version?.displayName ?? "Vyberte verzi"} />
+          <SelectValue placeholder={version?.displayName ?? 'Vyberte verzi'} />
         </SelectTrigger>
         <SelectContent>
           {versions.map((v) => (

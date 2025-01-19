@@ -1,13 +1,13 @@
 ---
 id: 0
-title: "Vítejte v Exodu 90"
+title: 'Vítejte v Exodu 90'
 date: 2024-07-25
 published: true
-slug: "jake-je-vase-proc"
-description: "Úvod do formace Exodus90"
-tags: ["navod", "exodus90"]
-nextPage: "exodus90-zacnete-zde"
-nextPageText: "Začněte zde: Jaké je vaše proč"
+slug: 'jake-je-vase-proc'
+description: 'Úvod do formace Exodus90'
+tags: ['navod', 'exodus90']
+nextPage: 'exodus90-zacnete-zde'
+nextPageText: 'Začněte zde: Jaké je vaše proč'
 # image: exodus_90_discipline.png
 ---
 

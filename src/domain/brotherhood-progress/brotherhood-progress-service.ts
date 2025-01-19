@@ -1,6 +1,6 @@
-"use server";
+'use server';
 
-import prisma from "@/lib/db";
+import prisma from '@/lib/db';
 
 export async function createMemberProgress(formData: any) {
   return await prisma.brotherhoodProgress.upsert({
@@ -48,7 +48,7 @@ export async function getMemberProgressByBrotherhoodId(brotherhoodId: string) {
       },
     },
     orderBy: {
-      date: "desc",
+      date: 'desc',
     },
     include: {
       user: true,

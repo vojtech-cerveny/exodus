@@ -1,16 +1,16 @@
 ---
 id: 7
-title: "Dopis od bývalého útočníka americké NFL Joea Reitze"
+title: 'Dopis od bývalého útočníka americké NFL Joea Reitze'
 date: 2024-07-25
 published: true
-slug: "jak-se-modlit-svatou-hodinu"
-description: ""
-tags: ["exodus90"]
+slug: 'jak-se-modlit-svatou-hodinu'
+description: ''
+tags: ['exodus90']
 # image: exodus_90_discipline.png
-previousPage: "exodus90-jak-se-modlit-svatou-hodinu"
-previousPageText: "Jak se modlit svatou hodinu"
-nextPage: "exodus90-povzbuzeni-od-gridirona"
-nextPageText: "Povzbuzení od Gridirona"
+previousPage: 'exodus90-jak-se-modlit-svatou-hodinu'
+previousPageText: 'Jak se modlit svatou hodinu'
+nextPage: 'exodus90-povzbuzeni-od-gridirona'
+nextPageText: 'Povzbuzení od Gridirona'
 ---
 
 # Dopis od bývalého útočníka americké NFL Joea Reitze

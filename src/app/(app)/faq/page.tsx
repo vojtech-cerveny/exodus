@@ -1,12 +1,12 @@
-import { H2, H3, Paragraph } from "@/components/typography";
-import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MobileIcon } from "@radix-ui/react-icons";
-import { ComputerIcon } from "lucide-react";
+import { H2, H3, Paragraph } from '@/components/typography';
+import { Card } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { MobileIcon } from '@radix-ui/react-icons';
+import { ComputerIcon } from 'lucide-react';
 
 export const metadata = {
-  title: "Jak používat aplikaci | Exodus90",
-  description: "Návod k používání aplikace Exodus90 - instalace, nastavení a tipy pro používání.",
+  title: 'Jak používat aplikaci | Exodus90',
+  description: 'Návod k používání aplikace Exodus90 - instalace, nastavení a tipy pro používání.',
 };
 
 export default function FAQPage() {

@@ -1,15 +1,17 @@
-import { H1 } from "@/components/typography";
-import { cn } from "@/lib/utils";
-import config from "@payload-config";
-import { unstable_noStore } from "next/cache";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { getPayload } from "payload";
-import { getEventStatus } from "../../utils/date";
+import { H1 } from '@/components/typography';
+import { cn } from '@/lib/utils';
+import config from '@payload-config';
+import { unstable_noStore } from 'next/cache';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+// import { useRouter } from 'next/router';
+import { getEventStatus } from '@/app/(app)/utils/date';
+import { getPayload } from 'payload';
 
 type PageProps = {
   params: Promise<{
     version: string;
+    lang: string;
   }>;
 };
 
@@ -17,14 +19,17 @@ export default async function ExodusVersionPage({ params }: PageProps) {
   const aParams = await params;
   unstable_noStore();
 
+  console.log(aParams);
+
   const payload = await getPayload({ config });
 
   // First verify the version exists
   const version = await payload.find({
-    collection: "versions",
+    collection: 'versions',
     where: {
       slug: { equals: aParams.version },
     },
+    locale: aParams.lang,
   });
 
   if (version.docs.length === 0) {
@@ -32,15 +37,16 @@ export default async function ExodusVersionPage({ params }: PageProps) {
   }
 
   const days = await payload.find({
-    collection: "days",
+    collection: 'days',
     where: {
-      "version.slug": { equals: aParams.version },
+      'version.slug': { equals: aParams.version },
     },
-    sort: "number",
+    sort: 'number',
     limit: 100,
+    locale: aParams.lang,
   });
 
-  const exodus = getEventStatus("EXODUS");
+  const exodus = getEventStatus('EXODUS');
   const today = exodus.currentDays;
 
   return (
@@ -49,18 +55,18 @@ export default async function ExodusVersionPage({ params }: PageProps) {
       <div className="grid-flex grid grid-cols-5 flex-col gap-2 md:grid-cols-7">
         {days.docs.map((day, index) => {
           const dayString = day.number.toString();
-          const formatedDay = dayString.startsWith("0") ? dayString.substring(1) : dayString;
+          const formatedDay = dayString.startsWith('0') ? dayString.substring(1) : dayString;
 
           return (
             <Link
               className={cn(
-                "flex h-12 items-center justify-center rounded-md border border-foreground/10 text-foreground/30 underline hover:border-foreground hover:text-foreground md:no-underline",
-                today < parseInt(formatedDay) && "border border-foreground/50 bg-background/10 text-foreground/50",
+                'flex h-12 items-center justify-center rounded-md border border-foreground/10 text-foreground/30 underline hover:border-foreground hover:text-foreground md:no-underline',
+                today < parseInt(formatedDay) && 'border border-foreground/50 bg-background/10 text-foreground/50',
                 today == parseInt(formatedDay) &&
-                  "border-green-500/45 bg-green-500/45 text-foreground hover:bg-green-500/55",
+                  'border-green-500/45 bg-green-500/45 text-foreground hover:bg-green-500/55',
               )}
               key={index}
-              href={`/exodus/${aParams.version}/${dayString}`}
+              href={`/exodus/${aParams.lang}/${aParams.version}/${dayString}`}
             >
               <div>{formatedDay}</div>
             </Link>

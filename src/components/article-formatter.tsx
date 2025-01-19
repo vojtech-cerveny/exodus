@@ -1,9 +1,9 @@
-import type { MDXRemoteProps } from "next-mdx-remote/rsc";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import Link from "next/link";
-import { H1, H2, H3 } from "./typography";
+import type { MDXRemoteProps } from 'next-mdx-remote/rsc';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import Link from 'next/link';
+import { H1, H2, H3 } from './typography';
 
-const components: MDXRemoteProps["components"] = {
+const components: MDXRemoteProps['components'] = {
   h1: (props: any) => <H1 {...props}>{props.children}</H1>,
   h2: (props: any) => <H2 {...props}>{props.children}</H2>,
   h3: (props: any) => <H3 {...props}>{props.children}</H3>,

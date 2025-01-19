@@ -1,44 +1,68 @@
-import { CollectionConfig } from "payload";
+import { CollectionConfig } from 'payload';
 
 export const Articles: CollectionConfig = {
-  slug: "articles",
+  slug: 'articles',
   admin: {
-    useAsTitle: "title",
+    useAsTitle: 'title',
   },
   fields: [
     {
-      name: "title",
-      type: "text",
+      name: 'title',
+      type: 'text',
+      label: {
+        cs: 'Nadpis',
+        sk: 'Nadpis',
+      },
     },
     {
-      name: "content",
-      type: "richText",
+      name: 'content',
+      type: 'richText',
+      label: {
+        cs: 'Obsah článku',
+        sk: 'Obsah článku',
+      },
     },
     {
-      name: "author",
-      type: "relationship",
-      relationTo: "users",
+      name: 'author',
+      type: 'relationship',
+      relationTo: 'users',
+      label: {
+        cs: 'Autor',
+        sk: 'Autor',
+      },
     },
     {
-      name: "labels",
-      type: "select",
+      name: 'labels',
+      type: 'select',
       hasMany: true,
       options: [
         {
-          label: "Kralovské leto",
-          value: "kralovske-leto",
+          label: {
+            cs: 'Kralovské leto',
+            sk: 'Kráľovské léto',
+          },
+          value: 'kralovske-leto',
         },
         {
-          label: "Bratrstvo",
-          value: "bratrstvo",
+          label: {
+            cs: 'Bratrstvo',
+            sk: 'Bratstvo',
+          },
+          value: 'bratrstvo',
         },
         {
-          label: "Záložky",
-          value: "zalozky",
+          label: {
+            cs: 'Záložky',
+            sk: 'Záložky',
+          },
+          value: 'zalozky',
         },
         {
-          label: "Exodus",
-          value: "exodus",
+          label: {
+            cs: 'Exodus',
+            sk: 'Exodus',
+          },
+          value: 'exodus',
         },
       ],
     },

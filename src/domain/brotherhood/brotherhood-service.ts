@@ -1,13 +1,13 @@
-import prisma from "@/lib/db";
-import { createBrotherhoodInvitation } from "../brotherhood-invitation/brotherhood-invitation-service";
+import prisma from '@/lib/db';
+import { createBrotherhoodInvitation } from '../brotherhood-invitation/brotherhood-invitation-service';
 
 export async function getBrotherhoods() {
-  console.log("getBrotherhoods");
+  console.log('getBrotherhoods');
   return await prisma.brotherhood.findMany();
 }
 
 export async function getBrotherhood(id: string) {
-  console.log("getBrotherhood");
+  console.log('getBrotherhood');
   return await prisma.brotherhood.findFirst({
     where: { id },
     include: {
@@ -24,7 +24,7 @@ export async function createBrotherhood(
   const { name, description, visibility } = formData;
 
   if (visibility && !description) {
-    throw new Error("Description is required for open brotherhoods");
+    throw new Error('Description is required for open brotherhoods');
   }
 
   const brotherhood = await prisma.brotherhood.create({
@@ -92,7 +92,7 @@ export async function addUserIntoBrotherhood(userId: string, brotherhoodId: stri
 
 export async function removeUserFromBrotherhood(userId: string, brotherhoodId: string) {
   // Check if the user is a member of the brotherhood
-  console.log("removeUserFromBrotherhood");
+  console.log('removeUserFromBrotherhood');
   const brotherhood = await prisma.brotherhood.findUnique({
     where: {
       id: brotherhoodId,
@@ -152,13 +152,13 @@ export async function updateBrotherhood(
   });
 
   if (brotherhood?.createdBy !== userId) {
-    throw new Error("Only creator can update brotherhood settings");
+    throw new Error('Only creator can update brotherhood settings');
   }
 
   const { description, visibility } = formData;
 
   if (visibility && !description && !brotherhood.description) {
-    throw new Error("Description is required for open brotherhoods");
+    throw new Error('Description is required for open brotherhoods');
   }
 
   return await prisma.brotherhood.update({

@@ -1,10 +1,10 @@
-import { ArticleMDX } from "@/components/article-formatter";
-import SmallTimer from "@/components/small-timer";
-import { Metadata } from "next";
+import { ArticleMDX } from '@/components/article-formatter';
+import SmallTimer from '@/components/small-timer';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Exodus90 - Text na den",
-  description: "Best website ever",
+  title: 'Exodus90 - Text na den',
+  description: 'Best website ever',
 };
 
 // export const dynamic = "force-static";

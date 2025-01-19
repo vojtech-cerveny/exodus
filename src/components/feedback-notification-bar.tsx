@@ -1,7 +1,7 @@
-"use client";
-import { Cross1Icon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+'use client';
+import { Cross1Icon } from '@radix-ui/react-icons';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface FeedbackNotificationProps {
   showDates: string[];
@@ -13,7 +13,7 @@ export const FeedbackNotification: React.FC<FeedbackNotificationProps> = ({ show
 
   useEffect(() => {
     const now = new Date();
-    const lastDismissedDate = localStorage.getItem("feedbackNotificationDismissed");
+    const lastDismissedDate = localStorage.getItem('feedbackNotificationDismissed');
     const lastDismissed = lastDismissedDate ? new Date(lastDismissedDate) : null;
 
     // Find the current or next show date
@@ -31,7 +31,7 @@ export const FeedbackNotification: React.FC<FeedbackNotificationProps> = ({ show
 
   const handleDismiss = () => {
     setShowNotification(false);
-    localStorage.setItem("feedbackNotificationDismissed", new Date().toISOString());
+    localStorage.setItem('feedbackNotificationDismissed', new Date().toISOString());
   };
 
   if (!showNotification) return null;

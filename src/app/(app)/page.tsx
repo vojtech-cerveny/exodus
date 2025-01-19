@@ -1,20 +1,20 @@
-import InstallPWAButton from "@/components/install-pwa-button";
-import { unstable_noStore } from "next/cache";
+import InstallPWAButton from '@/components/install-pwa-button';
+import { unstable_noStore } from 'next/cache';
 
-import { constants } from "./constants";
-import { getEventStatus } from "./utils/date";
+import { constants } from './constants';
+import { getEventStatus } from './utils/date';
 
-import { Progress } from "@/components/circle-progress";
-import { H2, H3 } from "@/components/typography";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { BookCopy } from "lucide-react";
-import Link from "next/link";
+import { Progress } from '@/components/circle-progress';
+import { H2, H3 } from '@/components/typography';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Button } from '@/components/ui/button';
+import { BookCopy } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
   unstable_noStore();
-  const exodus = getEventStatus("EXODUS");
-  const krLeto = getEventStatus("KRALOVSKE_LETO");
+  const exodus = getEventStatus('EXODUS');
+  const krLeto = getEventStatus('KRALOVSKE_LETO');
 
   return (
     <>

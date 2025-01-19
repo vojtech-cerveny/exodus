@@ -1,19 +1,19 @@
-import { promises as fs } from "fs";
+import { promises as fs } from 'fs';
 
-import { Metadata } from "next";
-import { unstable_noStore } from "next/cache";
-import { H1, H2, H3 } from "../../../components/typography";
+import { Metadata } from 'next';
+import { unstable_noStore } from 'next/cache';
+import { H1, H2, H3 } from '../../../components/typography';
 
 export const metadata: Metadata = {
-  title: "Královské léto",
-  description: "Best website ever",
+  title: 'Královské léto',
+  description: 'Best website ever',
 };
 
 export default async function RemoteMdxPage() {
   unstable_noStore();
 
   async function getFilesInFolder() {
-    const folderPath = process.cwd() + "/src/app/data/kralovske-leto/days/";
+    const folderPath = process.cwd() + '/src/app/data/kralovske-leto/days/';
     const files = await fs.readdir(folderPath);
     return files;
   }

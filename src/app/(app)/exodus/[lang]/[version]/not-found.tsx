@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { H2 } from "@/components/typography";
+import { H2 } from '@/components/typography';
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function NotFound() {
   const pathname = usePathname();

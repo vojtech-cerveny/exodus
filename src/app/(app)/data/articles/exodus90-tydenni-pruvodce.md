@@ -1,16 +1,16 @@
 ---
 id: 4
-title: "Průvodce pro týdenní setkání"
+title: 'Průvodce pro týdenní setkání'
 date: 2024-07-25
 published: true
-slug: "pruvodce-pro-tydenni-setkani"
-description: ""
-tags: ["navod", "exodus90"]
+slug: 'pruvodce-pro-tydenni-setkani'
+description: ''
+tags: ['navod', 'exodus90']
 # image: exodus_90_discipline.png
-previousPage: "exodus90-a-tvoje-manzelka"
-previousPageText: "Muž Exodus a jeho manželka"
-nextPage: "discipliny"
-nextPageText: "Disciplíny"
+previousPage: 'exodus90-a-tvoje-manzelka'
+previousPageText: 'Muž Exodus a jeho manželka'
+nextPage: 'discipliny'
+nextPageText: 'Disciplíny'
 ---
 
 # Průvodce pro týdenní setkání

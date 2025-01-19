@@ -1,28 +1,28 @@
-"use client";
+'use client';
 
-import { FontSizeIcon } from "@radix-ui/react-icons";
-import { useEffect } from "react";
+import { FontSizeIcon } from '@radix-ui/react-icons';
+import { useEffect } from 'react';
 
-import useLocalStorage from "@/app/(app)/hooks/useLocalStorage";
-import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import useLocalStorage from '@/app/(app)/hooks/useLocalStorage';
+import { Button } from '@/components/ui/button';
+import { DropdownMenu, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
 export function SizeSwitcher() {
-  const [fontSize, setFontSize] = useLocalStorage("fontSize", "16px");
+  const [fontSize, setFontSize] = useLocalStorage('fontSize', '16px');
 
   const changeFontSize = () => {
     switch (fontSize) {
-      case "16px":
-        setFontSize("20px");
+      case '16px':
+        setFontSize('20px');
         break;
-      case "20px":
-        setFontSize("24px");
+      case '20px':
+        setFontSize('24px');
         break;
-      case "24px":
-        setFontSize("16px");
+      case '24px':
+        setFontSize('16px');
         break;
       default:
-        setFontSize("16px");
+        setFontSize('16px');
     }
   };
 

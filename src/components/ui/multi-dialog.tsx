@@ -1,11 +1,11 @@
-import { Slot, SlotProps } from "@radix-ui/react-slot";
-import { createContext, useCallback, useContext, useState } from "react";
-import { Dialog } from "./dialog";
+import { Slot, SlotProps } from '@radix-ui/react-slot';
+import { createContext, useCallback, useContext, useState } from 'react';
+import { Dialog } from './dialog';
 
 type Maybe<T> = T | null | undefined;
 
 const MultiDialogContainerContext = createContext<unknown>(null);
-MultiDialogContainerContext.displayName = "MultiDialogContainerContext";
+MultiDialogContainerContext.displayName = 'MultiDialogContainerContext';
 
 export const useMultiDialog = <T = unknown,>() => {
   const s = useContext(MultiDialogContainerContext);
@@ -64,7 +64,7 @@ export const MultiDialogProvider = <T,>({
           if (!v) setState(null);
         }}
       >
-        {typeof children === "function" ? children(builder) : children}
+        {typeof children === 'function' ? children(builder) : children}
       </Dialog>
     </MultiDialogContainerContext.Provider>
   );

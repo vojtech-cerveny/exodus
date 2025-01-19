@@ -1,8 +1,8 @@
-import { getProgressDay } from "@/lib/utils";
-import { Bookmark, Prisma } from "@prisma/client";
-import { BookmarkFilledIcon } from "@radix-ui/react-icons";
-import { Badge } from "../ui/badge";
-import { Card } from "../ui/card";
+import { getProgressDay } from '@/lib/utils';
+import { Bookmark, Prisma } from '@prisma/client';
+import { BookmarkFilledIcon } from '@radix-ui/react-icons';
+import { Badge } from '../ui/badge';
+import { Card } from '../ui/card';
 
 export type BookmarkWithUser = Prisma.BookmarkGetPayload<{
   include: {
@@ -12,7 +12,7 @@ export type BookmarkWithUser = Prisma.BookmarkGetPayload<{
 
 export function BookmarkCard({ bookmark }: { bookmark: Bookmark | BookmarkWithUser }) {
   const addUserIfBookmarkIsShared = (bookmark: Bookmark | BookmarkWithUser) => {
-    if ("user" in bookmark) {
+    if ('user' in bookmark) {
       return <> od {bookmark.user.name}</>;
     } else {
       return;
@@ -20,7 +20,7 @@ export function BookmarkCard({ bookmark }: { bookmark: Bookmark | BookmarkWithUs
   };
 
   const isShared = (bookmark: Bookmark | BookmarkWithUser) => {
-    if ("user" in bookmark) {
+    if ('user' in bookmark) {
       return true;
     } else {
       return false;

@@ -1,5 +1,5 @@
-"use client";
-import { getEventStatus } from "@/app/(app)/utils/date";
+'use client';
+import { getEventStatus } from '@/app/(app)/utils/date';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,24 +8,24 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from '@/components/ui/navigation-menu';
 
-import useLocalStorage from "@/app/(app)/hooks/useLocalStorage";
-import { cn } from "@/lib/utils";
-import { Version } from "@/payload-types";
-import moment from "moment";
-import "moment/locale/cs";
-import { useSession } from "next-auth/react";
-import { useTheme } from "next-themes";
-import Link from "next/link";
-import { ExodusIcon } from "../icons/icons";
+import useLocalStorage from '@/app/(app)/hooks/useLocalStorage';
+import { cn } from '@/lib/utils';
+import { Version } from '@/payload-types';
+import moment from 'moment';
+import 'moment/locale/cs';
+import { useSession } from 'next-auth/react';
+import { useTheme } from 'next-themes';
+import Link from 'next/link';
+import { ExodusIcon } from '../icons/icons';
 
 export default function Navigation() {
   const { data: session } = useSession();
   const { theme } = useTheme();
-  const exodus = getEventStatus("EXODUS");
-  const kralovskeLeto = getEventStatus("KRALOVSKE_LETO");
-  const [version] = useLocalStorage<Version | null>("exodus-version", null);
+  const exodus = getEventStatus('EXODUS');
+  const kralovskeLeto = getEventStatus('KRALOVSKE_LETO');
+  const [version] = useLocalStorage<Version | null>('exodus-version', null);
 
   return (
     <NavigationMenu>
@@ -40,7 +40,7 @@ export default function Navigation() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
                     href="/exodus"
                   >
-                    <ExodusIcon size={48} color={theme === "dark" ? "#FFFFFF" : "#1C274C"} />
+                    <ExodusIcon size={48} color={theme === 'dark' ? '#FFFFFF' : '#1C274C'} />
                     <div className="text-lg mb-2 mt-2 font-medium">Exodus 90</div>
                     <p className="text-sm leading-tight text-muted-foreground">Zjisti víc o Exodu 90!</p>
                   </Link>
@@ -49,24 +49,24 @@ export default function Navigation() {
 
               {exodus.isRunning ? (
                 <>
-                  <ListItem href={"/exodus/" + version?.slug + "/dnesni-texty"} title="Dnešní den">
+                  <ListItem href={'/exodus/' + version?.slug + '/dnesni-texty'} title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
                   </ListItem>
-                  {version?.slug === "2024" && (
+                  {version?.slug === '2024' && (
                     <ListItem
-                      href={"/exodus/" + version?.slug + "/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
+                      href={'/exodus/' + version?.slug + '/ukony/' + Math.floor(exodus.currentDays / 7 + 1)}
                       title="Aktuální týdenní úkony"
                     >
                       Vždy zobrazuje aktuální úkony na týden.
                     </ListItem>
                   )}
 
-                  <ListItem href={"/exodus/" + version?.slug + "/"} title="Seznam dní">
+                  <ListItem href={'/exodus/' + version?.slug + '/'} title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
 
-                  {version?.slug === "2024" && (
-                    <ListItem href={"/exodus/" + version?.slug + "/ukony/"} title="Týdenní úkony">
+                  {version?.slug === '2024' && (
+                    <ListItem href={'/exodus/' + version?.slug + '/ukony/'} title="Týdenní úkony">
                       Seznam týdnů a úkony pro ně.
                     </ListItem>
                   )}
@@ -76,12 +76,12 @@ export default function Navigation() {
                 </>
               ) : (
                 <>
-                  <ListItem href={"/exodus/" + version?.slug + "/"} title="Seznam dní">
+                  <ListItem href={'/exodus/' + version?.slug + '/'} title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
                   <ListItem>
                     Momentálně Exodus90 neběží. Zde uvidíš víc {moment(exodus.startDate).fromNow()} (
-                    {moment(exodus.startDate).format("LL")})
+                    {moment(exodus.startDate).format('LL')})
                   </ListItem>
                   <ListItem>
                     Momentálně používáš verzi <span className="font-bold">{version?.displayName}</span>
@@ -173,13 +173,13 @@ const ListItem = ({
   title,
   children,
   ...props
-}: React.ComponentPropsWithoutRef<"a"> & { title?: string }) => {
+}: React.ComponentPropsWithoutRef<'a'> & { title?: string }) => {
   return (
     <li>
       <NavigationMenuLink asChild>
         <a
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
             className,
           )}
           {...props}
@@ -191,4 +191,4 @@ const ListItem = ({
     </li>
   );
 };
-ListItem.displayName = "ListItem";
+ListItem.displayName = 'ListItem';

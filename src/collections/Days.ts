@@ -1,41 +1,57 @@
-import { CollectionConfig, CollectionSlug } from "payload";
+import { CollectionConfig, CollectionSlug } from 'payload';
 
 export const Days: CollectionConfig = {
-  slug: "days",
+  slug: 'days',
   admin: {
-    useAsTitle: "title",
+    useAsTitle: 'title',
+  },
+  labels: {
+    singular: {
+      cs: 'Den',
+      sk: 'Deň',
+    },
+    plural: {
+      cs: 'Dny',
+      sk: 'Dni',
+    },
   },
   fields: [
     {
-      name: "version",
-      type: "relationship",
-      relationTo: "versions" as CollectionSlug,
+      name: 'version',
+      type: 'relationship',
+      relationTo: 'versions' as CollectionSlug,
+      label: {
+        cs: 'Verze',
+        sk: 'Verzia',
+      },
     },
     {
-      name: "number",
-      type: "number",
+      name: 'number',
+      type: 'number',
       required: true,
       label: {
-        cs: "Číslo dne",
-        en: "Day Number",
+        cs: 'Číslo dne',
+        sk: 'Poradové číslo dňa',
       },
     },
     {
-      name: "title",
-      type: "text",
+      name: 'title',
+      type: 'text',
       label: {
-        cs: "Název",
-        en: "Title",
+        cs: 'Název dne',
+        sk: 'Názov ďňa',
       },
+      localized: true,
     },
     {
-      name: "content",
-      type: "richText",
+      name: 'content',
+      type: 'richText',
       required: true,
       label: {
-        cs: "Obsah",
-        en: "Content",
+        cs: 'Obsah dne',
+        sk: 'Obsah dňa',
       },
+      localized: true,
     },
   ],
 };

@@ -1,10 +1,10 @@
-import { BookmarkCard, BookmarkWithUser } from "@/components/bookmarks/card";
-import { H1 } from "@/components/typography";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getBookmarksFromMyBrothers, getMyBookmarks } from "@/domain/bookmark/bookmark-service";
-import { auth } from "@auth";
-import { Bookmark } from "@prisma/client";
-import { notFound } from "next/navigation";
+import { BookmarkCard, BookmarkWithUser } from '@/components/bookmarks/card';
+import { H1 } from '@/components/typography';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { getBookmarksFromMyBrothers, getMyBookmarks } from '@/domain/bookmark/bookmark-service';
+import { auth } from '@auth';
+import { Bookmark } from '@prisma/client';
+import { notFound } from 'next/navigation';
 
 export default async function BookmarksPage() {
   const session = await auth();

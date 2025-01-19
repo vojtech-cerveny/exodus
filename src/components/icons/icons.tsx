@@ -1,4 +1,4 @@
-export function ExodusIcon({ size = 32, color = "#1C274C" }: { size?: number; color?: string }) {
+export function ExodusIcon({ size = 32, color = '#1C274C' }: { size?: number; color?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="800" height="800" />
@@ -12,7 +12,7 @@ export function ExodusIcon({ size = 32, color = "#1C274C" }: { size?: number; co
   );
 }
 
-export function CrownIcon({ size = 32, color = "#1C274C" }: { size?: number; color?: string }) {
+export function CrownIcon({ size = 32, color = '#1C274C' }: { size?: number; color?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui//button";
+import { Button } from '@/components/ui//button';
 import {
   Dialog,
   DialogContent,
@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from '@/components/ui/dialog';
 
 import {
   AlertDialog,
@@ -18,16 +18,16 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from '@/components/ui/alert-dialog';
 
-import { removeUserFromBrotherhoodAction } from "@/domain/brotherhood/brotherhood-action";
-import { getBrotherhood, getMembers, getUserByUserId } from "@/domain/brotherhood/brotherhood-service";
-import { auth } from "@auth";
-import { GearIcon, TrashIcon } from "@radix-ui/react-icons";
-import { AvatarWithFallBack } from "../avatar";
-import SubmitButton from "../submit-button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import { BrotherhoodSettingsForm } from "./brotherhood-settings-form";
+import { removeUserFromBrotherhoodAction } from '@/domain/brotherhood/brotherhood-action';
+import { getBrotherhood, getMembers, getUserByUserId } from '@/domain/brotherhood/brotherhood-service';
+import { auth } from '@auth';
+import { GearIcon, TrashIcon } from '@radix-ui/react-icons';
+import { AvatarWithFallBack } from '../avatar';
+import SubmitButton from '../submit-button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
+import { BrotherhoodSettingsForm } from './brotherhood-settings-form';
 
 export default async function BrotherhoodSettings({ brotherhoodId }: { brotherhoodId: string }) {
   const brotherhood = await getBrotherhood(brotherhoodId);

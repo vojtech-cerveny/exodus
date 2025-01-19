@@ -1,5 +1,5 @@
-"use client";
-import type { MDXComponents } from "mdx/types";
+'use client';
+import type { MDXComponents } from 'mdx/types';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

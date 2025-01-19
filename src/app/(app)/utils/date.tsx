@@ -1,4 +1,4 @@
-import { constants } from "../constants";
+import { constants } from '../constants';
 
 export function countDaysFromJan1PlusOne() {
   const now = new Date();
@@ -17,7 +17,7 @@ export function countDaysFromDate(dateString: string) {
 }
 
 // TODO: Get this data from payload - StartingDate
-export function getEventStatus(event: "EXODUS" | "KRALOVSKE_LETO") {
+export function getEventStatus(event: 'EXODUS' | 'KRALOVSKE_LETO') {
   const now = new Date();
   const currentYear = now.getFullYear();
   const eventConfig = constants[event];
@@ -37,7 +37,7 @@ export function getEventStatus(event: "EXODUS" | "KRALOVSKE_LETO") {
 
   // Parse event start dates to get Date objects for the current year
   const dates = eventConfig.START_DATE.map((dateStr) => {
-    const [month, day] = dateStr.split("-").map(Number);
+    const [month, day] = dateStr.split('-').map(Number);
     return new Date(currentYear, month - 1, day);
   });
 
@@ -47,7 +47,7 @@ export function getEventStatus(event: "EXODUS" | "KRALOVSKE_LETO") {
     if (now >= date && now <= endDate) {
       return {
         isRunning: true,
-        startDate: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`,
+        startDate: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`,
         currentDays: diffInDays(date, now),
       };
     }
@@ -63,17 +63,17 @@ export function getEventStatus(event: "EXODUS" | "KRALOVSKE_LETO") {
     });
     return {
       isRunning: false,
-      startDate: `${nextDate.getFullYear()}-${String(nextDate.getMonth() + 1).padStart(2, "0")}-${String(nextDate.getDate()).padStart(2, "0")}`,
+      startDate: `${nextDate.getFullYear()}-${String(nextDate.getMonth() + 1).padStart(2, '0')}-${String(nextDate.getDate()).padStart(2, '0')}`,
       currentDays: 0,
     };
   }
 
   // If no future dates in current year, use first date of next year
-  const [month, day] = eventConfig.START_DATE[0].split("-").map(Number);
+  const [month, day] = eventConfig.START_DATE[0].split('-').map(Number);
   const nextYearDate = new Date(currentYear + 1, month - 1, day);
   return {
     isRunning: false,
-    startDate: `${nextYearDate.getFullYear()}-${String(nextYearDate.getMonth() + 1).padStart(2, "0")}-${String(nextYearDate.getDate()).padStart(2, "0")}`,
+    startDate: `${nextYearDate.getFullYear()}-${String(nextYearDate.getMonth() + 1).padStart(2, '0')}-${String(nextYearDate.getDate()).padStart(2, '0')}`,
     currentDays: 0,
   };
 }

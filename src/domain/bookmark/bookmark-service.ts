@@ -1,5 +1,5 @@
-"use server";
-import prisma from "@/lib/db";
+'use server';
+import prisma from '@/lib/db';
 
 export async function getMyBookmarks({ userId }: { userId: string }) {
   return prisma.bookmark.findMany({
@@ -7,7 +7,7 @@ export async function getMyBookmarks({ userId }: { userId: string }) {
       userId,
     },
     orderBy: {
-      createdAt: "desc",
+      createdAt: 'desc',
     },
   });
 }
@@ -18,7 +18,7 @@ export async function getBookmarksFromMyBrothers({ userId }: { userId: string })
       user: true,
     },
     orderBy: {
-      createdAt: "desc",
+      createdAt: 'desc',
     },
     where: {
       sharedWithBrotherhood: true,
@@ -55,7 +55,7 @@ export async function createBookmark({
   note?: string;
   sharedWithBrotherhood: boolean;
 }) {
-  console.log("createBookmark", userId);
+  console.log('createBookmark', userId);
   return await prisma.bookmark.create({
     data: {
       userId,

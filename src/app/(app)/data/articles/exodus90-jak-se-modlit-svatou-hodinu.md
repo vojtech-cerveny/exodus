@@ -1,16 +1,16 @@
 ---
 id: 7
-title: "Jak se modlit denní svatou hodinu"
+title: 'Jak se modlit denní svatou hodinu'
 date: 2024-07-25
 published: true
-slug: "jak-se-modlit-svatou-hodinu"
-description: ""
-tags: ["exodus90"]
+slug: 'jak-se-modlit-svatou-hodinu'
+description: ''
+tags: ['exodus90']
 # image: exodus_90_discipline.png
-previousPage: "exodus90-historie"
-previousPageText: "Historie Exodu 90"
-nextPage: "exodus90-povzbuzeni-od-gridirona"
-nextPageText: "Povzbuzení od Gridirona"
+previousPage: 'exodus90-historie'
+previousPageText: 'Historie Exodu 90'
+nextPage: 'exodus90-povzbuzeni-od-gridirona'
+nextPageText: 'Povzbuzení od Gridirona'
 ---
 
 # Jak se modlit denní svatou hodinu

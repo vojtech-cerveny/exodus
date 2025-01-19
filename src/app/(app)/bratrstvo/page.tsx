@@ -1,7 +1,7 @@
-import SubmitButton from "@/components/submit-button";
-import { H2, H3 } from "@/components/typography";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import SubmitButton from '@/components/submit-button';
+import { H2, H3 } from '@/components/typography';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -9,15 +9,15 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
-import { Textarea } from "@/components/ui/textarea";
-import { createBrotherhoodAction, joinBrotherhoodAction } from "@/domain/brotherhood/brotherhood-action";
-import { getBrotherhoodsByUserId, getOpenBrotherhoods } from "@/domain/brotherhood/brotherhood-service";
-import { auth } from "@auth";
-import Link from "next/link";
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Switch } from '@/components/ui/switch';
+import { Textarea } from '@/components/ui/textarea';
+import { createBrotherhoodAction, joinBrotherhoodAction } from '@/domain/brotherhood/brotherhood-action';
+import { getBrotherhoodsByUserId, getOpenBrotherhoods } from '@/domain/brotherhood/brotherhood-service';
+import { auth } from '@auth';
+import Link from 'next/link';
 
 export default async function BrotherhoodPage() {
   const session = await auth();
@@ -45,7 +45,7 @@ export default async function BrotherhoodPage() {
         <H2>Bratrstvo</H2>
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant={"secondary"}>Vytvořit</Button>
+            <Button variant={'secondary'}>Vytvořit</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -166,7 +166,7 @@ export default async function BrotherhoodPage() {
                       <p className="text-sm text-muted-foreground">Počet členů: {brotherhood.members.length}</p>
                       <form
                         action={async () => {
-                          "use server";
+                          'use server';
                           await joinBrotherhoodAction(session!.user!.id, brotherhood.id);
                         }}
                       >

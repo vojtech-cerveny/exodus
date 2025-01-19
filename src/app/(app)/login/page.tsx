@@ -1,11 +1,11 @@
-import { SignIn } from "@/components/auth-components";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { auth } from "@auth";
-import { redirect } from "next/navigation";
+import { SignIn } from '@/components/auth-components';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { auth } from '@auth';
+import { redirect } from 'next/navigation';
 
 export default async function LoginPage() {
   const session = await auth();
-  if (session) redirect("/");
+  if (session) redirect('/');
 
   return (
     <div className="m-28 flex items-center justify-center">

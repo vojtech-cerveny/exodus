@@ -1,5 +1,5 @@
-"use client";
-import { Button } from "@/components/ui/button";
+'use client';
+import { Button } from '@/components/ui/button';
 import {
   Drawer,
   DrawerClose,
@@ -9,8 +9,8 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+} from '@/components/ui/drawer';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import {
   ChevronUpIcon,
   Cross2Icon,
@@ -19,47 +19,47 @@ import {
   PlayIcon,
   StopIcon,
   TrackNextIcon,
-} from "@radix-ui/react-icons";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { Separator } from "../ui/separator";
+} from '@radix-ui/react-icons';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+import { Separator } from '../ui/separator';
 
 const svataHodina = [
   {
     time: 5 * 60,
-    title: "Úvod",
+    title: 'Úvod',
     description:
-      "Toto je čas slovní modlitby před Pánem. Proste Pána o milosrdenství za své hříchy a chvalte jeho slavné jméno.",
+      'Toto je čas slovní modlitby před Pánem. Proste Pána o milosrdenství za své hříchy a chvalte jeho slavné jméno.',
   },
   {
     time: 15 * 60,
-    title: "Duchovní čtení",
+    title: 'Duchovní čtení',
     description:
-      "Během duchovního cvičení bude tento čas pravděpodobně zahrnovat vaši denní reflexi Exodus 90  (Denní úkony, Písmo a meditace).",
+      'Během duchovního cvičení bude tento čas pravděpodobně zahrnovat vaši denní reflexi Exodus 90  (Denní úkony, Písmo a meditace).',
   },
   {
     time: 20 * 60,
-    title: "Kontemplativní modlitba",
+    title: 'Kontemplativní modlitba',
     description:
-      "Je tichý čas na dialog s Pánem. Přineste mu vše, co je ve vašem srdci nebo co máte na mysli/ve vaší mysli. Během duchovního cvičení to budou často otázky z denní meditace. Podělte se s Pánem upřímně o své myšlenky a obavy. A co je nejdůležitější, dejte Pánu prostor reagovat, aby mohl odpovědět, a sami mlčte a v tichu na/poslouchejte.",
+      'Je tichý čas na dialog s Pánem. Přineste mu vše, co je ve vašem srdci nebo co máte na mysli/ve vaší mysli. Během duchovního cvičení to budou často otázky z denní meditace. Podělte se s Pánem upřímně o své myšlenky a obavy. A co je nejdůležitější, dejte Pánu prostor reagovat, aby mohl odpovědět, a sami mlčte a v tichu na/poslouchejte.',
   },
   {
     time: 15 * 60,
-    title: "Přímluva",
+    title: 'Přímluva',
     description:
-      "Udělejte si čas, abyste přednesli Pánu své modlitby/prosby. Modlete se za své vlastní vysvobození, svou rodinu, své bratrstvo, církev a všechny další modlitby/ prosby, které můžete mít.",
+      'Udělejte si čas, abyste přednesli Pánu své modlitby/prosby. Modlete se za své vlastní vysvobození, svou rodinu, své bratrstvo, církev a všechny další modlitby/ prosby, které můžete mít.',
   },
   {
     time: 5 * 60,
-    title: "Díkůvzdání",
+    title: 'Díkůvzdání',
     description:
-      "Učiňte upřímnou modlitbu chvály a díkůvzdání před Pánem. Každý den musíme být vděční. Důsledné uznávání Božích darů a milostí přináší do života větší pocit vděčnosti a radosti. Dej Pánu chválu, která je platná/náležitá/patřičná (dej Pánu náležitou chválu).",
+      'Učiňte upřímnou modlitbu chvály a díkůvzdání před Pánem. Každý den musíme být vděční. Důsledné uznávání Božích darů a milostí přináší do života větší pocit vděčnosti a radosti. Dej Pánu chválu, která je platná/náležitá/patřičná (dej Pánu náležitou chválu).',
   },
   {
     time: 2 * 60,
-    title: "Ukončení",
+    title: 'Ukončení',
     description:
-      "Ukončete modlitbu tím, že požádáte (na závěr požádejte) Pannu Marii a další svaté, aby se za vás celý den přimlouvali, stejně jako žádáte své bratry, aby se za vás každý den modlili.",
+      'Ukončete modlitbu tím, že požádáte (na závěr požádejte) Pannu Marii a další svaté, aby se za vás celý den přimlouvali, stejně jako žádáte své bratry, aby se za vás každý den modlili.',
   },
 ];
 
@@ -69,7 +69,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(parts[0].time);
   const [isRunning, setIsRunning] = useState(false);
-  const [duration, setDuration] = useState("hour");
+  const [duration, setDuration] = useState('hour');
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -130,17 +130,17 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
     let newParts: { time: number; title: string; description: string }[] = [];
 
     switch (value) {
-      case "hour":
+      case 'hour':
         newParts = svataHodina;
-        setDuration("hour");
+        setDuration('hour');
         break;
-      case "40minutes":
+      case '40minutes':
         newParts = adjustPartsForDuration(40 * 60, 20 * 60);
-        setDuration("40minutes");
+        setDuration('40minutes');
         break;
-      case "30minutes":
+      case '30minutes':
         newParts = adjustPartsForDuration(30 * 60, 20 * 60);
-        setDuration("30minutes");
+        setDuration('30minutes');
         break;
     }
 
@@ -152,7 +152,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
   };
 
   const adjustPartsForDuration = (totalDuration: number, kontemplativniDuration: number) => {
-    const kontemplativniIndex = svataHodina.findIndex((part) => part.title === "Kontemplativní modlitba");
+    const kontemplativniIndex = svataHodina.findIndex((part) => part.title === 'Kontemplativní modlitba');
     const remainingTime = totalDuration - kontemplativniDuration;
 
     let adjustedParts = svataHodina.map((part, index) => {
@@ -186,7 +186,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
   };
 
   const formatTime = (seconds: number) => {
-    return `${Math.floor(seconds / 60)}:${("0" + (seconds % 60)).slice(-2)}`;
+    return `${Math.floor(seconds / 60)}:${('0' + (seconds % 60)).slice(-2)}`;
   };
 
   return (
@@ -228,7 +228,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
         <DrawerTrigger asChild>
           {!started && (
             <div className="fixed bottom-0 right-12 flex items-center justify-center rounded-t border-l border-r border-t border-zinc-200 bg-zinc-100/30 p-2 backdrop-blur-sm transition-opacity duration-200 dark:border-zinc-600 dark:bg-zinc-800/30">
-              <Button className="py-4" variant={"outline"}>
+              <Button className="py-4" variant={'outline'}>
                 <LapTimerIcon />
               </Button>
             </div>
@@ -248,10 +248,10 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                   <div>
                     <div>
                       Tento časovač Tě provede svatou hodinou, bude Ti hlídat čas a nabídne Ti pomoct jak daný čas
-                      strávit dle{" "}
+                      strávit dle{' '}
                       <Link
                         className="underline hover:no-underline focus:outline-none focus:ring-1 focus:ring-ring"
-                        href={"/articles/jak-se-modlit-svatou-hodinu"}
+                        href={'/articles/jak-se-modlit-svatou-hodinu'}
                       >
                         Jak se modlit svatou hodinu
                       </Link>
@@ -282,15 +282,15 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                   <div className="text-center text-5xl font-bold tracking-tighter">{formatTime(timeLeft)}</div>
                 )}
                 <div
-                  className={started ? "mt-auto grid grid-cols-3 gap-2 py-4" : "mt-auto grid grid-cols-1 gap-2 py-4"}
+                  className={started ? 'mt-auto grid grid-cols-3 gap-2 py-4' : 'mt-auto grid grid-cols-1 gap-2 py-4'}
                 >
-                  <Button onClick={toggleTimer} variant={started ? "outline" : "default"}>
+                  <Button onClick={toggleTimer} variant={started ? 'outline' : 'default'}>
                     {isRunning ? <PauseIcon /> : <PlayIcon />}
                   </Button>
-                  <Button className={started ? "" : "hidden"} variant={"outline"} onClick={nextPart}>
+                  <Button className={started ? '' : 'hidden'} variant={'outline'} onClick={nextPart}>
                     <TrackNextIcon className="h-4 w-4" />
                   </Button>
-                  <Button className={started ? "" : "hidden"} variant={"destructive"} onClick={resetTimer}>
+                  <Button className={started ? '' : 'hidden'} variant={'destructive'} onClick={resetTimer}>
                     <StopIcon className="h-4 w-4" />
                   </Button>
                 </div>
@@ -299,7 +299,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
           </DrawerHeader>
           <DrawerFooter>
             <DrawerClose>
-              <Button variant={"outline"} size={"sm"} className="fixed right-4 top-4">
+              <Button variant={'outline'} size={'sm'} className="fixed right-4 top-4">
                 <Cross2Icon />
               </Button>
             </DrawerClose>

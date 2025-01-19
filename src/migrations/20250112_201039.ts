@@ -1,4 +1,4 @@
-import { MigrateDownArgs, MigrateUpArgs, sql } from "@payloadcms/db-postgres";
+import { MigrateDownArgs, MigrateUpArgs, sql } from '@payloadcms/db-postgres';
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   // First add the columns as nullable

@@ -1,13 +1,13 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import type { MDXRemoteProps } from "next-mdx-remote/rsc";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import Link from "next/link";
-import React from "react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import type { MDXRemoteProps } from 'next-mdx-remote/rsc';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import Link from 'next/link';
+import React from 'react';
 
-import { HighlightedTextMobile } from "../bookmarks/highlighted-text-mobile";
-import { H1, H2, H3 } from "../typography";
+import { HighlightedTextMobile } from '../bookmarks/highlighted-text-mobile';
+import { H1, H2, H3 } from '../typography';
 
-const components: MDXRemoteProps["components"] = {
+const components: MDXRemoteProps['components'] = {
   h1: (props: any) => <H1 {...props}>{props.children}</H1>,
   h2: (props: any) => <H2 {...props}>{props.children}</H2>,
   h3: (props: any) => <H3 {...props}>{props.children}</H3>,
@@ -33,20 +33,20 @@ const components: MDXRemoteProps["components"] = {
     try {
       // Assuming 'children' is an array of 'li' components, transform them into the format expected by your Accordion
       const array: { title: string; text: string }[] = [];
-      const items = React.Children.toArray(children).filter((item) => item !== "\n");
+      const items = React.Children.toArray(children).filter((item) => item !== '\n');
       for (let i = 0; i < items.length; i = i + 2) {
         const title = items[i] as { props: { children: React.ReactNode } };
         const text = items[i + 1] as { props: { children: React.ReactNode } };
         array.push({
-          title: title.props.children?.toString() ?? "",
-          text: text.props.children?.toString() ?? "",
+          title: title.props.children?.toString() ?? '',
+          text: text.props.children?.toString() ?? '',
         });
       }
 
       return (
         <Accordion type="single" collapsible className="w-full">
           {array
-            .filter((item) => item.text !== "")
+            .filter((item) => item.text !== '')
             .map((item, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger>{item.title}</AccordionTrigger>

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { ExclamationTriangleIcon, Pencil2Icon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { ExclamationTriangleIcon, Pencil2Icon } from '@radix-ui/react-icons';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
   const pathname = usePathname();
@@ -33,7 +33,7 @@ export default function Footer() {
       </div>
       <div className="mt-2">
         <span>
-          Vyrobeno pro{" "}
+          Vyrobeno pro{' '}
           <Link href="https://exodus90.cz" target="_blank" className="me-4 hover:underline md:me-6">
             <span className="font-bold">Exodus90</span>
           </Link>
