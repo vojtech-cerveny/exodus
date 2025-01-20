@@ -95,7 +95,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       className={cn("w-full", "flex h-screen flex-col justify-between", myFont.variable)}
       suppressHydrationWarning
     >
-      <Script defer data-domain="aplikace.exodus90.cz" src="https://plausible.ff0000.cz/js/script.js" />
+      <Script defer data-domain="verici.dev" src="https://plausible.ff0000.cz/js/script.js" />
       <body className={cn(GeistSans.variable, "")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <FeedbackNotification
