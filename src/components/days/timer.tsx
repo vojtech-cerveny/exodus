@@ -251,7 +251,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                       strávit dle{" "}
                       <Link
                         className="underline hover:no-underline focus:outline-none focus:ring-1 focus:ring-ring"
-                        href={"/articles/jak-se-modlit-svatou-hodinu"}
+                        href={"/articles/exodus90-jak-se-modlit-svatou-hodinu"}
                       >
                         Jak se modlit svatou hodinu
                       </Link>
