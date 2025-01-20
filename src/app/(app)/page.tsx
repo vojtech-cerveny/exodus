@@ -1,15 +1,11 @@
 import InstallPWAButton from "@/components/install-pwa-button";
 import { unstable_noStore } from "next/cache";
 
-import { constants } from "./constants";
 import { getEventStatus } from "./utils/date";
 
-import { Progress } from "@/components/circle-progress";
-import { H2, H3 } from "@/components/typography";
+import { H2 } from "@/components/typography";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
 import { BookCopy } from "lucide-react";
-import Link from "next/link";
 
 export default function Home() {
   unstable_noStore();
@@ -32,26 +28,6 @@ export default function Home() {
             Exodus90 je 90 denní duchovní cvičení, které vám pomůže získat kontrolu nad svým životem. Toto cvičení
             zahrnuje modlitbu, půst, cvičení a studium. Připojte se k nám a zažijte svobodu, kterou vám Bůh chce dát.
           </p>
-
-          {exodus.isRunning && (
-            <>
-              <H3>Právě běží Exodus90</H3>
-              <Progress progress={(exodus.currentDays / constants.EXODUS.DURATION) * 100} />
-              <Link href="/exodus/dnesni-texty">
-                <Button className="w-full">Přejít na dnešní den</Button>
-              </Link>
-            </>
-          )}
-
-          {krLeto.isRunning && (
-            <>
-              <H3 className="mt-6">Právě běží Královské léto</H3>
-              <Progress progress={(krLeto.currentDays / constants.KRALOVSKE_LETO.DURATION) * 100} />
-              <Link href="/kralovske-leto/dnesni-texty">
-                <Button className="w-full">Přejít na dnešní den</Button>
-              </Link>
-            </>
-          )}
 
           <Alert>
             <BookCopy className="h-5 w-5" />
