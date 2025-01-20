@@ -16,12 +16,12 @@ Pro účely těchto podmínek:
 
 - **Přidružená společnost** znamená subjekt, který ovládá, je ovládán stranou nebo je pod společnou kontrolou se stranou, přičemž „kontrola“ znamená vlastnictví 50 % nebo více akcií, podílu nebo jiných cenných papírů oprávněných hlasovat pro volbu ředitelů nebo jiného řídícího orgánu.
 - **Země** odkazuje na: Česko
-- **Společnost** (v této smlouvě označovaná buď jako „společnost“, „my“, „nás“ nebo „naše“) odkazuje na verici.dev.
+- **Společnost** (v této smlouvě označovaná buď jako „společnost“, „my“, „nás“ nebo „naše“) odkazuje na aplikace.exodus90.cz.
 - **Zařízení** znamená jakékoli zařízení, které má přístup ke Službě, jako je počítač, mobilní telefon nebo digitální tablet.
 - **Služba** odkazuje na webovou stránku.
 - **Smluvní podmínky** (také označované jako „Podmínky“) znamenají tyto Podmínky, které tvoří celou smlouvu mezi vámi a Společností týkající se používání Služby.
 - **Služba sociálních médií třetí strany** znamená jakékoli služby nebo obsah (včetně dat, informací, produktů nebo služeb) poskytované třetí stranou, které mohou být zobrazeny, zahrnuty nebo zpřístupněny službou.
-- **Web** odkazuje na verici.dev, přístupný z [https://verici.dev](https://verici.dev)
+- **Web** odkazuje na verici.dev, přístupný z [https://aplikace.exodus90.cz](https://aplikace.exodus90.cz)
 - **Vy** znamená jednotlivce, který přistupuje ke Službě nebo ji používá, nebo společnost či jiný právní subjekt, jehož jménem tato osoba přistupuje ke Službě nebo ji používá.
 
 ## Potvrzení
@@ -31,8 +31,6 @@ Toto jsou smluvní podmínky, jimiž se řídí používání této služby, a s
 Váš přístup ke Službě a její používání je podmíněno Vaším přijetím a dodržováním těchto Podmínek. Tyto Podmínky se vztahují na všechny návštěvníky, uživatele a ostatní, kteří přistupují ke Službě nebo ji používají.
 
 Přístupem ke službě nebo jejím používáním souhlasíte s tím, že budete vázáni těmito podmínkami. Pokud nesouhlasíte s jakoukoli částí těchto Podmínek, nesmíte ke Službě přistupovat.
-
-Prohlašujete, že jste starší 18 let. Společnost nedovoluje osobám mladším 18 let používat Službu.
 
 Váš přístup ke Službě a její používání je také podmíněno Vaším přijetím a dodržováním Zásad ochrany osobních údajů Společnosti. Naše zásady ochrany osobních údajů popisují naše zásady a postupy týkající se shromažďování, používání a zveřejňování vašich osobních údajů při používání aplikace nebo webové stránky a informují vás o vašich právech na ochranu soukromí a o tom, jak vás zákony chrání. Před použitím naší služby si prosím pozorně přečtěte naše zásady ochrany osobních údajů.
 

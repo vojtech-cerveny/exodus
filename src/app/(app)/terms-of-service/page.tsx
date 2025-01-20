@@ -8,7 +8,7 @@ export default async function PrivacyPage(props: {
 }) {
   const searchParams = await props.searchParams;
   try {
-    const filePath = path.join(process.cwd(), `src/app/data/terms-of-service-${searchParams.lang}.md`);
+    const filePath = path.join(process.cwd(), `src/app/(app)/data/terms-of-service-${searchParams.lang}.md`);
     const dayTextMd = await fs.readFile(filePath, "utf-8");
     return (
       <>
