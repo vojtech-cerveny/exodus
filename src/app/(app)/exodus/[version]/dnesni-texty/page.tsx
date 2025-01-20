@@ -6,8 +6,11 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 
 import { getEventStatus } from "@/app/(app)/utils/date";
+import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
 import { DayPagination } from "@/components/days/day-pagination";
+import Timer from "@/components/days/timer";
 import { H2, H3 } from "@/components/typography";
+import { auth } from "@auth";
 import { DayContentParser } from "../components/DayContentParser";
 import { TasksAccordeon } from "../components/TaskAccordeon";
 import { calculateSchedulingFromDay } from "../utils/calculateScheduling";
@@ -15,7 +18,7 @@ import { calculateSchedulingFromDay } from "../utils/calculateScheduling";
 export default async function ExodusPayloadPage(props: { params: Promise<{ version: string }> }) {
   const params = await props.params;
   const payload = await getPayload({ config });
-
+  const session = await auth();
   const status = getEventStatus("EXODUS");
 
   if (!status.isRunning) {
@@ -88,7 +91,12 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ versi
               </div>
             );
           })}
-
+        <Timer audioSrc="/sounds/gong.mp3" />
+        {session && (
+          <div className="mb-4 flex items-center justify-center">
+            <ProgressUpdateCard />
+          </div>
+        )}
         <DayContentParser data={day.docs[0].content} />
         <DayPagination currentPage={status.currentDays.toString()} lastPage={daysTotalDocs.totalDocs} />
       </div>

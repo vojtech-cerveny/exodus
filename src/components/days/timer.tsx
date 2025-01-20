@@ -193,7 +193,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
     <div>
       <Drawer>
         {started && (
-          <div className="fixed bottom-0 right-0 flex w-full flex-1 flex-grow items-center justify-center border-t border-zinc-200/30 bg-zinc-100/30 p-2 backdrop-blur transition-opacity duration-200 md:right-8 md:w-auto md:rounded-t md:border-l md:border-r dark:border-zinc-600/30 dark:bg-zinc-800/30">
+          <div className="fixed bottom-0 right-0 flex w-full flex-1 flex-grow items-center justify-center border-t border-zinc-200/30 bg-zinc-100/30 p-2 pb-[calc(0.2rem+env(safe-area-inset-bottom))] backdrop-blur transition-opacity duration-200 md:right-8 md:w-auto md:rounded-t md:border-l md:border-r dark:border-zinc-600/30 dark:bg-zinc-800/30">
             <div className="md:flex-0 flex-0">
               <DrawerTrigger className="left-0" asChild>
                 <Button variant="ghost" size="icon">
@@ -227,7 +227,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
         )}
         <DrawerTrigger asChild>
           {!started && (
-            <div className="fixed bottom-0 right-12 flex items-center justify-center rounded-t border-l border-r border-t border-zinc-200 bg-zinc-100/30 p-2 backdrop-blur-sm transition-opacity duration-200 dark:border-zinc-600 dark:bg-zinc-800/30">
+            <div className="fixed bottom-0 right-12 flex items-center justify-center rounded-t border-l border-r border-t border-zinc-200 bg-zinc-100/30 p-2 pb-[calc(0.2rem+env(safe-area-inset-bottom))] backdrop-blur-sm transition-opacity duration-200 dark:border-zinc-600 dark:bg-zinc-800/30">
               <Button className="py-4" variant={"outline"}>
                 <LapTimerIcon />
               </Button>
