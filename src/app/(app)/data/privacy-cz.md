@@ -18,7 +18,7 @@ Pro účely těchto Zásad ochrany osobních údajů:
 
 - **Účet** znamená jedinečný účet vytvořený pro vás pro přístup k naší službě nebo částem naší služby.
 - **Přidružená společnost** znamená subjekt, který ovládá, je ovládán stranou nebo je pod společnou kontrolou se stranou, přičemž „kontrola“ znamená vlastnictví 50 % nebo více akcií, podílu nebo jiných cenných papírů oprávněných hlasovat pro volbu ředitelů nebo jiného řídícího orgánu.
-- **Společnost** (v této smlouvě označovaná buď jako „společnost“, „my“, „nás“ nebo „naše“) odkazuje na Verici.dev.
+- **Společnost** (v této smlouvě označovaná buď jako „společnost“, „my“, „nás“ nebo „naše“) odkazuje na aplikace.exodus90.cz.
 - **Soubory cookie** jsou malé soubory, které webová stránka ukládá do vašeho počítače, mobilního zařízení nebo jakéhokoli jiného zařízení a obsahují podrobnosti o vaší historii procházení na této webové stránce mezi mnoha způsoby použití.
 - **Země** odkazuje na: Česko
 - **Zařízení** znamená jakékoli zařízení, které má přístup ke Službě, jako je počítač, mobilní telefon nebo digitální tablet.
@@ -26,7 +26,7 @@ Pro účely těchto Zásad ochrany osobních údajů:
 - **Služba** odkazuje na webovou stránku.
 - **Poskytovatel služeb** znamená jakoukoli fyzickou nebo právnickou osobu, která zpracovává údaje jménem Společnosti. Týká se společností třetích stran nebo jednotlivců zaměstnaných společností za účelem usnadnění služby, poskytování služby jménem společnosti, poskytování služeb souvisejících se službou nebo pomoci společnosti při analýze toho, jak je služba používána.
 - **Údaje o používání** označují data shromažďovaná automaticky, buď generovaná používáním služby nebo ze samotné infrastruktury služby (například doba trvání návštěvy stránky).
-- **Web** odkazuje na Verici.dev, přístupný z [https://verici.dev](https://verici.dev)
+- **Web** odkazuje na aplikace.exodus90.cz, přístupný z [https://aplikace.exodus90.cz](https://aplikace.exodus90.cz)
 - **Vy** znamená jednotlivce, který přistupuje ke Službě nebo ji používá, nebo společnost či jiný právní subjekt, jehož jménem tato osoba přistupuje ke Službě nebo ji používá.
 
 ## Shromažďování a používání vašich osobních údajů

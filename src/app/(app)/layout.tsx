@@ -67,14 +67,14 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    images: [{ url: "https://verici.dev/icons/pwa/og.png" }],
+    images: [{ url: "https://aplikace.exodus90.cz/icons/pwa/og.png" }],
     description:
       "Exodus90 je 90 denní duchovní cvičení, které vám pomůže získat kontrolu nad svým životem. Toto cvičení zahrnuje modlitbu, půst, cvičení a studium. Připojte se k nám a zažijte svobodu, kterou vám Bůh chce dát.",
   },
   openGraph: {
     description:
       "Exodus90 je 90 denní duchovní cvičení, které vám pomůže získat kontrolu nad svým životem. Toto cvičení zahrnuje modlitbu, půst, cvičení a studium. Připojte se k nám a zažijte svobodu, kterou vám Bůh chce dát.",
-    images: [{ url: "https://verici.dev/icons/pwa/og.png", height: 630, width: 1200 }],
+    images: [{ url: "https://aplikace.exodus90.cz/icons/pwa/og.png", height: 630, width: 1200 }],
   },
 };
 
@@ -95,7 +95,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       className={cn("w-full", "flex h-screen flex-col justify-between", myFont.variable)}
       suppressHydrationWarning
     >
-      <Script defer data-domain="verici.dev" src="https://plausible.ff0000.cz/js/script.js" />
+      <Script defer data-domain="aplikace.exodus90.cz" src="https://plausible.ff0000.cz/js/script.js" />
       <body className={cn(GeistSans.variable, "")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <FeedbackNotification

@@ -6,11 +6,13 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 
 import { getEventStatus } from "@/app/(app)/utils/date";
+import { HighlightedTextMobile } from "@/components/bookmarks/highlighted-text-mobile";
 import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
 import { DayPagination } from "@/components/days/day-pagination";
 import Timer from "@/components/days/timer";
 import { H2, H3 } from "@/components/typography";
 import { auth } from "@auth";
+import { SessionProvider } from "next-auth/react";
 import { DayContentParser } from "../components/DayContentParser";
 import { TasksAccordeon } from "../components/TaskAccordeon";
 import { calculateSchedulingFromDay } from "../utils/calculateScheduling";
@@ -80,25 +82,31 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ versi
     return (
       <div>
         <DayPagination currentPage={status.currentDays.toString()} lastPage={daysTotalDocs.totalDocs} />
-        <H2>{day.docs[0].title}</H2>
+        <SessionProvider basePath={"/api/auth"} session={session}>
+          <H2>{day.docs[0].title}</H2>
 
-        {tasks.docs.length != 0 &&
-          tasks.docs.map((tasks, index) => {
-            return (
-              <div key={index}>
-                <H3>{tasks.title}</H3>
-                <TasksAccordeon tasks={tasks.tasks} />
-              </div>
-            );
-          })}
+          {tasks.docs.length != 0 &&
+            tasks.docs.map((tasks, index) => {
+              return (
+                <div key={index}>
+                  <H3>{tasks.title}</H3>
+                  <TasksAccordeon tasks={tasks.tasks} />
+                </div>
+              );
+            })}
+          <HighlightedTextMobile>
+            <div id="helper-for-selection">
+              <DayContentParser data={day.docs[0].content} />
+            </div>
+          </HighlightedTextMobile>
+        </SessionProvider>
+        <DayPagination currentPage={status.currentDays.toString()} lastPage={daysTotalDocs.totalDocs} />
         <Timer audioSrc="/sounds/gong.mp3" />
         {session && (
           <div className="mb-4 flex items-center justify-center">
             <ProgressUpdateCard />
           </div>
         )}
-        <DayContentParser data={day.docs[0].content} />
-        <DayPagination currentPage={status.currentDays.toString()} lastPage={daysTotalDocs.totalDocs} />
       </div>
     );
   } catch (error) {

@@ -21,7 +21,7 @@ Pro účely těchto podmínek:
 - **Služba** odkazuje na webovou stránku.
 - **Smluvní podmínky** (také označované jako „Podmínky“) znamenají tyto Podmínky, které tvoří celou smlouvu mezi vámi a Společností týkající se používání Služby.
 - **Služba sociálních médií třetí strany** znamená jakékoli služby nebo obsah (včetně dat, informací, produktů nebo služeb) poskytované třetí stranou, které mohou být zobrazeny, zahrnuty nebo zpřístupněny službou.
-- **Web** odkazuje na verici.dev, přístupný z [https://aplikace.exodus90.cz](https://aplikace.exodus90.cz)
+- **Web** odkazuje na aplikace.exodus90.cz, přístupný z [https://aplikace.exodus90.cz](https://aplikace.exodus90.cz)
 - **Vy** znamená jednotlivce, který přistupuje ke Službě nebo ji používá, nebo společnost či jiný právní subjekt, jehož jménem tato osoba přistupuje ke Službě nebo ji používá.
 
 ## Potvrzení

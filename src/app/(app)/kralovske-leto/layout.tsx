@@ -41,14 +41,14 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    images: [{ url: "https://verici.dev/icons/pwa/og-kralovske-leto.png" }],
+    images: [{ url: "https://aplikace.exodus90.cz/icons/pwa/og-kralovske-leto.png" }],
     description:
       "Exodus90 je 90 denní duchovní cvičení, které vám pomůže získat kontrolu nad svým životem. Toto cvičení zahrnuje modlitbu, půst, cvičení a studium. Připojte se k nám a zažijte svobodu, kterou vám Bůh chce dát.",
   },
   openGraph: {
     description:
       "Exodus90 je 90 denní duchovní cvičení, které vám pomůže získat kontrolu nad svým životem. Toto cvičení zahrnuje modlitbu, půst, cvičení a studium. Připojte se k nám a zažijte svobodu, kterou vám Bůh chce dát.",
-    images: [{ url: "https://verici.dev/icons/pwa/og-kralovske-leto.png", height: 630, width: 1200 }],
+    images: [{ url: "https://aplikace.exodus90.cz/icons/pwa/og-kralovske-leto.png", height: 630, width: 1200 }],
   },
 };
 
