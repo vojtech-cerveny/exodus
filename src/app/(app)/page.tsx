@@ -5,7 +5,7 @@ import { getEventStatus } from "./utils/date";
 
 import { H2 } from "@/components/typography";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { BookCopy } from "lucide-react";
+import { BookCopy, BookPlus } from "lucide-react";
 
 export default function Home() {
   unstable_noStore();
@@ -33,7 +33,7 @@ export default function Home() {
             <BookCopy className="h-5 w-5" />
             <AlertTitle className="text-xl font-bold">Dostupné verze textů</AlertTitle>
             <AlertDescription className="text-base">
-              Pro duchovní cvičení nabízíme dvě verze textů:
+              Pro duchovní cvičení nabízíme tři verze textů:
               <ul className="my-4 list-disc">
                 <li>
                   <span className="font-bold">Verze 2024</span> - kompletní překlad, který si můžete stáhnout jako PDF
@@ -41,7 +41,20 @@ export default function Home() {
                 </li>
                 <li>
                   <span className="font-bold">Verze 2025</span> - nový překlad, který průběžně doplňujeme přímo do
-                  aplikace (výchozí verze)
+                  aplikace (výchozí verze).
+                </li>
+                <li>
+                  <div className="">
+                    <p>
+                      <span className="font-bold">
+                        Verze 2025 🇸🇰 Slovensko{" "}
+                        <sup>
+                          <BookPlus className="inline-block h-4 w-4 text-yellow-500" />
+                        </sup>
+                      </span>{" "}
+                      - nový překlad pro bratry ze Slovenska, který průběžně doplňujeme přímo do aplikace.
+                    </p>
+                  </div>
                 </li>
               </ul>
               Verzi si můžeš změnit v hlavičce aplikace. <br />
