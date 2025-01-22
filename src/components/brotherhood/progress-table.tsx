@@ -102,10 +102,12 @@ export default async function ProgressTable({ brotherhoodId }: { brotherhoodId: 
             <CardContent className="flex flex-wrap gap-2">
               <div className="flex flex-wrap gap-2">{mobileProgressTable(memberProgress)}</div>
               <Separator className="mt-2" />
-              <div>
-                <Label>Poznámka</Label>
-                <div>{memberProgress.note}</div>
-              </div>
+              {memberProgress.note && (
+                <div>
+                  <Label>Poznámka</Label>
+                  <div>{memberProgress.note}</div>
+                </div>
+              )}
             </CardContent>
           </Card>
         ))}
