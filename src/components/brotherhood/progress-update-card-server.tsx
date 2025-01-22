@@ -26,7 +26,5 @@ export default async function ProgressUpdateCardServer({
 
   const memberProgress = await getMemberProgressByUserIdForToday(session.user!.id);
 
-  console.log(memberProgress);
-
   return <ProgressUpdateCard variant={variant} onUpdate={onUpdate} memberProgress={memberProgress} />;
 }
