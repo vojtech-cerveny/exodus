@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/vojtech-cerveny/excessus/compare/v0.1.6...v0.1.7) (2025-01-22)
+
+### Features
+
+- add new text version - svk - and update main page for it ([e4be646](https://github.com/vojtech-cerveny/excessus/commit/e4be646a61f18891abf4a83b0ad5d330d43a2a3f))
+- adding information about bookmarks ([8d4a0b2](https://github.com/vojtech-cerveny/excessus/commit/8d4a0b28e62d1537980727c14288cb80e37f4b01))
+- adding migrate script ([f4a8234](https://github.com/vojtech-cerveny/excessus/commit/f4a8234e762a570a0d77b84ed162c0d511026bc0))
+- adding sentry session replay for better debugging ([211ca8a](https://github.com/vojtech-cerveny/excessus/commit/211ca8a1c078f3bccc0df1e62c5577c5ba77da12))
+- articles + exercies ([c2370cb](https://github.com/vojtech-cerveny/excessus/commit/c2370cb7a00c7b4602e0ced4b12c9b453e74927c))
+- better dark-mode + nextjs15 + brotherhood update - visibility added ([72d5af0](https://github.com/vojtech-cerveny/excessus/commit/72d5af06bdc65efba289f24094c75e24c0065ba7))
+- enhance payload types, update article paths, and introduce new Exodus pages ([993098d](https://github.com/vojtech-cerveny/excessus/commit/993098d65c94b209c35de23c5a9b9167b58eaf0b))
+- improve feedback notification for more general purposes ([4db67ee](https://github.com/vojtech-cerveny/excessus/commit/4db67ee60e538e4e5d4cb6735c73144c3152bdb3))
+- react19 ([5c2f80e](https://github.com/vojtech-cerveny/excessus/commit/5c2f80e719dd61a019eadcf4cd131ed210440558))
+- react19 ([302fcca](https://github.com/vojtech-cerveny/excessus/commit/302fccad0638b130243355703b6d7f3a0c6265ee))
+- version 2025 - ready to new year ([9454761](https://github.com/vojtech-cerveny/excessus/commit/9454761271e30d66e05ae95883ee0ea1582bd675))
+
+### Bug Fixes
+
+- adding migration ([cef70ea](https://github.com/vojtech-cerveny/excessus/commit/cef70ea70f0a2c942fac70519188e76bcbbc2163))
+- adding timer to "today" + fix for Safari on mobile ([0e903fa](https://github.com/vojtech-cerveny/excessus/commit/0e903faa223a5c05077faa533ee570325e403c14))
+- bookmark + changing verici.dev to aplikace.exodus90.cz ([a6af9e4](https://github.com/vojtech-cerveny/excessus/commit/a6af9e4cadf02c9b0b1c3168fa4e317146936334))
+- bookmarks ([160a43a](https://github.com/vojtech-cerveny/excessus/commit/160a43a6d458fab7768c13dc5705b172c9d4e6f3))
+- build ([eb200d9](https://github.com/vojtech-cerveny/excessus/commit/eb200d9e7f37f6160fdc7fd5374070d43fd02c42))
+- class for plausible ([e85dd13](https://github.com/vojtech-cerveny/excessus/commit/e85dd139fe82122710380a51800c583007e3e488))
+- context menu for bookmarks - remove unused ([cdb4188](https://github.com/vojtech-cerveny/excessus/commit/cdb418838612669780df6a5064d88bfeb95932cf))
+- exodus-11 fix links for ukony ([#7](https://github.com/vojtech-cerveny/excessus/issues/7)) ([1ac9569](https://github.com/vojtech-cerveny/excessus/commit/1ac9569dc08842148ca72a3273e4ccbcdd23495a))
+- feedback - different localstoragekeys ([0eccc74](https://github.com/vojtech-cerveny/excessus/commit/0eccc749ae9d6ab3e67fc29cb0136a1fb65259d5))
+- fix build ([6f57bd9](https://github.com/vojtech-cerveny/excessus/commit/6f57bd9fe3b1dabcd6e818d2d6dcd2a1fe5c1e2d))
+- fix build errors - mostly import paths ([78d6fdd](https://github.com/vojtech-cerveny/excessus/commit/78d6fdd10b429aaef1b8978026679754e03a97a6))
+- fix Exodus version ([f613aab](https://github.com/vojtech-cerveny/excessus/commit/f613aab4495ad4659e6d4749447ec451f0a86f21))
+- fix newest dates ([7680213](https://github.com/vojtech-cerveny/excessus/commit/7680213c3c31fdc0cf5770fa6644233bd4cbbfe2))
+- fixing manifest for PWA ([e287f29](https://github.com/vojtech-cerveny/excessus/commit/e287f29d7661537d1c0b1dac20e191df3fa11d00))
+- fixing plausible data-domain ([73f7683](https://github.com/vojtech-cerveny/excessus/commit/73f76838b6913507ad1b77bae88032c5265aa220))
+- link in timer ([8fcfa14](https://github.com/vojtech-cerveny/excessus/commit/8fcfa148803d2386aa504fee568d35c21a589850))
+- links to day from list of days ([64fd8e9](https://github.com/vojtech-cerveny/excessus/commit/64fd8e960b00697d80316e5de6b51a65a0b8e1b6))
+- linter + correct date ([ff44bd3](https://github.com/vojtech-cerveny/excessus/commit/ff44bd3913c3f8ae4ab96a5f2a2765e3e77fd544))
+- migration ([169ac04](https://github.com/vojtech-cerveny/excessus/commit/169ac04389315c3fbe4c8aaa4c5d64eeaa0e4985))
+- migration of bookmarks - we can remove them ([903be3e](https://github.com/vojtech-cerveny/excessus/commit/903be3e26d722ba2d0800e90ac57e9d60497f85f))
+- order link -> button in download section ([b614789](https://github.com/vojtech-cerveny/excessus/commit/b61478941b9c62831ac1134650a35db3b2ea03ae))
+- payload migrate ([6fd14be](https://github.com/vojtech-cerveny/excessus/commit/6fd14be85de78878dd9556420d615d8e3e1a40f9))
+- privacy + term-of-service ([168acc5](https://github.com/vojtech-cerveny/excessus/commit/168acc5db8942923407c49324fa02202d26a9ae3))
+- remove button with incorrect link ([c7fb176](https://github.com/vojtech-cerveny/excessus/commit/c7fb176fe02f5ab35d1d99d454b7e95fb24dbd53))
+- remove github action - no needed ([a3edb66](https://github.com/vojtech-cerveny/excessus/commit/a3edb66895a4270e1d45ba6a2f616dd028c48b73))
+- show more days than 10 :) ([9d55372](https://github.com/vojtech-cerveny/excessus/commit/9d55372c5ee11355420a81ccabf3490093940275))
+- starting date for exodus ([e24d20a](https://github.com/vojtech-cerveny/excessus/commit/e24d20a513187d88fcc742081880ad42a15483e0))
+- typo in exodus90 texts ([#8](https://github.com/vojtech-cerveny/excessus/issues/8)) ([23e5ff1](https://github.com/vojtech-cerveny/excessus/commit/23e5ff19f565858ef42e3252e08e7410f9e578c5))
+- update date for exodus2025 to 01-20 ([a28ee1f](https://github.com/vojtech-cerveny/excessus/commit/a28ee1f0699f0584a923875436cbca7c7eed60a3))
+
 ### [0.1.6](https://github.com/vojtech-cerveny/excessus/compare/v0.1.5...v0.1.6) (2024-10-02)
 
 ### Features
