@@ -3,9 +3,9 @@ import UserButton from "@/components/user-button";
 import { cn } from "@/lib/utils";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
+import PlausibleProvider from "next-plausible";
 import localFont from "next/font/local";
 import Link from "next/link";
-
 import "./globals.css";
 
 import ProgressUpdateCardServer from "@/components/brotherhood/progress-update-card-server";
@@ -20,7 +20,6 @@ import { auth } from "@auth";
 import moment from "moment";
 import "moment/locale/cs";
 import { SessionProvider } from "next-auth/react";
-import Script from "next/script";
 
 moment.locale("cs");
 // Font files can be colocated inside of `app`
@@ -95,57 +94,64 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       className={cn("w-full", "flex h-screen flex-col justify-between", myFont.variable)}
       suppressHydrationWarning
     >
-      <Script defer data-domain="verici.dev" src="https://plausible.ff0000.cz/js/script.js" />
-      <body className={cn(GeistSans.variable, "")}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <FeedbackNotification showDates={["2025-03-15"]} localStorageKey="feedbackNotificationDismissed">
-            <p className="mr-2">Dej nám zpětnou vazbu</p>
-            <Link
-              href={
-                "https://docs.google.com/forms/d/e/1FAIpQLSdlyFqhLuHr0b-nf3_ztKmj1L_y_25NXtAfmwyOgoebUOWoYw/viewform?usp=sf_link"
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              className="plausible-event-name=feedback-notification-link-open underline"
+      <PlausibleProvider
+        domain="verici.dev"
+        customDomain="plausible.ff0000.cz"
+        trackFileDownloads
+        trackOutboundLinks
+        selfHosted
+      >
+        <body className={cn(GeistSans.variable, "")}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <FeedbackNotification showDates={["2025-03-15"]} localStorageKey="feedbackNotificationDismissed">
+              <p className="mr-2">Dej nám zpětnou vazbu</p>
+              <Link
+                href={
+                  "https://docs.google.com/forms/d/e/1FAIpQLSdlyFqhLuHr0b-nf3_ztKmj1L_y_25NXtAfmwyOgoebUOWoYw/viewform?usp=sf_link"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="plausible-event-name=feedback-notification-link-open underline"
+              >
+                vyplněním krátkého dotazníku.
+              </Link>
+            </FeedbackNotification>
+            <FeedbackNotification
+              showDates={["2025-01-22"]}
+              localStorageKey="feedbackNotificationDismissedSlovakianVersion"
             >
-              vyplněním krátkého dotazníku.
-            </Link>
-          </FeedbackNotification>
-          <FeedbackNotification
-            showDates={["2025-01-22"]}
-            localStorageKey="feedbackNotificationDismissedSlovakianVersion"
-          >
-            <p className="mr-2">Máme verzi textů pro bratry ze Slovenska! 🇸🇰 </p>
-          </FeedbackNotification>
-          <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
-            <div className="flex flex-1 justify-end space-x-2 p-2">
-              <div className="flex items-center gap-2">
-                <ProgressUpdateCardServer variant="small" />
-                <VersionSelect />
-                <SizeSwitcher />
-                <ModeToggle />
-                <UserButton />
+              <p className="mr-2">Máme verzi textů pro bratry ze Slovenska! 🇸🇰 </p>
+            </FeedbackNotification>
+            <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
+              <div className="flex flex-1 justify-end space-x-2 p-2">
+                <div className="flex items-center gap-2">
+                  <ProgressUpdateCardServer variant="small" />
+                  <VersionSelect />
+                  <SizeSwitcher />
+                  <ModeToggle />
+                  <UserButton />
+                </div>
+              </div>
+
+              <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
+                <Link href="/">Exodus90</Link>
+              </h1>
+
+              <div className="mx-auto max-w-2xl">
+                <div className="mb-4 md:flex md:items-center md:justify-between">
+                  <SessionProvider basePath={"/api/auth"} session={session}>
+                    <Navigation />
+                  </SessionProvider>
+                </div>
+                {children}
+                <Footer />
               </div>
             </div>
 
-            <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
-              <Link href="/">Exodus90</Link>
-            </h1>
-
-            <div className="mx-auto max-w-2xl">
-              <div className="mb-4 md:flex md:items-center md:justify-between">
-                <SessionProvider basePath={"/api/auth"} session={session}>
-                  <Navigation />
-                </SessionProvider>
-              </div>
-              {children}
-              <Footer />
-            </div>
-          </div>
-
-          <Toaster />
-        </ThemeProvider>
-      </body>
+            <Toaster />
+          </ThemeProvider>
+        </body>
+      </PlausibleProvider>
     </html>
   );
 }
