@@ -5,14 +5,15 @@ import { useEffect, useState } from "react";
 interface FeedbackNotificationProps {
   showDates: string[];
   children: React.ReactNode;
+  localStorageKey: string;
 }
 
-export const FeedbackNotification: React.FC<FeedbackNotificationProps> = ({ showDates, children }) => {
+export const FeedbackNotification: React.FC<FeedbackNotificationProps> = ({ showDates, children, localStorageKey }) => {
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     const now = new Date();
-    const lastDismissedDate = localStorage.getItem("feedbackNotificationDismissed");
+    const lastDismissedDate = localStorage.getItem(localStorageKey);
     const lastDismissed = lastDismissedDate ? new Date(lastDismissedDate) : null;
 
     // Find the current or next show date
@@ -30,7 +31,7 @@ export const FeedbackNotification: React.FC<FeedbackNotificationProps> = ({ show
 
   const handleDismiss = () => {
     setShowNotification(false);
-    localStorage.setItem("feedbackNotificationDismissed", new Date().toISOString());
+    localStorage.setItem(localStorageKey, new Date().toISOString());
   };
 
   if (!showNotification) return null;
