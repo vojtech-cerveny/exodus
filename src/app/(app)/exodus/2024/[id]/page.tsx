@@ -1,4 +1,4 @@
-import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
+import ProgressUpdateCardServer from "@/components/brotherhood/progress-update-card-server";
 import { DayFormatterMDX } from "@/components/days/day-formatter";
 import { DayPagination } from "@/components/days/day-pagination";
 import Timer from "@/components/days/timer";
@@ -34,7 +34,7 @@ export default async function RemoteMdxPage(props: { params: Promise<{ id: strin
         <Timer audioSrc="/sounds/gong.mp3" />
         {session && (
           <div className="mb-4 flex items-center justify-center">
-            <ProgressUpdateCard />
+            <ProgressUpdateCardServer />
           </div>
         )}
       </>

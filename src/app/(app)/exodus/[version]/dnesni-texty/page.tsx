@@ -7,7 +7,7 @@ import { getPayload } from "payload";
 
 import { getEventStatus } from "@/app/(app)/utils/date";
 import { HighlightedTextMobile } from "@/components/bookmarks/highlighted-text-mobile";
-import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
+import ProgressUpdateCardServer from "@/components/brotherhood/progress-update-card-server";
 import { DayPagination } from "@/components/days/day-pagination";
 import Timer from "@/components/days/timer";
 import { H2, H3 } from "@/components/typography";
@@ -104,7 +104,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ versi
         <Timer audioSrc="/sounds/gong.mp3" />
         {session && (
           <div className="mb-4 flex items-center justify-center">
-            <ProgressUpdateCard />
+            <ProgressUpdateCardServer />
           </div>
         )}
       </div>

@@ -21,6 +21,11 @@ export default async function createMemberProgressAction(formData: FormData) {
     note: (formData.get("note") as string) || "",
   };
 
-  await createMemberProgress(data);
-  revalidatePath("/bratrstvo");
+  try {
+    await createMemberProgress(data);
+    revalidatePath("/bratrstvo");
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: error };
+  }
 }

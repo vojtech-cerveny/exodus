@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import "./globals.css";
 
-import ProgressUpdateCard from "@/components/brotherhood/progress-update-card";
+import ProgressUpdateCardServer from "@/components/brotherhood/progress-update-card-server";
 import { FeedbackNotification } from "@/components/feedback-notification-bar";
 import Footer from "@/components/navigation/footer";
 import Navigation from "@/components/navigation/navigation";
@@ -120,7 +120,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
             <div className="flex flex-1 justify-end space-x-2 p-2">
               <div className="flex items-center gap-2">
-                <ProgressUpdateCard variant="small" />
+                <ProgressUpdateCardServer variant="small" />
                 <VersionSelect />
                 <SizeSwitcher />
                 <ModeToggle />

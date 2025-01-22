@@ -70,3 +70,17 @@ export async function usersInBrotherhood(brotherhoodId: string) {
     },
   });
 }
+
+export async function getMemberProgressByUserIdForToday(userId: string) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Set to start of day
+
+  return await prisma.brotherhoodProgress.findFirst({
+    where: {
+      date: {
+        gte: today,
+      },
+      userId: userId,
+    },
+  });
+}

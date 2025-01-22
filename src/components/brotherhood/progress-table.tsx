@@ -11,6 +11,8 @@ import {
 } from "@radix-ui/react-icons";
 import moment from "moment";
 import { AvatarWithFallBack } from "../avatar";
+import { Label } from "../ui/label";
+import { Separator } from "../ui/separator";
 
 // TODO: This is kinda messy, but it works. Refactor it.
 export default async function ProgressTable({ brotherhoodId }: { brotherhoodId: string }) {
@@ -97,7 +99,14 @@ export default async function ProgressTable({ brotherhoodId }: { brotherhoodId: 
                 )}
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-wrap gap-2">{mobileProgressTable(memberProgress)}</CardContent>
+            <CardContent className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2">{mobileProgressTable(memberProgress)}</div>
+              <Separator className="mt-2" />
+              <div>
+                <Label>Poznámka</Label>
+                <div>{memberProgress.note}</div>
+              </div>
+            </CardContent>
           </Card>
         ))}
       </div>
@@ -115,7 +124,10 @@ function mobileProgressTable(memberProgress: any) {
   ]);
   return Object.entries(memberProgress).map(([key, value]) => {
     if (map.get(key)) {
-      let badge: { style: string; variant: "default" | "outline" | "secondary" } = { style: "", variant: "default" };
+      let badge: { style: string; variant: "default" | "outline" | "secondary"; icon?: React.ReactNode } = {
+        style: "",
+        variant: "default",
+      };
       if (value === "DONE" || value === "NOT_DONE" || value === "NO_INFORMATION") {
         // style.style = "w-max max-w-max";
         if (value === "DONE") {
@@ -127,6 +139,7 @@ function mobileProgressTable(memberProgress: any) {
       } else if (value === "GOOD" || value === "NEUTRAL" || value === "SAD") {
         badge.style = "w-max max-w-max";
         badge.variant = "default";
+        badge.icon = <img className="h-5 w-5" src={`/icons/mood-${value.toLocaleLowerCase()}.svg`} />;
         if (value === "GOOD") {
           badge.style += " bg-green-100 hover:bg-green-300 text-black";
         } else if (value === "NEUTRAL") {
@@ -137,6 +150,7 @@ function mobileProgressTable(memberProgress: any) {
       }
       return (
         <Badge key={key} className={cn("text-sm", badge.style)} variant={badge.variant}>
+          {badge.icon}
           {value === "DONE" && <CheckIcon className="mr-1" />}
           {value === "NOT_DONE" && <Cross2Icon className="mr-1" />}
           {map.get(key)}

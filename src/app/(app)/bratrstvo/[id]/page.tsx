@@ -36,7 +36,7 @@ export default async function BrotherhoodDetailPage(props: { params: Promise<{ i
           {session?.user!.id === brotherhood!.creator!.id && <BrotherhoodSettings brotherhoodId={brotherhood.id} />}
 
           <BrotherhoodShareInvitation brotherhoodId={brotherhood.id} />
-          {/* <ProgressUpdateCard /> */}
+          {/* <ProgressUpdateCardServer /> */}
         </div>
       </div>
 
