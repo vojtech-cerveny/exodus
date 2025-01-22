@@ -5,7 +5,7 @@ import { getEventStatus } from "./utils/date";
 
 import { H2 } from "@/components/typography";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { BookCopy, BookPlus } from "lucide-react";
+import { BookCopy } from "lucide-react";
 
 export default function Home() {
   unstable_noStore();
@@ -44,17 +44,10 @@ export default function Home() {
                   aplikace (výchozí verze).
                 </li>
                 <li>
-                  <div className="">
-                    <p>
-                      <span className="font-bold">
-                        Verze 2025 🇸🇰 Slovensko{" "}
-                        <sup>
-                          <BookPlus className="inline-block h-4 w-4 text-yellow-500" />
-                        </sup>
-                      </span>{" "}
-                      - nový překlad pro bratry ze Slovenska, který průběžně doplňujeme přímo do aplikace.
-                    </p>
-                  </div>
+                  <p>
+                    <span className="font-bold">Verze 2025 🇸🇰 Slovensko</span> - nový překlad pro bratry ze Slovenska,
+                    který průběžně doplňujeme přímo do aplikace.
+                  </p>
                 </li>
               </ul>
               Verzi si můžeš změnit v hlavičce aplikace. <br />

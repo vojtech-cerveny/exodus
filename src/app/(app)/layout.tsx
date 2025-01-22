@@ -98,10 +98,22 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <Script defer data-domain="verici.dev" src="https://plausible.ff0000.cz/js/script.js" />
       <body className={cn(GeistSans.variable, "")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <FeedbackNotification
-            showDates={["2025-03-15"]}
-            googleFormUrl="https://docs.google.com/forms/d/e/1FAIpQLSdlyFqhLuHr0b-nf3_ztKmj1L_y_25NXtAfmwyOgoebUOWoYw/viewform?usp=sf_link"
-          />
+          <FeedbackNotification showDates={["2025-03-15"]}>
+            <p className="mr-2">Dej nám zpětnou vazbu</p>
+            <Link
+              href={
+                "https://docs.google.com/forms/d/e/1FAIpQLSdlyFqhLuHr0b-nf3_ztKmj1L_y_25NXtAfmwyOgoebUOWoYw/viewform?usp=sf_link"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="plausible-event-name=feedback-notification-link-open underline"
+            >
+              vyplněním krátkého dotazníku.
+            </Link>
+          </FeedbackNotification>
+          <FeedbackNotification showDates={["2025-01-22"]}>
+            <p className="mr-2">Máme verzi textů pro bratry ze Slovenska! 🇸🇰 </p>
+          </FeedbackNotification>
           <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
             <div className="flex flex-1 justify-end space-x-2 p-2">
               <div className="flex items-center gap-2">
