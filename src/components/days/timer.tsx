@@ -21,6 +21,7 @@ import {
   TrackNextIcon,
 } from "@radix-ui/react-icons";
 import Link from "next/link";
+import NoSleep from "nosleep.js";
 import { useEffect, useRef, useState } from "react";
 import { Separator } from "../ui/separator";
 
@@ -71,6 +72,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
   const [isRunning, setIsRunning] = useState(false);
   const [duration, setDuration] = useState("hour");
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [noSleepInstance] = useState(new NoSleep());
 
   useEffect(() => {
     let interval: any;
@@ -100,6 +102,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
       setTimeLeft(parts![currentIndex + 1].time);
     } else {
       setIsRunning(false);
+      noSleepInstance.disable();
     }
   };
 
@@ -108,12 +111,18 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
     setCurrentIndex(0);
     setIsRunning(false);
     setStarted(false);
+    noSleepInstance.disable();
   };
 
   const toggleTimer = () => {
     setIsRunning(!isRunning);
+    if (started) {
+      noSleepInstance.disable();
+    }
+
     if (!started) {
       setStarted(true);
+      noSleepInstance.enable();
     }
   };
 
