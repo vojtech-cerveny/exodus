@@ -2,7 +2,7 @@
 
 import config from "@payload-config";
 import _ from "lodash";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { getPayload } from "payload";
 import WeeklyMeetingClientPage from "./page.client";
 
@@ -31,7 +31,7 @@ export default async function WeeklyMeetingPage(props: { params: Promise<{ id: s
   const currentMeeting = _.find(weeklyMeeting.docs, { number: Number(params.id) });
 
   if (!currentMeeting) {
-    notFound();
+    redirect("/tydenni-setkani");
   }
 
   return (
