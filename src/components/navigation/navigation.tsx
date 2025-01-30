@@ -136,7 +136,11 @@ export default function Navigation() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/tydenni-setkani" legacyBehavior passHref>
+          <Link
+            href={version?.slug === "2024" ? "/tydenni-setkani" : "/exodus/" + version?.slug + "/tydenni-setkani"}
+            legacyBehavior
+            passHref
+          >
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Týdenní setkání</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
