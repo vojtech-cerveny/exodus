@@ -1,5 +1,4 @@
-import { getGitCommits } from "@/lib/git";
-import { formatDate } from "@/lib/utils";
+import { getChangelogEntries } from "@/lib/changelog";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,50 +6,48 @@ export const metadata: Metadata = {
   description: "Historie změn a aktualizací aplikace Exodus",
 };
 
-interface Commit {
-  hash: string;
-  date: string;
+interface ChangelogItem {
   message: string;
-  author: string;
+  hash?: string;
 }
 
-function groupCommitsByDate(commits: Commit[]) {
-  const grouped = commits.reduce(
-    (acc, commit) => {
-      const date = formatDate(new Date(commit.date));
-      if (!acc[date]) {
-        acc[date] = [];
-      }
-      acc[date].push(commit);
-      return acc;
-    },
-    {} as Record<string, Commit[]>,
-  );
+interface ChangeType {
+  type: string;
+  items: ChangelogItem[];
+}
 
-  return grouped;
+interface ChangelogEntry {
+  version: string;
+  date: string;
+  changes: ChangeType[];
 }
 
 export default async function ChangelogPage() {
-  const commits = await getGitCommits();
-  const groupedCommits = groupCommitsByDate(commits);
+  const entries = await getChangelogEntries();
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="mb-8 text-3xl font-bold">Changelog</h1>
 
-      {Object.entries(groupedCommits).map(([date, commits]) => (
-        <div key={date} className="mb-8">
-          <h2 className="mb-4 text-xl font-semibold">{date}</h2>
-          <div className="space-y-4">
-            {commits.map((commit) => (
-              <div key={commit.hash} className="border-l-2 border-gray-200 pl-4">
-                <p className="text-sm text-gray-600">
-                  {commit.author} • {commit.hash.substring(0, 7)}
-                </p>
-                <p className="mt-1">{commit.message}</p>
-              </div>
-            ))}
-          </div>
+      {entries.map((entry: ChangelogEntry) => (
+        <div key={entry.version} className="mb-8">
+          <h2 className="mb-4 text-xl font-semibold">
+            Version {entry.version} - {entry.date}
+          </h2>
+          {entry.changes.map((changeType: ChangeType, index: number) => (
+            <div key={index} className="mb-4">
+              <h3 className="text-lg mb-2 font-medium">{changeType.type}</h3>
+              <ul className="space-y-2">
+                {changeType.items.map((item: ChangelogItem, itemIndex: number) => (
+                  <li key={itemIndex} className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>{item.message}</span>
+                    {item.hash && <span className="ml-2 text-sm text-gray-500">({item.hash.substring(0, 7)})</span>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       ))}
     </div>
