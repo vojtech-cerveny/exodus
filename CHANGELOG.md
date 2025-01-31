@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/vojtech-cerveny/excessus/compare/v0.1.7...v0.1.8) (2025-01-31)
+
+### Features
+
+- add changelog page with git commit history ([95694ec](https://github.com/vojtech-cerveny/excessus/commit/95694ec4b5491f7ef6480e472a485f0917739009))
+
+### Bug Fixes
+
+- fix bookmark url from dnesni-texty ([ebdab4f](https://github.com/vojtech-cerveny/excessus/commit/ebdab4f4810e778e72e8a3b77f7c0fbb0549dafc))
+- remove console.log ([bd79034](https://github.com/vojtech-cerveny/excessus/commit/bd790345533fc5d66a22380806b0c44381e3aa16))
+- show note only if note is available ([37e76bd](https://github.com/vojtech-cerveny/excessus/commit/37e76bda7991b1af955a6b352f3ac2a1efb00c2b))
+
 ### [0.1.7](https://github.com/vojtech-cerveny/excessus/compare/v0.1.6...v0.1.7) (2025-01-22)
 
 ### Features
