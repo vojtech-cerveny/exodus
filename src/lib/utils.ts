@@ -56,3 +56,11 @@ export const handleCopyClick = (text: string, type: CopyType) => {
   navigator.clipboard.writeText(text);
   toast(type + " byl zkopírován do schránky.");
 };
+
+export function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat("cs-CZ", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
