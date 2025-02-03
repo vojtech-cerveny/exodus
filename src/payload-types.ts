@@ -18,6 +18,7 @@ export interface Config {
     'starting-dates': StartingDate;
     days: Day;
     tasks: Task;
+    'weekly-meeting': WeeklyMeeting;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -31,6 +32,7 @@ export interface Config {
     'starting-dates': StartingDatesSelect<false> | StartingDatesSelect<true>;
     days: DaysSelect<false> | DaysSelect<true>;
     tasks: TasksSelect<false> | TasksSelect<true>;
+    'weekly-meeting': WeeklyMeetingSelect<false> | WeeklyMeetingSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -215,6 +217,33 @@ export interface Task {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "weekly-meeting".
+ */
+export interface WeeklyMeeting {
+  id: number;
+  title: string;
+  number: number;
+  version: number | Version;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -247,6 +276,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'tasks';
         value: number | Task;
+      } | null)
+    | ({
+        relationTo: 'weekly-meeting';
+        value: number | WeeklyMeeting;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -399,6 +432,18 @@ export interface TasksSelect<T extends boolean = true> {
         description?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "weekly-meeting_select".
+ */
+export interface WeeklyMeetingSelect<T extends boolean = true> {
+  title?: T;
+  number?: T;
+  version?: T;
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
 }

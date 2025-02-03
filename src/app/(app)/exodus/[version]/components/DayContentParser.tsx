@@ -32,35 +32,35 @@ export const DayContentParser = ({ data }: { data: SerializedEditorState }) => {
 
   const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({ defaultConverters }) => ({
     ...defaultConverters,
-    paragraph: (props) => <Paragraph>{parseNodes(props)}</Paragraph>,
-    heading: (props) => {
-      switch (props.node.tag) {
+    paragraph: ({ node, nodesToJSX }) => {
+      return <Paragraph>{parseNodes({ node, nodesToJSX })}</Paragraph>;
+    },
+    heading: ({ node, nodesToJSX }) => {
+      switch (node.tag) {
         case "h1":
-          return <H1>{parseNodes(props)}</H1>;
+          return <H1>{parseNodes({ node, nodesToJSX })}</H1>;
         case "h2":
-          return <H2>{parseNodes(props)}</H2>;
+          return <H2>{parseNodes({ node, nodesToJSX })}</H2>;
         case "h3":
-          return <H3>{parseNodes(props)}</H3>;
+          return <H3>{parseNodes({ node, nodesToJSX })}</H3>;
         default:
-          return <h2>{parseNodes(props)}</h2>;
+          return <h2>{parseNodes({ node, nodesToJSX })}</h2>;
       }
     },
-    quote: (props) => {
+    quote: ({ node, nodesToJSX }) => {
       return (
         <blockquote className="mt-4 italic lg:mt-6 lg:border-l-2 lg:pl-6 dark:border-l-gray-600">
-          {parseNodes(props)}
+          {parseNodes({ node, nodesToJSX })}
         </blockquote>
       );
     },
-    link: (props) => (
-      <Link
-        href={props.node.fields.url || ""}
-        {...props}
-        className="font-medium text-primary underline underline-offset-4"
-      >
-        {parseNodes(props)}
-      </Link>
-    ),
+    link: ({ node, nodesToJSX }) => {
+      return (
+        <Link href={node.fields?.url || ""} className="font-medium text-primary underline underline-offset-4">
+          {parseNodes({ node, nodesToJSX })}
+        </Link>
+      );
+    },
   });
 
   return <RichText className="mb-8" data={data} converters={jsxConverters} />;

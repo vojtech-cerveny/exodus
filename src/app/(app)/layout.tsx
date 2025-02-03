@@ -111,11 +111,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               vyplněním krátkého dotazníku.
             </Link>
           </FeedbackNotification>
-          <FeedbackNotification
-            showDates={["2025-01-22"]}
-            localStorageKey="feedbackNotificationDismissedSlovakianVersion"
-          >
-            <p className="mr-2">Máme verzi textů pro bratry ze Slovenska! 🇸🇰 </p>
+          <FeedbackNotification showDates={["2025-01-30"]} localStorageKey="feedbackNotificationDismissedWeeklyMeeting">
+            <p className="mr-2">
+              Máme nové verze týdenních setkání bratrstva pro rok 2025 – každý týden jiné, odpovídající aktuálnímu
+              zamyšlení Exodus 90.
+            </p>
           </FeedbackNotification>
           <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
             <div className="flex flex-1 justify-end space-x-2 p-2">
