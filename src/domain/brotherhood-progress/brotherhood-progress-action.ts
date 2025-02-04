@@ -1,6 +1,6 @@
 "use server";
+import { auth } from "@auth";
 import { revalidatePath } from "next/cache";
-import { auth } from "../../../auth";
 import { createMemberProgress } from "./brotherhood-progress-service";
 
 export default async function createMemberProgressAction(formData: FormData) {
@@ -21,6 +21,11 @@ export default async function createMemberProgressAction(formData: FormData) {
     note: (formData.get("note") as string) || "",
   };
 
-  await createMemberProgress(data);
-  revalidatePath("/bratrstvo");
+  try {
+    await createMemberProgress(data);
+    revalidatePath("/bratrstvo");
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: error };
+  }
 }

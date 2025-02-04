@@ -6,6 +6,13 @@
       "driver": "PostgreSQL",
       "connectString": "postgresql://excessus:excessus@localhost:4242/excessus",
       "name": "Excessus"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "driver": "PostgreSQL",
+      "connectString": "postgres://excessus:excessus@localhost:4242/excessus-payload",
+      "name": "Payload"
     }
   ]
 }

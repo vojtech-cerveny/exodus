@@ -47,6 +47,16 @@ model User {
   BrotherhoodProgress BrotherhoodProgress[]
   createdBrotherhoods Brotherhood[]
   Bookmark            Bookmark[]
+  versions            Versions[]
+}
+
+// not used yet, but we will need to store versions in the future - but just ID of the version.
+model Versions {
+  id      String @id @default(cuid())
+  version String // 2024
+  type    String // exodus
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId  String
 }
 
 model VerificationToken {
@@ -57,6 +67,7 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+// APPLICATION
 model Brotherhood {
   id                    String                  @id @default(cuid())
   name                  String
@@ -116,7 +127,7 @@ model BrotherhoodProgress {
 model Bookmark {
   id                    String    @id @default(cuid())
   userId                String
-  day                   Int
+  url                   String
   passage               String
   type                  String
   createdAt             DateTime  @default(now())

@@ -29,7 +29,7 @@ export function BookmarkCard({ bookmark }: { bookmark: Bookmark | BookmarkWithUs
   return (
     <>
       <Card className="mt-4 flex border">
-        <div className=" grow gap-6 p-6">
+        <div className="grow gap-6 p-6">
           <div className="hidden lg:visible">
             <BookmarkFilledIcon className="h-8 w-8" />
           </div>
@@ -38,13 +38,13 @@ export function BookmarkCard({ bookmark }: { bookmark: Bookmark | BookmarkWithUs
               <div className="grid w-full gap-1">
                 <div className="flex justify-end">
                   <p className="hidden font-medium text-gray-700 dark:text-gray-300">Záložka</p>
-                  <p className=" text-gray-700 dark:text-gray-300">
+                  <p className="text-gray-700 dark:text-gray-300">
                     {getProgressDay(bookmark.createdAt)}
                     {addUserIfBookmarkIsShared(bookmark)}
                   </p>
                 </div>
                 <p className="text-sm font-medium text-gray-700 lg:hidden dark:text-gray-300">Pasáž</p>
-                <blockquote className=" italic lg:border-l-2 lg:pl-3 dark:border-l-gray-600 ">
+                <blockquote className="italic lg:border-l-2 lg:pl-3 dark:border-l-gray-600">
                   {bookmark.passage}
                 </blockquote>
               </div>
@@ -57,9 +57,9 @@ export function BookmarkCard({ bookmark }: { bookmark: Bookmark | BookmarkWithUs
             </div>
             <div className="mt-4 flex items-center gap-4">
               <div className="grid gap-1">
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Odkaz</p>
-                <a href={"/days/" + bookmark.day} className="">
-                  Den {bookmark.day}
+                <p className="text-gray-700 dark:text-gray-300">Odkaz</p>
+                <a href={bookmark.url} className="">
+                  <code className="text-sm">{bookmark.url}</code>
                 </a>
               </div>
             </div>

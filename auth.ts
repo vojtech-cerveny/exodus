@@ -13,6 +13,7 @@ export const config: NextAuthConfig = {
   providers: [Google],
   adapter: PrismaAdapter(prisma),
   trustHost: true,
+  // basePath: "/",
   // callbacks: {
   //   authorized({ request, auth }) {
   //     const { pathname } = request.nextUrl
@@ -23,6 +24,7 @@ export const config: NextAuthConfig = {
   session: {
     strategy: "database",
   },
+
   // TODO: uncomment this when we have login page
   pages: {
     signIn: "/login",

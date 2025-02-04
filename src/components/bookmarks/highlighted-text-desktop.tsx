@@ -8,7 +8,7 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
 import { handleCopyClick } from "@/lib/utils";
-import { BookmarkFilledIcon, CopyIcon, FileTextIcon, Share1Icon } from "@radix-ui/react-icons";
+import { BookmarkFilledIcon, CopyIcon } from "@radix-ui/react-icons";
 import { useEffect, useState } from "react";
 import { MultiDialogProvider } from "../ui/multi-dialog";
 import { CreateBookmarkContent } from "./create-bookmark";
@@ -47,7 +47,7 @@ export function HighlightedTextDesktop({ children }: { children: React.ReactNode
   }
 
   return (
-    <div className="selection:bg-gray-700 selection:text-gray-300 selection:dark:bg-gray-300  selection:dark:text-gray-700 ">
+    <div className="selection:bg-gray-700 selection:text-gray-300 selection:dark:bg-gray-300 selection:dark:text-gray-700">
       <MultiDialogProvider<dialogs>>
         {({ Trigger, Container }) => (
           <>
@@ -69,15 +69,6 @@ export function HighlightedTextDesktop({ children }: { children: React.ReactNode
                     Vytvořit záložku
                   </ContextMenuItem>
                 </Trigger>
-                <ContextMenuItem className="gap-2" disabled={textSelected}>
-                  <FileTextIcon />
-                  Vytvořit poznámku
-                </ContextMenuItem>
-                <ContextMenuSeparator />
-                <ContextMenuItem className="gap-2" disabled={textSelected}>
-                  <Share1Icon />
-                  Sdílet s bratrstvem
-                </ContextMenuItem>
               </ContextMenuContent>
             </ContextMenu>
             <Container value={dialogs.createBookmark}>

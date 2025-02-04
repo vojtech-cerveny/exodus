@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { signIn, signOut } from "../../auth";
+import { signIn, signOut } from "@auth";
 
 export function SignIn({
   provider,
@@ -11,7 +11,10 @@ export function SignIn({
     <form
       action={async () => {
         "use server";
-        await signIn(provider);
+        await signIn(provider, {
+          callbackUrl: "/",
+          redirect: true,
+        });
       }}
     >
       <Button variant="default" {...props}>

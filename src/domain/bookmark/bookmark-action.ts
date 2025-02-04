@@ -1,12 +1,11 @@
 "use server";
-import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { createBookmark } from "./bookmark-service";
 
-export async function createBookmarkAction(formData: FormData) {
+export async function createBookmarkAction(formData: FormData): Promise<{ success: boolean }> {
   const bookmarkSchema = z.object({
     userId: z.string(),
-    day: z.number(),
+    url: z.string(),
     passage: z.string(),
     type: z.string(),
     note: z.string().optional(),
@@ -15,7 +14,7 @@ export async function createBookmarkAction(formData: FormData) {
 
   const response = bookmarkSchema.safeParse({
     userId: formData.get("userId") as string,
-    day: parseInt(formData.get("day") as string),
+    url: formData.get("url") as string,
     passage: formData.get("passage") as string,
     type: formData.get("type") as string,
     note: formData.get("note") as string,
@@ -24,12 +23,10 @@ export async function createBookmarkAction(formData: FormData) {
 
   if (!response.success) {
     console.error(response.error);
-    return false;
+    return { success: false };
   }
 
-  const { userId, day, passage, sharedWithBrotherhood, type, note } = response.data;
-  const bookmark = await createBookmark({ userId, day, passage, sharedWithBrotherhood, type, note });
-  revalidatePath("/bookmarks");
-  revalidatePath("/days");
-  return true;
+  const { userId, url, passage, sharedWithBrotherhood, type, note } = response.data;
+  const bookmark = await createBookmark({ userId, url, passage, sharedWithBrotherhood, type, note });
+  return { success: true };
 }

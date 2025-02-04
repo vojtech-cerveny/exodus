@@ -7,6 +7,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
+// TODO: This is just for 2024, due 2025 doesn't have "Ukony"
 // TODO: Make it dynamic based on the number of days in the folder
 export function UkonyPagination({ currentPage, lastPage }: { currentPage: string; lastPage: number }) {
   const isFirstPage = currentPage === "01";
@@ -19,11 +20,11 @@ export function UkonyPagination({ currentPage, lastPage }: { currentPage: string
     <Pagination>
       <PaginationContent className="w-full justify-between">
         <PaginationItem className={isFirstPage ? "invisible" : ""}>
-          <PaginationPrevious href={`/exodus/ukony/${previousPage}`}> Předchozí týden </PaginationPrevious>
+          <PaginationPrevious href={`/exodus/2024/ukony/${previousPage}`}> Předchozí týden </PaginationPrevious>
         </PaginationItem>
 
         <PaginationItem className={isLastPage ? "invisible" : ""}>
-          <PaginationNext href={`/exodus/ukony/${nextPage}`}> Další týden </PaginationNext>
+          <PaginationNext href={`/exodus/2024/ukony/${nextPage}`}> Další týden </PaginationNext>
         </PaginationItem>
       </PaginationContent>
     </Pagination>

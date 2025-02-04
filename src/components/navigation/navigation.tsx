@@ -1,5 +1,5 @@
 "use client";
-import { getEventStatus } from "@/app/utils/date";
+import { getEventStatus } from "@/app/(app)/utils/date";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,20 +10,22 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
+import useLocalStorage from "@/app/(app)/hooks/useLocalStorage";
 import { cn } from "@/lib/utils";
+import { Version } from "@/payload-types";
 import moment from "moment";
 import "moment/locale/cs";
 import { useSession } from "next-auth/react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import React from "react";
-import { CrownIcon, ExodusIcon } from "../icons/icons";
+import { ExodusIcon } from "../icons/icons";
 
 export default function Navigation() {
   const { data: session } = useSession();
   const { theme } = useTheme();
   const exodus = getEventStatus("EXODUS");
   const kralovskeLeto = getEventStatus("KRALOVSKE_LETO");
+  const [version] = useLocalStorage<Version | null>("exodus-version", null);
 
   return (
     <NavigationMenu>
@@ -40,47 +42,56 @@ export default function Navigation() {
                   >
                     <ExodusIcon size={48} color={theme === "dark" ? "#FFFFFF" : "#1C274C"} />
                     <div className="text-lg mb-2 mt-2 font-medium">Exodus 90</div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Exodus 90 je devadesátidenní duchovní cvičení pro muže založené na třech pilířích: modlitbě,
-                      askezi a bratrství. Všechny tři tyto pilíře jsou podstatnými aspekty křesťanského života.
-                    </p>
+                    <p className="text-sm leading-tight text-muted-foreground">Zjisti víc o Exodu 90!</p>
                   </Link>
                 </NavigationMenuLink>
               </li>
 
               {exodus.isRunning ? (
                 <>
-                  <ListItem href="/exodus/today" title="Dnešní den">
+                  <ListItem href={"/exodus/" + version?.slug + "/dnesni-texty"} title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
                   </ListItem>
-                  <ListItem
-                    href={"/exodus/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
-                    title="Aktuální týdenní úkony"
-                  >
-                    Vždy zobrazuje aktuální úkony na týden.
-                  </ListItem>
-                  <ListItem href="/exodus/dny" title="Seznam dní">
+                  {version?.slug === "2024" && (
+                    <ListItem
+                      href={"/exodus/" + version?.slug + "/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
+                      title="Aktuální týdenní úkony"
+                    >
+                      Vždy zobrazuje aktuální úkony na týden.
+                    </ListItem>
+                  )}
+
+                  <ListItem href={"/exodus/" + version?.slug + "/"} title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
-                  <ListItem href="/exodus/ukony/" title="Týdenní úkony">
-                    Seznam týdnů a úkony pro ně.
+
+                  {version?.slug === "2024" && (
+                    <ListItem href={"/exodus/" + version?.slug + "/ukony/"} title="Týdenní úkony">
+                      Seznam týdnů a úkony pro ně.
+                    </ListItem>
+                  )}
+                  <ListItem>
+                    Momentálně používáš verzi <span className="font-bold">{version?.displayName}</span>
                   </ListItem>
                 </>
               ) : (
                 <>
-                  <ListItem href="/exodus/dny" title="Seznam dní">
+                  <ListItem href={"/exodus/" + version?.slug + "/"} title="Seznam dní">
                     Kolik toho máš za sebou a před sebou?
                   </ListItem>
                   <ListItem>
                     Momentálně Exodus90 neběží. Zde uvidíš víc {moment(exodus.startDate).fromNow()} (
                     {moment(exodus.startDate).format("LL")})
                   </ListItem>
+                  <ListItem>
+                    Momentálně používáš verzi <span className="font-bold">{version?.displayName}</span>
+                  </ListItem>
                 </>
               )}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger>Královské léto</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -101,7 +112,7 @@ export default function Navigation() {
               </li>
               {kralovskeLeto.isRunning ? (
                 <>
-                  <ListItem href="/kralovske-leto/today" title="Dnešní den">
+                  <ListItem href="/kralovske-leto/dnesni-texty" title="Dnešní den">
                     Vždy zobrazuje aktuální text na den.
                   </ListItem>
                 </>
@@ -118,20 +129,23 @@ export default function Navigation() {
               </ListItem>
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
         <NavigationMenuItem>
           <Link href="/articles" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Průvodce</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/tydenni-setkani" legacyBehavior passHref>
+          <Link
+            href={version?.slug === "2024" ? "/tydenni-setkani" : "/exodus/" + version?.slug + "/tydenni-setkani"}
+            legacyBehavior
+            passHref
+          >
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Týdenní setkání</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         {session && (
           <>
-            {console.log("session2")}
             <NavigationMenuItem>
               <Link href="/bratrstvo" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Bratrstvo</NavigationMenuLink>
@@ -144,30 +158,41 @@ export default function Navigation() {
             </NavigationMenuItem>
           </>
         )}
+        {exodus.isRunning && (
+          <NavigationMenuItem>
+            <Link href={`/exodus/${version?.slug}/dnesni-texty`} legacyBehavior passHref>
+              <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-primary/10`}>
+                Dnešní text
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        )}
       </NavigationMenuList>
     </NavigationMenu>
   );
 }
 
-const ListItem = React.forwardRef<React.ElementRef<"a">, React.ComponentPropsWithoutRef<"a">>(
-  ({ className, title, children, ...props }, ref) => {
-    return (
-      <li>
-        <NavigationMenuLink asChild>
-          <a
-            ref={ref}
-            className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-              className,
-            )}
-            {...props}
-          >
-            <div className="font-medium leading-none">{title}</div>
-            <p className="line-clamp-2 text-sm  font-medium leading-snug text-muted-foreground">{children}</p>
-          </a>
-        </NavigationMenuLink>
-      </li>
-    );
-  },
-);
+const ListItem = ({
+  className,
+  title,
+  children,
+  ...props
+}: React.ComponentPropsWithoutRef<"a"> & { title?: string }) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className,
+          )}
+          {...props}
+        >
+          <div className="font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm font-medium leading-snug text-muted-foreground">{children}</p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+};
 ListItem.displayName = "ListItem";
