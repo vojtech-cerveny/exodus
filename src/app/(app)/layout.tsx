@@ -10,6 +10,7 @@ import "./globals.css";
 
 import ProgressUpdateCardServer from "@/components/brotherhood/progress-update-card-server";
 import { FeedbackNotification } from "@/components/feedback-notification-bar";
+import { MetaTheme } from "@/components/meta-theme";
 import Footer from "@/components/navigation/footer";
 import Navigation from "@/components/navigation/navigation";
 import { SizeSwitcher } from "@/components/size-switcher";
@@ -85,6 +86,10 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
   viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#17171c" },
+  ],
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -98,6 +103,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <Script defer data-domain="verici.dev" src="https://plausible.ff0000.cz/js/script.js" />
       <body className={cn(GeistSans.variable, "")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <MetaTheme />
           <FeedbackNotification showDates={["2025-03-15"]} localStorageKey="feedbackNotificationDismissed">
             <p className="mr-2">Dej nám zpětnou vazbu</p>
             <Link

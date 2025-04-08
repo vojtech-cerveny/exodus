@@ -37,12 +37,12 @@ export default function Navigation() {
               <li className="row-span-4">
                 <NavigationMenuLink asChild>
                   <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
+                    className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none hover:bg-slate-300 hover:shadow-xs focus:shadow-md"
                     href="/exodus"
                   >
                     <ExodusIcon size={48} color={theme === "dark" ? "#FFFFFF" : "#1C274C"} />
-                    <div className="text-lg mb-2 mt-2 font-medium">Exodus 90</div>
-                    <p className="text-sm leading-tight text-muted-foreground">Zjisti víc o Exodu 90!</p>
+                    <div className="mt-2 mb-2 text-lg font-medium">Exodus 90</div>
+                    <p className="text-muted-foreground text-sm leading-tight">Zjisti víc o Exodu 90!</p>
                   </Link>
                 </NavigationMenuLink>
               </li>
@@ -98,7 +98,7 @@ export default function Navigation() {
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-6 no-underline outline-hidden hover:bg-slate-300 hover:shadow-xs focus:shadow-md"
                     href="/kralovske-leto"
                   >
                     <CrownIcon size={48} color={theme === "dark" ? "#FFCB11" : "#1C274C"} />
@@ -183,13 +183,13 @@ const ListItem = ({
       <NavigationMenuLink asChild>
         <a
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors select-none",
             className,
           )}
           {...props}
         >
-          <div className="font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm font-medium leading-snug text-muted-foreground">{children}</p>
+          <div className="leading-none font-medium">{title}</div>
+          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug font-medium">{children}</p>
         </a>
       </NavigationMenuLink>
     </li>

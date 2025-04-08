@@ -17,9 +17,9 @@ const components: MDXRemoteProps["components"] = {
       {props.children}
     </blockquote>
   ),
-  p: (props: any) => <p {...props} className="leading-7 [&:not(:first-child)]:mt-6" />,
+  p: (props: any) => <p {...props} className="leading-7 not-first:mt-6" />,
   a: (props: any) => (
-    <Link {...props} className="font-medium text-primary underline underline-offset-4">
+    <Link {...props} className="text-primary font-medium underline underline-offset-4">
       {props.children}
     </Link>
   ),

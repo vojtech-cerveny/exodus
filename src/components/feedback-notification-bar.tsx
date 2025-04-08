@@ -37,13 +37,13 @@ export const FeedbackNotification: React.FC<FeedbackNotificationProps> = ({ show
   if (!showNotification) return null;
 
   return (
-    <div className="left-0 right-0 top-0 z-50 bg-primary/90 p-4 text-primary-foreground shadow-lg">
+    <div className="bg-primary/90 text-primary-foreground top-0 right-0 left-0 z-50 p-4 shadow-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <div className="w-10"></div> {/* Spacer */}
-        <div className="flex flex-grow items-center justify-center">{children}</div>
+        <div className="flex grow items-center justify-center">{children}</div>
         <button
           onClick={handleDismiss}
-          className="plausible-event-name=feedback-notification-dismiss w-10 font-bold text-primary-foreground"
+          className="plausible-event-name=feedback-notification-dismiss text-primary-foreground w-10 font-bold"
         >
           <Cross1Icon />
         </button>

@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
   const pathname = usePathname();
   return (
-    <footer className="mt-8 border-t py-6 text-center text-sm dark:border-border">
+    <footer className="dark:border-border mt-8 border-t py-6 text-center text-sm">
       <div className="flex justify-center space-x-4">
         <Link href="/faq" className="me-4 underline hover:underline md:me-6 md:no-underline">
           Jak používat aplikaci

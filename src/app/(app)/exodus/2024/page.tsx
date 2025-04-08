@@ -39,11 +39,11 @@ export default async function RemoteMdxPage() {
           return (
             <Link
               className={cn(
-                "flex h-12 items-center justify-center rounded-md border border-foreground/10 text-foreground/30 underline hover:border-foreground hover:text-foreground md:no-underline",
+                "border-foreground/10 text-foreground/30 hover:border-foreground hover:text-foreground flex h-12 items-center justify-center rounded-md border underline md:no-underline",
                 today < parseInt(formattedFileName) &&
-                  "border border-foreground/50 bg-background/10 text-foreground/50",
+                  "border-foreground/50 bg-background/10 text-foreground/50 border",
                 today == parseInt(formattedFileName) &&
-                  "border-green-500/45 bg-green-500/45 text-foreground hover:bg-green-500/55",
+                  "text-foreground border-green-500/45 bg-green-500/45 hover:bg-green-500/55",
               )}
               key={index}
               href={"/exodus/2024/" + fileName}

@@ -44,9 +44,9 @@ export function CreateBookmarkContent({ selection }: { selection: string }) {
             </blockquote>
             <div className="mt-4 grid w-full items-center gap-1.5">
               <Label htmlFor="note">Poznámka</Label>
-              <Textarea id="note" name="note" className="dark:border-border dark:focus:!border-border/40" />
+              <Textarea id="note" name="note" className="dark:border-border dark:focus:border-border/40!" />
             </div>
-            <div className="mt-4 flex flex-row items-center justify-between rounded-lg border p-4 dark:border-border">
+            <div className="dark:border-border mt-4 flex flex-row items-center justify-between rounded-lg border p-4">
               <Label htmlFor="note">Sdílet s bratrstvem</Label>
               <Switch id="sharedWithBrotherhood" name="sharedWithBrotherhood" />
             </div>

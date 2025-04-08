@@ -70,7 +70,7 @@ export default async function BrotherhoodPage() {
                     <Label htmlFor="visibility">Veřejné bratrstvo</Label>
                     <Switch id="visibility" name="visibility" />
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-muted-foreground text-sm">
                     Veřejné bratrstvo bude viditelné pro ostatní uživatele a budou se moci připojit bez pozvánky. Pro
                     veřejné bratrstvo je vyžadován popis.
                   </div>
@@ -138,7 +138,7 @@ export default async function BrotherhoodPage() {
                               <Label htmlFor="visibility">Veřejné bratrstvo</Label>
                               <Switch id="visibility" name="visibility" />
                             </div>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-muted-foreground text-sm">
                               Veřejné bratrstvo bude viditelné pro ostatní uživatele a budou se moci připojit bez
                               pozvánky. Pro veřejné bratrstvo je vyžadován popis.
                             </p>
@@ -163,7 +163,7 @@ export default async function BrotherhoodPage() {
                   <CardContent>
                     <p className="mb-4">{brotherhood.description}</p>
                     <div className="flex items-center justify-between">
-                      <p className="text-sm text-muted-foreground">Počet členů: {brotherhood.members.length}</p>
+                      <p className="text-muted-foreground text-sm">Počet členů: {brotherhood.members.length}</p>
                       <form
                         action={async () => {
                           "use server";

@@ -22,7 +22,7 @@ export default async function ProgressTable({ brotherhoodId }: { brotherhoodId: 
     <div>
       <div className="relative hidden overflow-x-auto md:block">
         <table className="mb-6 w-full text-center text-gray-500 rtl:text-right dark:text-gray-400">
-          <thead className="text-xs bg-gray-50 uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+          <thead className="bg-gray-50 text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400">
             <tr className="m-4">
               <th scope="col" className="px-6 py-3">
                 <div className="flex justify-center">
@@ -57,13 +57,13 @@ export default async function ProgressTable({ brotherhoodId }: { brotherhoodId: 
           <tbody>
             {progress.map((memberProgress) => (
               <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800" key={memberProgress.id}>
-                <td scope="row" className="whitespace-nowrap px-4 py-4 font-medium text-gray-900 dark:text-white">
+                <td scope="row" className="px-4 py-4 font-medium whitespace-nowrap text-gray-900 dark:text-white">
                   <AvatarWithFallBack user={memberProgress.user} />
                 </td>
                 <td className="px-6 py-4 text-center">
                   {getProgressDay(memberProgress.date)}
                   {isToday(memberProgress.lastUpdateDate) && (
-                    <div className="text-center text-sm italic leading-none text-gray-400">
+                    <div className="text-center text-sm leading-none text-gray-400 italic">
                       {moment(memberProgress.lastUpdateDate).fromNow()}
                     </div>
                   )}
@@ -85,7 +85,7 @@ export default async function ProgressTable({ brotherhoodId }: { brotherhoodId: 
           <Card key={memberProgress.id} className="w-full">
             <CardHeader className="">
               <CardTitle className="flex items-center gap-x-2">
-                <span className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                <span className="font-medium whitespace-nowrap text-gray-900 dark:text-white">
                   <AvatarWithFallBack user={memberProgress.user} />
                 </span>
                 <span>{memberProgress.user.name}</span>

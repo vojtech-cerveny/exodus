@@ -42,7 +42,7 @@ export function BrotherhoodSettingsForm({ brotherhoodId, userId, initialData }: 
         <Label htmlFor="visibility">Veřejné bratrstvo</Label>
         <Switch id="visibility" name="visibility" checked={visibility} onCheckedChange={setVisibility} />
       </div>
-      <p className="text-sm text-muted-foreground">
+      <p className="text-muted-foreground text-sm">
         Veřejné bratrstvo bude viditelné pro ostatní uživatele a budou se moci připojit bez pozvánky. Pro veřejné
         bratrstvo je vyžadován popis.
       </p>
