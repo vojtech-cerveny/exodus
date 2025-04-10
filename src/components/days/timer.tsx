@@ -202,15 +202,15 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
     <div>
       <Drawer>
         {started && (
-          <div className="fixed bottom-0 right-0 flex w-full flex-1 flex-grow items-center justify-center border-t border-zinc-200/30 bg-zinc-100/30 p-2 pb-[calc(0.2rem+env(safe-area-inset-bottom))] backdrop-blur transition-opacity duration-200 md:right-8 md:w-auto md:rounded-t md:border-l md:border-r dark:border-zinc-600/30 dark:bg-zinc-800/30">
-            <div className="md:flex-0 flex-0">
+          <div className="fixed right-0 bottom-0 flex w-full flex-1 grow items-center justify-center border-t border-zinc-200/30 bg-zinc-100/30 p-2 pb-[calc(0.2rem+env(safe-area-inset-bottom))] backdrop-blur-sm transition-opacity duration-200 md:right-8 md:w-auto md:rounded-t md:border-r md:border-l dark:border-zinc-600/30 dark:bg-zinc-800/30">
+            <div className="flex-0 md:flex-0">
               <DrawerTrigger className="left-0" asChild>
                 <Button variant="ghost" size="icon">
                   <ChevronUpIcon className="h-4 w-4" />
                 </Button>
               </DrawerTrigger>
             </div>
-            <div className="md:flex-0 flex-1">
+            <div className="flex-1 md:flex-0">
               <h2 className="px-4 text-center text-2xl font-bold tracking-tighter text-zinc-800 dark:text-zinc-200">
                 {formatTime(timeLeft)}
               </h2>
@@ -236,7 +236,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
         )}
         <DrawerTrigger asChild>
           {!started && (
-            <div className="fixed bottom-0 right-12 flex items-center justify-center rounded-t border-l border-r border-t border-zinc-200 bg-zinc-100/30 p-2 pb-[calc(0.2rem+env(safe-area-inset-bottom))] backdrop-blur-sm transition-opacity duration-200 dark:border-zinc-600 dark:bg-zinc-800/30">
+            <div className="fixed right-12 bottom-0 flex items-center justify-center rounded-t border-t border-r border-l border-zinc-200 bg-zinc-100/30 p-2 pb-[calc(0.2rem+env(safe-area-inset-bottom))] backdrop-blur-xs transition-opacity duration-200 dark:border-zinc-600 dark:bg-zinc-800/30">
               <Button className="py-4" variant={"outline"}>
                 <LapTimerIcon />
               </Button>
@@ -259,7 +259,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
                       Tento časovač Tě provede svatou hodinou, bude Ti hlídat čas a nabídne Ti pomoct jak daný čas
                       strávit dle{" "}
                       <Link
-                        className="underline hover:no-underline focus:outline-none focus:ring-1 focus:ring-ring"
+                        className="focus:ring-ring underline hover:no-underline focus:ring-1 focus:outline-hidden"
                         href={"/articles/exodus90-jak-se-modlit-svatou-hodinu"}
                       >
                         Jak se modlit svatou hodinu
@@ -308,7 +308,7 @@ const Timer = ({ audioSrc }: { parts?: { time: number; title: string; descriptio
           </DrawerHeader>
           <DrawerFooter>
             <DrawerClose>
-              <Button variant={"outline"} size={"sm"} className="fixed right-4 top-4">
+              <Button variant={"outline"} size={"sm"} className="fixed top-4 right-4">
                 <Cross2Icon />
               </Button>
             </DrawerClose>

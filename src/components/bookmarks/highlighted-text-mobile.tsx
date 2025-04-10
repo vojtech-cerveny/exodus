@@ -57,7 +57,7 @@ export function HighlightedTextMobile({ children }: { children: React.ReactNode 
   return (
     <div
       onContextMenu={onMouseUp}
-      className="selection:bg-gray-700 selection:text-gray-300 selection:dark:bg-gray-300 selection:dark:text-gray-700"
+      className="selection:bg-gray-700 selection:text-gray-300 dark:selection:bg-gray-300 dark:selection:text-gray-700"
     >
       {children}
       {isContextMenuVisible && (

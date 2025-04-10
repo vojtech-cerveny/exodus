@@ -56,7 +56,7 @@ export const DayContentParser = ({ data }: { data: SerializedEditorState }) => {
     },
     link: ({ node, nodesToJSX }) => {
       return (
-        <Link href={node.fields?.url || ""} className="font-medium text-primary underline underline-offset-4">
+        <Link href={node.fields?.url || ""} className="text-primary font-medium underline underline-offset-4">
           {parseNodes({ node, nodesToJSX })}
         </Link>
       );
