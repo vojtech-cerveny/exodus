@@ -20,7 +20,7 @@
     "migrate": "payload migrate && prisma migrate deploy",
     "migrate:prod": "NODE_ENV=production ts-node scripts/safe-migrate.ts",
     "migrate:ci": "CI=true NODE_ENV=production ts-node scripts/safe-migrate.ts",
-    "migrate:dry-run": "npx dotenv-cli -e .env.production -- payload migrate:status && prisma migrate status",
+    "migrate:dry-run": "npx payload migrate:status && prisma migrate status",
     "db:restore": "ts-node scripts/restore-db.ts",
     "db:backup": "ts-node scripts/backup-db.ts",
     "db:backup:custom": "ts-node scripts/backup-db.ts --format custom",
