@@ -36,29 +36,45 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   DROP INDEX IF EXISTS "versions_slug_idx";
   DROP INDEX IF EXISTS "payload_locked_documents_rels_starting_dates_id_idx";
   
+  -- First add columns as nullable
   DO $$
   BEGIN
     IF NOT EXISTS (
       SELECT 1 FROM information_schema.columns 
       WHERE table_name = 'versions' AND column_name = 'start_date'
     ) THEN
-      ALTER TABLE "versions" ADD COLUMN "start_date" timestamp(3) with time zone NOT NULL;
+      ALTER TABLE "versions" ADD COLUMN "start_date" timestamp(3) with time zone;
     END IF;
     
     IF NOT EXISTS (
       SELECT 1 FROM information_schema.columns 
       WHERE table_name = 'versions' AND column_name = 'end_date'
     ) THEN
-      ALTER TABLE "versions" ADD COLUMN "end_date" timestamp(3) with time zone NOT NULL;
+      ALTER TABLE "versions" ADD COLUMN "end_date" timestamp(3) with time zone;
     END IF;
     
     IF NOT EXISTS (
       SELECT 1 FROM information_schema.columns 
       WHERE table_name = 'versions' AND column_name = 'duration'
     ) THEN
-      ALTER TABLE "versions" ADD COLUMN "duration" numeric NOT NULL;
+      ALTER TABLE "versions" ADD COLUMN "duration" numeric;
     END IF;
   END $$;
+
+  -- Update existing rows with default values
+  UPDATE "versions"
+  SET 
+    "start_date" = now(),
+    "end_date" = now() + interval '90 days',
+    "duration" = 90
+  WHERE "start_date" IS NULL 
+  OR "end_date" IS NULL 
+  OR "duration" IS NULL;
+
+  -- Now add NOT NULL constraints
+  ALTER TABLE "versions" ALTER COLUMN "start_date" SET NOT NULL;
+  ALTER TABLE "versions" ALTER COLUMN "end_date" SET NOT NULL;
+  ALTER TABLE "versions" ALTER COLUMN "duration" SET NOT NULL;
   
   DO $$
   BEGIN
