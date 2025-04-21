@@ -57,6 +57,8 @@ model Versions {
   type    String // exodus
   user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId  String
+
+  @@unique([userId, type])
 }
 
 model VerificationToken {

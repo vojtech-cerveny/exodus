@@ -6,7 +6,15 @@ import { redirect } from "next/navigation";
 import { getPayload } from "payload";
 import WeeklyMeetingClientPage from "./page.client";
 
-export default async function WeeklyMeetingPage(props: { params: Promise<{ id: string; version: string }> }) {
+type PageProps = {
+  params: Promise<{
+    id: string;
+    version: string;
+    exercise: string;
+  }>;
+};
+
+export default async function WeeklyMeetingPage(props: PageProps) {
   const params = await props.params;
   const payload = await getPayload({ config });
 
@@ -14,6 +22,7 @@ export default async function WeeklyMeetingPage(props: { params: Promise<{ id: s
     collection: "weekly-meeting",
     where: {
       "version.slug": { equals: params.version },
+      "version.exercise.slug": { equals: params.exercise },
     },
     select: {
       number: true,
@@ -25,6 +34,7 @@ export default async function WeeklyMeetingPage(props: { params: Promise<{ id: s
     collection: "weekly-meeting",
     where: {
       "version.slug": { equals: params.version },
+      "version.exercise.slug": { equals: params.exercise },
     },
   });
 

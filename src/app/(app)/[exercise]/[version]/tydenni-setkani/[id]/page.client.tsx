@@ -1,10 +1,10 @@
 "use client";
 
-import { DayContentParser } from "@/app/(app)/exodus/[version]/components/DayContentParser";
 import { H1, H2 } from "@/components/typography";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { WeeklyMeeting } from "@/payload-types";
 import { useRouter } from "next/navigation";
+import { DayContentParser } from "../../components/DayContentParser";
 
 interface WeeklyMeetingProps {
   title: string;

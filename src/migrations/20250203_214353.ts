@@ -12,7 +12,16 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
   );
   
-  ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "weekly_meeting_id" integer;
+  DO $$ 
+  BEGIN
+    IF NOT EXISTS (
+      SELECT FROM information_schema.columns 
+      WHERE table_name = 'payload_locked_documents_rels' AND column_name = 'weekly_meeting_id'
+    ) THEN
+      ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "weekly_meeting_id" integer;
+    END IF;
+  END $$;
+
   DO $$ BEGIN
    ALTER TABLE "weekly_meeting" ADD CONSTRAINT "weekly_meeting_version_id_versions_id_fk" FOREIGN KEY ("version_id") REFERENCES "public"."versions"("id") ON DELETE set null ON UPDATE no action;
   EXCEPTION

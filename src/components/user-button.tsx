@@ -1,4 +1,6 @@
 import { auth } from "@auth";
+import { Cog } from "lucide-react";
+import Link from "next/link";
 import { Suspense } from "react";
 import { SignIn, SignOut } from "./auth-components";
 import { AvatarWithFallBack } from "./avatar";
@@ -8,6 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
@@ -55,7 +58,15 @@ export default async function UserButton() {
             <p className="text-muted-foreground text-xs leading-none">{session.user.email}</p>
           </div>
         </DropdownMenuLabel>
-        <DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem asChild>
+          <Link href="/settings" className="flex cursor-pointer items-center gap-2">
+            <Cog size={16} />
+            <span>Nastavení</span>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem className="cursor-pointer">
           <SignOut />
         </DropdownMenuItem>
       </DropdownMenuContent>
