@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/vojtech-cerveny/excessus/compare/v0.1.8...v1.0.0) (2025-04-21)
+
+### Bug Fixes
+
+- adding migration - payloadcms for weekmeetings ([03eec95](https://github.com/vojtech-cerveny/excessus/commit/03eec95eb5c47c868b5f369f14565c9bf7c907cd))
+- replace git commit history with structured changelog parsing ([971580a](https://github.com/vojtech-cerveny/excessus/commit/971580ae39d7a1be915f6539698e90d7bc2d4150))
+
 ### [0.1.8](https://github.com/vojtech-cerveny/excessus/compare/v0.1.7...v0.1.8) (2025-01-31)
 
 ### Features
