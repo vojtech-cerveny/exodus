@@ -1,16 +1,12 @@
 import InstallPWAButton from "@/components/install-pwa-button";
 import { unstable_noStore } from "next/cache";
 
-import { getEventStatus } from "./utils/date";
-
 import { H2 } from "@/components/typography";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { BookCopy } from "lucide-react";
 
 export default function Home() {
   unstable_noStore();
-  const exodus = getEventStatus("EXODUS");
-  const krLeto = getEventStatus("KRALOVSKE_LETO");
 
   return (
     <>
