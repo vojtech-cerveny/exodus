@@ -9,13 +9,12 @@ import Link from "next/link";
 import "./globals.css";
 
 import ProgressUpdateCardServer from "@/components/brotherhood/progress-update-card-server";
-import { FeedbackNotification } from "@/components/feedback-notification-bar";
+import { MetaTheme } from "@/components/meta-theme";
 import Footer from "@/components/navigation/footer";
 import Navigation from "@/components/navigation/navigation";
 import { SizeSwitcher } from "@/components/size-switcher";
 import { ModeToggle } from "@/components/theme-switcher";
 import { Toaster } from "@/components/ui/sonner";
-import { VersionSelect } from "@/components/versionSelect";
 import { auth } from "@auth";
 import moment from "moment";
 import "moment/locale/cs";
@@ -85,6 +84,10 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
   viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#17171c" },
+  ],
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -98,7 +101,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <Script defer data-domain="verici.dev" src="https://plausible.ff0000.cz/js/script.js" />
       <body className={cn(GeistSans.variable, "")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <FeedbackNotification showDates={["2025-03-15"]} localStorageKey="feedbackNotificationDismissed">
+          <MetaTheme />
+          {/* <FeedbackNotification showDates={["2025-03-15"]} localStorageKey="feedbackNotificationDismissed">
             <p className="mr-2">Dej nám zpětnou vazbu</p>
             <Link
               href={
@@ -116,12 +120,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               Máme nové verze týdenních setkání bratrstva pro rok 2025 – každý týden jiné, odpovídající aktuálnímu
               zamyšlení Exodus 90.
             </p>
-          </FeedbackNotification>
+          </FeedbackNotification> */}
           <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
             <div className="flex flex-1 justify-end space-x-2 p-2">
               <div className="flex items-center gap-2">
                 <ProgressUpdateCardServer variant="small" />
-                <VersionSelect />
+                {/* <VersionSelect /> */}
                 <SizeSwitcher />
                 <ModeToggle />
                 <UserButton />

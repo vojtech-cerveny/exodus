@@ -15,10 +15,10 @@ export interface Config {
     media: Media;
     exercises: Exercise;
     versions: Version;
-    'starting-dates': StartingDate;
     days: Day;
     tasks: Task;
     'weekly-meeting': WeeklyMeeting;
+    guide: Guide;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -29,10 +29,10 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     exercises: ExercisesSelect<false> | ExercisesSelect<true>;
     versions: VersionsSelect<false> | VersionsSelect<true>;
-    'starting-dates': StartingDatesSelect<false> | StartingDatesSelect<true>;
     days: DaysSelect<false> | DaysSelect<true>;
     tasks: TasksSelect<false> | TasksSelect<true>;
     'weekly-meeting': WeeklyMeetingSelect<false> | WeeklyMeetingSelect<true>;
+    guide: GuideSelect<false> | GuideSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -145,20 +145,9 @@ export interface Version {
   description?: string | null;
   isActive?: boolean | null;
   isVisible?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "starting-dates".
- */
-export interface StartingDate {
-  id: number;
-  exercise: number | Exercise;
-  version?: (number | null) | Version;
   startDate: string;
-  endDate?: string | null;
-  isActive?: boolean | null;
+  endDate: string;
+  duration: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -244,6 +233,35 @@ export interface WeeklyMeeting {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "guide".
+ */
+export interface Guide {
+  id: number;
+  version?: (number | null) | Version;
+  slug: string;
+  orderNumber: number;
+  title?: string | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  author?: (number | null) | User;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -266,10 +284,6 @@ export interface PayloadLockedDocument {
         value: number | Version;
       } | null)
     | ({
-        relationTo: 'starting-dates';
-        value: number | StartingDate;
-      } | null)
-    | ({
         relationTo: 'days';
         value: number | Day;
       } | null)
@@ -280,6 +294,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'weekly-meeting';
         value: number | WeeklyMeeting;
+      } | null)
+    | ({
+        relationTo: 'guide';
+        value: number | Guide;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -380,19 +398,9 @@ export interface VersionsSelect<T extends boolean = true> {
   description?: T;
   isActive?: T;
   isVisible?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "starting-dates_select".
- */
-export interface StartingDatesSelect<T extends boolean = true> {
-  exercise?: T;
-  version?: T;
   startDate?: T;
   endDate?: T;
-  isActive?: T;
+  duration?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -444,6 +452,20 @@ export interface WeeklyMeetingSelect<T extends boolean = true> {
   number?: T;
   version?: T;
   content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "guide_select".
+ */
+export interface GuideSelect<T extends boolean = true> {
+  version?: T;
+  slug?: T;
+  orderNumber?: T;
+  title?: T;
+  content?: T;
+  author?: T;
   updatedAt?: T;
   createdAt?: T;
 }

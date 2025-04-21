@@ -1,4 +1,4 @@
-import { CollectionConfig, CollectionSlug } from "payload";
+import { CollectionConfig, CollectionSlug, Where } from "payload";
 
 export const Versions: CollectionConfig = {
   slug: "versions",
@@ -31,14 +31,66 @@ export const Versions: CollectionConfig = {
       name: "name",
       type: "text",
       required: true,
-      unique: true,
       label: "Version Name",
+      hooks: {
+        beforeChange: [
+          async ({ data, req, originalDoc }) => {
+            if (data?.exercise && data?.name) {
+              const whereClause: { and: Where[] } = {
+                and: [{ exercise: { equals: data.exercise } }, { name: { equals: data.name } }],
+              };
+
+              // If we're updating an existing document, exclude it from the check
+              if (originalDoc?.id) {
+                whereClause.and.push({
+                  id: { not_equals: originalDoc.id },
+                });
+              }
+
+              const existingVersion = await req.payload.find({
+                collection: "versions",
+                where: whereClause,
+              });
+
+              if (existingVersion.totalDocs > 0) {
+                throw new Error("Name must be unique within the scope of the exercise.");
+              }
+            }
+          },
+        ],
+      },
     },
     {
       name: "slug",
       type: "text",
       required: true,
-      unique: true,
+      hooks: {
+        beforeChange: [
+          async ({ data, req, originalDoc }) => {
+            if (data?.exercise && data?.slug) {
+              const whereClause: { and: Where[] } = {
+                and: [{ exercise: { equals: data.exercise } }, { slug: { equals: data.slug } }],
+              };
+
+              // If we're updating an existing document, exclude it from the check
+              if (originalDoc?.id) {
+                whereClause.and.push({
+                  id: { not_equals: originalDoc.id },
+                });
+              }
+
+              const existingVersion = await req.payload.find({
+                collection: "versions",
+                where: whereClause,
+              });
+
+              if (existingVersion.totalDocs > 0) {
+                throw new Error("Slug must be unique within the scope of the exercise.");
+              }
+            }
+          },
+        ],
+      },
     },
     {
       name: "exercise",
@@ -60,5 +112,29 @@ export const Versions: CollectionConfig = {
       defaultValue: false,
     },
     { name: "isVisible", type: "checkbox", label: "Visible", defaultValue: true },
+    { name: "startDate", type: "date", label: "Start Date", required: true },
+    { name: "endDate", type: "date", label: "End Date", required: true },
+    {
+      name: "duration",
+      type: "number",
+      label: "Duration",
+      required: true,
+      admin: { hidden: true },
+      hooks: {
+        beforeChange: [
+          ({ data }) => {
+            // Calculate duration in days between startDate and endDate
+            if (data?.startDate && data?.endDate) {
+              const startDate = new Date(data.startDate);
+              const endDate = new Date(data.endDate);
+              const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
+              const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+              return diffDays;
+            }
+            return data?.duration || 0;
+          },
+        ],
+      },
+    },
   ],
 };

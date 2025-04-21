@@ -5,11 +5,12 @@ import { unstable_noStore } from "next/cache";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
-import { getEventStatus } from "../../utils/date";
+import { countDaysFromDate } from "../../utils/date";
 
 type PageProps = {
   params: Promise<{
     version: string;
+    exercise: string;
   }>;
 };
 
@@ -24,6 +25,13 @@ export default async function ExodusVersionPage({ params }: PageProps) {
     collection: "versions",
     where: {
       slug: { equals: aParams.version },
+      "exercise.slug": { equals: aParams.exercise },
+    },
+    limit: 1,
+    select: {
+      name: true,
+      exercise: true,
+      startDate: true,
     },
   });
 
@@ -35,17 +43,20 @@ export default async function ExodusVersionPage({ params }: PageProps) {
     collection: "days",
     where: {
       "version.slug": { equals: aParams.version },
+      "version.exercise.slug": { equals: aParams.exercise },
     },
     sort: "number",
     limit: 100,
   });
 
-  const exodus = getEventStatus("EXODUS");
-  const today = exodus.currentDays;
+  const today = countDaysFromDate(version.docs[0].startDate);
+
+  // Use type assertion if necessary
+  const exerciseName = (version.docs[0].exercise as { name: string }).name;
 
   return (
     <>
-      <H1>Exodus90 dny</H1>
+      <H1>{exerciseName} dny</H1>
       <div className="grid-flex grid grid-cols-5 flex-col gap-2 md:grid-cols-7">
         {days.docs.map((day, index) => {
           const dayString = day.number.toString();
@@ -54,20 +65,20 @@ export default async function ExodusVersionPage({ params }: PageProps) {
           return (
             <Link
               className={cn(
-                "flex h-12 items-center justify-center rounded-md border border-foreground/10 text-foreground/30 underline hover:border-foreground hover:text-foreground md:no-underline",
-                today < parseInt(formatedDay) && "border border-foreground/50 bg-background/10 text-foreground/50",
+                "border-foreground/10 text-foreground/30 hover:border-foreground hover:text-foreground flex h-12 items-center justify-center rounded-md border underline md:no-underline",
+                today < parseInt(formatedDay) && "border-foreground/50 bg-background/10 text-foreground/50 border",
                 today == parseInt(formatedDay) &&
-                  "border-green-500/45 bg-green-500/45 text-foreground hover:bg-green-500/55",
+                  "text-foreground border-green-500/45 bg-green-500/45 hover:bg-green-500/55",
               )}
               key={index}
-              href={`/exodus/${aParams.version}/${dayString}`}
+              href={`/${aParams.exercise}/${aParams.version}/${dayString}`}
             >
               <div>{formatedDay}</div>
             </Link>
           );
         })}
       </div>
-      <p className="mt-4 text-sm text-muted-foreground">
+      <p className="text-muted-foreground mt-4 text-sm">
         Postupně překládáme anglické texty na české, proto zde nemusíš vidět všechny dny.
       </p>
     </>

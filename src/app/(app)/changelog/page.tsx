@@ -36,7 +36,7 @@ export default async function ChangelogPage() {
           </h2>
           {entry.changes.map((changeType: ChangeType, index: number) => (
             <div key={index} className="mb-4">
-              <h3 className="text-lg mb-2 font-medium">{changeType.type}</h3>
+              <h3 className="mb-2 text-lg font-medium">{changeType.type}</h3>
               <ul className="space-y-2">
                 {changeType.items.map((item: ChangelogItem, itemIndex: number) => (
                   <li key={itemIndex} className="flex items-start">

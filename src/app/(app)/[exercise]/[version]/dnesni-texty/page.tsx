@@ -5,6 +5,7 @@ import config from "@payload-config";
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 
+import { getEventStatus } from "@/app/(app)/utils/date";
 import { HighlightedTextMobile } from "@/components/bookmarks/highlighted-text-mobile";
 import ProgressUpdateCardServer from "@/components/brotherhood/progress-update-card-server";
 import { DayPagination } from "@/components/days/day-pagination";
@@ -15,27 +16,49 @@ import { SessionProvider } from "next-auth/react";
 import { DayContentParser } from "../components/DayContentParser";
 import { TasksAccordeon } from "../components/TaskAccordeon";
 import { calculateSchedulingFromDay } from "../utils/calculateScheduling";
-export default async function ExodusPayloadPage(props: { params: Promise<{ id: string; version: string }> }) {
+
+type PageProps = {
+  params: Promise<{
+    version: string;
+    exercise: string;
+  }>;
+};
+
+export default async function ExodusPayloadPage(props: PageProps) {
   const params = await props.params;
-  const scheduling = calculateSchedulingFromDay(Number(params.id));
   const payload = await getPayload({ config });
   const session = await auth();
 
+  const version = await payload.find({
+    collection: "versions",
+    where: { slug: { equals: params.version } },
+  });
+
+  const status = await getEventStatus(version.docs[0]);
+
+  if (!status.isRunning) {
+    return <H2>Toto cvičení zrovna neprobíhá.</H2>;
+  }
+
   try {
+    const scheduling = calculateSchedulingFromDay(status.currentDays);
+
     const day = await payload.find({
       collection: "days",
       where: {
-        number: { equals: Number(params.id) },
+        number: { equals: Number(status.currentDays) },
         "version.slug": { equals: params.version },
+        "version.exercise.slug": { equals: params.exercise },
       },
       pagination: false,
-      depth: 1,
+      depth: 2,
     });
 
     const tasks = await payload.find({
       collection: "tasks",
       where: {
         "version.slug": { equals: params.version },
+        "version.exercise.slug": { equals: params.exercise },
         or: [
           { type: { equals: "daily" } },
           {
@@ -73,7 +96,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ id: s
 
     return (
       <div>
-        <DayPagination currentPage={params.id} lastPage={daysTotalDocs.totalDocs} />
+        <DayPagination currentPage={status.currentDays.toString()} lastPage={daysTotalDocs.totalDocs} />
         <SessionProvider basePath={"/api/auth"} session={session}>
           <H2>{day.docs[0].title}</H2>
 
@@ -92,7 +115,7 @@ export default async function ExodusPayloadPage(props: { params: Promise<{ id: s
             </div>
           </HighlightedTextMobile>
         </SessionProvider>
-        <DayPagination currentPage={params.id} lastPage={daysTotalDocs.totalDocs} />
+        <DayPagination currentPage={status.currentDays.toString()} lastPage={daysTotalDocs.totalDocs} />
         <Timer audioSrc="/sounds/gong.mp3" />
         {session && (
           <div className="mb-4 flex items-center justify-center">

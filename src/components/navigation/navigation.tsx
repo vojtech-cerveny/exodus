@@ -1,198 +1,79 @@
-"use client";
-import { getEventStatus } from "@/app/(app)/utils/date";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+import prisma from "@/lib/db";
+import { Exercise, Version } from "@/payload-types";
+import { auth } from "@auth";
+import config from "@payload-config";
+import { getPayload } from "payload";
+import NavigationClient from "./navigation.client";
 
-import useLocalStorage from "@/app/(app)/hooks/useLocalStorage";
-import { cn } from "@/lib/utils";
-import { Version } from "@/payload-types";
-import moment from "moment";
-import "moment/locale/cs";
-import { useSession } from "next-auth/react";
-import { useTheme } from "next-themes";
-import Link from "next/link";
-import { ExodusIcon } from "../icons/icons";
+// Define the type for user selections
+type UserSelections = Record<string, string>;
 
-export default function Navigation() {
-  const { data: session } = useSession();
-  const { theme } = useTheme();
-  const exodus = getEventStatus("EXODUS");
-  const kralovskeLeto = getEventStatus("KRALOVSKE_LETO");
-  const [version] = useLocalStorage<Version | null>("exodus-version", null);
+export default async function Navigation() {
+  const payload = await getPayload({ config });
 
-  return (
-    <NavigationMenu>
-      <NavigationMenuList className="flex flex-wrap">
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Exodus90</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-4">
-                <NavigationMenuLink asChild>
-                  <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
-                    href="/exodus"
-                  >
-                    <ExodusIcon size={48} color={theme === "dark" ? "#FFFFFF" : "#1C274C"} />
-                    <div className="text-lg mb-2 mt-2 font-medium">Exodus 90</div>
-                    <p className="text-sm leading-tight text-muted-foreground">Zjisti víc o Exodu 90!</p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
+  // Get authenticated user session
+  const session = await auth();
 
-              {exodus.isRunning ? (
-                <>
-                  <ListItem href={"/exodus/" + version?.slug + "/dnesni-texty"} title="Dnešní den">
-                    Vždy zobrazuje aktuální text na den.
-                  </ListItem>
-                  {version?.slug === "2024" && (
-                    <ListItem
-                      href={"/exodus/" + version?.slug + "/ukony/" + Math.floor(exodus.currentDays / 7 + 1)}
-                      title="Aktuální týdenní úkony"
-                    >
-                      Vždy zobrazuje aktuální úkony na týden.
-                    </ListItem>
-                  )}
+  // Initialize userSelections as empty object - for unauthenticated users, we'll use latest versions
+  let userSelections: UserSelections = {};
 
-                  <ListItem href={"/exodus/" + version?.slug + "/"} title="Seznam dní">
-                    Kolik toho máš za sebou a před sebou?
-                  </ListItem>
+  // Only fetch user-specific selections if the user is authenticated
+  if (session?.user?.id) {
+    const userVersions = await prisma.versions.findMany({
+      where: { userId: session.user.id },
+      select: { type: true, version: true },
+    });
 
-                  {version?.slug === "2024" && (
-                    <ListItem href={"/exodus/" + version?.slug + "/ukony/"} title="Týdenní úkony">
-                      Seznam týdnů a úkony pro ně.
-                    </ListItem>
-                  )}
-                  <ListItem>
-                    Momentálně používáš verzi <span className="font-bold">{version?.displayName}</span>
-                  </ListItem>
-                </>
-              ) : (
-                <>
-                  <ListItem href={"/exodus/" + version?.slug + "/"} title="Seznam dní">
-                    Kolik toho máš za sebou a před sebou?
-                  </ListItem>
-                  <ListItem>
-                    Momentálně Exodus90 neběží. Zde uvidíš víc {moment(exodus.startDate).fromNow()} (
-                    {moment(exodus.startDate).format("LL")})
-                  </ListItem>
-                  <ListItem>
-                    Momentálně používáš verzi <span className="font-bold">{version?.displayName}</span>
-                  </ListItem>
-                </>
-              )}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        {/* <NavigationMenuItem>
-          <NavigationMenuTrigger>Královské léto</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:bg-slate-300 hover:shadow-sm focus:shadow-md"
-                    href="/kralovske-leto"
-                  >
-                    <CrownIcon size={48} color={theme === "dark" ? "#FFCB11" : "#1C274C"} />
-                    <div className="text-lg mb-2 mt-2 font-medium">Královské léto</div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      V duchovním životě je snadné polevit a zpohodlnět - zejména v letních měsících. Proto je zde
-                      Královské léto, které je duchovní cvičení, které vám pomůže získat kontrolu nad svým životem.
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              {kralovskeLeto.isRunning ? (
-                <>
-                  <ListItem href="/kralovske-leto/dnesni-texty" title="Dnešní den">
-                    Vždy zobrazuje aktuální text na den.
-                  </ListItem>
-                </>
-              ) : (
-                <>
-                  <ListItem>
-                    Momentálně Královské léto neběží. Zde uvidíš víc od {moment(kralovskeLeto.startDate).fromNow()} (
-                    {moment(kralovskeLeto.startDate).format("LL")})
-                  </ListItem>
-                </>
-              )}
-              <ListItem href="/kralovske-leto/dny" title="Seznam dní">
-                Kolik toho máš za sebou a před sebou?
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem> */}
-        <NavigationMenuItem>
-          <Link href="/articles" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Průvodce</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link
-            href={version?.slug === "2024" ? "/tydenni-setkani" : "/exodus/" + version?.slug + "/tydenni-setkani"}
-            legacyBehavior
-            passHref
-          >
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Týdenní setkání</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        {session && (
-          <>
-            <NavigationMenuItem>
-              <Link href="/bratrstvo" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Bratrstvo</NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/bookmarks" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Záložky</NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </>
-        )}
-        {exodus.isRunning && (
-          <NavigationMenuItem>
-            <Link href={`/exodus/${version?.slug}/dnesni-texty`} legacyBehavior passHref>
-              <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-primary/10`}>
-                Dnešní text
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        )}
-      </NavigationMenuList>
-    </NavigationMenu>
-  );
+    userSelections = userVersions.reduce((acc, { type, version }) => {
+      acc[type] = version;
+      return acc;
+    }, {} as UserSelections);
+  }
+  // For unauthenticated users, userSelections remains empty and NavigationClient will default to latest versions
+
+  const versions = await payload.find({
+    collection: "versions",
+    sort: "startDate",
+    depth: 2,
+  });
+
+  const today = new Date();
+  const twoWeeksFromNow = new Date();
+  twoWeeksFromNow.setDate(today.getDate() + 14);
+
+  // First filter versions that are active or starting soon
+  const filteredVersions = versions.docs.filter((doc) => {
+    const startDate = new Date(doc.startDate);
+    const endDate = doc.endDate ? new Date(doc.endDate) : null;
+
+    // Check if the startDate is within two weeks from today
+    const isWithinTwoWeeks = startDate >= today && startDate <= twoWeeksFromNow;
+
+    // Check if today is between startDate and endDate
+    const isActivePeriod = startDate <= today && (!endDate || today <= endDate);
+
+    return isWithinTwoWeeks || isActivePeriod;
+  });
+
+  // Group versions by exercise and select the latest for each
+  const latestVersionsByExercise = new Map<string, Version & { exercise: Exercise }>();
+
+  filteredVersions.forEach((version) => {
+    if (!version.exercise || typeof version.exercise !== "object") return;
+
+    const exerciseSlug = version.exercise.slug;
+
+    // If no version for this exercise yet, or this one is newer, update it
+    if (
+      !latestVersionsByExercise.has(exerciseSlug) ||
+      new Date(version.startDate) > new Date(latestVersionsByExercise.get(exerciseSlug)!.startDate)
+    ) {
+      latestVersionsByExercise.set(exerciseSlug, version as Version & { exercise: Exercise });
+    }
+  });
+
+  // Convert map to array for the client component
+  const latestVersions = Array.from(latestVersionsByExercise.values());
+
+  return <NavigationClient versions={latestVersions} userSelections={userSelections} />;
 }
-
-const ListItem = ({
-  className,
-  title,
-  children,
-  ...props
-}: React.ComponentPropsWithoutRef<"a"> & { title?: string }) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className,
-          )}
-          {...props}
-        >
-          <div className="font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm font-medium leading-snug text-muted-foreground">{children}</p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  );
-};
-ListItem.displayName = "ListItem";

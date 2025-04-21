@@ -44,7 +44,7 @@ export default async function BrotherhoodSettings({ brotherhoodId }: { brotherho
           <GearIcon className="h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="flex h-fit max-h-[90vh] min-h-[600px] flex-col border-muted">
+      <DialogContent className="border-muted flex h-fit max-h-[90vh] min-h-[600px] flex-col">
         <DialogHeader>
           <DialogTitle>Nastavení bratrstva</DialogTitle>
           <DialogDescription>Upravte nastavení bratrstva {brotherhood.name}</DialogDescription>
@@ -85,7 +85,7 @@ async function Members({ brotherhoodId }: { brotherhoodId: string }) {
 
   if (allMembers?.members.length == 1 || allMembers == null) {
     return (
-      <div className="flex h-[300px] flex-col items-center justify-center text-muted-foreground">
+      <div className="text-muted-foreground flex h-[300px] flex-col items-center justify-center">
         <p>Zatím zde nejsou žádní členové</p>
         <p className="text-sm">Pozvěte členy do vašeho bratrstva</p>
       </div>

@@ -72,13 +72,13 @@ export default function ProgressUpdateCard({
                 <div className="items-left col-span-2 flex flex-col justify-center space-y-4 pl-0 md:pl-4">
                   <div className="flex items-center space-x-2">
                     <Checkbox id="shower" name="shower" defaultChecked={memberProgress?.shower === "DONE"} />
-                    <Label className="font-medium leading-none" htmlFor="shower">
+                    <Label className="leading-none font-medium" htmlFor="shower">
                       Sprcha
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox id="exercise" name="exercise" defaultChecked={memberProgress?.exercise === "DONE"} />
-                    <Label className="font-medium leading-none" htmlFor="exercise">
+                    <Label className="leading-none font-medium" htmlFor="exercise">
                       Cvičení
                     </Label>
                   </div>
@@ -88,7 +88,7 @@ export default function ProgressUpdateCard({
                       name="asceticism"
                       defaultChecked={memberProgress?.asceticism === "DONE"}
                     />
-                    <Label className="font-medium leading-none" htmlFor="asceticism">
+                    <Label className="leading-none font-medium" htmlFor="asceticism">
                       Askeze
                     </Label>
                   </div>
@@ -132,7 +132,7 @@ export default function ProgressUpdateCard({
               <SubmitButton className="w-full">Uložit můj den</SubmitButton>
             </div>
             <DrawerClose>
-              <Button type="button" variant={"outline"} size={"sm"} className="fixed right-4 top-4">
+              <Button type="button" variant={"outline"} size={"sm"} className="fixed top-4 right-4">
                 <Cross2Icon />
               </Button>
             </DrawerClose>

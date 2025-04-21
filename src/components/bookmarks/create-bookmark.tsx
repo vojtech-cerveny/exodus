@@ -1,5 +1,5 @@
 "use client";
-import { getEventStatus } from "@/app/(app)/utils/date";
+
 import { DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { createBookmarkAction } from "@/domain/bookmark/bookmark-action";
 import { useSession } from "next-auth/react";
@@ -16,12 +16,13 @@ export function CreateBookmarkContent({ selection }: { selection: string }) {
 
   // Construct the correct URL for daily texts page
   let bookmarkUrl = path;
-  if (path.endsWith("/dnesni-texty")) {
-    const status = getEventStatus("EXODUS");
-    const pathParts = path.split("/");
-    const version = pathParts[pathParts.length - 2];
-    bookmarkUrl = `/exodus/${version}/${status.currentDays}`;
-  }
+  // TODO: This is a hack to get the correct URL for the daily texts page
+  // if (path.endsWith("/dnesni-texty")) {
+  //   const status = getEventStatus("EXODUS");
+  //   const pathParts = path.split("/");
+  //   const version = pathParts[pathParts.length - 2];
+  //   bookmarkUrl = `/exodus/${version}/${status.currentDays}`;
+  // }
 
   const handleSubmit = async (formData: FormData) => {
     const result = await createBookmarkAction(formData);
@@ -44,9 +45,9 @@ export function CreateBookmarkContent({ selection }: { selection: string }) {
             </blockquote>
             <div className="mt-4 grid w-full items-center gap-1.5">
               <Label htmlFor="note">Poznámka</Label>
-              <Textarea id="note" name="note" className="dark:border-border dark:focus:!border-border/40" />
+              <Textarea id="note" name="note" className="dark:border-border dark:focus:border-border/40!" />
             </div>
-            <div className="mt-4 flex flex-row items-center justify-between rounded-lg border p-4 dark:border-border">
+            <div className="dark:border-border mt-4 flex flex-row items-center justify-between rounded-lg border p-4">
               <Label htmlFor="note">Sdílet s bratrstvem</Label>
               <Switch id="sharedWithBrotherhood" name="sharedWithBrotherhood" />
             </div>

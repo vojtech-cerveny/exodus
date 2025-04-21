@@ -10,8 +10,8 @@ import { fileURLToPath } from "url";
 
 import { Days } from "./collections/Days";
 import { Exercises } from "./collections/Exercises";
+import { Guide } from "./collections/Guide";
 import { Media } from "./collections/Media";
-import { StartingDates } from "./collections/StartingDates";
 import { Tasks } from "./collections/Tasks";
 import { Users } from "./collections/Users";
 import { Versions } from "./collections/Versions";
@@ -27,7 +27,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Exercises, Versions, StartingDates, Days, Tasks, WeeklyMeeting],
+  collections: [Users, Media, Exercises, Versions, Days, Tasks, WeeklyMeeting, Guide],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

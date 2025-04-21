@@ -1,18 +1,18 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { cn, getInitials, stringToColor } from "@/lib/utils";
+import { getInitials, stringToColor } from "@/lib/utils";
 import { Suspense } from "react";
 
 // Separate Image component to handle loading state
 function AvatarImageWithFallback({
   src,
   alt,
-  color,
+  backgroundColor,
   initials,
 }: {
   src: string;
   alt: string;
-  color: string;
+  backgroundColor: string;
   initials: string;
 }) {
   return (
@@ -20,10 +20,10 @@ function AvatarImageWithFallback({
       {src ? (
         <>
           <AvatarImage src={src} alt={alt} loading="eager" />
-          <AvatarFallback className={cn(color)}>{initials}</AvatarFallback>
+          <AvatarFallback style={{ backgroundColor }}>{initials}</AvatarFallback>
         </>
       ) : (
-        <AvatarFallback className={cn(color)}>{initials}</AvatarFallback>
+        <AvatarFallback style={{ backgroundColor }}>{initials}</AvatarFallback>
       )}
     </Avatar>
   );
@@ -43,18 +43,23 @@ export function AvatarWithFallBack({
     brotherhoodId: string | null;
   };
 }) {
-  const color = `bg-[${stringToColor(user.id)}]` as const;
+  const backgroundColor = stringToColor(user.id);
   const initials = getInitials(user.name || "??");
 
   const avatarContent = (
     <Suspense
       fallback={
         <Avatar>
-          <AvatarFallback className={cn(color)}>{initials}</AvatarFallback>
+          <AvatarFallback style={{ backgroundColor }}>{initials}</AvatarFallback>
         </Avatar>
       }
     >
-      <AvatarImageWithFallback src={user.image || ""} alt={user.name || ""} color={color} initials={initials} />
+      <AvatarImageWithFallback
+        src={user.image || ""}
+        alt={user.name || ""}
+        backgroundColor={backgroundColor}
+        initials={initials}
+      />
     </Suspense>
   );
 
