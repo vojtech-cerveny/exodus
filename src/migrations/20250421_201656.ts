@@ -14,17 +14,62 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
   );
   
-  ALTER TABLE "starting_dates" DISABLE ROW LEVEL SECURITY;
-  DROP TABLE "starting_dates" CASCADE;
-  ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT "payload_locked_documents_rels_starting_dates_fk";
+  DO $$ 
+  BEGIN
+    IF EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = 'starting_dates') THEN
+      ALTER TABLE "starting_dates" DISABLE ROW LEVEL SECURITY;
+      DROP TABLE "starting_dates" CASCADE;
+    END IF;
+  END $$;
+  
+  DO $$
+  BEGIN
+    IF EXISTS (
+      SELECT 1 FROM information_schema.table_constraints 
+      WHERE constraint_name = 'payload_locked_documents_rels_starting_dates_fk'
+    ) THEN
+      ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT "payload_locked_documents_rels_starting_dates_fk";
+    END IF;
+  END $$;
   
   DROP INDEX IF EXISTS "versions_name_idx";
   DROP INDEX IF EXISTS "versions_slug_idx";
   DROP INDEX IF EXISTS "payload_locked_documents_rels_starting_dates_id_idx";
-  ALTER TABLE "versions" ADD COLUMN "start_date" timestamp(3) with time zone NOT NULL;
-  ALTER TABLE "versions" ADD COLUMN "end_date" timestamp(3) with time zone NOT NULL;
-  ALTER TABLE "versions" ADD COLUMN "duration" numeric NOT NULL;
-  ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "guide_id" integer;
+  
+  DO $$
+  BEGIN
+    IF NOT EXISTS (
+      SELECT 1 FROM information_schema.columns 
+      WHERE table_name = 'versions' AND column_name = 'start_date'
+    ) THEN
+      ALTER TABLE "versions" ADD COLUMN "start_date" timestamp(3) with time zone NOT NULL;
+    END IF;
+    
+    IF NOT EXISTS (
+      SELECT 1 FROM information_schema.columns 
+      WHERE table_name = 'versions' AND column_name = 'end_date'
+    ) THEN
+      ALTER TABLE "versions" ADD COLUMN "end_date" timestamp(3) with time zone NOT NULL;
+    END IF;
+    
+    IF NOT EXISTS (
+      SELECT 1 FROM information_schema.columns 
+      WHERE table_name = 'versions' AND column_name = 'duration'
+    ) THEN
+      ALTER TABLE "versions" ADD COLUMN "duration" numeric NOT NULL;
+    END IF;
+  END $$;
+  
+  DO $$
+  BEGIN
+    IF NOT EXISTS (
+      SELECT 1 FROM information_schema.columns 
+      WHERE table_name = 'payload_locked_documents_rels' AND column_name = 'guide_id'
+    ) THEN
+      ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "guide_id" integer;
+    END IF;
+  END $$;
+  
   DO $$ BEGIN
    ALTER TABLE "guide" ADD CONSTRAINT "guide_version_id_versions_id_fk" FOREIGN KEY ("version_id") REFERENCES "public"."versions"("id") ON DELETE set null ON UPDATE no action;
   EXCEPTION
