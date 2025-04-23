@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/vojtech-cerveny/excessus/compare/v1.0.0...v1.0.1) (2025-04-23)
+
+### Bug Fixes
+
+- adding migration ([691a149](https://github.com/vojtech-cerveny/excessus/commit/691a149073ef332a5f3c419675c638ddb54b208e))
+- remove old code ([e802da3](https://github.com/vojtech-cerveny/excessus/commit/e802da3d39cd6ab8d647459959ed6c382764547d))
+
 ## [1.0.0](https://github.com/vojtech-cerveny/excessus/compare/v0.1.8...v1.0.0) (2025-04-21)
 
 ### Bug Fixes
