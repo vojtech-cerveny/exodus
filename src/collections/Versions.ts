@@ -138,12 +138,12 @@ export const Versions: CollectionConfig = {
       hooks: {
         beforeChange: [
           ({ data }) => {
-            if (data?.startDate) {
-              const startDate = new Date(data.startDate);
-              startDate.setHours(0, 0, 0, 0);
-              return startDate.toISOString();
+            if (data?.endDate) {
+              const endDate = new Date(data.endDate);
+              endDate.setHours(0, 0, 0, 0);
+              return endDate.toISOString();
             }
-            return data?.startDate;
+            return data?.endDate;
           },
         ],
       },
