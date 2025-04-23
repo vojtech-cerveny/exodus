@@ -90,7 +90,13 @@ export const viewport: Viewport = {
   ],
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+  breadcrumbs,
+}: {
+  children: React.ReactNode;
+  breadcrumbs: React.ReactNode;
+}) {
   const session = await auth();
   return (
     <html
@@ -142,6 +148,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   <Navigation />
                 </SessionProvider>
               </div>
+              {breadcrumbs}
               {children}
               <Footer />
             </div>

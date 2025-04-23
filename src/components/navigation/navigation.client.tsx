@@ -67,7 +67,7 @@ export default function NavigationClient({ versions, userSelections }: Navigatio
               <NavigationMenuLink asChild>
                 <Link
                   className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none hover:bg-slate-300 hover:shadow-xs focus:shadow-md"
-                  href={`/${exerciseSlug}/${versionSlugForLinks}`}
+                  href={`/${exerciseSlug}`}
                 >
                   <ExodusIcon size={48} color={theme === "dark" ? "#FFFFFF" : "#1C274C"} />
                   <div className="mt-2 mb-2 text-lg font-medium">{exerciseName}</div>
@@ -87,11 +87,11 @@ export default function NavigationClient({ versions, userSelections }: Navigatio
                 <ListItem href={`/${exerciseSlug}/${versionSlugForLinks}/pruvodce`} title="Průvodce">
                   Průvodce pro toto cvičení.
                 </ListItem>
-                {latestVersionData.slug === "2024" && (
+                {/* {latestVersionData.slug === "2024" && (
                   <ListItem href={`/${exerciseSlug}/${versionSlugForLinks}/ukony/`} title="Týdenní úkony">
                     Seznam týdnů a úkony pro ně.
                   </ListItem>
-                )}
+                )} */}
                 <ListItem>
                   Používaná verze: <span className="font-bold">{versionSlugForLinks}</span>
                   {!userSelectedVersion && <span className="text-muted-foreground text-xs"> (Výchozí)</span>}

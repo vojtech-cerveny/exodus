@@ -43,6 +43,14 @@ export default async function GuidePage(props: GuideProps) {
     sort: "orderNumber",
   });
 
+  if (guideArticles.docs.length === 0) {
+    return (
+      <div className="text-center">
+        Zatím tady žádné články nejsou. Pokud si myslíš, že to je chyba, dej nám prosím vědět.
+      </div>
+    );
+  }
+
   return (
     <div>
       <H2>Průvodce</H2>

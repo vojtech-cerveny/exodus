@@ -14,6 +14,10 @@ export function DayPagination({ currentPage, lastPage }: { currentPage: string; 
   const previousPage = parseInt(currentPage) - 1;
   const nextPage = parseInt(currentPage) + 1;
 
+  if (isFirstPage && isLastPage) {
+    return null;
+  }
+
   return (
     <Pagination>
       <PaginationContent className="mb-6 w-full justify-between">

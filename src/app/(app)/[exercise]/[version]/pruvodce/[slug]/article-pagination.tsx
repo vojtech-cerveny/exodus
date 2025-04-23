@@ -15,6 +15,10 @@ export function ArticlePagination({
   nextDay?: { slug: string; title: string };
   previousDay?: { slug: string; title: string };
 }) {
+  if (!nextDay && !previousDay) {
+    return null;
+  }
+
   return (
     <Pagination>
       <PaginationContent className="my-6 w-full justify-between">
