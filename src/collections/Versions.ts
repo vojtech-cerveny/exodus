@@ -112,8 +112,42 @@ export const Versions: CollectionConfig = {
       defaultValue: false,
     },
     { name: "isVisible", type: "checkbox", label: "Visible", defaultValue: true },
-    { name: "startDate", type: "date", label: "Start Date", required: true },
-    { name: "endDate", type: "date", label: "End Date", required: true },
+    {
+      name: "startDate",
+      type: "date",
+      label: "Start Date",
+      required: true,
+      hooks: {
+        beforeChange: [
+          ({ data }) => {
+            if (data?.startDate) {
+              const startDate = new Date(data.startDate);
+              startDate.setHours(0, 0, 0, 0);
+              return startDate.toISOString();
+            }
+            return data?.startDate;
+          },
+        ],
+      },
+    },
+    {
+      name: "endDate",
+      type: "date",
+      label: "End Date",
+      required: true,
+      hooks: {
+        beforeChange: [
+          ({ data }) => {
+            if (data?.startDate) {
+              const startDate = new Date(data.startDate);
+              startDate.setHours(0, 0, 0, 0);
+              return startDate.toISOString();
+            }
+            return data?.startDate;
+          },
+        ],
+      },
+    },
     {
       name: "duration",
       type: "number",
