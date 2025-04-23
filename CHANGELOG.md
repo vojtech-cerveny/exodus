@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/vojtech-cerveny/excessus/compare/v1.0.3...v1.0.4) (2025-04-23)
+
+### Bug Fixes
+
+- adjust NavigationMenuViewport styling for improved layout ([8aaea39](https://github.com/vojtech-cerveny/excessus/commit/8aaea39a6b79260801d94d49a0a3f9c1e9bc557d))
+
 ### [1.0.3](https://github.com/vojtech-cerveny/excessus/compare/v1.0.1...v1.0.3) (2025-04-23)
 
 ### [1.0.2](https://github.com/vojtech-cerveny/excessus/compare/v1.0.1...v1.0.2) (2025-04-23)
