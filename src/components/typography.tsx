@@ -16,10 +16,7 @@ export function H2(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h2
       {...props}
-      className={cn([
-        "mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors",
-        props.className,
-      ])}
+      className={cn(["scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors", props.className])}
     >
       {props.children}
     </h2>

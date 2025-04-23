@@ -62,7 +62,7 @@ export function Breadcrumbs({ routes = [] }: { routes: string[] }) {
   }
 
   return (
-    <Breadcrumb>
+    <Breadcrumb className="mb-4">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/">
