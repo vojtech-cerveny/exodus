@@ -61,6 +61,16 @@ export const DayContentParser = ({ data }: { data: SerializedEditorState }) => {
         </Link>
       );
     },
+    list: ({ node, nodesToJSX }) => {
+      const ListTag = node.listType === "number" ? "ol" : "ul";
+      const listClass = node.listType === "number" ? "list-decimal" : "list-disc";
+      return (
+        <ListTag className={`my-4 list-outside space-y-2 ${listClass}`}>{parseNodes({ node, nodesToJSX })}</ListTag>
+      );
+    },
+    listitem: ({ node, nodesToJSX }) => {
+      return <li className="my-4 ml-4">{parseNodes({ node, nodesToJSX })}</li>;
+    },
   });
 
   return <RichText className="mb-8" data={data} converters={jsxConverters} />;
