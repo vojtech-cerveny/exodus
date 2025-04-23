@@ -89,7 +89,7 @@ export default async function ExodusPayloadPage({ params }: PageProps) {
       <div>
         <DayPagination currentPage={resolvedParams.id} lastPage={daysTotalDocs.totalDocs} />
         <SessionProvider basePath={"/api/auth"} session={session}>
-          <H2>{day.docs[0].title}</H2>
+          <H2 className="mt-0">{day.docs[0].title}</H2>
 
           {tasks.docs.length != 0 &&
             tasks.docs.map((tasks, index) => {
