@@ -24,9 +24,10 @@ type PageProps = {
   }>;
 };
 
-export default async function ExodusPayloadPage(props: PageProps) {
-  const params = await props.params;
-  const scheduling = calculateSchedulingFromDay(Number(params.id));
+export default async function ExodusPayloadPage({ params }: PageProps) {
+  const resolvedParams = await params;
+
+  const scheduling = calculateSchedulingFromDay(Number(resolvedParams.id));
   const payload = await getPayload({ config });
   const session = await auth();
 
@@ -34,9 +35,9 @@ export default async function ExodusPayloadPage(props: PageProps) {
     const day = await payload.find({
       collection: "days",
       where: {
-        number: { equals: Number(params.id) },
-        "version.slug": { equals: params.version },
-        "version.exercise.slug": { equals: params.exercise },
+        number: { equals: Number(resolvedParams.id) },
+        "version.slug": { equals: resolvedParams.version },
+        "version.exercise.slug": { equals: resolvedParams.exercise },
       },
       pagination: false,
       depth: 1,
@@ -45,8 +46,8 @@ export default async function ExodusPayloadPage(props: PageProps) {
     const tasks = await payload.find({
       collection: "tasks",
       where: {
-        "version.slug": { equals: params.version },
-        "version.exercise.slug": { equals: params.exercise },
+        "version.slug": { equals: resolvedParams.version },
+        "version.exercise.slug": { equals: resolvedParams.exercise },
         or: [
           { type: { equals: "daily" } },
           {
@@ -74,8 +75,8 @@ export default async function ExodusPayloadPage(props: PageProps) {
     const daysTotalDocs = await payload.find({
       collection: "days",
       where: {
-        "version.slug": { equals: params.version },
-        "version.exercise.slug": { equals: params.exercise },
+        "version.slug": { equals: resolvedParams.version },
+        "version.exercise.slug": { equals: resolvedParams.exercise },
       },
       sort: "number",
     });
@@ -86,7 +87,7 @@ export default async function ExodusPayloadPage(props: PageProps) {
 
     return (
       <div>
-        <DayPagination currentPage={params.id} lastPage={daysTotalDocs.totalDocs} />
+        <DayPagination currentPage={resolvedParams.id} lastPage={daysTotalDocs.totalDocs} />
         <SessionProvider basePath={"/api/auth"} session={session}>
           <H2>{day.docs[0].title}</H2>
 
@@ -105,7 +106,7 @@ export default async function ExodusPayloadPage(props: PageProps) {
             </div>
           </HighlightedTextMobile>
         </SessionProvider>
-        <DayPagination currentPage={params.id} lastPage={daysTotalDocs.totalDocs} />
+        <DayPagination currentPage={resolvedParams.id} lastPage={daysTotalDocs.totalDocs} />
         <Timer audioSrc="/sounds/gong.mp3" />
         {session && (
           <div className="mb-4 flex items-center justify-center">
