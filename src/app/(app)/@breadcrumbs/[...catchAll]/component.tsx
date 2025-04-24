@@ -22,6 +22,8 @@ const routeNameMapping: { [key: string]: string } = {
   privacy: "Ochrana osobních údajů",
   changelog: "Změny",
   settings: "Nastavení",
+  "velikonocni-doba": "Velikonoční doba",
+  "dnesni-texty": "Dnešní texty",
 };
 
 export function Breadcrumbs({ routes = [] }: { routes: string[] }) {
@@ -62,7 +64,7 @@ export function Breadcrumbs({ routes = [] }: { routes: string[] }) {
   }
 
   return (
-    <Breadcrumb>
+    <Breadcrumb className="mb-4">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/">
