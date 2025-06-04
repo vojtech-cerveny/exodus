@@ -21,7 +21,7 @@ export default async function WeeklyMeetingRedirect({ params }: PageProps) {
     where: { slug: { equals: version } },
   });
 
-  const status = await getEventStatus(ver.docs[0]);
+  const status = getEventStatus(ver.docs[0]);
 
   redirect(`/${exercise}/${version}/tydenni-setkani/${Math.ceil(status.currentDays / 7)}`);
 }

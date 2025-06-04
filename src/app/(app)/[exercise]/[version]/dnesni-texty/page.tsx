@@ -29,12 +29,20 @@ export default async function ExodusPayloadPage(props: PageProps) {
   const payload = await getPayload({ config });
   const session = await auth();
 
-  const version = await payload.find({
+  const versionResult = await payload.find({
     collection: "versions",
-    where: { slug: { equals: params.version } },
+    where: {
+      slug: { equals: params.version },
+      "exercise.slug": { equals: params.exercise },
+    },
   });
+  const version = versionResult.docs[0];
 
-  const status = await getEventStatus(version.docs[0]);
+  if (!version) {
+    notFound();
+  }
+
+  const status = getEventStatus(version);
 
   if (!status.isRunning) {
     return <H2>Toto cvičení zrovna neprobíhá.</H2>;
@@ -42,7 +50,7 @@ export default async function ExodusPayloadPage(props: PageProps) {
 
   try {
     const scheduling = calculateSchedulingFromDay(status.currentDays);
-
+    console.log(scheduling);
     const day = await payload.find({
       collection: "days",
       where: {
