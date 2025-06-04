@@ -38,49 +38,73 @@ describe("FeedbackNotification", () => {
 
   it("should not show notification before the first date", () => {
     jest.setSystemTime(new Date("2024-09-02"));
-    render(<FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} googleFormUrl={mockGoogleFormUrl} />);
+    render(
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
+    );
     expect(screen.queryByText("Dej nám zpětnou vazbu")).not.toBeInTheDocument();
   });
 
   it("should show notification on the first date", () => {
     jest.setSystemTime(new Date("2024-09-03"));
-    render(<FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} googleFormUrl={mockGoogleFormUrl} />);
+    render(
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
+    );
     expect(screen.getByText("Dej nám zpětnou vazbu")).toBeInTheDocument();
   });
 
   it("should not show notification after dismissal until next date", () => {
     jest.setSystemTime(new Date("2024-09-03"));
     const { rerender } = render(
-      <FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} googleFormUrl={mockGoogleFormUrl} />,
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
     );
 
     fireEvent.click(screen.getByRole("button"));
 
     jest.setSystemTime(new Date("2024-09-04"));
-    rerender(<FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} googleFormUrl={mockGoogleFormUrl} />);
+    rerender(
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
+    );
     expect(screen.queryByText("Dej nám zpětnou vazbu")).not.toBeInTheDocument();
 
     jest.setSystemTime(new Date("2024-10-11"));
-    rerender(<FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} googleFormUrl={mockGoogleFormUrl} />);
+    rerender(
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
+    );
     expect(screen.queryByText("Dej nám zpětnou vazbu")).toBeInTheDocument();
   });
 
   it("should show notification on subsequent dates if not dismissed", () => {
     jest.setSystemTime(new Date("2024-09-03"));
     const { rerender } = render(
-      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} googleFormUrl={mockGoogleFormUrl} />,
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
     );
     expect(screen.getByText("Dej nám zpětnou vazbu")).toBeInTheDocument();
 
     jest.setSystemTime(new Date("2024-10-10"));
     rerender(
-      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} googleFormUrl={mockGoogleFormUrl} />,
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
     );
     expect(screen.getByText("Dej nám zpětnou vazbu")).toBeInTheDocument();
 
     jest.setSystemTime(new Date("2024-11-22"));
     rerender(
-      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} googleFormUrl={mockGoogleFormUrl} />,
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
     );
     expect(screen.getByText("Dej nám zpětnou vazbu")).toBeInTheDocument();
   });
@@ -88,14 +112,18 @@ describe("FeedbackNotification", () => {
   it("should show notification again on the last date even if dismissed earlier", () => {
     jest.setSystemTime(new Date("2024-09-03"));
     const { rerender } = render(
-      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} googleFormUrl={mockGoogleFormUrl} />,
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
     );
 
     fireEvent.click(screen.getByRole("button"));
 
     jest.setSystemTime(new Date("2024-11-22"));
     rerender(
-      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} googleFormUrl={mockGoogleFormUrl} />,
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
     );
 
     expect(screen.getByText("Dej nám zpětnou vazbu")).toBeVisible();
@@ -104,14 +132,48 @@ describe("FeedbackNotification", () => {
   it("should not show notification after the last date if dismissed", () => {
     jest.setSystemTime(new Date("2024-11-22"));
     const { rerender } = render(
-      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} googleFormUrl={mockGoogleFormUrl} />,
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
     );
 
     fireEvent.click(screen.getByRole("button"));
 
     jest.setSystemTime(new Date("2024-12-01"));
     rerender(
-      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} googleFormUrl={mockGoogleFormUrl} />,
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10", "2024-11-22"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
+    );
+    expect(screen.queryByText("Dej nám zpětnou vazbu")).not.toBeInTheDocument();
+  });
+
+  it("should not show notification if feedback notification is older than 14 days", () => {
+    jest.setSystemTime(new Date("2024-09-18"));
+    render(
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
+    );
+    expect(screen.queryByText("Dej nám zpětnou vazbu")).not.toBeInTheDocument();
+  });
+
+  it("should not show notification if feedback notification is older than 14 days and the last dismissed date is older than 14 days", () => {
+    jest.setSystemTime(new Date("2024-10-25"));
+    render(
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
+    );
+    expect(screen.queryByText("Dej nám zpětnou vazbu")).not.toBeInTheDocument();
+  });
+
+  it("should not show notification if show date is outside time range", () => {
+    jest.setSystemTime(new Date("2024-09-20")); // 17 days after first show date
+    render(
+      <FeedbackNotification showDates={["2024-09-03", "2024-10-10"]} localStorageKey="test">
+        <div>Dej nám zpětnou vazbu</div>
+      </FeedbackNotification>,
     );
     expect(screen.queryByText("Dej nám zpětnou vazbu")).not.toBeInTheDocument();
   });

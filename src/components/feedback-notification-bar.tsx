@@ -6,10 +6,45 @@ interface FeedbackNotificationProps {
   showDates: string[];
   children: React.ReactNode;
   localStorageKey: string;
+  durationInDays?: number;
 }
 
-export const FeedbackNotification: React.FC<FeedbackNotificationProps> = ({ showDates, children, localStorageKey }) => {
+export const FeedbackNotification: React.FC<FeedbackNotificationProps> = ({
+  showDates,
+  children,
+  localStorageKey,
+  durationInDays = 14,
+}) => {
   const [showNotification, setShowNotification] = useState(false);
+
+  const isInTimeRange = (date: Date, now: Date): boolean => {
+    return now.getTime() - date.getTime() <= durationInDays * 24 * 60 * 60 * 1000;
+  };
+
+  const isDismissed = (showDate: Date, lastDismissed: Date | null, isLastShowDate: boolean): boolean => {
+    if (!lastDismissed) return false;
+    if (isLastShowDate) return showDate <= lastDismissed;
+    return showDate <= lastDismissed;
+  };
+
+  const isLastShowDate = (date: string): boolean => {
+    return date === showDates[showDates.length - 1];
+  };
+
+  const shouldShowNotification = (
+    showDate: Date,
+    now: Date,
+    lastDismissed: Date | null,
+    isLastShowDate: boolean,
+  ): boolean => {
+    if (now < showDate) return false;
+
+    if (isLastShowDate) {
+      return !isDismissed(showDate, lastDismissed, true);
+    }
+
+    return isInTimeRange(showDate, now) && !isDismissed(showDate, lastDismissed, false);
+  };
 
   useEffect(() => {
     const now = new Date();
@@ -19,15 +54,30 @@ export const FeedbackNotification: React.FC<FeedbackNotificationProps> = ({ show
     // Find the current or next show date
     const currentOrNextShowDate = showDates.find((date) => {
       const showDate = new Date(date);
-      return now >= showDate && (!lastDismissed || showDate > lastDismissed);
+      const isLastDate = isLastShowDate(date);
+      return shouldShowNotification(showDate, now, lastDismissed, isLastDate);
     });
 
-    if (currentOrNextShowDate) {
-      setShowNotification(true);
-    } else {
-      setShowNotification(false);
+    // If we found a show date but it's older than duration and was dismissed, don't show
+    if (currentOrNextShowDate && lastDismissed) {
+      const showDate = new Date(currentOrNextShowDate);
+      const isShowDateOlderThanDuration = !isInTimeRange(showDate, now);
+      const isDismissedOlderThanDuration = !isInTimeRange(lastDismissed, now);
+
+      if (isShowDateOlderThanDuration && isDismissedOlderThanDuration) {
+        setShowNotification(false);
+        return;
+      }
     }
-  }, [showDates]);
+
+    // If we found a show date but it's outside the time range, don't show
+    if (currentOrNextShowDate && !isInTimeRange(new Date(currentOrNextShowDate), now)) {
+      setShowNotification(false);
+      return;
+    }
+
+    setShowNotification(!!currentOrNextShowDate);
+  }, [showDates, durationInDays, localStorageKey]);
 
   const handleDismiss = () => {
     setShowNotification(false);
