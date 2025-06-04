@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/vojtech-cerveny/excessus/compare/v1.0.4...v1.0.5) (2025-06-04)
+
+### Features
+
+- add new breadcrumb mappings for Easter period and today's texts ([f1e1631](https://github.com/vojtech-cerveny/excessus/commit/f1e16311196b5614b86bf6c646b453aa9cc375be))
+
+### Bug Fixes
+
+- enhance version retrieval logic and add error handling ([#29](https://github.com/vojtech-cerveny/excessus/issues/29)) ([1c133f4](https://github.com/vojtech-cerveny/excessus/commit/1c133f4691becaab4e6e54e6dcd004431c27ee6a))
+- settings update needs unique keys ([4675e2a](https://github.com/vojtech-cerveny/excessus/commit/4675e2ad156fd558d3340ff883af17a19435dccf))
+- Version updates endDate to startDate ([752490f](https://github.com/vojtech-cerveny/excessus/commit/752490ffb2a3cafc4d05ffd298080869a44c00d7))
+
 ### [1.0.4](https://github.com/vojtech-cerveny/excessus/compare/v1.0.3...v1.0.4) (2025-04-23)
 
 ### Bug Fixes
