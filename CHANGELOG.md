@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/vojtech-cerveny/excessus/compare/v1.0.5...v1.2.0) (2025-08-11)
+
+### Features
+
+- add language support and collapsible components for exercises ([7e7d737](https://github.com/vojtech-cerveny/excessus/commit/7e7d7379573eb628395b51bedaaae37221d7b891))
+
 ## [1.1.0](https://github.com/vojtech-cerveny/excessus/compare/v1.0.5...v1.1.0) (2025-08-11)
 
 ### Features
