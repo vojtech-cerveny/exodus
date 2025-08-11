@@ -58,29 +58,33 @@ export default async function ExodusVersionPage({ params }: PageProps) {
     <>
       <H1>{exerciseName} dny</H1>
       <div className="grid-flex grid grid-cols-5 flex-col gap-2 md:grid-cols-7">
-        {days.docs.map((day, index) => {
-          const dayString = day.number.toString();
-          const formatedDay = dayString.startsWith("0") ? dayString.substring(1) : dayString;
+        {days.docs.length > 0 ? (
+          days.docs.map((day, index) => {
+            const dayString = day.number.toString();
+            const formatedDay = dayString.startsWith("0") ? dayString.substring(1) : dayString;
 
-          return (
-            <Link
-              className={cn(
-                "border-foreground/10 text-foreground/30 hover:border-foreground hover:text-foreground flex h-12 items-center justify-center rounded-md border underline md:no-underline",
-                today < parseInt(formatedDay) && "border-foreground/50 bg-background/10 text-foreground/50 border",
-                today == parseInt(formatedDay) &&
-                  "text-foreground border-green-500/45 bg-green-500/45 hover:bg-green-500/55",
-              )}
-              key={index}
-              href={`/${aParams.exercise}/${aParams.version}/${dayString}`}
-            >
-              <div>{formatedDay}</div>
-            </Link>
-          );
-        })}
+            return (
+              <Link
+                className={cn(
+                  "border-foreground/10 text-foreground/30 hover:border-foreground hover:text-foreground flex h-12 items-center justify-center rounded-md border underline md:no-underline",
+                  today < parseInt(formatedDay) && "border-foreground/50 bg-background/10 text-foreground/50 border",
+                  today == parseInt(formatedDay) &&
+                    "text-foreground border-green-500/45 bg-green-500/45 hover:bg-green-500/55",
+                )}
+                key={index}
+                href={`/${aParams.exercise}/${aParams.version}/${dayString}`}
+              >
+                <div>{formatedDay}</div>
+              </Link>
+            );
+          })
+        ) : (
+          <p className="text-muted-foreground mt-4 text-sm">
+            Tady zatím nic nemáme. Postupně překládáme anglické texty, proto zde nemusíš vidět všechny dny. Toto může
+            nastat hlavně na začátku cvičení. Pokud si myslíš, že to je chyba, dej nám vědět.
+          </p>
+        )}
       </div>
-      <p className="text-muted-foreground mt-4 text-sm">
-        Postupně překládáme anglické texty na české, proto zde nemusíš vidět všechny dny.
-      </p>
     </>
   );
 }

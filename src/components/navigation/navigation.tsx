@@ -75,5 +75,12 @@ export default async function Navigation() {
   // Convert map to array for the client component
   const latestVersions = Array.from(latestVersionsByExercise.values());
 
-  return <NavigationClient versions={latestVersions} userSelections={userSelections} />;
+  // Instead of selecting one version per exercise on the server,
+  // send all filtered versions to the client so it can filter by language preference
+  return (
+    <NavigationClient
+      versions={filteredVersions as (Version & { exercise: Exercise })[]}
+      userSelections={userSelections}
+    />
+  );
 }

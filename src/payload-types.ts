@@ -142,6 +142,7 @@ export interface Version {
   name: string;
   slug: string;
   exercise: number | Exercise;
+  language: 'czk' | 'svk';
   description?: string | null;
   isActive?: boolean | null;
   isVisible?: boolean | null;
@@ -395,6 +396,7 @@ export interface VersionsSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
   exercise?: T;
+  language?: T;
   description?: T;
   isActive?: T;
   isVisible?: T;

@@ -3,7 +3,9 @@ import { unstable_noStore } from "next/cache";
 
 import { H2 } from "@/components/typography";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { BookCopy } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { BookCopy, List } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   unstable_noStore();
@@ -25,28 +27,24 @@ export default function Home() {
             zahrnuje modlitbu, půst, cvičení a studium. Připojte se k nám a zažijte svobodu, kterou vám Bůh chce dát.
           </p>
 
+          <div className="flex justify-center pb-4">
+            <Link href="/exercises">
+              <Button className="flex items-center gap-2">
+                <List className="h-4 w-4" />
+                Zobrazit všechna cvičení
+              </Button>
+            </Link>
+          </div>
+
           <Alert>
             <BookCopy className="h-5 w-5" />
             <AlertTitle className="text-xl font-bold">Dostupné verze textů</AlertTitle>
             <AlertDescription className="text-base">
-              Pro duchovní cvičení nabízíme tři verze textů:
-              <ul className="my-4 list-disc">
-                <li>
-                  <span className="font-bold">Verze 2024</span> - kompletní překlad, který si můžete stáhnout jako PDF
-                  pro tisk nebo čtení offline.
-                </li>
-                <li>
-                  <span className="font-bold">Verze 2025</span> - nový překlad, který průběžně doplňujeme přímo do
-                  aplikace (výchozí verze).
-                </li>
-                <li>
-                  <p>
-                    <span className="font-bold">Verze 2025 🇸🇰 Slovensko</span> - nový překlad pro bratry ze Slovenska,
-                    který průběžně doplňujeme přímo do aplikace.
-                  </p>
-                </li>
-              </ul>
-              Verzi si můžeš změnit v hlavičce aplikace. <br />
+              Pokud chceš využít jiný překlad, než akuální, můžeš si nastavit jiný po přihlášení a kliknutí na svůj
+              avatar a v nastavení nastavit jinou verzi.
+              <br />
+              Pokud chceš používat slovenštinu, stačí změnit změnit ikonku v hlavičce aplikace. Pokud bude dostupný
+              slovenský překlad, pak Ti zobrazíme slovenský překlad.
               <span className="italic">* Nezapomeň, je potřeba používat stejnou verzi jako tvé bratrstvo.</span>
             </AlertDescription>
           </Alert>

@@ -57,8 +57,9 @@ export const handleCopyClick = (text: string, type: CopyType) => {
   toast(type + " byl zkopírován do schránky.");
 };
 
-export function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat("cs-CZ", {
+export function formatDate(date: Date, language: "czk" | "svk" = "czk"): string {
+  const locale = language === "svk" ? "sk-SK" : "cs-CZ";
+  return new Intl.DateTimeFormat(locale, {
     day: "numeric",
     month: "long",
     year: "numeric",

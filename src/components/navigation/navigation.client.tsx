@@ -14,10 +14,12 @@ import { cn } from "@/lib/utils";
 import { Exercise, Version } from "@/payload-types";
 import moment from "moment";
 import "moment/locale/cs";
+import "moment/locale/sk";
 import { useSession } from "next-auth/react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { ExodusIcon } from "../icons/icons";
+import { useLanguage } from "../language-provider";
 
 interface NavigationClientProps {
   versions: (Version & { exercise: Exercise })[];
@@ -28,6 +30,29 @@ interface NavigationClientProps {
 export default function NavigationClient({ versions, userSelections }: NavigationClientProps) {
   const { data: session } = useSession();
   const { theme } = useTheme();
+  const { language } = useLanguage();
+
+  // Filter versions by language preference with fallback to Czech
+  const getPreferredVersions = (exerciseSlug: string) => {
+    const exerciseVersions = versions.filter(
+      (v) => typeof v.exercise === "object" && "slug" in v.exercise && v.exercise.slug === exerciseSlug,
+    );
+
+    // First try to find versions in the selected language
+    let preferredVersions = exerciseVersions.filter((v) => v.language === language);
+
+    // If no versions in selected language, fall back to Czech
+    if (preferredVersions.length === 0) {
+      preferredVersions = exerciseVersions.filter((v) => v.language === "czk");
+    }
+
+    // If still no versions, use all available versions
+    if (preferredVersions.length === 0) {
+      preferredVersions = exerciseVersions;
+    }
+
+    return preferredVersions;
+  };
 
   const renderNavigationForVersion = (latestVersionData: Version & { exercise: Exercise }) => {
     // Type guard to ensure exercise is populated correctly
@@ -39,24 +64,39 @@ export default function NavigationClient({ versions, userSelections }: Navigatio
     const exerciseSlug = latestVersionData.exercise.slug;
     const exerciseName = latestVersionData.exercise.name;
 
+    // Get preferred versions for this exercise based on language
+    const preferredVersions = getPreferredVersions(exerciseSlug);
+
+    if (preferredVersions.length === 0) {
+      return null;
+    }
+
+    // Get the latest preferred version
+    const latestPreferredVersion = preferredVersions.sort(
+      (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
+    )[0];
+
     // Get user's selected version from props (empty for unauthenticated users)
     const userSelectedVersion = userSelections[exerciseSlug];
 
     // Determine which version to use for links:
     // - Use user's selected version if they are authenticated and have a selection
-    // - Fall back to the latest version otherwise (for unauthenticated users or no selection)
-    const versionSlugForLinks = userSelectedVersion || latestVersionData.slug;
+    // - Fall back to the latest preferred version otherwise
+    const versionSlugForLinks = userSelectedVersion || latestPreferredVersion.slug;
 
     if (!versionSlugForLinks) {
       console.warn(
-        `No version slug determined for exercise: ${exerciseSlug}. User selection: ${userSelectedVersion}, Latest version: ${latestVersionData.slug}`,
+        `No version slug determined for exercise: ${exerciseSlug}. User selection: ${userSelectedVersion}, Latest preferred version: ${latestPreferredVersion.slug}`,
       );
-      // Don't render this menu item if no version can be determined
       return null;
     }
 
-    // Use the latest version data (passed via props) to check status (isRunning, startDate, etc.)
-    const status = getEventStatus(latestVersionData);
+    // Find the actual version being used for links to get its language
+    const actualVersion = versions.find((v) => v.slug === versionSlugForLinks);
+    const displayLanguage = actualVersion?.language || latestPreferredVersion.language;
+
+    // Use the latest preferred version data to check status
+    const status = getEventStatus(latestPreferredVersion);
 
     return (
       <NavigationMenuItem key={exerciseSlug}>
@@ -87,7 +127,7 @@ export default function NavigationClient({ versions, userSelections }: Navigatio
                 <ListItem href={`/${exerciseSlug}/${versionSlugForLinks}/pruvodce`} title="Průvodce">
                   Průvodce pro toto cvičení.
                 </ListItem>
-                {/* {latestVersionData.slug === "2024" && (
+                {/* {latestPreferredVersion.slug === "2024" && (
                   <ListItem href={`/${exerciseSlug}/${versionSlugForLinks}/ukony/`} title="Týdenní úkony">
                     Seznam týdnů a úkony pro ně.
                   </ListItem>
@@ -95,6 +135,10 @@ export default function NavigationClient({ versions, userSelections }: Navigatio
                 <ListItem>
                   Používaná verze: <span className="font-bold">{versionSlugForLinks}</span>
                   {!userSelectedVersion && <span className="text-muted-foreground text-xs"> (Výchozí)</span>}
+                  <br />
+                  <span className="text-muted-foreground text-xs">
+                    Jazyk: {displayLanguage === "svk" ? "Slovenčina" : "Čeština"}
+                  </span>
                 </ListItem>
               </>
             ) : (
@@ -106,12 +150,16 @@ export default function NavigationClient({ versions, userSelections }: Navigatio
                   Průvodce pro toto cvičení.
                 </ListItem>
                 <ListItem>
-                  Cvičení {exerciseName} momentálně neběží. Začíná {moment(latestVersionData.startDate).fromNow()} (
-                  {moment(latestVersionData.startDate).format("LL")})
+                  Cvičení {exerciseName} momentálně neběží. Začíná {moment(latestPreferredVersion.startDate).fromNow()}{" "}
+                  ({moment(latestPreferredVersion.startDate).format("LL")})
                 </ListItem>
                 <ListItem>
                   Používaná verze: <span className="font-bold">{versionSlugForLinks}</span>
                   {!userSelectedVersion && <span className="text-muted-foreground text-xs"> (Výchozí)</span>}
+                  <br />
+                  <span className="text-muted-foreground text-xs">
+                    Jazyk: {displayLanguage === "svk" ? "Slovenčina" : "Čeština"}
+                  </span>
                 </ListItem>
               </>
             )}
@@ -121,11 +169,41 @@ export default function NavigationClient({ versions, userSelections }: Navigatio
     );
   };
 
+  // Get unique exercises and their preferred versions
+  const exerciseSlugs = Array.from(
+    new Set(
+      versions
+        .map((v) => (typeof v.exercise === "object" && "slug" in v.exercise ? v.exercise.slug : null))
+        .filter(Boolean),
+    ),
+  );
+
+  const exercisesWithPreferredVersions = exerciseSlugs
+    .map((slug) => {
+      const preferredVersions = getPreferredVersions(slug!);
+      if (preferredVersions.length === 0) return null;
+
+      const latestPreferredVersion = preferredVersions.sort(
+        (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
+      )[0];
+
+      return {
+        ...latestPreferredVersion,
+        exercise: latestPreferredVersion.exercise as Exercise,
+      };
+    })
+    .filter(Boolean) as (Version & { exercise: Exercise })[];
+
   return (
     <NavigationMenu>
       <NavigationMenuList className="flex flex-wrap items-center">
-        {versions.map((latestVersionData) => renderNavigationForVersion(latestVersionData))}
+        {exercisesWithPreferredVersions.map((latestVersionData) => renderNavigationForVersion(latestVersionData))}
         {/* Standard Links */}
+        <NavigationMenuItem>
+          <NavigationMenuLink href="/exercises" className={navigationMenuTriggerStyle()}>
+            Další cvičení
+          </NavigationMenuLink>
+        </NavigationMenuItem>
         {/* <NavigationMenuItem>
           <Link href="/articles" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Průvodce</NavigationMenuLink>
@@ -134,14 +212,14 @@ export default function NavigationClient({ versions, userSelections }: Navigatio
         {session && (
           <>
             <NavigationMenuItem>
-              <Link href="/bratrstvo" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Bratrstvo</NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink href="/bratrstvo" className={navigationMenuTriggerStyle()}>
+                Bratrstvo
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/bookmarks" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Záložky</NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink href="/bookmarks" className={navigationMenuTriggerStyle()}>
+                Záložky
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </>
         )}
