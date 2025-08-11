@@ -13,6 +13,7 @@ interface VersionInfo {
   name: string;
   startDate: string;
   endDate?: string | null;
+  language: "czk" | "svk";
 }
 
 interface ExerciseInfo {
@@ -75,6 +76,7 @@ export default async function SettingsPage() {
       name: version.name,
       startDate: version.startDate,
       endDate: version.endDate,
+      language: version.language || "czk", // Default to Czech if language not set
     };
 
     if (exercisesMap.has(exerciseSlug)) {

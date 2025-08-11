@@ -101,6 +101,23 @@ export const Versions: CollectionConfig = {
       maxDepth: 2,
     },
     {
+      name: "language",
+      type: "select",
+      label: "Language",
+      required: true,
+      defaultValue: "czk",
+      options: [
+        {
+          label: "Čeština",
+          value: "czk",
+        },
+        {
+          label: "Slovenčina",
+          value: "svk",
+        },
+      ],
+    },
+    {
       name: "description",
       type: "textarea",
       label: "Description",

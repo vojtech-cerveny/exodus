@@ -9,6 +9,8 @@ import Link from "next/link";
 import "./globals.css";
 
 import ProgressUpdateCardServer from "@/components/brotherhood/progress-update-card-server";
+import { LanguageProvider } from "@/components/language-provider";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { MetaTheme } from "@/components/meta-theme";
 import Footer from "@/components/navigation/footer";
 import Navigation from "@/components/navigation/navigation";
@@ -18,6 +20,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { auth } from "@auth";
 import moment from "moment";
 import "moment/locale/cs";
+import "moment/locale/sk";
 import { SessionProvider } from "next-auth/react";
 import Script from "next/script";
 
@@ -107,54 +110,57 @@ export default async function RootLayout({
       <Script defer data-domain="verici.dev" src="https://plausible.ff0000.cz/js/script.js" />
       <body className={cn(GeistSans.variable, "")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <MetaTheme />
-          {/* <FeedbackNotification showDates={["2025-03-15"]} localStorageKey="feedbackNotificationDismissed">
-            <p className="mr-2">Dej nám zpětnou vazbu</p>
-            <Link
-              href={
-                "https://docs.google.com/forms/d/e/1FAIpQLSdlyFqhLuHr0b-nf3_ztKmj1L_y_25NXtAfmwyOgoebUOWoYw/viewform?usp=sf_link"
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              className="plausible-event-name=feedback-notification-link-open underline"
-            >
-              vyplněním krátkého dotazníku.
-            </Link>
-          </FeedbackNotification>
-          <FeedbackNotification showDates={["2025-01-30"]} localStorageKey="feedbackNotificationDismissedWeeklyMeeting">
-            <p className="mr-2">
-              Máme nové verze týdenních setkání bratrstva pro rok 2025 – každý týden jiné, odpovídající aktuálnímu
-              zamyšlení Exodus 90.
-            </p>
-          </FeedbackNotification> */}
-          <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
-            <div className="flex flex-1 justify-end space-x-2 p-2">
-              <div className="flex items-center gap-2">
-                <ProgressUpdateCardServer variant="small" />
-                {/* <VersionSelect /> */}
-                <SizeSwitcher />
-                <ModeToggle />
-                <UserButton />
+          <LanguageProvider>
+            <MetaTheme />
+            {/* <FeedbackNotification showDates={["2025-03-15"]} localStorageKey="feedbackNotificationDismissed">
+              <p className="mr-2">Dej nám zpětnou vazbu</p>
+              <Link
+                href={
+                  "https://docs.google.com/forms/d/e/1FAIpQLSdlyFqhLuHr0b-nf3_ztKmj1L_y_25NXtAfmwyOgoebUOWoYw/viewform?usp=sf_link"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="plausible-event-name=feedback-notification-link-open underline"
+              >
+                vyplněním krátkého dotazníku.
+              </Link>
+            </FeedbackNotification>
+            <FeedbackNotification showDates={["2025-01-30"]} localStorageKey="feedbackNotificationDismissedWeeklyMeeting">
+              <p className="mr-2">
+                Máme nové verze týdenních setkání bratrstva pro rok 2025 – každý týden jiné, odpovídající aktuálnímu
+                zamyšlení Exodus 90.
+              </p>
+            </FeedbackNotification> */}
+            <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
+              <div className="flex flex-1 justify-end space-x-2 p-2">
+                <div className="flex items-center gap-2">
+                  <ProgressUpdateCardServer variant="small" />
+                  {/* <VersionSelect /> */}
+                  <SizeSwitcher />
+                  <LanguageSwitcher />
+                  <ModeToggle />
+                  <UserButton />
+                </div>
+              </div>
+
+              <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
+                <Link href="/">Exodus90</Link>
+              </h1>
+
+              <div className="mx-auto max-w-2xl">
+                <div className="mb-4 md:flex md:items-center md:justify-between">
+                  <SessionProvider basePath={"/api/auth"} session={session}>
+                    <Navigation />
+                  </SessionProvider>
+                </div>
+                {breadcrumbs}
+                {children}
+                <Footer />
               </div>
             </div>
 
-            <h1 className="mx-auto max-w-2xl scroll-m-20 pb-4 text-5xl font-black tracking-tight lg:text-5xl">
-              <Link href="/">Exodus90</Link>
-            </h1>
-
-            <div className="mx-auto max-w-2xl">
-              <div className="mb-4 md:flex md:items-center md:justify-between">
-                <SessionProvider basePath={"/api/auth"} session={session}>
-                  <Navigation />
-                </SessionProvider>
-              </div>
-              {breadcrumbs}
-              {children}
-              <Footer />
-            </div>
-          </div>
-
-          <Toaster />
+            <Toaster />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

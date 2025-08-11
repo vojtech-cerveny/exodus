@@ -26,7 +26,6 @@ export function CreateBookmarkContent({ selection }: { selection: string }) {
 
   const handleSubmit = async (formData: FormData) => {
     const result = await createBookmarkAction(formData);
-    console.log(result);
     if (result.success) {
       toast("Záložka byla vytvořena.");
     } else {
