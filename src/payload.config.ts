@@ -26,6 +26,9 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      beforeDashboard: ["../../../components/WelcomeDashboard"],
+    },
   },
   collections: [Users, Media, Exercises, Versions, Days, Tasks, WeeklyMeeting, Guide],
   editor: lexicalEditor(),
