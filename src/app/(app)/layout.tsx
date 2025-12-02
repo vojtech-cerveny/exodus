@@ -14,6 +14,7 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 import { MetaTheme } from "@/components/meta-theme";
 import Footer from "@/components/navigation/footer";
 import Navigation from "@/components/navigation/navigation";
+import { ShutdownAnnouncement } from "@/components/shutdown-announcement";
 import { SizeSwitcher } from "@/components/size-switcher";
 import { ModeToggle } from "@/components/theme-switcher";
 import { Toaster } from "@/components/ui/sonner";
@@ -112,6 +113,7 @@ export default async function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LanguageProvider>
             <MetaTheme />
+            <ShutdownAnnouncement />
             {/* <FeedbackNotification showDates={["2025-03-15"]} localStorageKey="feedbackNotificationDismissed">
               <p className="mr-2">Dej nám zpětnou vazbu</p>
               <Link
@@ -131,7 +133,7 @@ export default async function RootLayout({
                 zamyšlení Exodus 90.
               </p>
             </FeedbackNotification> */}
-            <div className="min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
+            <div className="mx-auto min-h-screen w-full min-w-full px-4 py-4 pb-10 sm:px-6 md:max-w-2xl lg:px-8">
               <div className="flex flex-1 justify-end space-x-2 p-2">
                 <div className="flex items-center gap-2">
                   <ProgressUpdateCardServer variant="small" />
