@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function WelcomeDashboard() {
   return (
     <div
@@ -75,7 +77,7 @@ export default function WelcomeDashboard() {
           >
             <li style={{ marginBottom: "10px" }}>
               <strong>Cvičení:</strong> Vytvoř obecné cvičení bez dat na{" "}
-              <a
+              <Link
                 href="/admin/collections/exercises?limit=10"
                 style={{
                   color: "#495057",
@@ -87,11 +89,11 @@ export default function WelcomeDashboard() {
                 }}
               >
                 /admin/collections/exercises
-              </a>
+              </Link>
             </li>
             <li style={{ marginBottom: "10px" }}>
               <strong>Verze:</strong> Vytvoř verzi podle aktuálního roku na{" "}
-              <a
+              <Link
                 href="/admin/collections/versions?limit=10"
                 style={{
                   color: "#495057",
@@ -103,11 +105,11 @@ export default function WelcomeDashboard() {
                 }}
               >
                 /admin/collections/versions
-              </a>
+              </Link>
             </li>
             <li style={{ marginBottom: "10px" }}>
               <strong>Dny:</strong> Přidej konkrétní dny na{" "}
-              <a
+              <Link
                 href="/admin/collections/days"
                 style={{
                   color: "#495057",
@@ -119,11 +121,11 @@ export default function WelcomeDashboard() {
                 }}
               >
                 /admin/collections/days
-              </a>
+              </Link>
             </li>
             <li>
               <strong>Průvodce:</strong> Pokud potřebuješ průvodce, vytvoř ho na{" "}
-              <a
+              <Link
                 href="/admin/collections/guide?limit=10"
                 style={{
                   color: "#495057",
@@ -135,7 +137,7 @@ export default function WelcomeDashboard() {
                 }}
               >
                 /admin/collections/guide
-              </a>
+              </Link>
             </li>
           </ol>
         </div>
@@ -175,7 +177,7 @@ export default function WelcomeDashboard() {
           >
             <li style={{ marginBottom: "10px" }}>
               <strong>Verze:</strong> Vytvoř verzi podle aktuálního roku na{" "}
-              <a
+              <Link
                 href="/admin/collections/versions?limit=10"
                 style={{
                   color: "#495057",
@@ -187,11 +189,11 @@ export default function WelcomeDashboard() {
                 }}
               >
                 /admin/collections/versions
-              </a>
+              </Link>
             </li>
             <li style={{ marginBottom: "10px" }}>
               <strong>Dny:</strong> Přidej konkrétní dny na{" "}
-              <a
+              <Link
                 href="/admin/collections/days"
                 style={{
                   color: "#495057",
@@ -203,11 +205,11 @@ export default function WelcomeDashboard() {
                 }}
               >
                 /admin/collections/days
-              </a>
+              </Link>
             </li>
             <li style={{ marginBottom: "10px" }}>
               <strong>Průvodce:</strong> Pokud potřebuješ průvodce, vytvoř ho na{" "}
-              <a
+              <Link
                 href="/admin/collections/guide?limit=10"
                 style={{
                   color: "#495057",
@@ -219,11 +221,11 @@ export default function WelcomeDashboard() {
                 }}
               >
                 /admin/collections/guide
-              </a>
+              </Link>
             </li>
             <li>
               <strong>Úkoly:</strong> Pokud potřebuješ přidat úkoly, vytvoř je na{" "}
-              <a
+              <Link
                 href="/admin/collections/tasks?limit=10"
                 style={{
                   color: "#495057",
@@ -235,7 +237,7 @@ export default function WelcomeDashboard() {
                 }}
               >
                 /admin/collections/tasks
-              </a>
+              </Link>
             </li>
           </ol>
         </div>
